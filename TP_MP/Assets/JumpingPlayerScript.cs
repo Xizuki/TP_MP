@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(JumpingPlayerUIScript))]
 public class JumpingPlayerScript : MonoBehaviour
 {
+    public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
 
@@ -18,8 +20,13 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public void Awake()
     {
+        inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();
+
+        inputs.GameActions.Enable();
+
+        inputs.GameActions.Jump.performed += a => Jump();
     }
 
     // Start is called before the first frame update
@@ -41,18 +48,25 @@ public class JumpingPlayerScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, 1);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, -1);
-        }
+        if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
+            MoveJumpVectorNegative();
+        if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
+            MoveJumpVectorPositive();
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength, ForceMode.Impulse);
-        }
+    private void MoveJumpVectorNegative()
+    {
+        playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, -1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
+
+    }
+    private void MoveJumpVectorPositive()
+    {
+        playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, 1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
+
+    }
+    private void Jump()
+    {
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength, ForceMode.Impulse);
+
     }
 }

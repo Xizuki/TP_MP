@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(JumpingPlayerScript))]
 public class JumpingPlayerUIScript : MonoBehaviour
 {
+    public float jumpVectorRotationSpeed;
     public JumpingPlayerScript player;
     public GameObject jumpingVectorIndicator;
     public Slider jumpChargeSlider;
