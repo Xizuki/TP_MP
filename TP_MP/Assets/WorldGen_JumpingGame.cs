@@ -48,13 +48,25 @@ public class WorldGen_JumpingGame : MonoBehaviour
         float newPlatformMaxY = prevPlatform.transform.position.y + platformMaxYDiff;
         float newPlatformY = Random.Range(newPlatformMinY, newPlatformMaxY);
 
+        // Added to make sure platform is not directly above the other
+        /// BUG >>>>>>  Will still cause bugs as it does not take into account length of platform
+        int xNegative = Random.Range(0, 1);
+        if (xNegative == 0) { xNegative--; }
+
+        /// BUG >>>>>> Will Have bug as it does not take into account length of platform
         float newPlatformMinX = prevPlatform.transform.position.x;
         float newPlatformMaxX = prevPlatform.transform.position.x + platformMaxXDiff;
-        float newPlatformX = Random.Range(newPlatformMinY, newPlatformMaxY);
+        float newPlatformX = Random.Range(newPlatformMinX*xNegative, newPlatformMaxX*xNegative);
 
 
         float newPlatformWidth = Random.Range(platformMinWidth, platformMaxWidth);
 
+
+
+        GameObject GO = GameObject.Instantiate(scalarPlatformPrefab.gameObject, transform);
+        GO.transform.position = new Vector3(newPlatformX, newPlatformY, 0);
+
+        prevPlatform = GO.GetComponent<PlatformScript>();
     }
 
     private void VoxelPlatformGeneration()
@@ -66,12 +78,17 @@ public class WorldGen_JumpingGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < 50; i++)
+        {
+
+            // ScalarPlatformGeneration();
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }
