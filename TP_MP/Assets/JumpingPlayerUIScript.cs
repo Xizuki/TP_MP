@@ -6,10 +6,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(JumpingPlayerScript))]
 public class JumpingPlayerUIScript : MonoBehaviour
 {
+    public float jumpingVectorAngleLimit;
     public float jumpVectorRotationSpeed;
     public JumpingPlayerScript player;
     public GameObject jumpingVectorIndicator;
     public Slider jumpChargeSlider;
+    public GameObject jumpChargerSliderFill;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,8 +23,20 @@ public class JumpingPlayerUIScript : MonoBehaviour
         
     }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
+        // But im lazy rn
+        jumpChargeSlider.value = player.jumpCharge;
+        jumpChargeSlider.maxValue = 1;
+
+        if(jumpChargeSlider.value <= 0)
+        {
+            jumpChargerSliderFill.SetActive(false);
+        }
+        else
+        {
+            jumpChargerSliderFill.SetActive(true);
+        }
     }
 }
