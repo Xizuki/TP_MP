@@ -127,6 +127,9 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
+            print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
+
+            CameraShaker.Invoke(collision.impulse.magnitude/ 35); //To set if screenshake is turned on
         }
     }
 
