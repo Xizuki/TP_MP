@@ -211,10 +211,15 @@ MonoBehaviour:
   jumpChargeSpeedCurrent: 0.85
   jumpChargeSpeedMax: 1
   jumpAngleVector: {x: 0, y: 0}
-  rbJumpStrength: 15
+  rbJumpStrength: 19
   isGrounded: 0
   isFalling: 0
+  isJumping: 0
   feetPos: {fileID: 1882171633}
+  jumpTimer: 0
+  jumpTime: 0
+  fallingGravityLimit: 15
+  fallingGravityStrength: 22
   inputValue: 1
   scalar: 1.5
 --- !u!114 &130497971

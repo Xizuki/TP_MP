@@ -19,8 +19,12 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public bool isGrounded;
     public bool isFalling;
+    public bool isJumping;
     public Transform feetPos;
-
+    public float jumpTimer;
+    public float jumpTime;
+    public float fallingGravityLimit;
+    public float fallingGravityStrength;
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -46,20 +50,19 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
 
-
-        if(rb.velocity.y < 4) { isFalling = true; }
+        // Buggy Feeling
+        if(rb.velocity.y < fallingGravityLimit * Mathf.Abs(rb.velocity.normalized.y)) { isFalling = true; }
         else { isFalling = false; }
 
         if (isFalling)
-            rb.AddForce(new Vector3(0, -8, 0));
-
+            rb.AddForce(new Vector3(0, -fallingGravityStrength, 0));
 
 
         
 
         float transformedValue = TransformValue(inputValue, scalar);
 
-        Debug.Log("Transformed Value: " + transformedValue);
+        //Debug.Log("Transformed Value: " + transformedValue);
 
     }
 
@@ -70,7 +73,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
         for (int i = 0; i < inputValue;i++)
         {
-            print(" i " + i + " = " + scalar * ((scalar * 50) / (50 + i)));
+            //print(" i " + i + " = " + scalar * ((scalar * 50) / (50 + i)));
             transformedValue += scalar * (((scalar * 50) / (50 + i)));
         }
 
@@ -119,6 +122,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
         jumpCharge = 0;
+        isGrounded = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -127,6 +131,7 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
+            print("collision.impulse = " + collision.impulse.magnitude);
         }
     }
 
