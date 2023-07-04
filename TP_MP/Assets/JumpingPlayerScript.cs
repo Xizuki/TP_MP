@@ -1,22 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(JumpingPlayerUIScript))]
 public class JumpingPlayerScript : MonoBehaviour
 {
+    public GameObject jumpingPlayerChildrenModel;
+    public ControllerInput inputs;
+    public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
 
     public float jumpCharge;
-    public float jumpChargeMax;
-    public float jumpChargeSpeed;
+    public float jumpChargeSpeedCurrent;
+    public float jumpChargeSpeedMax;
     public Vector2 jumpAngleVector;
     public float rbJumpStrength;
 
     public bool isGrounded;
+    public Transform feetPos;
 
     public void Awake()
     {
+        inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
+        playerUI = GetComponent<JumpingPlayerUIScript>();
+
+        inputs.GameActions.Enable();
+
+        inputs.GameActions.Jump.performed += a => Jump();
     }
 
     // Start is called before the first frame update
@@ -28,9 +40,61 @@ public class JumpingPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        Inputs();
+
+        jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
+    }
+
+    private void Inputs()
+    {
+        if (Input.GetKey(KeyCode.Q))
         {
-            rb.AddForce(Vector3.up * rbJumpStrength, ForceMode.Impulse);
+            jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+        }
+        if(jumpCharge > 1)
+        {
+            jumpCharge = 1;
+        }
+
+        float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
+        float negative = angle >= 180 ? -1 : 1;
+        angle = angle >= 180 ? 180 - (angle % 180) : angle;
+
+        if (angle > playerUI.jumpingVectorAngleLimit + Time.deltaTime)
+        {
+            playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(0, 0, playerUI.jumpingVectorAngleLimit * negative);
+            return;
+        }
+
+        if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
+            MoveJumpVectorNegative();
+        if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
+            MoveJumpVectorPositive();
+    }
+
+    private void MoveJumpVectorNegative()
+    {
+        playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, -1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
+    }
+    private void MoveJumpVectorPositive()
+    {
+        playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, 1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
+    }
+    private void Jump()
+    {
+        if (!isGrounded || jumpCharge<=0) { return; }
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
+        isGrounded = false;
+        jumpCharge = 0;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Very Simple, could maybe have bugs
+        if (collision.contacts[0].point.y <= feetPos.position.y)
+        {
+            isGrounded = true;
         }
     }
+
 }
