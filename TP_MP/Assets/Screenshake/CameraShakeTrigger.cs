@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CameraShakeTrigger : MonoBehaviour
 {
-    void Update()
+
+    private void OnCollisionEnter(Collision collision)
     {
-/*        if (Input.GetKeyDown(KeyCode.A))
+        if (collision.collider.tag == "Enemy")
         {
-            CameraShaker.Invoke(1f);
-        }*/
+            CameraShaker.Invoke(5); //To set if screenshake is turned on
+            Debug.Log("Hit");
+        }
     }
 }
