@@ -12,6 +12,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public GameObject jumpingVectorIndicator;
     public Slider jumpChargeSlider;
     public GameObject jumpChargerSliderFill;
+    public Transform playerHeadTransform;
+    public Transform jumpingVectorIndicatorEndPoint;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +27,13 @@ public class JumpingPlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        playerHeadTransform.up = -(jumpingVectorIndicatorEndPoint.position - playerHeadTransform.position);
+
+        float zValue = playerHeadTransform.localEulerAngles.z;
+        //if(zValue < 0) { zValue *= -1; }
+
+        playerHeadTransform.localEulerAngles = new Vector3(0, -jumpingVectorIndicator.transform.eulerAngles.z, 0);
+
         // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
         // But im lazy rn
         jumpChargeSlider.value = player.jumpCharge;
