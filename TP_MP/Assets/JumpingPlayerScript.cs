@@ -119,6 +119,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
         jumpCharge = 0;
+        isGrounded = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -129,8 +130,22 @@ public class JumpingPlayerScript : MonoBehaviour
             isGrounded = true;
             print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
 
-            CameraShaker.Invoke(collision.impulse.magnitude/ 35); //To set if screenshake is turned on
+            CameraShaker.Invoke(collision.impulse.magnitude/ 35); //To set if screenshake is turned
+            ComboCount.combo += 1;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+/*        if (other.name == "Mushhead")
+        {
+            GameObject mushhead;
+            mushhead = other.gameObject;
+            CameraShaker.Invoke(5);
+            Debug.Log("Hit Mushhead");
+            other.gameObject.SetActive(false);
+        }*/
     }
 
 }
