@@ -132,6 +132,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
             CameraShaker.Invoke(collision.impulse.magnitude/ 35); //To set if screenshake is turned
             ComboCount.combo += 1;
+            ComboCount.hit = true;
         }
     }
 

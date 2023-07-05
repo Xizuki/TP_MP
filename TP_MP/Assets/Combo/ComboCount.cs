@@ -10,22 +10,52 @@ public class ComboCount : MonoBehaviour
     public static int combo;
     public TMP_Text comboTxt;
     public ParticleSystem ringLight;
+    public ParticleSystem light;
+    public ParticleSystem lightb;
+    public ParticleSystem stara;
+    public ParticleSystem starb;
+    public GameObject starHit;
+    public static bool hit;
 
     // Start is called before the first frame update
     void Start()
     {
         ringLight.Pause();
+        starHit.SetActive(false);
+        hit = false;
+    }
+
+    void ComboUp()
+    {
+        if (hit == true)
+        {
+            StartCoroutine(ComboVfx());
+            
+        }
+    }
+
+    IEnumerator ComboVfx()
+    {
+        starHit.SetActive(true);
+        yield return new WaitForSeconds(0.55f);
+        starHit.SetActive(false);
+        hit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ComboUp();
         comboTxt.text = combo + " Combo";
 
         if (combo <= 1)
         {
             ringLight.Play();
             ringLight.startColor = Color.gray;
+            light.startColor = Color.yellow;
+            lightb.startColor = Color.yellow;
+            stara.startColor = Color.yellow;
+            starb.startColor = Color.yellow;
             ringLight.maxParticles = 1;
             
         }
