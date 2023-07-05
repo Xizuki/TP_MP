@@ -13,8 +13,6 @@ public class WorldGen_JumpingGame : MonoBehaviour
     public AreaType areaType;
 
     public bool platformTypeIsScalar;
-
-    public JumpingPlayerCameraScript player;
     
     public PlatformScript startingPlatform;
     public PlatformScript voxelPlatformPrefab;
