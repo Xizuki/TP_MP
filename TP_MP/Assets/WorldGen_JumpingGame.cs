@@ -37,7 +37,16 @@ public class WorldGen_JumpingGame : MonoBehaviour
     public void Awake()
     {
         if (platformTypeIsScalar)
+        {
             ScalarPlatformGeneration();
+
+            for (int i = 0; i < 50; i++)
+            {
+
+                //ScalarPlatformGeneration();
+
+            }
+        }
         else
             VoxelPlatformGeneration();  
     }
@@ -78,12 +87,7 @@ public class WorldGen_JumpingGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 50; i++)
-        {
 
-            // ScalarPlatformGeneration();
-
-        }
     }
 
     // Update is called once per frame
