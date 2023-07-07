@@ -100,7 +100,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge,jumpChargeScalar), ForceMode.Impulse);
         jumpCharge = 0;
         isGrounded = false;
         SFX.jumpSound = true;
