@@ -120,6 +120,7 @@ public class JumpingPlayerScript : MonoBehaviour
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
         jumpCharge = 0;
         isGrounded = false;
+        SFX.jumpSound = true;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -133,20 +134,26 @@ public class JumpingPlayerScript : MonoBehaviour
             CameraShaker.Invoke(collision.impulse.magnitude/ 35); //To set if screenshake is turned
             ComboCount.combo += 1;
             ComboCount.hit = true;
+            SFX.scoreSound = true;
+            SFX.landSound = true;
+        }
+        else if (collision.contacts[0].point.y > feetPos.position.y)
+        {
+            ComboCount.hit = false;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+/*    private void OnTriggerEnter(Collider other)
     {
 
-/*        if (other.name == "Mushhead")
+*//*        if (other.name == "Mushhead")
         {
             GameObject mushhead;
             mushhead = other.gameObject;
             CameraShaker.Invoke(5);
             Debug.Log("Hit Mushhead");
             other.gameObject.SetActive(false);
-        }*/
-    }
+        }*//*
+    }*/
 
 }
