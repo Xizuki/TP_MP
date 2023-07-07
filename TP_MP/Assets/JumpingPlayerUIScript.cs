@@ -14,50 +14,24 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public GameObject jumpChargerSliderFill;
     public Transform playerHeadTransform;
     public Transform jumpingVectorIndicatorEndPoint;
-
+    public float jumpingVectorEndPointYMaxDistance;
+    public float playerHeadLookUpAngleLimit;
     // Start is called before the first frame update
     void Awake()
     {
         player = GetComponent<JumpingPlayerScript>();
+
     }
     public void Start()
     {
-        
+        jumpingVectorEndPointYMaxDistance = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y);
     }
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 direction = jumpingVectorIndicatorEndPoint.position - playerHeadTransform.transform.position;
+        float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
+        playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit* currentEndPointYDistanceRatio);
 
-        Quaternion newRot = playerHeadTransform.rotation;
-        newRot.SetLookRotation(jumpingVectorIndicatorEndPoint.position, playerHeadTransform.forward);
-        playerHeadTransform.rotation = newRot;
-        playerHeadTransform.up = -playerHeadTransform.forward;
-        //playerHeadTransform.eulerAngles = new Vector3(playerHeadTransform.eulerAngles.x, playerHeadTransform.eulerAngles.z, playerHeadTransform.eulerAngles.y);
-        //playerHeadTransform.up = playerHeadTransform.forward;
-        //playerHeadTransform.LookAt(jumpingVectorIndicatorEndPoint.position);
-
-        //playerHeadTransform.up = -playerHeadTransform.forward;
-
-        /*
-        float zvalue = playerHeadTransform.localEulerAngles.z;
-        float xvalue = 0;
-
-        if(zvalue <180)
-        {
-            //xvalue = 180;
-            playerHeadTransform.up = -playerHeadTransform.up;
-            zvalue = playerHeadTransform.localEulerAngles.z-180f;
-
-            print("REVERSE");
-            print("REVERSE");
-        }
-
-        playerHeadTransform.localEulerAngles = new Vector3(xvalue,playerHeadTransform.localEulerAngles.y, zvalue);
-
-
-        print(playerHeadTransform.eulerAngles);
-        */
 
         // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
         // But im lazy rn

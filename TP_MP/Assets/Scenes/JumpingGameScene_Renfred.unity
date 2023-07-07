@@ -211,12 +211,12 @@ MonoBehaviour:
   jumpChargeSpeedCurrent: 0.85
   jumpChargeSpeedMax: 1
   jumpAngleVector: {x: 0, y: 0}
-  rbJumpStrength: 36
+  rbJumpStrength: 30
   isGrounded: 0
   isJumping: 0
   feetPos: {fileID: 1882171633}
-  fallingGravityStrength: 16
-  jumpChargeScalar: 2.5
+  fallingGravityStrength: 19
+  jumpChargeScalar: 2.2
 --- !u!114 &130497971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +237,8 @@ MonoBehaviour:
   jumpChargerSliderFill: {fileID: 205067308}
   playerHeadTransform: {fileID: 2066896392587968214}
   jumpingVectorIndicatorEndPoint: {fileID: 2063509450}
+  jumpingVectorEndPointYMaxDistance: 0
+  playerHeadLookUpAngleLimit: 52.5
 --- !u!1 &166390153
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +852,7 @@ GameObject:
   - component: {fileID: 1295391864}
   - component: {fileID: 1295391865}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: JumpCharge_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
