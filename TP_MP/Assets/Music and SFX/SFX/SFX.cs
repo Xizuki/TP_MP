@@ -24,6 +24,8 @@ public class SFX : MonoBehaviour
             sfxVolume = sfxVol;
             audio.PlayOneShot(scoreSfx);
             scoreSound = false;
+
+            print("Score SFX");
         }
         if (landSound == true)
         {
