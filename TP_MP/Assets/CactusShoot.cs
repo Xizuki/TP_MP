@@ -7,6 +7,7 @@ public class CactusShoot : MonoBehaviour
     public float shootDelayTimer = 3f;
     public GameObject bullet;
     public GameObject cactus;
+    public Animator animator;
 
     private void Start()
     {
@@ -19,10 +20,10 @@ public class CactusShoot : MonoBehaviour
 
     IEnumerator ShootDelay()
     {
-
         WaitForSeconds waitTime = new WaitForSeconds(shootDelayTimer);
         while (true)
         {
+            animator.SetTrigger("Attack");
             GameObject.Instantiate(bullet, transform.position, cactus.transform.rotation);
             yield return waitTime;
         }

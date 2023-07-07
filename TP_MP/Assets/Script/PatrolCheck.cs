@@ -7,10 +7,19 @@ public class PatrolCheck : MonoBehaviour
     public float speed;
     public float distance;
     private bool movingRight = true;
+    private float timer = 1.5f;
+    private bool hit = false;
 
     public Transform groundCheck;
 
+    private Animator animator;
+
     RaycastHit groundInfo;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -29,6 +38,30 @@ public class PatrolCheck : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, -90, 0);
                 movingRight = true;
             }
+        }
+
+        if(hit == true)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0)
+        {
+            Debug.Log("time");
+            speed = 5f;
+            timer = 1.3f;
+            hit = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        hit = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Attack");
+            animator.SetTrigger("Attack");
+            speed = 0f;
         }
     }
 }
