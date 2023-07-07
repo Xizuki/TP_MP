@@ -98,13 +98,12 @@ public class JumpingPlayerScript : MonoBehaviour
     }
     private void Jump()
     {
-        if (!isGrounded || jumpCharge <=0) { return; }
-
-        float ScaledJumpCharge = NonLinearScaledValue(jumpCharge, jumpChargeScalar);
+        if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * ScaledJumpCharge , ForceMode.Impulse);
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
         jumpCharge = 0;
         isGrounded = false;
+        SFX.jumpSound = true;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -113,7 +112,17 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
-            print("collision.impulse = " + collision.impulse.magnitude);
+            print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
+
+            CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
+            ComboCount.combo += 1;
+            ComboCount.hit = true;
+            SFX.scoreSound = true;
+            SFX.landSound = true;
+        }
+        else if (collision.contacts[0].point.y > feetPos.position.y)
+        {
+            ComboCount.hit = false;
         }
     }
 

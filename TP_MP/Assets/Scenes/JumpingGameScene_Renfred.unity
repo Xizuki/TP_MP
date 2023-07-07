@@ -201,7 +201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 130497966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae83f5c31d5312d4fb0e4704b8e82b81, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d7a2aca69ff11549864dbe4d97eb799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingPlayerChildrenModel: {fileID: 2066896392587731624}
@@ -211,12 +211,12 @@ MonoBehaviour:
   jumpChargeSpeedCurrent: 0.85
   jumpChargeSpeedMax: 1
   jumpAngleVector: {x: 0, y: 0}
-  rbJumpStrength: 30
+  rbJumpStrength: 39
   isGrounded: 0
   isJumping: 0
   feetPos: {fileID: 1882171633}
   fallingGravityStrength: 19
-  jumpChargeScalar: 2.2
+  jumpChargeScalar: 2.5
 --- !u!114 &130497971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,19 +226,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 130497966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d989aa4b377ca144fb197ef2defe0cb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f81cb93dc400924ca1ce31c67fc82b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingVectorAngleLimit: 55
-  jumpVectorRotationSpeed: 120
-  player: {fileID: 0}
+  jumpVectorRotationSpeed: 90
+  player: {fileID: 130497970}
   jumpingVectorIndicator: {fileID: 1336747265}
   jumpChargeSlider: {fileID: 1295391865}
-  jumpChargerSliderFill: {fileID: 205067308}
+  jumpChargerSliderFill: {fileID: 1792413095}
   playerHeadTransform: {fileID: 2066896392587968214}
   jumpingVectorIndicatorEndPoint: {fileID: 2063509450}
   jumpingVectorEndPointYMaxDistance: 0
-  playerHeadLookUpAngleLimit: 52.5
+  playerHeadLookUpAngleLimit: 55
 --- !u!1 &166390153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaType: 0
   platformTypeIsScalar: 0
-  player: {fileID: 0}
   startingPlatform: {fileID: 2017939075}
   voxelPlatformPrefab: {fileID: 2622537023288641215, guid: df9c35d98752eb8498d5f63138340fc1, type: 3}
   scalarPlatformPrefab: {fileID: 2622537023288641215, guid: df9c35d98752eb8498d5f63138340fc1, type: 3}
