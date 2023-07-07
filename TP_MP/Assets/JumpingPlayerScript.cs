@@ -48,7 +48,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
         // better isGrounded Check
         //if(!isGrounded)
-            rb.AddForce(new Vector3(0, -fallingGravityStrength, 0));
+            rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
     }
  
      
