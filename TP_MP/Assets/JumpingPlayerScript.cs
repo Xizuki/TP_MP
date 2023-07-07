@@ -18,10 +18,9 @@ public class JumpingPlayerScript : MonoBehaviour
     public float rbJumpStrength;
 
     public bool isGrounded;
-    public bool isJumping;
+    public bool isFalling;
     public Transform feetPos;
-    public float fallingGravityStrength;
-    public float jumpChargeScalar;
+
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -38,7 +37,8 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         
     }
-
+    public float inputValue;
+    public float scalar;
     // Update is called once per frame
     void Update()
     {
@@ -46,17 +46,36 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
 
-        // better isGrounded Check
-        //if(!isGrounded)
-            rb.AddForce(new Vector3(0, -fallingGravityStrength, 0));
+
+        if(rb.velocity.y < 4) { isFalling = true; }
+        else { isFalling = false; }
+
+        if (isFalling)
+            rb.AddForce(new Vector3(0, -8, 0));
+
+
+
+        
+
+        float transformedValue = TransformValue(inputValue, scalar);
+
+        Debug.Log("Transformed Value: " + transformedValue);
+
     }
- 
-     
-    // Example 1-((1-0.5)^5)
-    public float NonLinearScaledValue(float value, float scalar)
+
+    float TransformValue(float value, float scalar)
     {
-        float scaledValue = (float)(1 - Mathf.Pow(1 - value, scalar));
-        return scaledValue;
+        // Convert value to a non-linear scale
+        float transformedValue = 0;
+
+        for (int i = 0; i < inputValue;i++)
+        {
+            print(" i " + i + " = " + scalar * ((scalar * 50) / (50 + i)));
+            transformedValue += scalar * (((scalar * 50) / (50 + i)));
+        }
+
+        return transformedValue;
+
     }
 
     private void Inputs()
@@ -69,8 +88,6 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             jumpCharge = 1;
         }
-
-        print("rb.velocity.normalized.y = " + rb.velocity.normalized.y);
 
         float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
         float negative = angle >= 180 ? -1 : 1;
@@ -99,12 +116,9 @@ public class JumpingPlayerScript : MonoBehaviour
     private void Jump()
     {
         if (!isGrounded || jumpCharge <=0) { return; }
-
-        float ScaledJumpCharge = NonLinearScaledValue(jumpCharge, jumpChargeScalar);
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * ScaledJumpCharge , ForceMode.Impulse);
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * jumpCharge, ForceMode.Impulse);
         jumpCharge = 0;
-        isGrounded = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -113,7 +127,6 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
-            print("collision.impulse = " + collision.impulse.magnitude);
         }
     }
 
