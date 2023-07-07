@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(Rigidbody))]
 public class Chicken : MonoBehaviour
 {
     //This class is meant to control the recovery mechanic. It is meant to control the chicken such that when the player gets hit and starts falling
@@ -15,40 +15,52 @@ public class Chicken : MonoBehaviour
     private GameObject player;
     [SerializeField] 
     private GameObject chicken;
-    [SerializeField]
+    
     private Rigidbody chickenRb;
 
     [SerializeField]
-    private Quaternion flyingRotation = Quaternion.Euler(0,270,0);
+    private Quaternion flyingRotation = Quaternion.Euler(0,270,0); //Rotation chicken is at when flying
     [SerializeField]
-    private Quaternion carryingRotation = Quaternion.Euler(0, 180, 0);
+    private Quaternion carryingRotation = Quaternion.Euler(0, 180, 0); //Rotation chicken is at when carrying 
 
-    public GameObject chickenLegs;
+    public GameObject chickenLegs; //Where the chicken legs are to make carrying look nice
 
-    public bool abovePlayer = false;
+    public bool abovePlayer = false; //Is above the player to start carrying?
 
-    public bool isCarrying  = false;
-    [SerializeField]
-    private Vector3 playerVector;
-
-    public GameObject startingPlatform;
-    [SerializeField]
-    private Vector3 startingVector;
-
-    [SerializeField]
-    private bool abovePlatform = false;
-
+    public bool isCarrying  = false; //Is the player being carried?
     public bool playerDowned = false;
+    //[SerializeField]
+    //private Vector3 playerVector;
 
-    public GameObject exit;
+
+    //[SerializeField]
+    //private Vector3 startingVector;
+
+    [SerializeField]
+    private float speed = 10f; //Speed chicken flies
+
+
+    [SerializeField]
+    private float dropDistance = 6f; //How much higher than the platform chicken needs to be to drop
+    [SerializeField]
+    private float dropDistancePlayer = 3f; //How much higher than the platform player needs to be to drop
+
+    [SerializeField]
+    private float extraHeightPlatform = 5f; // How much higher above the platform chicken should fly
+
+    [SerializeField]
+    private bool abovePlatform = false; //At the starting platform to drop player?
+
+
+    public GameObject startingPlatform; //Platform to carry to
+    public GameObject exit; //Where to fly after carry finish
 
 
     void Start()
     {
   
         chickenRb= GetComponent<Rigidbody>();
-        playerDowned = true;
-        
+        playerDowned = true;       
         
     }
 
@@ -57,31 +69,30 @@ public class Chicken : MonoBehaviour
     {
    
 
-       if(playerDowned==false)
+       if(playerDowned==false) //If player has recovered, leave
        {
             ExitStage();
-
        }
 
 
-        RunAnimationTrue();
+        RunAnimationTrue(); //Enable running animation
 
-        AbovePlatformCheck();
+        AbovePlatformCheck(); //Checks if above the platform to drop the player and make bird fly away
 
-        if (playerDowned == true && abovePlayer == true)
+        if (playerDowned == true && abovePlayer == true) //If player is down and chicken has reached the player
         {
             Carrying();
         }
 
 
-        if (isCarrying == false && playerDowned == true)
+        if (isCarrying == false && playerDowned == true) //If player is down and need to go to player
         {
             TravelToPlayer();
 
 
         }
 
-        else if (isCarrying==true &&playerDowned == true)
+        else if (isCarrying==true &&playerDowned == true) //Is player is being carried and is still down, take them to platform
         {
             TravelToPlatform();
         }
@@ -89,15 +100,15 @@ public class Chicken : MonoBehaviour
 
     }
 
-    public void ExitStage()
+    public void ExitStage() 
     {
-        transform.rotation = Quaternion.Euler(0, 90, 0);
-        transform.position = Vector3.MoveTowards(transform.position, exit.transform.position, 10 * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0, 90, 0); //Make bird face location its facing
+        transform.position = Vector3.MoveTowards(transform.position, exit.transform.position, speed * Time.deltaTime); //Move to the location
     }
     public void AbovePlatformCheck()
     {
         //If chicken at platform and player above platform
-        if (Vector3.Distance(transform.position, startingPlatform.transform.position) < 6f && player.transform.position.y > startingPlatform.transform.position.y + 3f)
+        if (Vector3.Distance(transform.position, startingPlatform.transform.position) < dropDistance && player.transform.position.y > startingPlatform.transform.position.y + dropDistancePlayer)
         {
             abovePlatform = true;
             playerDowned = false; //Player will no longer be downed once carried to that point
@@ -109,16 +120,15 @@ public class Chicken : MonoBehaviour
     public void TravelToPlayer()
     {
         //If not already carrying and the player is downed, move to the player
-        playerVector = player.transform.position - chicken.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, playerVector, 10 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
         
     }
     public void TravelToPlatform()
     {
 
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + 5, startingPlatform.transform.position.z), 10 * Time.deltaTime);
-
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z), speed * Time.deltaTime);
+        //Fly to the platform, y is a little higher so the bird goes above platform
     }
 
     public void Carrying()
