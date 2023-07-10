@@ -16,6 +16,8 @@ public class JumpingPlayerScript : MonoBehaviour
     public float jumpChargeSpeedMax;
     public Vector2 jumpAngleVector;
     public float rbJumpStrength;
+    public ParticleSystem jumpParticle;
+    public Animator animator;
 
     public bool isGrounded;
     public bool isJumping;
@@ -104,6 +106,8 @@ public class JumpingPlayerScript : MonoBehaviour
         jumpCharge = 0;
         isGrounded = false;
         SFX.jumpSound = true;
+        jumpParticle.Play();
+        animator.SetTrigger("Jump");
     }
 
     private void OnCollisionEnter(Collision collision)
