@@ -15,7 +15,7 @@ C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
 -logFile
 Logs/AssetImportWorker5.log
 -srvPort
-63522
+59801
 Successfully changed project path to: C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
 C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [29084] Host "[IP] 172.30.27.169 [Port] 0 [Flags] 2 [Guid] 1085355671 [EditorId] 1085355671 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [42240] Host "[IP] 172.30.27.169 [Port] 0 [Flags] 2 [Guid] 1898974891 [EditorId] 1898974891 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [29084] Host "[IP] 172.30.27.169 [Port] 0 [Flags] 2 [Guid] 1085355671 [EditorId] 1085355671 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [42240] Host "[IP] 172.30.27.169 [Port] 0 [Flags] 2 [Guid] 1898974891 [EditorId] 1898974891 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 73.53 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 176.83 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.23f1 (213b516bf396)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/Resources/UnitySubsystems
@@ -67,79 +67,145 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56244
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56820
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003350 seconds.
+Registered in 0.206466 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 183 ms
-Refreshing native plugins compatible for Editor in 69.56 ms, found 3 plugins.
+Android Extension - Scanning For ADB Devices 235 ms
+Refreshing native plugins compatible for Editor in 80.34 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.680 seconds
+- Completed reload, in  4.946 seconds
 Domain Reload Profiling:
-	ReloadAssembly (681ms)
-		BeginReloadAssembly (66ms)
+	ReloadAssembly (4946ms)
+		BeginReloadAssembly (3265ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (543ms)
-			LoadAssemblies (64ms)
+		EndReloadAssembly (1221ms)
+			LoadAssemblies (3263ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (80ms)
+			SetupTypeCache (692ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (24ms)
-			SetupLoadedEditorAssemblies (399ms)
+			RebuildScriptCaches (23ms)
+			SetupLoadedEditorAssemblies (466ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (229ms)
+				InitializePlatformSupportModulesInManaged (281ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (70ms)
+				RefreshPlugins (80ms)
 				BeforeProcessingInitializeOnLoad (1ms)
 				ProcessInitializeOnLoadAttributes (68ms)
-				ProcessInitializeOnLoadMethodAttributes (31ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004061 seconds.
+Registered in 1.297825 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file data-0000018FF0C91E40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0A03220 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0C9DC50 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF094DC20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D13020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEB4F5F60 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D13020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0AC34F0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\ToonyColorsPro.Demo.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D37630 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEC76010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0853020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D4DE40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D4DE40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0AC34F0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\KinoBloom.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0AC34F0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D4DE40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXREditor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF096AE30 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0AC34F0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXRDemo.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0D64050 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF07C2E40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF71A010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF77AB70 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0885830 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF7F6010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0AC34F0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF096AE30 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF9FB830 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF7F6010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF07CAE50 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0AC34F0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXR.WelcomeScreen.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF295A30 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF771C20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXRRuntime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF771C20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
 Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 66.44 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 80.22 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.896 seconds
+- Completed reload, in  4.028 seconds
 Domain Reload Profiling:
-	ReloadAssembly (897ms)
-		BeginReloadAssembly (98ms)
+	ReloadAssembly (4029ms)
+		BeginReloadAssembly (89ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (723ms)
-			LoadAssemblies (67ms)
+		EndReloadAssembly (3812ms)
+			LoadAssemblies (2547ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (205ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (42ms)
-			SetupLoadedEditorAssemblies (380ms)
+			SetupTypeCache (797ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (401ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (12ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (67ms)
-				BeforeProcessingInitializeOnLoad (67ms)
-				ProcessInitializeOnLoadAttributes (219ms)
-				ProcessInitializeOnLoadMethodAttributes (12ms)
+				RefreshPlugins (80ms)
+				BeforeProcessingInitializeOnLoad (72ms)
+				ProcessInitializeOnLoadAttributes (221ms)
+				ProcessInitializeOnLoadMethodAttributes (13ms)
 				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -148,12 +214,12 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3520 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 34 unused Assets / (0.6 MB). Loaded Objects now: 3989.
-Memory consumption went from 132.7 MB to 132.1 MB.
-Total: 3.165900 ms (FindLiveObjects: 0.228100 ms CreateObjectMapping: 0.106300 ms MarkObjects: 2.586200 ms  DeleteObjects: 0.244700 ms)
+Unloading 34 unused Assets / (0.6 MB). Loaded Objects now: 3990.
+Memory consumption went from 205.3 MB to 204.7 MB.
+Total: 3.066700 ms (FindLiveObjects: 0.250700 ms CreateObjectMapping: 0.085600 ms MarkObjects: 2.237200 ms  DeleteObjects: 0.492000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -168,161 +234,279 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 16067.884530 seconds.
-  path: Assets/Imported Assets/DogKnight/Prefab/DogPolyart 1.prefab
-  artifactKey: Guid(05111f06171c98643b624dff81651848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/DogKnight/Prefab/DogPolyart 1.prefab using Guid(05111f06171c98643b624dff81651848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a27f4b540f5b268c75cba1c478cfe52') in 0.119539 seconds 
+  Time since last request: 21524.997437 seconds.
+  path: Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab
+  artifactKey: Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab using Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df84cfb396f4dd78f288657928038af9') in 0.130549 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005656 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0000018FF5ACE010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0522040 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF211F030 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEEFBA40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF7835010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0522040 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF1AB7DD0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\ToonyColorsPro.Demo.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF4A2020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEC74DD0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF53D1370 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF2553060 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF5ACE010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\KinoBloom.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEB504000 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXREditor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXRDemo.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF5AE4220 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF2553060 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF7F6010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF53D1370 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF4130080 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF7F6010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF8BCA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF2100830 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF77A590 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF07BEA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF07BEA20 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXR.WelcomeScreen.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF1AB7DD0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF2100830 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXRRuntime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEEFBA40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.961 seconds
+Domain Reload Profiling:
+	ReloadAssembly (961ms)
+		BeginReloadAssembly (123ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (753ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (265ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (307ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (49ms)
+				ProcessInitializeOnLoadAttributes (218ms)
+				ProcessInitializeOnLoadMethodAttributes (20ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3490 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (0.5 MB). Loaded Objects now: 4001.
+Memory consumption went from 206.5 MB to 206.0 MB.
+Total: 5.560600 ms (FindLiveObjects: 0.396400 ms CreateObjectMapping: 0.157800 ms MarkObjects: 4.270100 ms  DeleteObjects: 0.732900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 27.318140 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/barrel.prefab
-  artifactKey: Guid(8375007ef859c184f93134dbe213e44b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/barrel.prefab using Guid(8375007ef859c184f93134dbe213e44b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b6d7fc0874eaf140ccdf7036c43939b') in 0.051165 seconds 
+  Time since last request: 48.049997 seconds.
+  path: Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab
+  artifactKey: Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab using Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93fcd5b91261e8fa872b3c5b71f375ff') in 0.090642 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_IdleBattle.fbx
-  artifactKey: Guid(f0daf145f0a24017a35ced6e06050023) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_IdleBattle.fbx using Guid(f0daf145f0a24017a35ced6e06050023) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70558f71046024599316eaa5c31ff02f') in 0.042729 seconds 
+  Time since last request: 20.699646 seconds.
+  path: Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab
+  artifactKey: Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab using Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c6287e51a1c5341e33e56d2dd379bbf') in 0.011456 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_Attack02.fbx
-  artifactKey: Guid(e49e58fcb12c43f4a7a539cba4962b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_Attack02.fbx using Guid(e49e58fcb12c43f4a7a539cba4962b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40dd38aa173a87926f4302a8f6ad27c1') in 0.026660 seconds 
+  Time since last request: 4.209777 seconds.
+  path: Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab
+  artifactKey: Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab using Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1de3de4555ef1a74b08244837e2603d1') in 0.011604 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_Die.fbx
-  artifactKey: Guid(85954cadc1314eb7ba106f3d72458d2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_Die.fbx using Guid(85954cadc1314eb7ba106f3d72458d2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60cc4a79fb327a1958d423394141bee0') in 0.029460 seconds 
+  Time since last request: 136.635356 seconds.
+  path: Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab
+  artifactKey: Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Prefab/ShieldPolyart.prefab using Guid(e6322125f1eb2a6468d9f8ffbf6f71ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92046ed8979a817b7461281c9d6702ce') in 0.010757 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_IdleNormal.fbx
-  artifactKey: Guid(9bf3035ac8a641e99ba5d51178d131ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_IdleNormal.fbx using Guid(9bf3035ac8a641e99ba5d51178d131ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca331a2e533e20300ed340315303a6a3') in 0.025092 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/barrel 1.prefab
-  artifactKey: Guid(5b10739b451ff7e4d8d43fe0b44921a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/barrel 1.prefab using Guid(5b10739b451ff7e4d8d43fe0b44921a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8a159a3cc009079144644778bc896ac') in 0.022025 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/box3 1.prefab
-  artifactKey: Guid(0d4775583aca9894e9208bc487190db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/box3 1.prefab using Guid(0d4775583aca9894e9208bc487190db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f756a1489226d7c58d73ada8792bc3ce') in 0.033605 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs/box2.prefab
-  artifactKey: Guid(cc099d4b9ab7d3b4287693466cb6ff9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs/box2.prefab using Guid(cc099d4b9ab7d3b4287693466cb6ff9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caed3932159d803cd3d2fa72741d6be1') in 0.031333 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs/bed2.prefab
-  artifactKey: Guid(603974aa53b216142bc3b923a72e69a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs/bed2.prefab using Guid(603974aa53b216142bc3b923a72e69a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4ef5a13e6baa6976ba3f29c8107af19') in 0.028257 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/box2.prefab
-  artifactKey: Guid(054eb6147f69e3d48b3a7a3004214f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/box2.prefab using Guid(054eb6147f69e3d48b3a7a3004214f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24303ecb10fc6ac1981176eb4341850a') in 0.022793 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs/box.prefab
-  artifactKey: Guid(8799b841d75370f44ba4ccf79bc7658b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs/box.prefab using Guid(8799b841d75370f44ba4ccf79bc7658b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab82f0f66d137833919adac9a2aa2ff9') in 0.027176 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 11.289840 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_RunFWD.fbx
-  artifactKey: Guid(93edfaa62ef343799630a119e6b5b00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_RunFWD.fbx using Guid(93edfaa62ef343799630a119e6b5b00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13c899ed7580bc6f1ded4429ad9bb3af') in 0.028221 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_WalkFWD.fbx
-  artifactKey: Guid(9b9279213c434f60bfdd45c1f0e4d752) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_WalkFWD.fbx using Guid(9b9279213c434f60bfdd45c1f0e4d752) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0acb91ba7b86a9be39f89814271f054') in 0.030514 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/candleholder2.prefab
-  artifactKey: Guid(c6fda97e2f85f854388b401808f813c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/candleholder2.prefab using Guid(c6fda97e2f85f854388b401808f813c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebc37238d9c85b7ebbe92624a34d4a36') in 0.028310 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs/candleholder3.prefab
-  artifactKey: Guid(3f4cd64e876070c40b64e92d6ad7daf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs/candleholder3.prefab using Guid(3f4cd64e876070c40b64e92d6ad7daf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fe6c9146da3f027b198f3e7a6daabbb') in 0.034746 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs/candleholder2.prefab
-  artifactKey: Guid(b8bf93473c538e9438e008b08ea75354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs/candleholder2.prefab using Guid(b8bf93473c538e9438e008b08ea75354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff77ff1fdd407588e406c84c1372cb9d') in 0.035697 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000043 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/candle2.prefab
-  artifactKey: Guid(197f1dd69d9d0e345a27bdc2001f4358) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/candle2.prefab using Guid(197f1dd69d9d0e345a27bdc2001f4358) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3df5b63dad810346673f82c0e06e61e0') in 0.038295 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000078 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_WalkBWD.fbx
-  artifactKey: Guid(5ed9dae302a44e85a020abdfda7c6b6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Cactus/Cactus_WalkBWD.fbx using Guid(5ed9dae302a44e85a020abdfda7c6b6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54383f03aa52437a0dd5c0c8c1c7dd54') in 0.041045 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000045 seconds.
-  path: Assets/Imported Assets/Modular Castle/Assets/prefabs2/candle3.prefab
-  artifactKey: Guid(488fb4bf55e88e243a3d0bfaa7e42703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Modular Castle/Assets/prefabs2/candle3.prefab using Guid(488fb4bf55e88e243a3d0bfaa7e42703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2ecd7f038d0cf253683baa9d5f1bde9') in 0.034286 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 136.792813 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Mesh/CactusMeshPBR.fbx
-  artifactKey: Guid(5961b834d0b54fc9828d7c3ef7ac8279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Mesh/CactusMeshPBR.fbx using Guid(5961b834d0b54fc9828d7c3ef7ac8279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8c47ae4acfdff6c3ffef34531327c22') in 0.029146 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Idle.FBX
-  artifactKey: Guid(46d0b1354c1891d458a732548bb69bf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Idle.FBX using Guid(46d0b1354c1891d458a732548bb69bf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21404990cc87f11898c487a77e213f44') in 0.033794 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Mesh/MushroomMeshPA.fbx
-  artifactKey: Guid(1bb511c8a05be7d4aab86bc7439e73f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Mesh/MushroomMeshPA.fbx using Guid(1bb511c8a05be7d4aab86bc7439e73f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d4be023ec8a712299b7c71068e1459d') in 0.036823 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken.FBX
-  artifactKey: Guid(d623cd35a78380d4eb0457c4e483abed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken.FBX using Guid(d623cd35a78380d4eb0457c4e483abed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd85c2eb113449a85f139564f518d0405') in 0.036673 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdleNormalSmile.fbx
-  artifactKey: Guid(c0a0375e97cb4250b0cc67ccda1cd64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdleNormalSmile.fbx using Guid(c0a0375e97cb4250b0cc67ccda1cd64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef02c770594690f31a1227832fdb1e32') in 0.030341 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Run In Place.FBX
-  artifactKey: Guid(8655854fe0299a548b9c79b29ab40b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Run In Place.FBX using Guid(8655854fe0299a548b9c79b29ab40b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7685c3bf44c4c358d322d12aa42ad09a') in 0.027056 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003849 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0000018FF5ACE010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEEFBA40 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF1BC78E0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0F77020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF67507A0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0B79850 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF6AD5050 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEF14090 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\ToonyColorsPro.Demo.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF1EC5020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEC70DC0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF478020 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF1308940 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF5270010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEF14090 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\KinoBloom.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF6A769A0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEECDCDD0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXREditor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEF0CA70 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF6BAF080 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXRDemo.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF1308940 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF2553060 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF7F6010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF678AC90 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF6616430 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEF7F6010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEEF14090 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF0625830 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF48D1010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF4C56010 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF65F6170 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF65F6170 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXR.WelcomeScreen.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FF6AD5050 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEECDCDD0 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\CFXRRuntime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000018FEB661720 doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.889 seconds
+Domain Reload Profiling:
+	ReloadAssembly (890ms)
+		BeginReloadAssembly (128ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (687ms)
+			LoadAssemblies (84ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (247ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (45ms)
+			SetupLoadedEditorAssemblies (267ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (17ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (48ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.66 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3491 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (0.5 MB). Loaded Objects now: 4005.
+Memory consumption went from 206.6 MB to 206.0 MB.
+Total: 2.548600 ms (FindLiveObjects: 0.224600 ms CreateObjectMapping: 0.080500 ms MarkObjects: 1.984100 ms  DeleteObjects: 0.258600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
