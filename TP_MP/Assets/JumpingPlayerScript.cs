@@ -52,25 +52,22 @@ public class JumpingPlayerScript : MonoBehaviour
     }
  
      
-    // Example 1-((1-0.5)^5)
-    public float NonLinearScaledValue(float value, float scalar)
-    {
-        float scaledValue = (float)(1 - Mathf.Pow(1 - value, scalar));
-        return scaledValue;
-    }
+
 
     private void Inputs()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (isGrounded)
         {
-            jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
-        }
-        if(jumpCharge > 1)
-        {
-            jumpCharge = 1;
+            if (Input.GetKey(KeyCode.Q))
+            {
+                jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+            }
+            if (jumpCharge > 1)
+            {
+                jumpCharge = 1;
+            }
         }
 
-        print("rb.velocity.normalized.y = " + rb.velocity.normalized.y);
 
         float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
         float negative = angle >= 180 ? -1 : 1;
@@ -100,7 +97,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge,jumpChargeScalar), ForceMode.Impulse);
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * XizukiMethods.Numbers.Xi_Helper_Nums.ScaleNonLinearly(jumpCharge,jumpChargeScalar), ForceMode.Impulse);
         jumpCharge = 0;
         isGrounded = false;
         SFX.jumpSound = true;
@@ -109,21 +106,39 @@ public class JumpingPlayerScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Very Simple, could maybe have bugs
-        if (collision.contacts[0].point.y <= feetPos.position.y)
+        foreach (ContactPoint contact in collision.contacts)
         {
-            isGrounded = true;
-            print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
+            if (contact.point.y <= feetPos.position.y)
+            {
+                isGrounded = true;
 
-            CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
-            ComboCount.combo += 1;
-            ComboCount.hit = true;
-            SFX.scoreSound = true;
-            SFX.landSound = true;
-        }
-        else if (collision.contacts[0].point.y > feetPos.position.y)
-        {
-            ComboCount.hit = false;
+                PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
+
+                print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
+
+                CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
+                ComboCount.combo += 1;
+                ComboCount.hit = true;
+                SFX.scoreSound = true;
+                SFX.landSound = true;
+            }
+            else if (collision.contacts[0].point.y > feetPos.position.y)
+            {
+                ComboCount.hit = false;
+            }
         }
     }
 
+    /*
+    private void OnCollisionStay(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            if (contact.point.y <= feetPos.position.y)
+            {
+                isGrounded = true;
+            }
+        }
+    }
+    */
 }
