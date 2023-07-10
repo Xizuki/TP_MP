@@ -119,6 +119,7 @@ public class JumpingPlayerScript : MonoBehaviour
             ComboCount.hit = true;
             SFX.scoreSound = true;
             SFX.landSound = true;
+            Tweening.comboUp = true;
         }
         else if (collision.contacts[0].point.y > feetPos.position.y)
         {
