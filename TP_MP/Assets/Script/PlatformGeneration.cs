@@ -25,7 +25,7 @@ public class PlatformGeneration : MonoBehaviour
     void Start()
     {
         heroPosition = shibaKnight.transform.position; //receives Game Object var Position
-        groundHeight = platform.GetComponent<SpriteRenderer>().bounds.size.y / 2; //takes platform var y position divided by 2
+        groundHeight = platform.GetComponent<MeshRenderer>().bounds.size.y / 2; //takes platform var y position divided by 2
         Spawn(); //Call spawn function
     }
     void Update()
@@ -40,6 +40,7 @@ public class PlatformGeneration : MonoBehaviour
 
     void Spawn() // Spawn function
     {
+        Debug.Log("Spawn");
         platformSpawn = new GameObject[maxPlatforms]; // take platform Object to be platform spawn
 
         for (int i = 0; i < maxPlatforms; i++) //for loop 
