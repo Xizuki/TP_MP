@@ -16,6 +16,9 @@ public class JumpingPlayerScript : MonoBehaviour
     public float jumpChargeSpeedMax;
     public Vector2 jumpAngleVector;
     public float rbJumpStrength;
+    public ParticleSystem jumpParticle;
+    public ParticleSystem hitParticle;
+    public Animator animator;
 
     public bool isGrounded;
     public bool isJumping;
@@ -104,6 +107,8 @@ public class JumpingPlayerScript : MonoBehaviour
         jumpCharge = 0;
         isGrounded = false;
         SFX.jumpSound = true;
+        animator.SetTrigger("Jump");
+        Instantiate(jumpParticle, transform.position, transform.rotation);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -124,6 +129,11 @@ public class JumpingPlayerScript : MonoBehaviour
         else if (collision.contacts[0].point.y > feetPos.position.y)
         {
             ComboCount.hit = false;
+        }
+        if(collision.collider.tag == "Enemy")
+        {
+            animator.SetTrigger("Hit");
+            hitParticle.Play();
         }
     }
 
