@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CactusShoot : MonoBehaviour
 {
-    public float shootDelayTimer = 3f;
+    public float baseShootDelayTimer;
+    public float shootDelayTimer;
     public GameObject bullet;
     public GameObject cactus;
     public Animator animator;

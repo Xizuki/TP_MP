@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    public int speed = 5;
+    public float baseSpeed;
+    public float speed;
     public ParticleSystem explosion;
     public ParticleSystem aura;
     public MeshRenderer bulletMesh;
@@ -27,6 +28,15 @@ public class BulletMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.tag == "Player")
+        {
+            if(collision.gameObject.GetComponent<ShieldPowerUp>().isActivated)
+            {
+                return;
+            }
+        }
+
+
         Debug.Log("Hit");
         explosion.Play();
         bulletMesh.enabled = false;

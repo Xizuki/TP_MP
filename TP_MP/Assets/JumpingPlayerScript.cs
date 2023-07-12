@@ -48,6 +48,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
         // better isGrounded Check
         //if(!isGrounded)
+        if(rb.useGravity == true)
             rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
     }
  
@@ -93,7 +94,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, 1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
     }
-    private void Jump()
+    public void Jump()
     {
         if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
@@ -106,10 +107,13 @@ public class JumpingPlayerScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Very Simple, could maybe have bugs
+
         foreach (ContactPoint contact in collision.contacts)
         {
             if (contact.point.y <= feetPos.position.y)
             {
+                if (collision.gameObject.tag != "Platform") { return; }
+
                 isGrounded = true;
 
                 PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());

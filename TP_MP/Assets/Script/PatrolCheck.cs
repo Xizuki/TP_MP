@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PatrolCheck : MonoBehaviour
 {
+    public float baseSpeed;
     public float speed;
     public float distance;
     private bool movingRight = true;

@@ -79,6 +79,17 @@ public class Chicken : MonoBehaviour
 
         AbovePlatformCheck(); //Checks if above the platform to drop the player and make bird fly away
 
+        if(!playerDowned)
+        {
+            player.GetComponent<JumpingPlayerScript>().rb.useGravity = true;
+        }
+        else
+        {
+            player.GetComponent<JumpingPlayerScript>().rb.useGravity = false;
+            player.GetComponent<JumpingPlayerScript>().rb.velocity = Vector3.zero;
+        }
+
+
         if (playerDowned == true && abovePlayer == true) //If player is down and chicken has reached the player
         {
             Carrying();

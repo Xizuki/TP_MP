@@ -312,9 +312,10 @@ GameObject:
   - component: {fileID: 2939997796266822453}
   - component: {fileID: 4525872123595305735}
   - component: {fileID: 3453268672399882349}
+  - component: {fileID: 457693796}
   m_Layer: 0
   m_Name: MushroomEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  distance: 5
+  distance: 1
   groundCheck: {fileID: 5393782807399802170}
 --- !u!65 &4525872123595305735
 BoxCollider:
@@ -404,6 +405,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &457693796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4245915190017150719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9782da0ead99b354cb9c42035e0a95b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4675481433610060675
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +430,7 @@ GameObject:
   - component: {fileID: 8108187167027400075}
   - component: {fileID: 8904158668055072952}
   - component: {fileID: 6350034632210909598}
+  - component: {fileID: 1240320988}
   m_Layer: 0
   m_Name: HeadCheck
   m_TagString: Untagged
@@ -514,11 +528,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2605ce9606d4744845657d46a46d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mushroomEnemy: {fileID: 0}
   explosionDeath: {fileID: 9153756715979569130}
   mushroom: {fileID: 4245915190017150719}
   animator: {fileID: 7442050115661319743}
   patrolCheck: {fileID: 2939997796266822453}
   skinned: {fileID: 1221193201481847483}
+--- !u!54 &1240320988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675481433610060675}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5632524212304190485
 GameObject:
   m_ObjectHideFlags: 0

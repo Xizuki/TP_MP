@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeadHit : MonoBehaviour
 {
+    public MushroomEnemy mushroomEnemy;
     public ParticleSystem explosionDeath;
     public GameObject mushroom;
     public Animator animator;
@@ -12,7 +13,7 @@ public class HeadHit : MonoBehaviour
 
     private void Start()
     {
-
+        mushroomEnemy = GetComponentInParent<MushroomEnemy>();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -22,6 +23,8 @@ public class HeadHit : MonoBehaviour
             explosionDeath.Play();
             patrolCheck.enabled = false;
             skinned.enabled = false;
+            mushroomEnemy.Die();
+            mushroomEnemy.BouncePlayer(collision.gameObject.GetComponent<JumpingPlayerScript>());
         }
     }
 }
