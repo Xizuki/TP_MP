@@ -10,6 +10,8 @@ public class ComboCount : MonoBehaviour
     public static int combo;
     public TMP_Text comboTxt;
     public ParticleSystem ringLight;
+    public ParticleSystem lightning;
+    public ParticleSystem preLightning;
     public ParticleSystem light;
     public ParticleSystem lightb;
     public ParticleSystem stara;
@@ -24,12 +26,15 @@ public class ComboCount : MonoBehaviour
     void Start()
     {
         ringLight.Pause();
+        lightning.Pause();
+        preLightning.Pause();
         starHit.SetActive(false);
         hit = false;
         particles.Add(light);
         particles.Add(lightb);
         particles.Add(stara);
         particles.Add(starb);
+
         StartCoroutine(ComboReset());
     }
 
@@ -52,6 +57,7 @@ public class ComboCount : MonoBehaviour
         if (highCombo == true)
         {
             starbHit.SetActive(true);
+            
         }
         yield return new WaitForSeconds(0.55f);
         starHit.SetActive(false);
@@ -78,7 +84,7 @@ public class ComboCount : MonoBehaviour
             particles[particles.Count - 1].startColor = Color.gray;
             ringLight.maxParticles = 1;
             highCombo = false;
-            
+
         }
         if (combo <= 9 && combo >= 2)
         {
@@ -92,7 +98,7 @@ public class ComboCount : MonoBehaviour
             ringLight.startColor = Color.yellow;
             particles[particles.Count - 1].startColor = Color.yellow;
             ringLight.maxParticles = 2;
-            highCombo =false;
+            highCombo = false;
         }
         if (combo >= 20 && combo <= 29)
         {
@@ -100,21 +106,25 @@ public class ComboCount : MonoBehaviour
             ringLight.startColor = Color.green;
             particles[particles.Count - 1].startColor = Color.green;
             ringLight.maxParticles = 3;
-            highCombo = true;
+            highCombo = false;
         }
         if (combo >= 30 && combo <= 35)
         {
             comboTxt.color = Color.cyan;
             ringLight.startColor = Color.cyan;
             particles[particles.Count - 1].startColor = Color.cyan;
+            particles[particles.Count - 2].startColor = Color.cyan;
             ringLight.maxParticles = 5;
+            highCombo = false;
+
         }
-        if (combo >= 36 && combo <= 39 )
+        if (combo >= 36 && combo <= 39)
         {
             comboTxt.color = Color.cyan;
             ringLight.startColor = Color.cyan;
             ringLight.maxParticles = 5;
             comboTxt.fontSize = combo;
+            highCombo = true;
         }
         if (combo >= 40)
         {
@@ -122,16 +132,13 @@ public class ComboCount : MonoBehaviour
             ringLight.startColor = Color.cyan;
             ringLight.maxParticles = 7;
             comboTxt.fontSize = combo;
+            preLightning.Play();
 
             if (comboTxt.fontSize >= 50)
             {
                 comboTxt.fontSize = 50;
+
             }
-
         }
-
-
-
-
     }
 }
