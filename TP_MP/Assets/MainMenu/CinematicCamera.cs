@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CinematicCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject camPosition1;
+    public GameObject camPosition2;
+    public GameObject camPosition3;
+    public Camera cam;
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerable timeSinceLastShot()
+    {
+        yield return new WaitForSeconds(3f);
     }
 }
