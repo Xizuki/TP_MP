@@ -73,8 +73,6 @@ public class JumpingPlayerScript : MonoBehaviour
             jumpCharge = 1;
         }
 
-        print("rb.velocity.normalized.y = " + rb.velocity.normalized.y);
-
         float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
         float negative = angle >= 180 ? -1 : 1;
         angle = angle >= 180 ? 180 - (angle % 180) : angle;

@@ -8,6 +8,7 @@ public class WorldGeneration : MonoBehaviour
     public Vector3 heroPosition;
     public List<GameObject> spawnRoom;
     public GameObject spawnTop;
+    public int roomType;
     public float spawnBottom = 80f;
 
 
@@ -18,14 +19,19 @@ public class WorldGeneration : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         heroPosition = shibaKnight.transform.position;
         if (heroPosition.y > (spawnTop.transform.position.y) - spawnBottom)
         {
-            spawnTop = GameObject.Instantiate(spawnRoom[0], spawnTop.transform.position,
-            spawnTop.transform.rotation).GetComponentInChildren<SpawnTopScript>().gameObject;
-
+            RoomSpawn();
         }
+    }
+
+    void RoomSpawn()
+    {
+        roomType = Random.Range(0, 3);
+        spawnTop = GameObject.Instantiate(spawnRoom[roomType], spawnTop.transform.position,
+        spawnTop.transform.rotation).GetComponentInChildren<SpawnTopScript>().gameObject;
     }
 }

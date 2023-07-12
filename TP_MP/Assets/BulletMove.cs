@@ -27,7 +27,6 @@ public class BulletMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
         explosion.Play();
         bulletMesh.enabled = false;
         bulletCollider.enabled = false;
