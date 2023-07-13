@@ -28,7 +28,6 @@ public class PatrolCheck : MonoBehaviour
         Physics.Raycast(groundCheck.position, transform.TransformDirection(Vector3.down), out groundInfo, distance);
         if(groundInfo.collider == false)
         {
-            Debug.Log("Change");
             if(movingRight == true)
             {
                 transform.eulerAngles = new Vector3(0, -270, 0);

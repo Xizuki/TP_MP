@@ -47,8 +47,6 @@ public class JumpingPlayerUIScript : MonoBehaviour
         sliderColor1.color = interpolatedColor;
         sliderColor2.color = interpolatedColor;
 
-        print("sliderColor1.color == interpolatedColor " + (sliderColor1.color == interpolatedColor));
-
         // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
         // But im lazy rn
         

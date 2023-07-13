@@ -96,7 +96,10 @@ public class JumpingPlayerScript : MonoBehaviour
     }
     public void Jump()
     {
+        print("JUMP Pressed");
         if (!isGrounded || jumpCharge <= 0) { return; }
+        print("JUMP Pressed2");
+
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * XizukiMethods.Numbers.Xi_Helper_Nums.ScaleNonLinearly(jumpCharge,jumpChargeScalar), ForceMode.Impulse);
         jumpCharge = 0;
