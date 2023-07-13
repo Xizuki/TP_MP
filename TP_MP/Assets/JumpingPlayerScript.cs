@@ -18,6 +18,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public float rbJumpStrength;
     public ParticleSystem jumpParticle;
     public ParticleSystem hitParticle;
+    public ParticleSystem chargeParticle;
     public Animator animator;
 
     public bool isGrounded;
@@ -66,7 +67,18 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
+            chargeParticle.Play();
             jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetTrigger("Charging");
+            animator.SetBool("Charge", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            chargeParticle.Stop();
+            animator.SetBool("Charge", false);
         }
         if(jumpCharge > 1)
         {
