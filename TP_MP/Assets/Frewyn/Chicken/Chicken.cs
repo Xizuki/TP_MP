@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Chicken : MonoBehaviour
@@ -24,6 +26,15 @@ public class Chicken : MonoBehaviour
     private Quaternion carryingRotation = Quaternion.Euler(0, 180, 0); //Rotation chicken is at when carrying 
 
     public GameObject chickenLegs; //Where the chicken legs are to make carrying look nice
+
+    [SerializeField]
+    private bool checkPointCreated;
+    public GameObject checkPoint;
+
+    [SerializeField]
+    private bool exitPointCreated;
+    public GameObject exitPoint;
+    public int exitOffSet = 50;//How far exit point should be generated
 
     public bool abovePlayer = false; //Is above the player to start carrying?
 
@@ -50,19 +61,29 @@ public class Chicken : MonoBehaviour
 
     [SerializeField]
     private bool abovePlatform = false; //At the starting platform to drop player?
+    [SerializeField]
+    private bool atExitPoint = false; //At the exit? Used to destroy chicken
 
 
     public GameObject startingPlatform; //Platform to carry to
-    public GameObject exit; //Where to fly after carry finish
+
 
 
     void Start()
     {
   
         chickenRb= GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player");
         playerDowned = true;       
         
     }
+
+    public void AssignStartingPlatform(GameObject startPlatformObject)
+    {
+        startingPlatform = startPlatformObject;
+    }
+
+ 
 
     // Update is called once per frame
     void Update()
@@ -79,7 +100,7 @@ public class Chicken : MonoBehaviour
 
         AbovePlatformCheck(); //Checks if above the platform to drop the player and make bird fly away
 
-        if(!playerDowned)
+        if (!playerDowned)
         {
             player.GetComponent<JumpingPlayerScript>().rb.useGravity = true;
         }
@@ -114,14 +135,32 @@ public class Chicken : MonoBehaviour
     public void ExitStage() 
     {
         transform.rotation = Quaternion.Euler(0, 90, 0); //Make bird face location its facing
-        transform.position = Vector3.MoveTowards(transform.position, exit.transform.position, speed * Time.deltaTime); //Move to the location
+        //transform.position = Vector3.MoveTowards(transform.position, exit.transform.position, speed * Time.deltaTime); //Move to the location
+
+        Vector3 exitPointPosition = new Vector3(exitPoint.transform.position.x + exitOffSet, exitPoint.transform.position.y, exitPoint.transform.position.z);
+
+        if (exitPointCreated == false)
+        {
+            Instantiate(exitPoint, exitPointPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            exitPointCreated = true;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, exitPointPosition, speed * Time.deltaTime);
+
     }
     public void AbovePlatformCheck()
     {
+        ////If chicken at platform and player above platform
+        //if (Vector3.Distance(transform.position, startingPlatform.transform.position) < dropDistance && player.transform.position.y > startingPlatform.transform.position.y + dropDistancePlayer)
+        //{
+        //    abovePlatform = true;
+        //    playerDowned = false; //Player will no longer be downed once carried to that point
+        //    isCarrying = false;
+        //}
+
         //If chicken at platform and player above platform
-        if (Vector3.Distance(transform.position, startingPlatform.transform.position) < dropDistance && player.transform.position.y > startingPlatform.transform.position.y + dropDistancePlayer)
+        if (abovePlatform ==true)
         {
-            abovePlatform = true;
+            //abovePlatform = true;
             playerDowned = false; //Player will no longer be downed once carried to that point
             isCarrying = false;
         }
@@ -138,7 +177,14 @@ public class Chicken : MonoBehaviour
     public void TravelToPlatform()
     {
 
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z), speed * Time.deltaTime);
+        Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z);
+        if (checkPointCreated == false)
+        {
+            Instantiate(checkPoint, abovePlatformPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            checkPointCreated = true;
+        }
+        transform.position = Vector3.MoveTowards(transform.position,abovePlatformPosition,speed*Time.deltaTime  );
+        //transform.position = Vector3.MoveTowards(transform.position, new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z), speed * Time.deltaTime);
         //Fly to the platform, y is a little higher so the bird goes above platform
     }
 
@@ -158,6 +204,17 @@ public class Chicken : MonoBehaviour
             abovePlayer = true;
 
         }
+
+        if(other.CompareTag("Checkpoint")) //Checks if chicken at platform
+        {
+            abovePlatform = true;
+        }
+
+        if (other.CompareTag("ExitPoint")) //Checks if chicken at platform
+        {
+            atExitPoint = true;
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -167,6 +224,7 @@ public class Chicken : MonoBehaviour
             abovePlayer = false;
 
         }
+
     }
 
 
