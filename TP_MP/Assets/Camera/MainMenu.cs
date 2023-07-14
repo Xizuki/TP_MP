@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
     {
         print("Scene Loading");
         yield return new WaitForSeconds(5.75f);
-        SceneManager.LoadScene("JumpingGameScene_Dom");
+        SceneManager.LoadScene(1);
 
     }
 
