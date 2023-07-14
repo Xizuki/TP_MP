@@ -3452,11 +3452,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 491374, guid: c83073190e4a3614b9dbac2cf9c47f32, type: 3}
   m_PrefabInstance: {fileID: 642202710}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &644267308 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8110608048858069375, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &644771866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5529,6 +5524,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 491374, guid: c83073190e4a3614b9dbac2cf9c47f32, type: 3}
   m_PrefabInstance: {fileID: 947480952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &948115646 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4442282040650204703, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &949478730
 PrefabInstance:
@@ -12450,6 +12450,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1062515947400002175, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6117094
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062515947400002175, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6117096
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062515947400002175, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6117096
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062515947415207737, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062515947415207741, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062515947415207743, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040650204705, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.81651276
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040650204705, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.51041025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040650204705, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.81651276
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040650204705, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040650204705, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040650204706, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442282040675875546, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8824464932004959670, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: scoreSfx
       value: 
@@ -12581,7 +12633,7 @@ PrefabInstance:
     - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: chargeParticle
       value: 
-      objectReference: {fileID: 644267308}
+      objectReference: {fileID: 948115646}
     - target: {fileID: 8824464933389489939, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_CollisionDetection
       value: 2
