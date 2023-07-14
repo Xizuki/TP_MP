@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.IO.Pipes;
 using UnityEngine;
@@ -14,13 +15,41 @@ public class NamedPipeServer : MonoBehaviour
         jumpingPlayer = GetComponent<JumpingPlayerScript>(); // Get a reference to the JumpingPlayerScript component
     }
     StreamReader reader;
+
+    // Replace "pipeName" with the actual pipe name you're using
+
+    private void CheckPipeStream()
+    {
+        using (NamedPipeServerStream pipeStream = serverStream)
+        {
+            // Wait for a client to connect
+            pipeStream.WaitForConnection();
+
+            // Check if the pipe stream is broken
+            try
+            {
+                // Attempt to read or write to the pipe
+                pipeStream.ReadByte();
+                Debug.Log("The pipe stream is not broken.");
+            }
+            catch (IOException ex) when (IsPipeBrokenException(ex))
+            {
+                Debug.Log("The pipe stream is broken.");
+            }
+        }
+    }
+
+
     private void Start()
     {
+        // Create a new thread to avoid blocking the main Unity thread
+        System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
+        thread.Start();
+
         // Create a named pipe server with a specific name
         serverStream = new NamedPipeServerStream("MyNamedPipe", PipeDirection.In);
         print("new serverStream");
         reader = new StreamReader(serverStream);
-        ReadMessage();
         //print("BeginWaitForConnection 1");
 
         serverStream.BeginWaitForConnection(OnClientConnected, null);
@@ -28,9 +57,18 @@ public class NamedPipeServer : MonoBehaviour
         //print("BeginWaitForConnection 2");
     }
 
+    static bool IsPipeBrokenException(IOException ex)
+    {
+        const int ERROR_PIPE_NOT_CONNECTED = 233;
+        const int ERROR_NO_DATA = 232;
+
+        var errorCode = ex.HResult & 0xFFFF;
+        return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
+    }
     private void Update()
     {
         //print("server.isconnected = " + serverStream.IsConnected);
+        System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
 
     }
 
