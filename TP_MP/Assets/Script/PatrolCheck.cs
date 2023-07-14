@@ -47,7 +47,6 @@ public class PatrolCheck : MonoBehaviour
 
         if (timer <= 0)
         {
-            Debug.Log("time");
             speed = 5f;
             timer = 1.3f;
             hit = false;
