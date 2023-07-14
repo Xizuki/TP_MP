@@ -35,7 +35,8 @@ namespace GameInterface
         {
             base.Update(elapsed);
 
-            if (clientStream == null)
+            Console.WriteLine("TEST");
+            if (clientStream == null || !clientStream.IsConnected)
             {
                 // Create the named pipe client stream and connect
                 clientStream = new NamedPipeClientStream(".", "MyNamedPipe", PipeDirection.Out);
@@ -44,14 +45,25 @@ namespace GameInterface
                 // Create the stream writer
                 writer = new StreamWriter(clientStream);
             }
-
-            //Console.WriteLineasd("");
+            Console.WriteLine("IsConnected: " + clientStream.IsConnected);
 
             // Send the command to trigger the Jump method
             writer.WriteLine("Jump"); // Command to trigger the Jump method
-            //writer.Flush();
-            //if(player.EegChannel.)
             Console.Beep();
+
+            // Flush the writer and check for IOException (pipe broken)
+            try
+            {
+                writer.Flush();
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("Pipe is broken: " + ex.Message);
+                // Handle the pipe broken condition
+                // You can choose to reconnect, exit the application, or take appropriate actions
+            }
+
+            System.Threading.Thread.Sleep(250); // Delay for 250 milliseconds
         }
     }
 }
