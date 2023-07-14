@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(JumpingPlayerUIScript))]
-public class JumpingPlayerScript : MonoBehaviour
+public class JumpingPlayerScriptOriginal : MonoBehaviour
 {
     public GameObject jumpingPlayerChildrenModel;
     public ControllerInput inputs;
