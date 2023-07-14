@@ -140,7 +140,7 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             ComboCount.hit = false;
         }
-        if(collision.collider.tag == "Enemy")
+        if(collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet")
         {
             animator.SetTrigger("Hit");
             hitParticle.Play();

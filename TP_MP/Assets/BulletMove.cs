@@ -35,8 +35,6 @@ public class BulletMove : MonoBehaviour
                 return;
             }
         }
-
-
         Debug.Log("Hit");
         explosion.Play();
         bulletMesh.enabled = false;
