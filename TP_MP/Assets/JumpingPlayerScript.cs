@@ -20,6 +20,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem hitParticle;
     public ParticleSystem chargeParticle;
     public Animator animator;
+    public Chicken chicken;
 
     public bool isGrounded;
     public bool isJumping;
@@ -50,8 +51,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
 
-        // better isGrounded Check
-        //if(!isGrounded)
+        //if(!chicken.playerDowned)
             rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
     }
  
@@ -135,6 +135,11 @@ public class JumpingPlayerScript : MonoBehaviour
             SFX.scoreSound = true;
             SFX.landSound = true;
             Tweening.comboUp = true;
+
+            if (collision.gameObject.GetComponent<PlatformScript>()== true)
+            {
+                PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
+            }
         }
         else if (collision.contacts[0].point.y > feetPos.position.y)
         {
