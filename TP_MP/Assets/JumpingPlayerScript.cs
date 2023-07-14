@@ -109,7 +109,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, 1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
     }
-    private void Jump()
+    public void Jump()
     {
         if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
