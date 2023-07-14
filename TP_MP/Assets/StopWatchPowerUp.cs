@@ -21,7 +21,7 @@ public class StopWatchPowerUp : PowerUpScript
         mushroomEnemies = Xi_Helper_GameObjects.FilterOutWithScript<MushroomEnemy>(ref enemies);
 
 
-        BulletMove[] bullets = GameObject.FindObjectsByType<BulletMove>(FindObjectsSortMode.None);
+        BulletMove[] bullets = GameObject.FindObjectsOfType<BulletMove>();
 
         if (isActivated)
         {
