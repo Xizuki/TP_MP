@@ -78,10 +78,10 @@ public class Chicken : MonoBehaviour
         
     }
 
-    public void AssignStartingPlatform(GameObject startPlatformObject)
-    {
-        startingPlatform = startPlatformObject;
-    }
+    //public void AssignStartingPlatform(GameObject startPlatformObject)
+    //{
+    //    startingPlatform = startPlatformObject;
+    //}
 
  
 
