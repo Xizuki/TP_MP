@@ -812,6 +812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea6be352680af349869d5264d471fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  yOffset: 0
+  highestY: 0
+  platformHeightOffset: 1
 --- !u!114 &8824464932382477736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2897,7 +2901,7 @@ MonoBehaviour:
   rbJumpStrength: 30
   jumpParticle: {fileID: 8110608048858069375}
   hitParticle: {fileID: 1071335606724014054}
-  chargeParticle: {fileID: 0}
+  chargeParticle: {fileID: 8110608048858069375}
   animator: {fileID: 8824464932080693796}
   isGrounded: 0
   isJumping: 0
@@ -2921,11 +2925,16 @@ MonoBehaviour:
   player: {fileID: 8824464933389489938}
   jumpingVectorIndicator: {fileID: 8824464932915549962}
   jumpChargeSlider: {fileID: 8824464933149687673}
-  jumpChargerSliderFill: {fileID: 8824464932259060726}
+  jumpChargeSliderFill: {fileID: 0}
   playerHeadTransform: {fileID: 8824464932668710260}
   jumpingVectorIndicatorEndPoint: {fileID: 8824464934056851840}
   jumpingVectorEndPointYMaxDistance: 0
   playerHeadLookUpAngleLimit: 55
+  startingColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  interpolatedColor: {r: 0, g: 0, b: 0, a: 0}
+  sliderColor1: {fileID: 0}
+  sliderColor2: {fileID: 0}
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0

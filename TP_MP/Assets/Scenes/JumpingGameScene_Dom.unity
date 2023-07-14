@@ -896,6 +896,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63729252785820a49b16459d0c97332d, type: 3}
+--- !u!114 &206237621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8824464932727480038, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &208244476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1028,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboTxt: {fileID: 1381072874}
   ringLight: {fileID: 706017118}
-  light: {fileID: 1724092489}
+  lightning: {fileID: 0}
+  preLightning: {fileID: 0}
+  light: {fileID: 0}
   lightb: {fileID: 1724092489}
   stara: {fileID: 226084144}
   starb: {fileID: 148036917}
@@ -8119,6 +8132,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63729252785820a49b16459d0c97332d, type: 3}
+--- !u!1 &1486508192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8824464932259060726, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1510165664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10067,6 +10085,17 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1961707029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8824464932514266546, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1964005550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10910,6 +10939,26 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c3806799c25282c41a41d97eb4ba8fca, type: 3}
+    - target: {fileID: 8824464932382477736, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464932382477737, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1988791692}
+    - target: {fileID: 8824464932382477737, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: yOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464932382477737, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: highestY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464932382477737, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8824464932514266545, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10974,6 +11023,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpingPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: sliderColor1
+      value: 
+      objectReference: {fileID: 206237621}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: sliderColor2
+      value: 
+      objectReference: {fileID: 1961707029}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: jumpChargeSliderFill
+      value: 
+      objectReference: {fileID: 1486508192}
     - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: animator
       value: 
