@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -163,7 +164,7 @@ public class JumpingPlayerScriptOriginal : MonoBehaviour
             }
         }
     }
-
+    */
     /*
     private void OnCollisionStay(Collision collision)
     {
@@ -176,4 +177,4 @@ public class JumpingPlayerScriptOriginal : MonoBehaviour
         }
     }
     */
-}
+//}
