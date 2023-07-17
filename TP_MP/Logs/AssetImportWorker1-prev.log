@@ -15,7 +15,7 @@ C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-53699
+56312
 Successfully changed project path to: C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
 C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ C:/Users/USER/Documents/GitHub/TP_MP/TP_MP
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [28908] Host "[IP] 10.2.0.2 [Port] 0 [Flags] 2 [Guid] 2019002777 [EditorId] 2019002777 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [20576] Host "[IP] 10.2.0.2 [Port] 0 [Flags] 2 [Guid] 1153981356 [EditorId] 1153981356 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [28908] Host "[IP] 10.2.0.2 [Port] 0 [Flags] 2 [Guid] 2019002777 [EditorId] 2019002777 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [20576] Host "[IP] 10.2.0.2 [Port] 0 [Flags] 2 [Guid] 1153981356 [EditorId] 1153981356 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-1AIKDIT4) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 76.89 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 78.80 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.23f1 (213b516bf396)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/Resources/UnitySubsystems
@@ -67,40 +67,40 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56784
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56888
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003648 seconds.
+Registered in 0.003780 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 199 ms
-Refreshing native plugins compatible for Editor in 77.75 ms, found 3 plugins.
+Android Extension - Scanning For ADB Devices 222 ms
+Refreshing native plugins compatible for Editor in 75.20 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.751 seconds
+- Completed reload, in  0.773 seconds
 Domain Reload Profiling:
-	ReloadAssembly (751ms)
+	ReloadAssembly (774ms)
 		BeginReloadAssembly (71ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (594ms)
-			LoadAssemblies (69ms)
+		EndReloadAssembly (624ms)
+			LoadAssemblies (71ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (85ms)
+			SetupTypeCache (88ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (25ms)
-			SetupLoadedEditorAssemblies (441ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (462ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (251ms)
+				InitializePlatformSupportModulesInManaged (275ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (78ms)
+				RefreshPlugins (75ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (77ms)
+				ProcessInitializeOnLoadAttributes (76ms)
 				ProcessInitializeOnLoadMethodAttributes (34ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -108,180 +108,52 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004023 seconds.
+Registered in 0.005778 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 91.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 76.88 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.097 seconds
+- Completed reload, in  0.990 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1097ms)
-		BeginReloadAssembly (105ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (23ms)
-		EndReloadAssembly (904ms)
-			LoadAssemblies (79ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (291ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (52ms)
-			SetupLoadedEditorAssemblies (445ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (15ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (92ms)
-				BeforeProcessingInitializeOnLoad (69ms)
-				ProcessInitializeOnLoadAttributes (250ms)
-				ProcessInitializeOnLoadMethodAttributes (15ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3612 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 34 unused Assets / (0.6 MB). Loaded Objects now: 4081.
-Memory consumption went from 135.6 MB to 135.0 MB.
-Total: 3.498900 ms (FindLiveObjects: 0.498400 ms CreateObjectMapping: 0.192000 ms MarkObjects: 2.505900 ms  DeleteObjects: 0.300900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 21172.325739 seconds.
-  path: Assets/Imported Assets
-  artifactKey: Guid(62d729ec974102c408e28f5ac84aca0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Imported Assets using Guid(62d729ec974102c408e28f5ac84aca0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4fc7d4817edf1c097f27b1d03b6c1b5') in 0.016580 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Inguz Media Studio
-  artifactKey: Guid(17aa99cb608b53f4eb1f348df3ac6519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Inguz Media Studio using Guid(17aa99cb608b53f4eb1f348df3ac6519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07ad2f5f7d409ece12ca1e5c6a881989') in 0.009883 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005437 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 1.00 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.193 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1194ms)
-		BeginReloadAssembly (147ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (952ms)
-			LoadAssemblies (97ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (291ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (46ms)
-			SetupLoadedEditorAssemblies (456ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (18ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (315ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
-				AfterProcessingInitializeOnLoad (9ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (10ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 4.24 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3581 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 25 unused Assets / (0.5 MB). Loaded Objects now: 4084.
-Memory consumption went from 132.4 MB to 131.9 MB.
-Total: 5.429900 ms (FindLiveObjects: 0.288700 ms CreateObjectMapping: 0.114700 ms MarkObjects: 4.291600 ms  DeleteObjects: 0.731600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004863 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\USER\Documents\GitHub\TP_MP\TP_MP\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 1.21 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.346 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1347ms)
-		BeginReloadAssembly (141ms)
+	ReloadAssembly (991ms)
+		BeginReloadAssembly (99ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (1109ms)
-			LoadAssemblies (97ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (806ms)
+			LoadAssemblies (76ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (304ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (76ms)
-			SetupLoadedEditorAssemblies (539ms)
+			SetupTypeCache (228ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (420ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (27ms)
+				InitializePlatformSupportModulesInManaged (15ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (93ms)
-				ProcessInitializeOnLoadAttributes (381ms)
-				ProcessInitializeOnLoadMethodAttributes (27ms)
-				AfterProcessingInitializeOnLoad (9ms)
+				RefreshPlugins (77ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (238ms)
+				ProcessInitializeOnLoadMethodAttributes (15ms)
+				AfterProcessingInitializeOnLoad (6ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 4.75 ms, found 3 plugins.
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.68 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3581 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 25 unused Assets / (0.5 MB). Loaded Objects now: 4087.
-Memory consumption went from 132.4 MB to 131.9 MB.
-Total: 5.783000 ms (FindLiveObjects: 0.480900 ms CreateObjectMapping: 0.274400 ms MarkObjects: 4.530900 ms  DeleteObjects: 0.495300 ms)
+Unloading 3612 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 34 unused Assets / (0.6 MB). Loaded Objects now: 4081.
+Memory consumption went from 135.6 MB to 135.0 MB.
+Total: 2.758600 ms (FindLiveObjects: 0.252500 ms CreateObjectMapping: 0.086900 ms MarkObjects: 2.111200 ms  DeleteObjects: 0.307200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -294,3 +166,493 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 22751.300431 seconds.
+  path: Assets/Scenes/JumpingGameScene_Renfred.unity
+  artifactKey: Guid(6079488f96eca0348ace4d48e5c97ea2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/JumpingGameScene_Renfred.unity using Guid(6079488f96eca0348ace4d48e5c97ea2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f01f231160e6226a1e3e404db01ec09') in 0.014150 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 821.196291 seconds.
+  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Run W Root.FBX
+  artifactKey: Guid(d279d6200c85ac140aa9c93ce39f4ad4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Run W Root.FBX using Guid(d279d6200c85ac140aa9c93ce39f4ad4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd87dba5d294cfbe85365792872938bb9') in 0.211770 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Props_3D/Fbx/watch_collider.fbx
+  artifactKey: Guid(ee679f4e77a8740c4a035f654b8144dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/watch_collider.fbx using Guid(ee679f4e77a8740c4a035f654b8144dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3759ba0113e37989e2a9a8cb3c6868b1') in 0.039225 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.233729 seconds.
+  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Walk In Place.FBX
+  artifactKey: Guid(01ad6942c5071ee4dbe84fa59bb44e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Walk In Place.FBX using Guid(01ad6942c5071ee4dbe84fa59bb44e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76050acd19c9eb770aee3f4ba2f54528') in 0.024715 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Idle.FBX
+  artifactKey: Guid(46d0b1354c1891d458a732548bb69bf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Idle.FBX using Guid(46d0b1354c1891d458a732548bb69bf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21404990cc87f11898c487a77e213f44') in 0.023212 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Walk W Root.FBX
+  artifactKey: Guid(9daf622be675b864ca009e73347d95f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken@Walk W Root.FBX using Guid(9daf622be675b864ca009e73347d95f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45e55b84ada0efefd08d57345aab37c4') in 0.030489 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken.FBX
+  artifactKey: Guid(d623cd35a78380d4eb0457c4e483abed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Meshtint Free Chicken Mega Toon Series/FBX/Toon Chicken.FBX using Guid(d623cd35a78380d4eb0457c4e483abed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd85c2eb113449a85f139564f518d0405') in 0.029817 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/LeanTween/Examples/Models/BasicExamplesText.fbx
+  artifactKey: Guid(803bfbdea65eb4ebe96e481875403860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/BasicExamplesText.fbx using Guid(803bfbdea65eb4ebe96e481875403860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9204f8c585eead0204c306fe186e937') in 0.126574 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.045551 seconds.
+  path: Assets/Imported Assets/DogKnight/Mesh/SwordPolyart.fbx
+  artifactKey: Guid(b96201848d117da4ca7dc3ade4bd59de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Mesh/SwordPolyart.fbx using Guid(b96201848d117da4ca7dc3ade4bd59de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2747d29f91c146c18c4574c740b7dd13') in 0.018509 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/LeanTween/Examples/Models/CurvePathsText.fbx
+  artifactKey: Guid(9256e250ab62647109679d3cbbaf6f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/CurvePathsText.fbx using Guid(9256e250ab62647109679d3cbbaf6f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3fcdd223151d4c0b77381fd8c3b446f') in 0.022542 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/LeanTween/Examples/Models/2dText.fbx
+  artifactKey: Guid(c0f35ff1d23074af5bcd82d9caa31ebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/2dText.fbx using Guid(c0f35ff1d23074af5bcd82d9caa31ebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c4845b11e26de3434f648c030c190d1') in 0.022367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004795 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Curtain And Web/Spider Web.fbx
+  artifactKey: Guid(4f16d63adb05eb849a48d991f43e4c2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Curtain And Web/Spider Web.fbx using Guid(4f16d63adb05eb849a48d991f43e4c2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2a1b18ec0a1b4f2e3098a424260b8c9') in 0.021431 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Curtain And Web/Spider Web Quarter.fbx
+  artifactKey: Guid(7c43c03f72a072344ba649755048ddbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Curtain And Web/Spider Web Quarter.fbx using Guid(7c43c03f72a072344ba649755048ddbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05ac18f9107c5dd14542c2043b804718') in 0.025276 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Curtain And Web/Spider Web Half.fbx
+  artifactKey: Guid(84658de13e34f954d8e1aee67109c863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Curtain And Web/Spider Web Half.fbx using Guid(84658de13e34f954d8e1aee67109c863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2763e1fcc24d67afd38270ebf2240022') in 0.021441 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.387224 seconds.
+  path: Assets/LeanTween/Examples/Models/SimpleAvatar.fbx
+  artifactKey: Guid(c8c942998fe7e4845bed23e105bd031f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/SimpleAvatar.fbx using Guid(c8c942998fe7e4845bed23e105bd031f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf5d764fb7f0f778085ef7ecc1ca4553') in 0.024741 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.036957 seconds.
+  path: Assets/Props_3D/Fbx/scroll.fbx
+  artifactKey: Guid(7f8ac7d02bc2f43b9a5c7d3bc03e7b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/scroll.fbx using Guid(7f8ac7d02bc2f43b9a5c7d3bc03e7b1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99af6acaaca28425e0f4617d338f0a28') in 0.022790 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Props_3D/Fbx/scroll_collider.fbx
+  artifactKey: Guid(540b823b6c5e947659043156c947c115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/scroll_collider.fbx using Guid(540b823b6c5e947659043156c947c115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6652a540ed34b67343e76a9b392830d0') in 0.030227 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Imported Assets/DogKnight/Mesh/Shield.fbx
+  artifactKey: Guid(588cb1a3084bba747b81631d0c071523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Mesh/Shield.fbx using Guid(588cb1a3084bba747b81631d0c071523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46bdd3a863f086924d696c562ed510c3') in 0.024075 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Assets/DogKnight/Mesh/Stage.fbx
+  artifactKey: Guid(83ccc45f4c0939440a46957a74a54d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/DogKnight/Mesh/Stage.fbx using Guid(83ccc45f4c0939440a46957a74a54d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56afe576b3c9ffbbe4cee5c96dfa2778') in 0.022359 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_DizzyAngry.fbx
+  artifactKey: Guid(794ad7023a804808827dbb70edbd4686) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_DizzyAngry.fbx using Guid(794ad7023a804808827dbb70edbd4686) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a447fc1349cba6f2e1248b7d5f53b746') in 0.038250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdlePlant.fbx
+  artifactKey: Guid(15c2a05631ba497cbf857064f8c13659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdlePlant.fbx using Guid(15c2a05631ba497cbf857064f8c13659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fa6ab76635c441769de1721b5e2fec8') in 0.030570 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_TauntingSmile.fbx
+  artifactKey: Guid(a5866baccc1c4e7da8b5cd69f239542a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_TauntingSmile.fbx using Guid(a5866baccc1c4e7da8b5cd69f239542a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffbc9c82344ee84ee1aff030983cb631') in 0.029995 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkLFTSmile.fbx
+  artifactKey: Guid(c0234e2520c64ae5920112194e38f510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkLFTSmile.fbx using Guid(c0234e2520c64ae5920112194e38f510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9f0929119c6accae8f4394bae8cfa41') in 0.031002 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Gates/Iron Bars 2.fbx
+  artifactKey: Guid(564b920910a5bc7498da75d6eafde26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Gates/Iron Bars 2.fbx using Guid(564b920910a5bc7498da75d6eafde26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed71840be35e6fb37d34cf068cdf18f1') in 0.019597 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Props_3D/Fbx/diamond_lowpoly.fbx
+  artifactKey: Guid(7f5153c9111c249c19bfd4383882c505) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/diamond_lowpoly.fbx using Guid(7f5153c9111c249c19bfd4383882c505) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9409ab1a88f9565b16bc71475c761848') in 0.018513 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/LeanTween/Examples/Models/EndlessDrivingText.fbx
+  artifactKey: Guid(6311d891eea1c406c941c23f9dfa5265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/EndlessDrivingText.fbx using Guid(6311d891eea1c406c941c23f9dfa5265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42901fb2444fcef627d50a4397b0ff68') in 0.024120 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr puddle mesh.asset
+  artifactKey: Guid(a71649bde553d6f4b9b8ae820c34748f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr puddle mesh.asset using Guid(a71649bde553d6f4b9b8ae820c34748f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f2f8186444f61d25f2d2294d1e412c3') in 0.026029 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkRGTSmile.fbx
+  artifactKey: Guid(9a314b58fbc147729e78897447a3ac01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkRGTSmile.fbx using Guid(9a314b58fbc147729e78897447a3ac01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e8f38f40c285d91f70965ee0ec319e1') in 0.033381 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Props_3D/Fbx/fire.fbx
+  artifactKey: Guid(8a5b4bfe78f754511bb168ecf62caf27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/fire.fbx using Guid(8a5b4bfe78f754511bb168ecf62caf27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea6ab129176d843378d23d4c4c3fa128') in 0.019738 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall Tile.fbx
+  artifactKey: Guid(f31674ab46900ad4bbe6f46b1a2fbbc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall Tile.fbx using Guid(f31674ab46900ad4bbe6f46b1a2fbbc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94437dd53cfd63ff4e94fb8ca7d58db0') in 0.029174 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdleBattleAngry.fbx
+  artifactKey: Guid(a40b48ebaacc4a16a1f2b2c594d3cea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdleBattleAngry.fbx using Guid(a40b48ebaacc4a16a1f2b2c594d3cea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2e279f986d257dd1bea38d5af6d64bd') in 0.045035 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkFWDAngry.fbx
+  artifactKey: Guid(210b1278c425407495dc4f93a8ae07e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkFWDAngry.fbx using Guid(210b1278c425407495dc4f93a8ae07e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '072e5a0c720bf480bd9685ec2d058d83') in 0.035962 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr mesh foam.fbx
+  artifactKey: Guid(efd0ff1193063db498e9ddb30e96e4ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr mesh foam.fbx using Guid(efd0ff1193063db498e9ddb30e96e4ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc243c12c89cb6a6f88240800c02ae31') in 0.030452 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Props_3D/Fbx/powder.fbx
+  artifactKey: Guid(989e0d97e596c4f19908385d11e90f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/powder.fbx using Guid(989e0d97e596c4f19908385d11e90f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0354fb4d93249219393c91fd0f4541e') in 0.025601 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr electric_barrier.fbx
+  artifactKey: Guid(1a6345b23d834ab4290d4498136e1abc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr electric_barrier.fbx using Guid(1a6345b23d834ab4290d4498136e1abc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e573cb7cd4010ae90fe987134bd2e61') in 0.053255 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Props_3D/Fbx/hourglass_collider.fbx
+  artifactKey: Guid(ac1a83281c12447eba28ae5c608af3e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/hourglass_collider.fbx using Guid(ac1a83281c12447eba28ae5c608af3e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2fcfd44121e46cc8a83fe0b978c8205') in 0.031145 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr electric small anim2 7x2 mesh.asset
+  artifactKey: Guid(0df52a77851b6214792776cda02da918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Graphics/cfxr electric small anim2 7x2 mesh.asset using Guid(0df52a77851b6214792776cda02da918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '854770e8f088c6579fa2497558ee4449') in 0.028285 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_runFWDAngry.fbx
+  artifactKey: Guid(3c4056711c7546cda076bc46f425f005) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_runFWDAngry.fbx using Guid(3c4056711c7546cda076bc46f425f005) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86cce43b191c6be60bd0aeb8051225ff') in 0.035777 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Props_3D/Fbx/crystal_lowpoly.fbx
+  artifactKey: Guid(d545ce24e6412480f94af4f602bc0ad4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/crystal_lowpoly.fbx using Guid(d545ce24e6412480f94af4f602bc0ad4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e467a3ca613c971c10c204deea94efa9') in 0.020464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Gates/Hallway 3.fbx
+  artifactKey: Guid(d285eda0a35b51e42bb5f5da8e64ac2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Gates/Hallway 3.fbx using Guid(d285eda0a35b51e42bb5f5da8e64ac2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a0c318d336426e691327d0ff3735664') in 0.025417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Mesh/MushroomMeshPA.fbx
+  artifactKey: Guid(1bb511c8a05be7d4aab86bc7439e73f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Mesh/MushroomMeshPA.fbx using Guid(1bb511c8a05be7d4aab86bc7439e73f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d4be023ec8a712299b7c71068e1459d') in 0.026663 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingStartSmile.fbx
+  artifactKey: Guid(14b2c88a67a246e8a4f60e0c337130d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingStartSmile.fbx using Guid(14b2c88a67a246e8a4f60e0c337130d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '646b56967559335b232d4a7943cb9bfb') in 0.037354 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 8.fbx
+  artifactKey: Guid(b95454055b3514c4d8bb8782cdd7471f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 8.fbx using Guid(b95454055b3514c4d8bb8782cdd7471f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0322f9b81f6376d38ea6b2a2537d224e') in 0.027577 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000096 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdleNormalSmile.fbx
+  artifactKey: Guid(c0a0375e97cb4250b0cc67ccda1cd64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdleNormalSmile.fbx using Guid(c0a0375e97cb4250b0cc67ccda1cd64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef02c770594690f31a1227832fdb1e32') in 0.035313 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingMaintainSmile.fbx
+  artifactKey: Guid(1b4ac8682a594ec4bab19f08ab55fcbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingMaintainSmile.fbx using Guid(1b4ac8682a594ec4bab19f08ab55fcbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa8706be9d392a650497259c3a959024') in 0.041107 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 18.fbx
+  artifactKey: Guid(894b3efae1dd35c4281171315989276c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 18.fbx using Guid(894b3efae1dd35c4281171315989276c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '428215980a3804657f0031a27c20e793') in 0.036019 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingStartAngry.fbx
+  artifactKey: Guid(3d2020afd5114711895034bfc96e7748) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingStartAngry.fbx using Guid(3d2020afd5114711895034bfc96e7748) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51fab5ca358eb5109210ee88bcd3a00d') in 0.050712 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 17.fbx
+  artifactKey: Guid(aba509f37257f064b94994b6a82b551d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 17.fbx using Guid(aba509f37257f064b94994b6a82b551d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd806e055ca5957082dd8ff816b94a65f') in 0.038765 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Props_3D/Fbx/hourglass_lowpoly_sand.fbx
+  artifactKey: Guid(0b1ad053a401f47baa35917b3406ae10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/hourglass_lowpoly_sand.fbx using Guid(0b1ad053a401f47baa35917b3406ae10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fc49f9ac12ae6aa1f38f07571fb4824') in 0.018252 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr mesh leave.fbx
+  artifactKey: Guid(f8defa343e39b2545bf3101b50eefa17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr mesh leave.fbx using Guid(f8defa343e39b2545bf3101b50eefa17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39eaa40e3f98ee5166a9d414fc4a133a') in 0.056719 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr electric_arc_circle.fbx
+  artifactKey: Guid(b10f0a773262b9c478542ff2d1a04863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Meshes/cfxr electric_arc_circle.fbx using Guid(b10f0a773262b9c478542ff2d1a04863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '782f1d47f3ecb6222be5ae5cf7ecadfc') in 0.031567 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 15.fbx
+  artifactKey: Guid(852db1989e8016d4c9851bef4649bae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 15.fbx using Guid(852db1989e8016d4c9851bef4649bae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b803cbe2177df9e7b714c7e50a9b3ad9') in 0.040629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_GetHitAngry.fbx
+  artifactKey: Guid(d19a8f0292eb4266b21cd4010159b274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_GetHitAngry.fbx using Guid(d19a8f0292eb4266b21cd4010159b274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc769791189d880a6e9c9c6fd5e14953') in 0.019484 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_VictorySmile.fbx
+  artifactKey: Guid(8ccfc638f8ef4ae7bcee122c40db1184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_VictorySmile.fbx using Guid(8ccfc638f8ef4ae7bcee122c40db1184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1214f2491486e7b1d5ad30e86e702ad4') in 0.023759 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkRGTAngry.fbx
+  artifactKey: Guid(e44fd719afe94c35b5a409ecab08db70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_walkRGTAngry.fbx using Guid(e44fd719afe94c35b5a409ecab08db70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9d3dd9b023e0bd6abdd7de7f26b6a16') in 0.024384 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Props_3D/Fbx/coin.fbx
+  artifactKey: Guid(bb96e1d28b045410792cd28e445dec89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/coin.fbx using Guid(bb96e1d28b045410792cd28e445dec89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ad5df2ecd4f2d99431d9092721ba00e') in 0.026455 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_Attack02Smile.fbx
+  artifactKey: Guid(8bf4ec8fe2f7424885d58724f3e4e7ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_Attack02Smile.fbx using Guid(8bf4ec8fe2f7424885d58724f3e4e7ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6bb3887f58198f4bdf8bef06a7c611c') in 0.035889 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingMaintainAngry.fbx
+  artifactKey: Guid(cd03d0d02ab543e09bf73d4b5ce861af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_SenseSomethingMaintainAngry.fbx using Guid(cd03d0d02ab543e09bf73d4b5ce861af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68e19fc8e88a32ed34b010bf949faff6') in 0.041569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_Attack01Angry.fbx
+  artifactKey: Guid(3afd084ecc3e4f56af5eeadd5792a379) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_Attack01Angry.fbx using Guid(3afd084ecc3e4f56af5eeadd5792a379) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c68a3d8ec42325624caf450bc3db18f') in 0.032633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 14.fbx
+  artifactKey: Guid(7797cc36f121fa74eadc347380c6d5cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 14.fbx using Guid(7797cc36f121fa74eadc347380c6d5cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '552d71af0f65d3b5a6e8f153aa51d384') in 0.032749 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Props_3D/Fbx/diamond_collider.fbx
+  artifactKey: Guid(d1724900deb6a49c283aa73ccbc62e95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/diamond_collider.fbx using Guid(d1724900deb6a49c283aa73ccbc62e95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afd04eb670fe1a155ccab1b21a02fd86') in 0.022218 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000093 seconds.
+  path: Assets/Props_3D/Fbx/lamp.fbx
+  artifactKey: Guid(825f7039f416e43c3a94fdf92bb41141) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Fbx/lamp.fbx using Guid(825f7039f416e43c3a94fdf92bb41141) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0788d51c3f4c2a277b24b14087f59ad') in 0.027933 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000094 seconds.
+  path: Assets/LeanTween/Examples/Models/LeanTween-Icon.fbx
+  artifactKey: Guid(6fc4240da91ab4747a411a8313faed53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/LeanTween-Icon.fbx using Guid(6fc4240da91ab4747a411a8313faed53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a64a8156a090f9fb2fb58e9ae0672a2e') in 0.145957 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_DieSmile.fbx
+  artifactKey: Guid(3e6a628beacf4cfca1697e1e65a28d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_DieSmile.fbx using Guid(3e6a628beacf4cfca1697e1e65a28d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '718f1239d3e3a012c01f84e5fae42711') in 0.035394 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/LeanTween/Examples/Models/Grid.fbx
+  artifactKey: Guid(cf8dd6c08e9ac4507bbbd1468b530d48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Models/Grid.fbx using Guid(cf8dd6c08e9ac4507bbbd1468b530d48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd3061bc2478e047bd1847c510b9ee7c') in 0.028958 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdlePlantToBattleAngry.fbx
+  artifactKey: Guid(72b3a1e9f8414e3684b238716de7631e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/RPGMonsterBuddiesPBRPA/Animation/Mushroom/Mushroom_IdlePlantToBattleAngry.fbx using Guid(72b3a1e9f8414e3684b238716de7631e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b411d5041fe021c810c0e72cf9632f32') in 0.037709 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 10.fbx
+  artifactKey: Guid(d1f8a999109713b43800609d14c732f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 10.fbx using Guid(d1f8a999109713b43800609d14c732f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55ac966a16355ae037bcf6af031cc6d6') in 0.023390 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 16.fbx
+  artifactKey: Guid(68ec290feaaccb2489b25054f3071578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Assets/Cartoon Castle Building Kit/Fbx/Walls/Castle Wall 16.fbx using Guid(68ec290feaaccb2489b25054f3071578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '286a03f0a7cdae4e713dfb51d23e59cf') in 0.025472 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.678359 seconds.
+  path: Assets/Props_3D/Materials/material_fire.mat
+  artifactKey: Guid(465135be1ff5147b8a2354cde93b58cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_fire.mat using Guid(465135be1ff5147b8a2354cde93b58cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22a982166651441fd96773d0faaec0a8') in 0.025676 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/LeanTween/Examples/Material/Mock2d.mat
+  artifactKey: Guid(ab11516f0780f4d438844432fc7e8070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Material/Mock2d.mat using Guid(ab11516f0780f4d438844432fc7e8070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7ecf234f0c9dd48c04dddbc50e5685a') in 0.031525 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Props_3D/Materials/material_powder.mat
+  artifactKey: Guid(a26f45c6ad43d44038d1cc53bbc6d39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_powder.mat using Guid(a26f45c6ad43d44038d1cc53bbc6d39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cef343c23cc9f6ec4ff2fdd00918eb7') in 0.020890 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Props_3D/Materials/material_watch_lowpoly.mat
+  artifactKey: Guid(fd499daf74cb241a49339d31c8fe7027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_watch_lowpoly.mat using Guid(fd499daf74cb241a49339d31c8fe7027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fa5e1f720b9dbe6501230f2c196eb3b') in 0.022240 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Props_3D/Materials/material_hourglass.mat
+  artifactKey: Guid(1e2bede88db814463b6c5e982ec91f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_hourglass.mat using Guid(1e2bede88db814463b6c5e982ec91f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f721fe77715938676320e61fab4034a4') in 0.025048 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Props_3D/Materials/material_lamp.mat
+  artifactKey: Guid(6e087311ccce14af3a101b7aeabbd8e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_lamp.mat using Guid(6e087311ccce14af3a101b7aeabbd8e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08f6bd681c488017a1ef06b725860fe7') in 0.029834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Props_3D/Materials/material_watch.mat
+  artifactKey: Guid(175f80595dfc6435e94313997ba550ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_watch.mat using Guid(175f80595dfc6435e94313997ba550ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0d872a0b38c9cf49a19efac43ae42ae') in 0.023376 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Props_3D/Materials/material_scroll.mat
+  artifactKey: Guid(27faf1361fdda412fa7d4b949a77e1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_scroll.mat using Guid(27faf1361fdda412fa7d4b949a77e1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adfe949bcb4c71ba2e9a595adcf373fa') in 0.020599 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Props_3D/Materials/material_hourglass_sand.mat
+  artifactKey: Guid(cff366b0e28714634999295565a03a61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Props_3D/Materials/material_hourglass_sand.mat using Guid(cff366b0e28714634999295565a03a61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de658009582b3c91fcc1c4e481d69a1e') in 0.021282 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold SDF.asset
+  artifactKey: Guid(0161d805a3764c089bef00bfe00793f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold SDF.asset using Guid(0161d805a3764c089bef00bfe00793f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0449142ba748ecd3ca9020fc1e891994') in 0.092422 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.668558 seconds.
+  path: Assets/Imported Shaders/Pixelation/Example/Materials/Plane.mat
+  artifactKey: Guid(c3b772572fdf3af409bc4df0b702e847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported Shaders/Pixelation/Example/Materials/Plane.mat using Guid(c3b772572fdf3af409bc4df0b702e847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adc563003e170ca4ad506f0f9bb85771') in 0.021375 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/EffectTexturesAndPrefabs/Materials/PlaneBlack.mat
+  artifactKey: Guid(d8a7d31f497e15a47859d4c852dcee03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/EffectTexturesAndPrefabs/Materials/PlaneBlack.mat using Guid(d8a7d31f497e15a47859d4c852dcee03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99dd47c68c55651e04c95382cea568e') in 0.021787 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/LeanTween/Examples/Material/PointMark.mat
+  artifactKey: Guid(e77db49bc9fb6499290655245ce9bc95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LeanTween/Examples/Material/PointMark.mat using Guid(e77db49bc9fb6499290655245ce9bc95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e712fee7885482a8588de21f7f80a98') in 0.027933 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
