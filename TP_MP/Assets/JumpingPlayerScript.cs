@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,6 +28,15 @@ public class JumpingPlayerScript : MonoBehaviour
     public Transform feetPos;
     public float fallingGravityStrength;
     public float jumpChargeScalar;
+
+
+
+    public bool faceFront = false;//Used to determine if should face front
+    public bool recentInput;// Used to check if there has been input recently
+    [SerializeField]
+    private float checkInputDelay = 1f; //How long before 'isInput' is reset
+    private float checkInputDelayCountdown = 1f;
+    public bool canRotate = true; //Used to lock rotations
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -36,6 +46,7 @@ public class JumpingPlayerScript : MonoBehaviour
         inputs.GameActions.Enable();
 
         inputs.GameActions.Jump.performed += a => Jump();
+        checkInputDelayCountdown = checkInputDelay;
     }
 
     // Start is called before the first frame update
@@ -47,12 +58,15 @@ public class JumpingPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Timer();
+        ResetInputCountdown();
         Inputs();
-
+     
+        if(canRotate==true)
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
 
         //if(!chicken.playerDowned)
-            rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
+        rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
     }
  
      
@@ -68,15 +82,20 @@ public class JumpingPlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             chargeParticle.Play();
+            //jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);//Logic for rotation when charging
             jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+            //canRotate = false;//Logic for rotation when charging
+
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            //jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);//Logic for rotation when charging
             animator.SetTrigger("Charging");
             animator.SetBool("Charge", true);
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
+            // canRotate = true;//Logic for rotation when charging
             chargeParticle.Stop();
             animator.SetBool("Charge", false);
         }
@@ -96,10 +115,46 @@ public class JumpingPlayerScript : MonoBehaviour
         }
 
         if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
+        {
+            //recentInput = true;
+            faceFront = false;
+            checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
             MoveJumpVectorNegative();
+            recentInput = false;
+        }
         if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
+        {
+            //recentInput = true;
+            faceFront = false;
+            checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
             MoveJumpVectorPositive();
+            recentInput = false;
+        }
     }
+
+    private void Timer() //Timer goes down when no input
+    {
+        //if(recentInput==true)
+        //{
+        //    Debug.Log("Have Input!");
+        //    checkInputDelayCountdown = checkInputDelay;
+        //}
+        if(checkInputDelayCountdown>0 && recentInput==false)
+        {
+            checkInputDelayCountdown -= Time.deltaTime;
+        }         
+    }
+    private void ResetInputCountdown()// Timer resets and makes character face front
+    {
+        if (checkInputDelayCountdown <= 0)
+        {
+            faceFront = true;         
+            checkInputDelayCountdown = checkInputDelay;
+        }
+
+    }
+
+
 
     private void MoveJumpVectorNegative()
     {

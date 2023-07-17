@@ -1,3 +1,4 @@
+using Nyp.Razor.Spectrum;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,9 +37,20 @@ public class JumpingPlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        //Player facing forward
+        if (player.faceFront == true &&player.isGrounded==true)//&& player.canRotate == false)
+        {
+
+           playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);
+           player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+     
         // Player Head Looking at jump direection
-        float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
-        playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit* currentEndPointYDistanceRatio);
+        else if (player.faceFront == false )//&& player.canRotate == true)
+        {
+            float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
+            playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
+        }
 
 
         // Interpolate the color between startColor and endColor based on the interpolationValue
