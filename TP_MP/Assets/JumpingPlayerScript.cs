@@ -21,6 +21,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem chargeParticle;
     public Animator animator;
     public Chicken chicken;
+    public GameObject chickenExit;
 
     public bool isGrounded;
     public bool isJumping;
@@ -47,11 +48,13 @@ public class JumpingPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y+20f, chickenExit.transform.position.z);
+        
         Inputs();
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
 
-        //if(!chicken.playerDowned)
+        if(!chicken.playerDowned)
             rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
     }
  
@@ -63,28 +66,40 @@ public class JumpingPlayerScript : MonoBehaviour
         return scaledValue;
     }
 
+    public bool namedPipeJumpCharging;
+
     private void Inputs()
     {
+
         if (Input.GetKey(KeyCode.Q))
         {
-            chargeParticle.Play();
-            jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+            if (isGrounded)
+            {
+                chargeParticle.Play();
+                jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            animator.SetTrigger("Charging");
-            animator.SetBool("Charge", true);
+            if (isGrounded)
+            {
+                animator.SetTrigger("Charging");
+                animator.SetBool("Charge", true);
+            }
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            chargeParticle.Stop();
-            animator.SetBool("Charge", false);
+            if (isGrounded)
+            {
+                chargeParticle.Stop();
+                animator.SetBool("Charge", false);
+            }
         }
-        if(jumpCharge > 1)
+        if (jumpCharge > 1)
         {
             jumpCharge = 1;
         }
-
+        
         float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
         float negative = angle >= 180 ? -1 : 1;
         angle = angle >= 180 ? 180 - (angle % 180) : angle;

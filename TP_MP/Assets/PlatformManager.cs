@@ -71,6 +71,7 @@ public class PlatformManager : MonoBehaviour
         if(player.transform.position.y < platformDissappearingPoint.transform.position.y-1f)
         {
             chicken.playerDowned = true;
+            chicken.AbovePlatformCheck();
         }
     }
 }

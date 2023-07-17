@@ -67,6 +67,7 @@ public class NamedPipeServer : MonoBehaviour
     }
     private void Update()
     {
+        jumpingPlayer.namedPipeJumpCharging = false;
         //print("server.isconnected = " + serverStream.IsConnected);
         System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
 
@@ -76,29 +77,36 @@ public class NamedPipeServer : MonoBehaviour
     {
         ReadMessage();
     }
-    public async void ReadMessage()
+    public void ReadMessage()
     {
-        while (true)
+        while (serverStream.IsConnected)
         {
             //if (!serverStream.IsConnected) { continue; }
             if (lastestLine == "Null") { serverStream.Close(); }
-            lastestLine = await reader.ReadLineAsync();
+            lastestLine =  reader.ReadLine();
 
             print(lastestLine);
+            /*
             if(lastestLine == "Jump")
             {
                 jumpingPlayer.Jump();
             }
+            3*/
+            if (lastestLine == "JumpCharge")
+            {
+                jumpingPlayer.namedPipeJumpCharging = true ;
+            }
+
         }
+
+        reader.Close();
+        reader.Dispose();
+        //if (serverStream.IsConnected)
+        serverStream.Disconnect();
+        serverStream.Close();
+        serverStream.Dispose();
     }
-    void test()
-    {
-        Jump();
-        for(int i =0; i <500; i++)
-        {
-            //print(i);
-        }
-    }
+   
     public void Jump()
     {
       
@@ -106,16 +114,22 @@ public class NamedPipeServer : MonoBehaviour
     }
     private void OnDisable()
     {
-        if (serverStream.IsConnected)
-            serverStream.Disconnect();
+        reader.Close();
+        reader.Dispose();
+        //if (serverStream.IsConnected)
+        serverStream.Disconnect();
         serverStream.Close();
         serverStream.Dispose();
+
+
     }
     
     private void OnApplicationQuit()
     {
-        if(serverStream.IsConnected)
-            serverStream.Disconnect();
+        reader.Close();
+        reader.Dispose();
+       // if (serverStream.IsConnected)
+        serverStream.Disconnect();
         serverStream.Close();
         serverStream.Dispose();
     }

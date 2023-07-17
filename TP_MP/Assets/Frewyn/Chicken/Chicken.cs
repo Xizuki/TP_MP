@@ -88,7 +88,7 @@ public class Chicken : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
+    
 
        if(playerDowned==false) //If player has recovered, leave
        {
@@ -103,11 +103,15 @@ public class Chicken : MonoBehaviour
         if (!playerDowned)
         {
             player.GetComponent<JumpingPlayerScript>().rb.useGravity = true;
+
         }
         else
         {
             player.GetComponent<JumpingPlayerScript>().rb.useGravity = false;
             player.GetComponent<JumpingPlayerScript>().rb.velocity = Vector3.zero;
+            checkPointCreated = false;
+            exitPointCreated = false;
+            //isCarrying = false;
         }
 
 
@@ -141,11 +145,13 @@ public class Chicken : MonoBehaviour
 
         if (exitPointCreated == false)
         {
-            Instantiate(exitPoint, exitPointPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            //Instantiate(exitPoint, exitPointPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
             exitPointCreated = true;
         }
         transform.position = Vector3.MoveTowards(transform.position, exitPointPosition, speed * Time.deltaTime);
 
+        abovePlatform = false;
+        AbovePlatformCheck();
     }
     public void AbovePlatformCheck()
     {
@@ -174,13 +180,17 @@ public class Chicken : MonoBehaviour
 
         
     }
+    public GameObject checkPointInGame;
     public void TravelToPlatform()
     {
 
         Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z);
         if (checkPointCreated == false)
         {
-            Instantiate(checkPoint, abovePlatformPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            if (checkPointInGame == null)
+                checkPointInGame = Instantiate(checkPoint, abovePlatformPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            else
+                checkPointInGame.transform.position = abovePlatformPosition;
             checkPointCreated = true;
         }
         transform.position = Vector3.MoveTowards(transform.position,abovePlatformPosition,speed*Time.deltaTime  );
@@ -202,9 +212,7 @@ public class Chicken : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             abovePlayer = true;
-
         }
-
         if(other.CompareTag("Checkpoint")) //Checks if chicken at platform
         {
             abovePlatform = true;
@@ -213,7 +221,7 @@ public class Chicken : MonoBehaviour
         if (other.CompareTag("ExitPoint")) //Checks if chicken at platform
         {
             atExitPoint = true;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

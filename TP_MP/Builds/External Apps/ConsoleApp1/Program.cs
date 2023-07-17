@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Pipes;
 using System.IO;
+using System.Diagnostics;
 
 namespace ConsoleApp1
 {
@@ -15,6 +16,10 @@ namespace ConsoleApp1
 
         static void Main()
         {
+            string executablePath = "C://Users/Xizuk/OneDrive/Documents/GitHub/TP_MP/TP_MP/Builds/Unity EXE/TP_MP.exe";
+
+            Process.Start(executablePath);
+
             while (true)
             {
                 Console.WriteLine("TEST");

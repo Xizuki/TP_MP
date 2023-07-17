@@ -25,11 +25,41 @@ namespace GameInterface
         public TestGame()
         {
             //Console.Beep();
+
+
             StreamConnection();
+        }
+
+        public override void Start_Game()
+        {
+            base.Start_Game();
+            Debug.WriteLine("Debugging message"); // Output a debugging message
+            Console.WriteLine("Debugging message"); // Output a debugging message to the console
+            MessageBox.Show("Debugging message");
+
+            if (clientStream == null || !clientStream.IsConnected)
+            {
+                // Create the named pipe client stream and connect
+                clientStream = new NamedPipeClientStream(".", "MyNamedPipe", PipeDirection.Out);
+                clientStream.Connect();
+
+                // Create the stream writer
+                writer = new StreamWriter(clientStream);
+            }
+
+            writer.WriteLine("Player == null = " + player==null); // Command to trigger the Jump method
+            writer.WriteLine("Player.EegChannel.R_Threshold = " + player.EegChannel.R_Threshold); // Command to trigger the Jump method
+
         }
         public void StreamConnection()
         {
-          
+            //string executablePath = "C://Users/Xizuk/OneDrive/Documents/GitHub/TP_MP/TP_MP/Builds/Unity EXE/TP_MP.exe";
+
+            //Process.Start(executablePath);
+
+            //System.Threading.Thread.Sleep(15000);
+
+
         }
         public override void Update(double elapsed)
         {
@@ -48,7 +78,7 @@ namespace GameInterface
             Console.WriteLine("IsConnected: " + clientStream.IsConnected);
 
             // Send the command to trigger the Jump method
-            writer.WriteLine("Jump"); // Command to trigger the Jump method
+            writer.WriteLine("JumpCharge"); // Command to trigger the Jump method
             Console.Beep();
 
             // Flush the writer and check for IOException (pipe broken)
@@ -58,12 +88,18 @@ namespace GameInterface
             }
             catch (IOException ex)
             {
-                Console.WriteLine("Pipe is broken: " + ex.Message);
-                // Handle the pipe broken condition
-                // You can choose to reconnect, exit the application, or take appropriate actions
+                Exit();
             }
+        }
 
-            System.Threading.Thread.Sleep(250); // Delay for 250 milliseconds
+        public override void Exit()
+        {
+            base.Exit();
+
+            writer.Close();
+            writer.Dispose();
+            clientStream.Close();
+            clientStream.Dispose();
         }
     }
 }
