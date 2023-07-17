@@ -676,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8824464932498009944
 Transform:
   m_ObjectHideFlags: 0
@@ -2101,6 +2101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824464933198582658}
+  - component: {fileID: 5537941501634294499}
   m_Layer: 0
   m_Name: pelvis
   m_TagString: Untagged
@@ -2128,6 +2129,18 @@ Transform:
   m_Father: {fileID: 8824464932498009944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5537941501634294499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933198582657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63cdbb1a45feb745b93890ae74292d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8824464933232644690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,7 +3362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.081
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3357,7 +3370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.096
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3393,7 +3406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133430969737, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_Intensity
-      value: 3.0102096
+      value: 2.5629776
       objectReference: {fileID: 0}
     - target: {fileID: 6679182840704168355, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: playOnAwake
