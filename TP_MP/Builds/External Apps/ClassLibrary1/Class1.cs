@@ -103,7 +103,7 @@ namespace GameInterface
             }
 
 
-            writer.WriteLine("Player == null = " + (player != null)); // Command to trigger the Jump method                                                         // Flush the writer and check for IOException (pipe broken)
+            writer.WriteLine("Player exist = " + (player != null)); // Command to trigger the Jump method                                                         // Flush the writer and check for IOException (pipe broken)
             try
             {
                 writer.Flush();
