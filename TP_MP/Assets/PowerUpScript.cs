@@ -11,6 +11,7 @@ public class PowerUpScript : MonoBehaviour
     {
         player = GetComponent<JumpingPlayerScript>();   
     }
+
     public virtual void Effect()
     {
 

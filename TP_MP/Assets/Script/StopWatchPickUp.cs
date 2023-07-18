@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class StopWatchPickUp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    StopWatchPowerUp powerUp;
+
+    private void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == "Player")
+        {
+            powerUp = other.gameObject.GetComponent<StopWatchPowerUp>();
+            Destroy(gameObject);
+            powerUp.isActivated = true;
+        }
     }
 }
