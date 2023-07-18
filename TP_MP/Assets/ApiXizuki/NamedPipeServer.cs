@@ -1,4 +1,5 @@
-using System;
+/*
+ * using System;
 using System.IO;
 using System.IO.Pipes;
 using System.Threading;
@@ -119,8 +120,8 @@ public class NamedPipeServer : MonoBehaviour
       
     }
 }
-
-/*using System;
+*/
+using System;
 using System.IO;
 using System.IO.Pipes;
 using UnityEngine;
@@ -166,7 +167,7 @@ public class NamedPipeServer : MonoBehaviour
         // Create a named pipe server with a specific name
         serverStream = new NamedPipeServerStream("MyNamedPipe", PipeDirection.In);
         print("new serverStream");
-        //reader = new StreamReader(serverStream);
+        reader = new StreamReader(serverStream);
         //print("BeginWaitForConnection 1");
 
 
@@ -194,7 +195,7 @@ public class NamedPipeServer : MonoBehaviour
     }
     private void Update()
     {
-        jumpingPlayer.namedPipeJumpCharging = false;
+        //jumpingPlayer.namedPipeJumpCharging = false;
         //print("server.isconnected = " + serverStream.IsConnected);
         //System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
         //print("Update if connected = " + serverStream.IsConnected);
@@ -208,46 +209,50 @@ public class NamedPipeServer : MonoBehaviour
 
         ReadMessage();
     }
-    public void ReadMessage()
+    public async void ReadMessage()
     {
         print("ReadMessage()");
-        while (serverStream.IsConnected)
+
+        while (true)
         {
+            print("ReadMessage()1");
+
             //if (!serverStream.IsConnected) { continue; }
-            if (lastestLine == "Null") { serverStream.Close(); }
+            //if (lastestLine == "Null") { serverStream.Close(); }
             //lastestLine =  reader.ReadLine();
-            
-            //print(lastestLine);
-            /*
-            if(lastestLine == "Jump")
+            lastestLine = await reader.ReadLineAsync();
+            print(lastestLine);
+
+            if (lastestLine == "Jump")
             {
                 jumpingPlayer.Jump();
             }
-            3
-if (lastestLine == "JumpCharge")
+
+            if (lastestLine == "JumpCharge")
             {
-                jumpingPlayer.namedPipeJumpCharging = true ;
+                jumpingPlayer.namedPipeJumpCharging = true;
             }
 
-        }
+            //CheckPipeStream();
 
-        //reader.Close();
-        //reader.Dispose();
-        //if (serverStream.IsConnected)
-        serverStream.Disconnect();
-        serverStream.Close();
-        serverStream.Dispose();
+            //reader.Close();
+            //reader.Dispose();
+            //if (serverStream.IsConnected)
+            //serverStream.Disconnect();
+            //serverStream.Close();
+            //serverStream.Dispose();
+        }
     }
-   
     public void Jump()
     {
       
 
     }
+    
     private void OnDisable()
     {
-        //reader.Close();
-        //reader.Dispose();
+        reader.Close();
+        reader.Dispose();
         if (serverStream.IsConnected)
         {
             serverStream.Disconnect();
@@ -261,8 +266,8 @@ if (lastestLine == "JumpCharge")
     
     private void OnApplicationQuit()
     {
-        //reader.Close();
-        //reader.Dispose();
+        reader.Close();
+        reader.Dispose();
         if (serverStream.IsConnected)
         {
             serverStream.Disconnect();
@@ -272,5 +277,5 @@ if (lastestLine == "JumpCharge")
             serverStream.Dispose();
         
     }
+    
 }
-*/

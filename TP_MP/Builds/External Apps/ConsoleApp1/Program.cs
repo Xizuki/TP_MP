@@ -16,9 +16,9 @@ namespace ConsoleApp1
 
         static void Main()
         {
-            string executablePath = "C://Users/Xizuk/OneDrive/Documents/GitHub/TP_MP/TP_MP/Builds/Unity EXE/TP_MP.exe";
+            //string executablePath = "C://Users/Xizuk/OneDrive/Documents/GitHub/TP_MP/TP_MP/Builds/Unity EXE/TP_MP.exe";
 
-            Process.Start(executablePath);
+            //Process.Start(executablePath);
 
             while (true)
             {
