@@ -10,9 +10,6 @@ public class ShieldPickup : MonoBehaviour
     public ParticleSystem equipParticle;
     public ParticleSystem auraShield;
     public ShieldPowerUp shieldPowerUp;
-    private void Start()
-    {
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")

@@ -56,6 +56,10 @@ public class PlatformManager : MonoBehaviour
 
             if(platform.transform.position.y < platformDissappearingPoint.transform.position.y)
             {
+                foreach(GameObject enemy in platform.enemiesOnPlatform)
+                {
+                    Destroy(enemy);
+                }
                 Destroy(platform.gameObject);
             }
         }

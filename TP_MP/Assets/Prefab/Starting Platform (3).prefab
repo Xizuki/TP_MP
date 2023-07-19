@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 3831147191014842633}
   - component: {fileID: 3831147191014842632}
   - component: {fileID: 3831147191014842635}
+  - component: {fileID: 3807298171646777506}
   m_Layer: 0
   m_Name: Starting Platform (3)
   m_TagString: Platform
@@ -175,6 +176,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3807298171646777506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831147191014842634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d69a53812680ff4c9524cad0af4a3d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawns:
+  - {fileID: 5863303363111565523}
+  - {fileID: 2820069995211897433}
+  - {fileID: 4200079748918802916}
+  enemy:
+  - {fileID: 6018874499357953600, guid: 11ce5e30a3e573044b052bbf3371b2a1, type: 3}
+  - {fileID: 4245915190017150719, guid: 7056a3e807744f946b85855b0ac1a024, type: 3}
 --- !u!1 &8291411874373076986
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlatformScript : MonoBehaviour
 {
+    public List<GameObject> enemiesOnPlatform;
     // Start is called before the first frame update
     void Start()
     {
