@@ -48,6 +48,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         // Player Head Looking at jump direection
         else if (player.faceFront == false )//&& player.canRotate == true)
         {
+        
             float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
             playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
         }
