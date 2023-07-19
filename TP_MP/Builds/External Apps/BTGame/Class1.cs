@@ -101,6 +101,16 @@ namespace BTGame
             }
 
 
+            writer.WriteLine("Player exists = " + (player != null)); // Command to trigger the Jump method                                                         // Flush the writer and check for IOException (pipe broken)
+            try
+            {
+                writer.Flush();
+            }
+            catch (IOException ex)
+            {
+                Exit();
+            }
+
             writer.WriteLine("Player == null = " + (player != null)); // Command to trigger the Jump method                                                         // Flush the writer and check for IOException (pipe broken)
             try
             {
@@ -111,7 +121,6 @@ namespace BTGame
                 Exit();
             }
 
-          
             writer.WriteLine("Player.EegChannel.A_Value = " + player.EegChannel.A_Value); // Command to trigger the Jump method                                                               // Flush the writer and check for IOException (pipe broken)
             try
             {
