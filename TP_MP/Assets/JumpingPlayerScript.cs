@@ -19,6 +19,9 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem jumpParticle;
     public ParticleSystem hitParticle;
     public ParticleSystem chargeParticle;
+    public ParticleSystem chargeTapParticle;
+    public ParticleSystem chargeTapParticle2;
+
     public Animator animator;
     public Chicken chicken;
     public GameObject chickenExit;
@@ -79,6 +82,8 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             animator.SetTrigger("Charging");
             animator.SetBool("Charge", true);
+            chargeTapParticle.Play();
+            chargeTapParticle2.Play();
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
