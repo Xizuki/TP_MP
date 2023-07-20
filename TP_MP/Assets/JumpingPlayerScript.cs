@@ -21,7 +21,10 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem chargeParticle;
     public Animator animator;
     public Chicken chicken;
+    public GameObject chickenExit;
 
+    public Collider shibaCollider;
+    public int hitStrength;
     public bool isGrounded;
     public bool isJumping;
     public Transform feetPos;
@@ -41,21 +44,23 @@ public class JumpingPlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        shibaCollider = gameObject.GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y + 20f, chickenExit.transform.position.z);
+
         Inputs();
 
-        jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
+        jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, -playerUI.jumpingVectorIndicator.transform.eulerAngles.z, 0);
 
-        //if(!chicken.playerDowned)
+        if (!chicken.playerDowned)
             rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
     }
- 
-     
+
+
     // Example 1-((1-0.5)^5)
     public float NonLinearScaledValue(float value, float scalar)
     {
@@ -149,7 +154,24 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             animator.SetTrigger("Hit");
             hitParticle.Play();
+            HitPhase();
         }
     }
 
+    private void HitPhase()
+    {
+        Time.timeScale = 0;
+        shibaCollider.enabled = false;
+        rb.AddForce(new Vector3(0, hitStrength, 0), ForceMode.Impulse);
+        StartCoroutine(StartDelay());
+    }
+
+
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log("Back");
+        Time.timeScale = 1;
+    }
 }

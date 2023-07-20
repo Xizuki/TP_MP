@@ -15,14 +15,16 @@ public class EnemySpawn : MonoBehaviour
 
     void Spawn()
     {
+        Vector3 angle = new Vector3();
+        Vector3 direction = new Vector3(0,90,0);
         for (int i = 0; i < enemySpawns.Length; i++) //for loop for each item in array list spikeSpawns
         {
-            int coinFlip = Random.Range(0, 5); //randomise spawn between 0 and 5
-            int enemyno = Random.Range(0, 1);
-            if (coinFlip > 3) 
+            int coinFlip = Random.Range(0, 10); //randomise spawn between 0 and 5
+            int enemyno = Random.Range(0, 2);
+            if (coinFlip > 7) 
             {
-                GetComponent<PlatformScript>().enemiesOnPlatform.Add(
-                Instantiate(enemy[enemyno], enemySpawns[i].position, gameObject.transform.rotation));
+                GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], enemySpawns[i].position,Quaternion.identity));
+
                 //Spawn GameObject Spike at spikeSpawns position
             }
         }

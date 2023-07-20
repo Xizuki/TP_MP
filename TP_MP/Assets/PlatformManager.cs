@@ -23,12 +23,12 @@ public class PlatformManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void SetLastLandedPlatform(PlatformScript collidedPlatform)
     {
-        if(collidedPlatform.transform.position.y < lastLandedPlatform.transform.position.y) { return; }
+        if (collidedPlatform.transform.position.y < lastLandedPlatform.transform.position.y) { return; }
 
         lastLandedPlatform = collidedPlatform;
 
@@ -41,25 +41,21 @@ public class PlatformManager : MonoBehaviour
     {
         // Only Run this Script when new platforms are generated for optimization
         GameObject[] GOs = GameObject.FindGameObjectsWithTag("Platform");
-        foreach(GameObject GO in GOs)
+        foreach (GameObject GO in GOs)
         {
             platforms.Add(GO.GetComponent<PlatformScript>());
         }
 
         List<PlatformScript> platformsToRemove = new List<PlatformScript>();
 
-        foreach(PlatformScript platform in platforms)
-        { 
-            if(platform == lastLandedPlatform) { continue; }
+        foreach (PlatformScript platform in platforms)
+        {
+            if (platform == lastLandedPlatform) { continue; }
 
-            if(platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
+            if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
 
-            if(platform.transform.position.y < platformDissappearingPoint.transform.position.y)
+            if (platform.transform.position.y < platformDissappearingPoint.transform.position.y)
             {
-                foreach(GameObject enemy in platform.enemiesOnPlatform)
-                {
-                    Destroy(enemy);
-                }
                 Destroy(platform.gameObject);
             }
         }
@@ -72,9 +68,10 @@ public class PlatformManager : MonoBehaviour
         //very inefficient, the fix in this should be done with the one on top
         platforms.Clear();
 
-        if(player.transform.position.y < platformDissappearingPoint.transform.position.y-1f)
+        if (player.transform.position.y < platformDissappearingPoint.transform.position.y - 1f)
         {
             chicken.playerDowned = true;
+            chicken.AbovePlatformCheck();
         }
     }
 }

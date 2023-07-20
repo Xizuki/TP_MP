@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e8f8066e1a6ae40adc6e918a70e423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseShootDelayTimer: 0
   shootDelayTimer: 3
   bullet: {fileID: 6799273972985839825, guid: 40af5d4e38844d4408bcfd0eb1e73b07, type: 3}
   cactus: {fileID: 6018874499357953600}
@@ -362,7 +363,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6018874499357953600}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.76, y: 10.26, z: -0.002}
   m_LocalScale: {x: 0.91161, y: 0.91161, z: 0.91161}
   m_ConstrainProportionsScale: 0
@@ -372,7 +373,7 @@ Transform:
   - {fileID: 3788960915656174125}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6865244664438266417
 Animator:
   serializedVersion: 5
@@ -419,6 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48860a10ef4ec39448e7602d62b1d14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cactusShoot: {fileID: 0}
 --- !u!1 &6287394136661825932
 GameObject:
   m_ObjectHideFlags: 0

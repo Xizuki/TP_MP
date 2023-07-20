@@ -15,13 +15,15 @@ public class Chicken : MonoBehaviour
 
     [SerializeField]
     private GameObject player;
-    [SerializeField] 
+    [SerializeField]
     private GameObject chicken;
-    
+
+    private JumpingPlayerScript jumpingPlayerScript;
+
     private Rigidbody chickenRb;
 
     [SerializeField]
-    private Quaternion flyingRotation = Quaternion.Euler(0,270,0); //Rotation chicken is at when flying
+    private Quaternion flyingRotation = Quaternion.Euler(0, 270, 0); //Rotation chicken is at when flying
     [SerializeField]
     private Quaternion carryingRotation = Quaternion.Euler(0, 180, 0); //Rotation chicken is at when carrying 
 
@@ -38,7 +40,7 @@ public class Chicken : MonoBehaviour
 
     public bool abovePlayer = false; //Is above the player to start carrying?
 
-    public bool isCarrying  = false; //Is the player being carried?
+    public bool isCarrying = false; //Is the player being carried?
     public bool playerDowned = false;
     //[SerializeField]
     //private Vector3 playerVector;
@@ -71,11 +73,11 @@ public class Chicken : MonoBehaviour
 
     void Start()
     {
-  
-        chickenRb= GetComponent<Rigidbody>();
+        jumpingPlayerScript = player.GetComponent<JumpingPlayerScript>();
+        chickenRb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-        playerDowned = true;       
-        
+        playerDowned = true;
+
     }
 
     //public void AssignStartingPlatform(GameObject startPlatformObject)
@@ -83,17 +85,17 @@ public class Chicken : MonoBehaviour
     //    startingPlatform = startPlatformObject;
     //}
 
- 
+
 
     // Update is called once per frame
     void Update()
     {
-   
 
-       if(playerDowned==false) //If player has recovered, leave
-       {
+
+        if (playerDowned == false) //If player has recovered, leave
+        {
             ExitStage();
-       }
+        }
 
 
         RunAnimationTrue(); //Enable running animation
@@ -103,11 +105,15 @@ public class Chicken : MonoBehaviour
         if (!playerDowned)
         {
             player.GetComponent<JumpingPlayerScript>().rb.useGravity = true;
+
         }
         else
         {
             player.GetComponent<JumpingPlayerScript>().rb.useGravity = false;
             player.GetComponent<JumpingPlayerScript>().rb.velocity = Vector3.zero;
+            checkPointCreated = false;
+            exitPointCreated = false;
+            //isCarrying = false;
         }
 
 
@@ -124,7 +130,7 @@ public class Chicken : MonoBehaviour
 
         }
 
-        else if (isCarrying==true &&playerDowned == true) //Is player is being carried and is still down, take them to platform
+        else if (isCarrying == true && playerDowned == true) //Is player is being carried and is still down, take them to platform
         {
             TravelToPlatform();
         }
@@ -132,7 +138,7 @@ public class Chicken : MonoBehaviour
 
     }
 
-    public void ExitStage() 
+    public void ExitStage()
     {
         transform.rotation = Quaternion.Euler(0, 90, 0); //Make bird face location its facing
         //transform.position = Vector3.MoveTowards(transform.position, exit.transform.position, speed * Time.deltaTime); //Move to the location
@@ -141,11 +147,13 @@ public class Chicken : MonoBehaviour
 
         if (exitPointCreated == false)
         {
-            Instantiate(exitPoint, exitPointPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            //Instantiate(exitPoint, exitPointPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
             exitPointCreated = true;
         }
         transform.position = Vector3.MoveTowards(transform.position, exitPointPosition, speed * Time.deltaTime);
 
+        abovePlatform = false;
+        AbovePlatformCheck();
     }
     public void AbovePlatformCheck()
     {
@@ -158,11 +166,13 @@ public class Chicken : MonoBehaviour
         //}
 
         //If chicken at platform and player above platform
-        if (abovePlatform ==true)
+        if (abovePlatform == true)
         {
             //abovePlatform = true;
             playerDowned = false; //Player will no longer be downed once carried to that point
             isCarrying = false;
+            //enable shiba collider
+            jumpingPlayerScript.shibaCollider.enabled = true;
         }
     }
 
@@ -172,18 +182,22 @@ public class Chicken : MonoBehaviour
         //If not already carrying and the player is downed, move to the player
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
-        
+
     }
+    public GameObject checkPointInGame;
     public void TravelToPlatform()
     {
 
         Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z);
         if (checkPointCreated == false)
         {
-            Instantiate(checkPoint, abovePlatformPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            if (checkPointInGame == null)
+                checkPointInGame = Instantiate(checkPoint, abovePlatformPosition, Quaternion.identity);//Genereates a checkpoint above the platform the chicken will move to
+            else
+                checkPointInGame.transform.position = abovePlatformPosition;
             checkPointCreated = true;
         }
-        transform.position = Vector3.MoveTowards(transform.position,abovePlatformPosition,speed*Time.deltaTime  );
+        transform.position = Vector3.MoveTowards(transform.position, abovePlatformPosition, speed * Time.deltaTime);
         //transform.position = Vector3.MoveTowards(transform.position, new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z), speed * Time.deltaTime);
         //Fly to the platform, y is a little higher so the bird goes above platform
     }
@@ -199,13 +213,11 @@ public class Chicken : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             abovePlayer = true;
-
         }
-
-        if(other.CompareTag("Checkpoint")) //Checks if chicken at platform
+        if (other.CompareTag("Checkpoint")) //Checks if chicken at platform
         {
             abovePlatform = true;
         }
@@ -213,7 +225,7 @@ public class Chicken : MonoBehaviour
         if (other.CompareTag("ExitPoint")) //Checks if chicken at platform
         {
             atExitPoint = true;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
@@ -244,7 +256,7 @@ public class Chicken : MonoBehaviour
 
     public void Recover()
     {
-            
+
     }
 
     public void PlayerHit()
@@ -253,4 +265,3 @@ public class Chicken : MonoBehaviour
     }
 
 }
-
