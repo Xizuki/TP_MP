@@ -223,9 +223,21 @@ public class NamedPipeServer : MonoBehaviour
             lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
 
-            if (lastestLine == "Jump")
+            if (lastestLine.Contains("Trigger:"))
             {
-                jumpingPlayer.Jump();
+                string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':')+1);
+                print(boolean);
+
+                if(boolean == "True")
+                {
+                    jumpingPlayer.isCharging = true;
+                }
+                else if (boolean == "False")
+                {
+                    jumpingPlayer.isCharging = false;
+                }
+
+                //jumpingPlayer.isCharging();
             }
 
             if (lastestLine == "JumpCharge")

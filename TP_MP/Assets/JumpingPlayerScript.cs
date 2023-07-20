@@ -46,7 +46,7 @@ public class JumpingPlayerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y+20f, chickenExit.transform.position.z);
         
@@ -68,10 +68,18 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public bool namedPipeJumpCharging;
 
+    public bool isCharging;
     private void Inputs()
     {
-
-        if (Input.GetKey(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            isCharging = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            isCharging = false;
+        }
+        if (isCharging)
         {
             if (isGrounded)
             {
@@ -79,7 +87,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (isCharging)
         {
             if (isGrounded)
             {
@@ -87,7 +95,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 animator.SetBool("Charge", true);
             }
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        else if(!isCharging)
         {
             if (isGrounded)
             {

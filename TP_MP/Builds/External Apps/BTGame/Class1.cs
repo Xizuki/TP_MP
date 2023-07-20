@@ -78,7 +78,7 @@ namespace BTGame
 
             // Send the command to trigger the Jump method
             writer.WriteLine("JumpCharge"); // Command to trigger the Jump method
-            Console.Beep();
+            //Console.Beep();
 
             // Flush the writer and check for IOException (pipe broken)
             try
