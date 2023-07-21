@@ -77,6 +77,8 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void Inputs()
     {
+
+        // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
         if (Input.GetKeyDown(KeyCode.Q))
         {
             isCharging = true;
