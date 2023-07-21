@@ -115,6 +115,13 @@ public class Chicken : MonoBehaviour
         }
 
 
+  
+
+
+    }
+
+    private void FixedUpdate()
+    {
         if (playerDowned == true && abovePlayer == true) //If player is down and chicken has reached the player
         {
             Carrying();
@@ -128,12 +135,10 @@ public class Chicken : MonoBehaviour
 
         }
 
-        else if (isCarrying==true &&playerDowned == true) //Is player is being carried and is still down, take them to platform
+        else if (isCarrying == true && playerDowned == true) //Is player is being carried and is still down, take them to platform
         {
             TravelToPlatform();
         }
-
-
     }
 
     public void ExitStage() 

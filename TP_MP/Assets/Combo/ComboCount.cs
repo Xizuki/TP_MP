@@ -6,7 +6,6 @@ using TMPro;
 
 public class ComboCount : MonoBehaviour
 {
-
     public static int combo;
     public TMP_Text comboTxt;
     public ParticleSystem ringLight;

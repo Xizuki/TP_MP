@@ -14,6 +14,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public float jumpCharge;
     public float jumpChargeSpeedCurrent;
     public float jumpChargeSpeedMax;
+    public float jumpChargePrev;
     public Vector2 jumpAngleVector;
     public float rbJumpStrength;
     public ParticleSystem jumpParticle;
@@ -136,9 +137,13 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
+        transform.position += new Vector3(0, 0.01f, 0);
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge,jumpChargeScalar), ForceMode.Impulse);
+
+        jumpChargePrev = jumpCharge;
         jumpCharge = 0;
         isGrounded = false;
+
         SFX.jumpSound = true;
         animator.SetTrigger("Jump");
         Instantiate(jumpParticle, transform.position, transform.rotation);
@@ -150,14 +155,15 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
-            print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
 
+            ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
-            ComboCount.combo += 1;
-            ComboCount.hit = true;
-            SFX.scoreSound = true;
-            SFX.landSound = true;
-            Tweening.comboUp = true;
+            //ComboCount.combo += 1;
+            print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
+            //ComboCount.hit = true;
+            //SFX.scoreSound = true;
+            //SFX.landSound = true;
+            //Tweening.comboUp = true;
 
             if (collision.gameObject.GetComponent<PlatformScript>()== true)
             {
@@ -166,7 +172,7 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         else if (collision.contacts[0].point.y > feetPos.position.y)
         {
-            ComboCount.hit = false;
+            //ComboCount.hit = false;
         }
         if(collision.collider.tag == "Enemy")
         {

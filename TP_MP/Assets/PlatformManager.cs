@@ -12,6 +12,12 @@ public class PlatformManager : MonoBehaviour
     public static PlatformManager instance;
     public PlatformScript lastLandedPlatform;
 
+    public Score scoreScript;
+    public ComboCount comboCountScript;
+
+    public float chargeBarScoreMultiplyer;
+    public float chargeBarFullScoreMultiplyer;
+
     // Very half ass way of doing it, should be done in code if have time
     public Transform platformDissappearingPoint;
 
@@ -28,12 +34,37 @@ public class PlatformManager : MonoBehaviour
 
     public void SetLastLandedPlatform(PlatformScript collidedPlatform)
     {
+
+        if (lastLandedPlatform == collidedPlatform) { return; }
+
         if(collidedPlatform.transform.position.y < lastLandedPlatform.transform.position.y) { return; }
+
+        float oldPlatformY = lastLandedPlatform.transform.position.y;
 
         lastLandedPlatform = collidedPlatform;
 
         chicken.startingPlatform = collidedPlatform.gameObject;
 
+
+        float platformYDistance = lastLandedPlatform.transform.position.y - oldPlatformY;
+
+
+        float scoreMultiplied = player.jumpChargePrev * chargeBarScoreMultiplyer;
+        if(player.jumpChargePrev >= 1) { scoreMultiplied *= chargeBarFullScoreMultiplyer; }
+
+        // ADD VISUAL EFFECT TO ADD SCORE in FUTURE
+        scoreScript.AddScore(scoreMultiplied, platformYDistance);
+
+        AddCombo();
+    }
+
+    public void AddCombo()
+    {
+        ComboCount.combo += 1;
+        ComboCount.hit = true;
+        SFX.scoreSound = true;
+        SFX.landSound = true;
+        Tweening.comboUp = true;
     }
 
     // Update is called once per frame
