@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(JumpingPlayerScript))]
 public class JumpingPlayerUIScript : MonoBehaviour
@@ -20,7 +21,10 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Color startingColor;
     public Color endColor;
     public Color interpolatedColor;
+    public TextMeshPro chargeText;
+    float charge, maxCharge = 100;
 
+    public Image chargeBar;
     public Image sliderColor1;
     public Image sliderColor2;
     // Start is called before the first frame update
@@ -32,6 +36,12 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public void Start()
     {
         jumpingVectorEndPointYMaxDistance = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y);
+
+    }
+
+    private void Update()
+    {
+        if (charge > maxCharge) charge = maxCharge;
     }
     // Update is called once per frame
     void LateUpdate()
@@ -70,5 +80,10 @@ public class JumpingPlayerUIScript : MonoBehaviour
                 jumpChargeSliderFill.SetActive(true);
             }
         }
+    }
+
+    void ChargeBarFill()
+    {
+        chargeBar.fillAmount = charge / maxCharge;
     }
 }
