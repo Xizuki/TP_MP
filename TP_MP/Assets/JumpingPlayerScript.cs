@@ -37,6 +37,12 @@ public class JumpingPlayerScript : MonoBehaviour
     private float checkInputDelay = 1f; //How long before 'isInput' is reset
     private float checkInputDelayCountdown = 1f;
     public bool canRotate = true; //Used to lock rotations
+
+    public Collider shibaCollider;
+    public int hitStrength = 15;
+
+
+
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -52,7 +58,7 @@ public class JumpingPlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        shibaCollider = gameObject.GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -62,7 +68,7 @@ public class JumpingPlayerScript : MonoBehaviour
         ResetInputCountdown();
         Inputs();
      
-        if(canRotate==true)
+        //if(canRotate==true)
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0,-playerUI.jumpingVectorIndicator.transform.eulerAngles.z,0);
 
         //if(!chicken.playerDowned)
@@ -77,6 +83,22 @@ public class JumpingPlayerScript : MonoBehaviour
         return scaledValue;
     }
 
+    private void HitPhase()
+    {
+        Time.timeScale = 0;
+        shibaCollider.enabled = false;
+        rb.AddForce(new Vector3(0, hitStrength, 0), ForceMode.Impulse);
+        StartCoroutine(StartDelay());
+    }
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log("Back");
+        Time.timeScale = 1;
+        //new WaitForSecondsRealtime(1.0f);
+    }
+
     private void Inputs()
     {
         if (Input.GetKey(KeyCode.Q))
@@ -84,7 +106,7 @@ public class JumpingPlayerScript : MonoBehaviour
             chargeParticle.Play();
             //jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);//Logic for rotation when charging
             jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
-            //canRotate = false;//Logic for rotation when charging
+            canRotate = false;//Logic for rotation when charging
 
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -95,7 +117,7 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            // canRotate = true;//Logic for rotation when charging
+            canRotate = true;//Logic for rotation when charging
             chargeParticle.Stop();
             animator.SetBool("Charge", false);
         }
@@ -202,8 +224,10 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         if(collision.collider.tag == "Enemy")
         {
+          
             animator.SetTrigger("Hit");
             hitParticle.Play();
+            HitPhase();
         }
     }
 
