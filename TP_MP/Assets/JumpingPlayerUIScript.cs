@@ -46,9 +46,26 @@ public class JumpingPlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        // Player Head Looking at jump direection
-        float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
-        playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit* currentEndPointYDistanceRatio);
+        //Make player face camera
+        //If want to make player facefront, determined by timer
+        //If player is grounded
+        //If player can rotate, this is meant to stop player from resetting when charging
+        if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
+        {
+
+            playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);
+            player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+
+        //Make player look at jump direction
+        else if (player.faceFront == false && player.canRotate == true && player.isGrounded)
+        {
+
+            float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
+            playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
+        }
+
+
 
 
         // Interpolate the color between startColor and endColor based on the interpolationValue

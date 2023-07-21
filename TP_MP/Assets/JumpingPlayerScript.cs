@@ -29,13 +29,20 @@ public class JumpingPlayerScript : MonoBehaviour
     public GameObject chickenExit;
 
     public Collider shibaCollider;
-    public int hitStrength;
+    public int hitStrength = 15;
     public bool isGrounded;
     public bool isJumping;
     public Transform feetPos;
     public float fallingGravityStrength;
     public float jumpChargeScalar;
 
+
+    public bool faceFront = false;//Used to determine if should face front
+    public bool recentInput;// Used to check if there has been input recently
+    [SerializeField]
+    private float checkInputDelay = 1f; //How long before 'isInput' is reset
+    private float checkInputDelayCountdown = 1f;
+    public bool canRotate = true; //Used to lock rotations
 
     public void Awake()
     {
@@ -57,6 +64,9 @@ public class JumpingPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Timer();
+        ResetInputCountdown();
+        
         chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y + 20f, chickenExit.transform.position.z);
 
         Inputs();
@@ -124,6 +134,29 @@ public class JumpingPlayerScript : MonoBehaviour
         if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
             MoveJumpVectorPositive();
     }
+
+    private void Timer() //Timer goes down when no input
+    {
+        //if(recentInput==true)
+        //{
+        //    Debug.Log("Have Input!");
+        //    checkInputDelayCountdown = checkInputDelay;
+        //}
+        if (checkInputDelayCountdown > 0 && recentInput == false)
+        {
+            checkInputDelayCountdown -= Time.deltaTime;
+        }
+    }
+    private void ResetInputCountdown()// Timer resets and makes character face front
+    {
+        if (checkInputDelayCountdown <= 0)
+        {
+            faceFront = true;
+            checkInputDelayCountdown = checkInputDelay;
+        }
+
+    }
+
 
     private void MoveJumpVectorNegative()
     {
