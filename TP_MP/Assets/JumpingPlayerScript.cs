@@ -12,8 +12,10 @@ public class JumpingPlayerScript : MonoBehaviour
     public Rigidbody rb;
 
     public float jumpCharge;
+    public float jumpChargePrev;
     public float jumpChargeSpeedCurrent;
     public float jumpChargeSpeedMax;
+    public bool isCharging;
     public Vector2 jumpAngleVector;
     public float rbJumpStrength;
     public ParticleSystem jumpParticle;
@@ -33,6 +35,8 @@ public class JumpingPlayerScript : MonoBehaviour
     public Transform feetPos;
     public float fallingGravityStrength;
     public float jumpChargeScalar;
+
+
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -73,19 +77,27 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void Inputs()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            isCharging = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            isCharging = false;
+        }
+        if (isCharging)
         {
             chargeParticle.Play();
             jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (isCharging)
         {
             animator.SetTrigger("Charging");
             animator.SetBool("Charge", true);
             chargeTapParticle.Play();
             chargeTapParticle2.Play();
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (isCharging)
         {
             chargeParticle.Stop();
             animator.SetBool("Charge", false);
@@ -123,9 +135,13 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         if (!isGrounded || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge,jumpChargeScalar), ForceMode.Impulse);
+        transform.position += new Vector3(0, 0.01f, 0);
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
+
+        jumpChargePrev = jumpCharge;
         jumpCharge = 0;
         isGrounded = false;
+
         SFX.jumpSound = true;
         animator.SetTrigger("Jump");
         Instantiate(jumpParticle, transform.position, transform.rotation);
@@ -137,25 +153,26 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
-            print("collision.impulse.magnitude/38 = " + collision.impulse.magnitude / 35);
 
+            ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
-            ComboCount.combo += 1;
-            ComboCount.hit = true;
-            SFX.scoreSound = true;
-            SFX.landSound = true;
-            Tweening.comboUp = true;
+            //ComboCount.combo += 1;
+            print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
+            //ComboCount.hit = true;
+            //SFX.scoreSound = true;
+            //SFX.landSound = true;
+            //Tweening.comboUp = true;
 
-            if (collision.gameObject.GetComponent<PlatformScript>()== true)
+            if (collision.gameObject.GetComponent<PlatformScript>() == true)
             {
                 PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
             }
         }
         else if (collision.contacts[0].point.y > feetPos.position.y)
         {
-            ComboCount.hit = false;
+            //ComboCount.hit = false;
         }
-        if(collision.collider.tag == "Enemy")
+        if (collision.collider.tag == "Enemy")
         {
             animator.SetTrigger("Hit");
             hitParticle.Play();
