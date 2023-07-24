@@ -44,7 +44,7 @@ public class NamedPipeServer : MonoBehaviour
         Task.Run(async () =>
         {
             await WaitForConnectionAsync(cancellationToken);
-        }).Wait();
+        });
         //waitingTask = 
         cancellationTokenSource.Cancel();
         Debug.Log("Start() 2 ");
