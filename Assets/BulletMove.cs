@@ -10,10 +10,12 @@ public class BulletMove : MonoBehaviour
     public ParticleSystem aura;
     public MeshRenderer bulletMesh;
     public SphereCollider bulletCollider;
+    public int destroyTimer;
 
     private void Update()
     {
         FlyBullet();
+        Destroy(gameObject, destroyTimer);
     }
 
     public void FlyBullet()
@@ -28,9 +30,9 @@ public class BulletMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            if(collision.gameObject.GetComponent<ShieldPowerUp>().isActivated)
+            if (collision.gameObject.GetComponent<ShieldPowerUp>().isActivated)
             {
                 return;
             }
@@ -40,12 +42,5 @@ public class BulletMove : MonoBehaviour
         Debug.Log("Hit");
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
-        StartCoroutine(DestroyBullet());
-
-        IEnumerator DestroyBullet()
-        {
-            yield return new WaitForSeconds(8.0f);
-            Destroy(gameObject);
-        }
     }
 }
