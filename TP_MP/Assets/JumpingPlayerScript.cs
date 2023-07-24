@@ -92,10 +92,13 @@ public class JumpingPlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             isCharging = true;
+            canRotate = false;//Logic for rotation when charging
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
             isCharging = false;
+            canRotate = true;//Logic for rotation when charging
+
         }
         if (isCharging)
         {
@@ -130,9 +133,21 @@ public class JumpingPlayerScript : MonoBehaviour
         }
 
         if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
+        {
+            //recentInput = true;
+            faceFront = false;
+            checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
             MoveJumpVectorNegative();
+            recentInput = false;
+        }
         if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
+        {
+            //recentInput = true;
+            faceFront = false;
+            checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
             MoveJumpVectorPositive();
+            recentInput = false;
+        }
     }
 
     private void Timer() //Timer goes down when no input
