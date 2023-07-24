@@ -38,7 +38,8 @@ public class BulletMove : MonoBehaviour
 
 
         Debug.Log("Hit");
-        explosion.Play();
+        Instantiate(explosion);
+        Destroy(gameObject);
         bulletMesh.enabled = false;
         bulletCollider.enabled = false;
         aura.Stop();

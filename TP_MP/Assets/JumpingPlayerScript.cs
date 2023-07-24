@@ -91,6 +91,7 @@ public class JumpingPlayerScript : MonoBehaviour
         // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            animator.SetBool("Charge", true);
             isCharging = true;
             canRotate = false;//Logic for rotation when charging
         }
@@ -98,24 +99,19 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             isCharging = false;
             canRotate = true;//Logic for rotation when charging
+            animator.SetBool("Charge", false);
 
         }
         if (isCharging)
         {
             chargeParticle.Play();
             jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
-        }
-        if (isCharging)
-        {
-            animator.SetTrigger("Charging");
-            animator.SetBool("Charge", true);
             chargeTapParticle.Play();
             chargeTapParticle2.Play();
         }
-        if (isCharging)
+        if (!isCharging)
         {
             chargeParticle.Stop();
-            animator.SetBool("Charge", false);
         }
         if(jumpCharge > 1)
         {
