@@ -46,7 +46,7 @@ namespace GameInterface
                 writer = new StreamWriter(clientStream);
             }
             Console.WriteLine("IsConnected: " + clientStream.IsConnected);
-
+            
             // Send the command to trigger the Jump method
             writer.WriteLine("Jump"); // Command to trigger the Jump method
             Console.Beep();
