@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JumpingPlayerCameraScript : MonoBehaviour
 {
+    //test
     public GameObject player;
     public float yOffset;
     public float highestY;
