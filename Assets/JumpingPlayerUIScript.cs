@@ -17,6 +17,9 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Transform jumpingVectorIndicatorEndPoint;
     public float jumpingVectorEndPointYMaxDistance;
     public float playerHeadLookUpAngleLimit;
+    public ParticleSystem[] interpolateParticle;
+    //private ParticleSystem.MainModule interpolateps;
+    //private ParticleSystem.MainModule interpolateps2;
 
     public Color startingColor;
     public Color endColor;
@@ -36,12 +39,18 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public void Start()
     {
         jumpingVectorEndPointYMaxDistance = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y);
+        //interpolateps = interpolateParticle[1].main;
+        //interpolateps2 = interpolateParticle[2].main;
+
 
     }
 
     private void Update()
     {
         if (charge > maxCharge) charge = maxCharge;
+        //interpolateps.startColor = interpolatedColor;
+        //interpolateps2.startColor = interpolatedColor;
+
     }
     // Update is called once per frame
     void LateUpdate()
