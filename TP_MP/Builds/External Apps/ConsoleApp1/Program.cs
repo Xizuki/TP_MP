@@ -12,7 +12,7 @@ namespace ConsoleApp1
     {
         static NamedPipeClientStream clientStream;
         static StreamWriter writer;
-
+        static int i = 0;
         static void Main()
         {
             while (true)
@@ -30,13 +30,14 @@ namespace ConsoleApp1
                 Console.WriteLine("IsConnected: " + clientStream.IsConnected);
 
                 // Send the command to trigger the Jump method
-                writer.WriteLine("Jump"); // Command to trigger the Jump method
+                writer.WriteLine("test " + i); // Command to trigger the Jump method
                 Console.Beep();
 
                 // Flush the writer and check for IOException (pipe broken)
                 try
                 {
                     writer.Flush();
+                    i++;
                 }
                 catch (IOException ex)
                 {
