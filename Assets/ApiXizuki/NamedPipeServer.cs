@@ -11,7 +11,8 @@ public class NamedPipeServer : MonoBehaviour
 
     private NamedPipeServerStream pipeServer;
     private bool isRunning = true;
-    public bool isConnected = false;
+    //public bool isConnected = false;
+    private StreamReader reader;
 
     private void Start()
     {
@@ -26,7 +27,6 @@ public class NamedPipeServer : MonoBehaviour
     {
         // Set isRunning to false to exit the server loop gracefully
         isRunning = false;
-        i = 10;
         // Close the pipe server if it was created
         if (pipeServer != null)
         {
@@ -49,93 +49,129 @@ public class NamedPipeServer : MonoBehaviour
         // Start a coroutine to handle the named pipe server asynchronously
         StartCoroutine(NamedPipeServerCoroutine());
     }
-    int i = 0;
+    //int i = 0;
     IAsyncResult result;
+
     private IEnumerator NamedPipeServerCoroutine()
     {
-        //print("NamedPipeServerCoroutine  1");
-        while (i<1)
+        while (isRunning)
         {
-            //print("isConnected 1 = " + isConnected);
-
-
-            //if (pipeServer!=null)
-            //    print("pipeServer.IsConnected 1 = " + pipeServer.IsConnected);
-            if (!isConnected)
+            if (pipeServer == null || !pipeServer.IsConnected)
             {
                 // Replace the named pipe server creation with async version for Unity
-                pipeServer = new NamedPipeServerStream(pipeName);
+                pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
 
-
-                //print("NamedPipeServerCoroutine  3");
-                //print("pipeServer.IsConnected 1.5 = " + pipeServer.IsConnected);
-
-                // Start the asynchronous operation to wait for the client connection\
+                // Start the asynchronous operation to wait for the client connection
                 result = pipeServer.BeginWaitForConnection(OnClientConnected, null);
-                //print("NamedPipeServerCoroutine  4");
+            }
+            // Wait for the connection or timeout
+            float startTime = Time.time;
+            while (!result.IsCompleted)
+            {
+                yield return null; // Yield until the next frame
+            }
 
-                //print("pipeServer.IsConnected 2 = " + pipeServer.IsConnected);
-                //print("isConnected 2 = " + isConnected);
-
-                while (!result.IsCompleted)
-                {
-                    print("1result.IsCompleted");
-                    yield return null; // Yield until the next frame
-                    
-                }
-
-                //print("isConnected 3 = " + isConnected);
-
-                //print("pipeServer.IsConnected 3 = " + pipeServer.IsConnected);
-
+            if (pipeServer == null || !pipeServer.IsConnected)
+            {
+                // Complete the connection process
                 pipeServer.EndWaitForConnection(result);
             }
-            //print("NamedPipeServerCoroutine  5");
-
-            //print("NamedPipeServerCoroutine  6");
-            //print("pipeServer.IsConnected 4 = " + pipeServer.IsConnected);
-
-            //Complete the connection process
-            //pipeServer.EndWaitForConnection(result);
-            //print("NamedPipeServerCoroutine  5");
 
             // Handle communication with the connected client here...
-            // For example, you can use StreamReader and StreamWriter to read and write data on the pipe.
+            //HandleClientCommunication(pipeServer);
 
-            // After communication, close the pipe
-            //if(!isConnected)
-            ////    pipeServer.Close();
-            //try
-            //{
-            //    // Attempt to read or write to the pipe
-            //    pipeServer.ReadByte();
-            //    Debug.Log("The pipe stream is not broken.");
-            //}
-            //catch (IOException ex) when (IsPipeBrokenException(ex))
-            //{
+            // Do not close the pipe after communication; keep it open for the next messages
+            //pipeServer.Close();
 
-            //    Debug.Log("The pipe stream is broken.");
-            //}
-
-            //isRunning = false;
-            i++;
+            isRunning = false;
         }
 
-        pipeServer.EndWaitForConnection(result);
-        pipeServer.Close();
-
     }
-
-    private StreamReader reader;
-
-    //static bool IsPipeBrokenException(IOException ex)
+    //private IEnumerator NamedPipeServerCoroutine()
     //{
-    //    const int ERROR_PIPE_NOT_CONNECTED = 233;
-    //    const int ERROR_NO_DATA = 232;
+    //    //print("NamedPipeServerCoroutine  1");
+    //    while (isRunning)
+    //    {
+    //        //print("isConnected 1 = " + isConnected);
 
-    //    var errorCode = ex.HResult & 0xFFFF;
-    //    return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
+
+    //        //if (pipeServer!=null)
+
+    //        //if (!isConnected)
+    //        //{ 
+    //        // print("pipeServer.IsConnected 1 = " + pipeServer.IsConnected);
+    //        // Replace the named pipe server creation with async version for Unity
+    //        pipeServer = new NamedPipeServerStream(pipeName);
+
+
+    //        //print("NamedPipeServerCoroutine  3");
+    //        //print("pipeServer.IsConnected 1.5 = " + pipeServer.IsConnected);
+
+    //        // Start the asynchronous operation to wait for the client connection\
+    //        IAsyncResult result = pipeServer.BeginWaitForConnection(OnClientConnected, null);
+    //        //print("NamedPipeServerCoroutine  4");
+
+    //        //print("pipeServer.IsConnected 2 = " + pipeServer.IsConnected);
+    //        //print("isConnected 2 = " + isConnected);
+
+    //        while (!result.IsCompleted)
+    //        {
+    //            print("1result.IsCompleted");
+    //            yield return null; // Yield until the next frame
+
+    //        }
+
+    //        //print("isConnected 3 = " + isConnected);
+
+    //        //print("pipeServer.IsConnected 3 = " + pipeServer.IsConnected);
+
+    //        //pipeServer.EndWaitForConnection(result);
+    //        //}
+    //        //print("NamedPipeServerCoroutine  5");
+
+    //        //print("NamedPipeServerCoroutine  6");
+    //        //print("pipeServer.IsConnected 4 = " + pipeServer.IsConnected);
+
+    //        //Complete the connection process
+    //        pipeServer.EndWaitForConnection(result);
+    //        //print("NamedPipeServerCoroutine  5");
+
+    //        // Handle communication with the connected client here...
+    //        // For example, you can use StreamReader and StreamWriter to read and write data on the pipe.
+
+    //        // After communication, close the pipe
+    //        //if(!isConnected)
+    //        pipeServer.Close();
+    //        //try
+    //        //{
+    //        //    // Attempt to read or write to the pipe
+    //        //    pipeServer.ReadByte();
+    //        //    Debug.Log("The pipe stream is not broken.");
+    //        //}
+    //        //catch (IOException ex) when (IsPipeBrokenException(ex))
+    //        //{
+
+    //        //    Debug.Log("The pipe stream is broken.");
+    //        //}
+
+    //        //isRunning = false;
+
+    //    }
+
+    //    //pipeServer.EndWaitForConnection(result);
+    //    //pipeServer.Close();
+
     //}
+
+
+    static bool IsPipeBrokenException(IOException ex)
+    {
+        const int ERROR_PIPE_NOT_CONNECTED = 233;
+        const int ERROR_NO_DATA = 232;
+
+        var errorCode = ex.HResult & 0xFFFF;
+        return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
+    }
     public void Update()
     {
         //print("pipeServer.IsConnected UPDATE = " + pipeServer.IsConnected);
@@ -151,19 +187,19 @@ public class NamedPipeServer : MonoBehaviour
     private void OnClientConnected(IAsyncResult result)
     {
         //isConnected = true;
-        //reader = new StreamReader(pipeServer);
-        //ReadMessage();
-        //try
-        //{
-        //    // Attempt to read or write to the pipe
-        //    pipeServer.ReadByte();
-        //    Debug.Log("The pipe stream is not broken.");
-        //}
-        //catch (IOException ex) when (IsPipeBrokenException(ex))
-        //{
+        reader = new StreamReader(pipeServer);
+        ReadMessage();
+        try
+        {
+            // Attempt to read or write to the pipe
+            pipeServer.ReadByte();
+            Debug.Log("The pipe stream is not broken.");
+        }
+        catch (IOException ex) when (IsPipeBrokenException(ex))
+        {
 
-        //    Debug.Log("The pipe stream is broken.");
-        //}
+            Debug.Log("The pipe stream is broken.");
+        }
 
         print("OnClientConnected()");
     }
