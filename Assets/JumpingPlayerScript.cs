@@ -23,6 +23,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem chargeParticle;
     public ParticleSystem chargeTapParticle;
     public ParticleSystem chargeTapParticle2;
+    public ParticleSystem maxParticle;
 
     public Animator animator;
     public Chicken chicken;
@@ -43,7 +44,6 @@ public class JumpingPlayerScript : MonoBehaviour
     private float checkInputDelay = 1f; //How long before 'isInput' is reset
     private float checkInputDelayCountdown = 1f;
     public bool canRotate = true; //Used to lock rotations
-
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -116,6 +116,7 @@ public class JumpingPlayerScript : MonoBehaviour
         if(jumpCharge > 1)
         {
             jumpCharge = 1;
+            maxParticle.Play();
         }
 
         float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
