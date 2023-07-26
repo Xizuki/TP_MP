@@ -16,4 +16,9 @@ public class PowerUpScript : MonoBehaviour
     {
 
     }
+
+    public virtual void Timer()
+    {
+
+    }
 }

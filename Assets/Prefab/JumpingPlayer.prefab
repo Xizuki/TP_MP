@@ -3252,6 +3252,7 @@ GameObject:
   - component: {fileID: 3426643511485465010}
   - component: {fileID: 683046005}
   - component: {fileID: 1187221124590797305}
+  - component: {fileID: 4677802610462506536}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -3339,6 +3340,7 @@ MonoBehaviour:
   chargeParticle: {fileID: 4442282040650204703}
   chargeTapParticle: {fileID: 1338137462379808626}
   chargeTapParticle2: {fileID: 4782692192381082906}
+  maxParticle: {fileID: 0}
   animator: {fileID: 8824464932080693796}
   chicken: {fileID: 0}
   chickenExit: {fileID: 0}
@@ -3349,6 +3351,10 @@ MonoBehaviour:
   feetPos: {fileID: 8824464932100929528}
   fallingGravityStrength: 15
   jumpChargeScalar: 2
+  faceFront: 0
+  recentInput: 0
+  checkInputDelay: 1
+  canRotate: 1
 --- !u!114 &8824464933389489937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3377,7 @@ MonoBehaviour:
   jumpingVectorIndicatorEndPoint: {fileID: 8824464934056851840}
   jumpingVectorEndPointYMaxDistance: 0
   playerHeadLookUpAngleLimit: 55
+  interpolateParticle: []
   startingColor: {r: 0.93333334, g: 0.070463926, b: 0, a: 1}
   endColor: {r: 0.14653397, g: 1, b: 0, a: 1}
   interpolatedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3378,6 +3385,7 @@ MonoBehaviour:
   chargeBar: {fileID: 0}
   sliderColor1: {fileID: 9060242239033315537}
   sliderColor2: {fileID: 9060242239033315537}
+  faceForward: {x: 0, y: 0, z: 270}
 --- !u!114 &683046004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,6 +3443,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.76799035
   m_Center: {x: -0.0031882524, y: 0.2220521, z: 0.103878975}
+--- !u!114 &4677802610462506536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0
