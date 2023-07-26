@@ -8,7 +8,7 @@ using System.Collections;
 public class NamedPipeServer : MonoBehaviour
 {
     public string pipeName = "MyNamedPipe";
-
+    public JumpingPlayerScript jumpingPlayer;
     private NamedPipeServerStream pipeServer;
     private bool isRunning = true;
     //public bool isConnected = false;
@@ -16,6 +16,7 @@ public class NamedPipeServer : MonoBehaviour
 
     private void Start()
     {
+        jumpingPlayer = GetComponent<JumpingPlayerScript>();
         // Register the Application.quitting event to handle application exit
         Application.quitting += HandleApplicationQuit;
 
@@ -224,6 +225,16 @@ public class NamedPipeServer : MonoBehaviour
                 string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
                 print(boolean);
 
+                if (boolean == "True")
+                {
+                    jumpingPlayer.isCharging = true;
+                }
+                else if (boolean == "False")
+                {
+                    jumpingPlayer.isCharging = false;
+                }
+
+                //jumpingPlayer.isCharging();
             }
 
 
