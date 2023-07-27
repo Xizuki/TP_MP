@@ -5,11 +5,12 @@ using UnityEngine;
 public class InvulnerableJump : MonoBehaviour
 {
     public JumpingPlayerScript jumpingPlayer;
-    public GameObject colliderInv;
+    public SphereCollider colliderInv;
 
     private void Start()
     {
         jumpingPlayer = GetComponent<JumpingPlayerScript>();
+        StartCoroutine(Invulnerability());
     }
 
     private void Update()
@@ -20,10 +21,15 @@ public class InvulnerableJump : MonoBehaviour
         }
     }
 
-    public void Invulnerability()
+    private IEnumerator Invulnerability()
     {
-        colliderInv.SetActive(true);
+        colliderInv.enabled = !colliderInv.enabled;
+        yield return new WaitForSeconds(2.0f);
+        Debug.Log("Works");
+        colliderInv.enabled = colliderInv.enabled;
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {

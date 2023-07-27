@@ -55,6 +55,8 @@ public class PlatformManager : MonoBehaviour
         // ADD VISUAL EFFECT TO ADD SCORE in FUTURE
         scoreScript.AddScore(scoreMultiplied, platformYDistance);
 
+        
+
         AddCombo();
     }
 
