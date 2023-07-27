@@ -38,6 +38,15 @@ public class JumpingPlayerInputs : MonoBehaviour
     {
         CheckOptions();
 
+        if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
+        {
+            jumpingPlayer.IncrementalMoveJumpVectorNegative();
+        }
+        if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
+        {
+            jumpingPlayer.IncrementalMoveJumpVectorPositive();
+        }
+
         if (inputs.GameActions2.MovePlayerRight.IsPressed())
         {
             jumpingPlayer.MovePlayer(1);

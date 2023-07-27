@@ -107,6 +107,7 @@ public class JumpingPlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             animator.SetBool("Charge", true);
+            SFX.charging = true; //Added charging SFX
             isCharging = true;
             canRotate = false;//Logic for rotation when charging
         }
@@ -216,6 +217,11 @@ public class JumpingPlayerScript : MonoBehaviour
         isGrounded = false;
 
         SFX.jumpSound = true;
+
+        if (Random.Range(1,5) >= 3)
+        {
+            SFX.voiceJump = true; //Added jumping voice
+        }
         animator.SetTrigger("Jump");
         Instantiate(jumpParticle, transform.position, transform.rotation);
     }
@@ -247,7 +253,7 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         if (collision.collider.tag == "Enemy")
         {
-            animator.SetTrigger("Hit");
+            animator.SetTrigger("Hit"); 
             hitParticle.Play();
             HitPhase();
         }
@@ -259,13 +265,14 @@ public class JumpingPlayerScript : MonoBehaviour
         shibaCollider.enabled = false;
         rb.AddForce(new Vector3(0, hitStrength, 0), ForceMode.Impulse);
         StartCoroutine(StartDelay());
+        SFX.hit = true;
     }
 
 
 
     IEnumerator StartDelay()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.15f); //Reduced the delay 0.5 -> 0.15
         Debug.Log("Back");
         Time.timeScale = 1;
     }
