@@ -44,22 +44,38 @@ public class JumpingPlayerScript : MonoBehaviour
     private float checkInputDelayCountdown = 1f;
     public bool canRotate = true; //Used to lock rotations
 
+    private Vector2 joystickVector;
     public void Awake()
     {
         inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();
 
-        inputs.GameActions.Enable();
+        //inputs.GameActions.Enable();
 
-        inputs.GameActions.Jump.performed += a => Jump();
+        //inputs.GameActions.Jump.performed += a => Jump();
+        //inputs.GameActions.Input.performed += a => SetJoyStickVector2(a.ReadValue<Vector2>());
+    }
+
+    public void MovePlayer(int value)
+    {
+        transform.position += new Vector3(value, 0f, 0f) * Time.deltaTime;
+        rb.velocity += new Vector3(value, 0f, 0f) * Time.deltaTime;
+    }
+
+    public void SetJoyStickVector2(Vector2 vector)
+    {
+        joystickVector = vector;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         shibaCollider = gameObject.GetComponent<BoxCollider>();
+
+        eulerY = playerUI.jumpingVectorIndicator.transform.eulerAngles.y;
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -87,7 +103,6 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void Inputs()
     {
-
         // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -127,24 +142,37 @@ public class JumpingPlayerScript : MonoBehaviour
             playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(0, 0, playerUI.jumpingVectorAngleLimit * negative);
             return;
         }
-
-        if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
-        {
-            //recentInput = true;
-            faceFront = false;
-            checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-            MoveJumpVectorNegative();
-            recentInput = false;
-        }
-        if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
-        {
-            //recentInput = true;
-            faceFront = false;
-            checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
-            MoveJumpVectorPositive();
-            recentInput = false;
-        }
     }
+
+    public float eulerY;
+    public void MoveJumpVectorV3(Vector2 v2)
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
+        recentInput = false;
+
+        playerUI.jumpingVectorIndicator.transform.up = new Vector3(v2.x, v2.y, 0) ;
+    }
+    public void IncrementalMoveJumpVectorNegative()
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
+        MoveJumpVectorNegative();
+        recentInput = false;
+    }
+    public void IncrementalMoveJumpVectorPositive()
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
+        MoveJumpVectorPositive();
+        recentInput = false;
+    }
+
+
+
 
     private void Timer() //Timer goes down when no input
     {
@@ -167,7 +195,6 @@ public class JumpingPlayerScript : MonoBehaviour
         }
 
     }
-
 
     private void MoveJumpVectorNegative()
     {

@@ -31,7 +31,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""MoveJumpVectorNegative"",
                     ""type"": ""Value"",
                     ""id"": ""8911b922-f9a7-4a61-9ff1-caa71ca6c405"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -46,9 +46,27 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Input"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""d4dc813f-bb80-4f74-9823-0510360b9e28"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""52e20a42-39dc-4ede-9e88-71ae82fe5574"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""2982d4db-f695-4861-ab8b-599ce140f39b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -121,6 +139,507 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff554a40-a31b-4dc6-a6dd-c6de65dde30b"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9c184d0-b902-480d-b745-c9ac9c86f82e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameActions1"",
+            ""id"": ""e4cdc12d-588f-4675-88e3-5b8e4ffda98b"",
+            ""actions"": [
+                {
+                    ""name"": ""Input"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""5e1410e0-3832-4e10-a6be-2af81068b29c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd683697-bac3-4257-a73b-999aa49e25ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""10c950e7-95c5-49f3-a83b-234f3d7ac36c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f6d5ef4-f7e4-46bb-9e06-5b5e03b22778"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameActions2"",
+            ""id"": ""edafdcc0-465a-4a68-964c-26be54801151"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveJumpVector"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b8c3d51c-c36d-4b38-a06d-0db6cd6e58a6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""e45bafdb-dd24-4163-bad9-0d173e1de98a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerLeft"",
+                    ""type"": ""Value"",
+                    ""id"": ""3c67a27f-23d6-480b-b8db-775596f33303"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""94861725-dc32-4b91-b73a-0d73a9efa200"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2f7f2215-fd73-46ee-aa66-847fe6929879"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c375cc6-7caa-4bad-97c9-b78bd4a4f019"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""feaacebd-398f-4fed-8f14-617292608d4b"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5923afbc-9de3-4290-9789-d5856c65d9c9"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameActions3"",
+            ""id"": ""03e75188-db45-4ecc-a5b0-673b14553505"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveJumpVector"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6301b471-ae62-445c-9b02-8aca7bdf7892"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""2db339ac-3beb-4eac-996e-3d49e36770b1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerLeft"",
+                    ""type"": ""Value"",
+                    ""id"": ""0f23f28a-9242-4947-af20-d3ce014fe997"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""af214a37-204e-4124-8cae-636a4069e0f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""74055b7c-69bc-4b42-aa2e-2b2726d6a027"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce5026ea-7f89-4cf7-a50e-acbc2f02f9a9"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""921ad03a-e09a-4d8c-b2bc-a1ca529cf48f"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2e06485-b1b1-4ac4-a134-8a565724a19a"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameActions4"",
+            ""id"": ""aa8b232c-dcb1-4d6f-942a-0ea43688c534"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveJumpVectorPositive"",
+                    ""type"": ""Button"",
+                    ""id"": ""330af6e9-9f3b-4419-8d20-e1824db7cb56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveJumpVectorNegative"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8cd9c3c-62c7-4566-bc90-ce16b7a4813c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayer"",
+                    ""type"": ""Button"",
+                    ""id"": ""044f1da1-079a-454e-9029-3120ab26943b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""9db58e87-26e5-434b-9d31-640074484b03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""809ad2c2-4e6a-455a-a51b-985e82a1b777"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""674765cb-9321-4b70-b386-1c03f196fd84"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3e95293-291e-4de1-9365-6790eded9e16"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorNegative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""965331a8-b7be-428d-b0a4-cd9c84d74330"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorPositive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameActions5"",
+            ""id"": ""d8dc6660-aea0-44ee-9cc8-0a675ee5d982"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveJumpVectorPositive"",
+                    ""type"": ""Button"",
+                    ""id"": ""0232bb35-bc35-4758-b9af-e7403e5f3ba1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveJumpVectorNegative"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9ab6da2-7b6c-4a3a-91e9-0a8fcab4db50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayer"",
+                    ""type"": ""Button"",
+                    ""id"": ""6213dab1-a131-40c7-8a6c-1fb635b98ece"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""df27b514-6e15-43c9-9b74-77f83a478c64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4a32c90c-2003-4658-a713-51ef74d994fa"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89191cff-b609-420d-84f1-27fe8a15dadc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abeec635-501d-4803-accc-244df61c80bb"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorNegative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f02f8b78-8b1d-4da2-bc71-0475fbc9b960"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorPositive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameActions6"",
+            ""id"": ""b673466d-9b3e-44f8-9266-5ab59eb8d2e8"",
+            ""actions"": [
+                {
+                    ""name"": ""Input"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""2e5f0e39-85e5-49fb-b52a-1122a4f671a6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""b80d2734-045b-4ec9-b05b-40f2e48e0b6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionChange"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8541abca-e46d-4909-9700-00bbeff8ea05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""21cecdf8-81e3-4246-a05a-c88810c9bd85"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31fe06d2-c57f-47bd-9bdf-f9bd69a52917"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d6bc2df-0c93-4bc8-9bf9-78cd123dbd81"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6193b1d-de7f-43c7-aab8-185a80262368"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -131,7 +650,42 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_GameActions = asset.FindActionMap("GameActions", throwIfNotFound: true);
         m_GameActions_MoveJumpVectorNegative = m_GameActions.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
         m_GameActions_MoveJumpVectorPositive = m_GameActions.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
+        m_GameActions_Input = m_GameActions.FindAction("Input", throwIfNotFound: true);
         m_GameActions_Jump = m_GameActions.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions_Newaction = m_GameActions.FindAction("New action", throwIfNotFound: true);
+        // GameActions1
+        m_GameActions1 = asset.FindActionMap("GameActions1", throwIfNotFound: true);
+        m_GameActions1_Input = m_GameActions1.FindAction("Input", throwIfNotFound: true);
+        m_GameActions1_Jump = m_GameActions1.FindAction("Jump", throwIfNotFound: true);
+        // GameActions2
+        m_GameActions2 = asset.FindActionMap("GameActions2", throwIfNotFound: true);
+        m_GameActions2_MoveJumpVector = m_GameActions2.FindAction("MoveJumpVector", throwIfNotFound: true);
+        m_GameActions2_MovePlayerRight = m_GameActions2.FindAction("MovePlayerRight", throwIfNotFound: true);
+        m_GameActions2_MovePlayerLeft = m_GameActions2.FindAction("MovePlayerLeft", throwIfNotFound: true);
+        m_GameActions2_Jump = m_GameActions2.FindAction("Jump", throwIfNotFound: true);
+        // GameActions3
+        m_GameActions3 = asset.FindActionMap("GameActions3", throwIfNotFound: true);
+        m_GameActions3_MoveJumpVector = m_GameActions3.FindAction("MoveJumpVector", throwIfNotFound: true);
+        m_GameActions3_MovePlayerRight = m_GameActions3.FindAction("MovePlayerRight", throwIfNotFound: true);
+        m_GameActions3_MovePlayerLeft = m_GameActions3.FindAction("MovePlayerLeft", throwIfNotFound: true);
+        m_GameActions3_Jump = m_GameActions3.FindAction("Jump", throwIfNotFound: true);
+        // GameActions4
+        m_GameActions4 = asset.FindActionMap("GameActions4", throwIfNotFound: true);
+        m_GameActions4_MoveJumpVectorPositive = m_GameActions4.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
+        m_GameActions4_MoveJumpVectorNegative = m_GameActions4.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
+        m_GameActions4_MovePlayer = m_GameActions4.FindAction("MovePlayer", throwIfNotFound: true);
+        m_GameActions4_Jump = m_GameActions4.FindAction("Jump", throwIfNotFound: true);
+        // GameActions5
+        m_GameActions5 = asset.FindActionMap("GameActions5", throwIfNotFound: true);
+        m_GameActions5_MoveJumpVectorPositive = m_GameActions5.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
+        m_GameActions5_MoveJumpVectorNegative = m_GameActions5.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
+        m_GameActions5_MovePlayer = m_GameActions5.FindAction("MovePlayer", throwIfNotFound: true);
+        m_GameActions5_Jump = m_GameActions5.FindAction("Jump", throwIfNotFound: true);
+        // GameActions6
+        m_GameActions6 = asset.FindActionMap("GameActions6", throwIfNotFound: true);
+        m_GameActions6_Input = m_GameActions6.FindAction("Input", throwIfNotFound: true);
+        m_GameActions6_Jump = m_GameActions6.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions6_ActionChange = m_GameActions6.FindAction("ActionChange", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -195,14 +749,18 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private List<IGameActionsActions> m_GameActionsActionsCallbackInterfaces = new List<IGameActionsActions>();
     private readonly InputAction m_GameActions_MoveJumpVectorNegative;
     private readonly InputAction m_GameActions_MoveJumpVectorPositive;
+    private readonly InputAction m_GameActions_Input;
     private readonly InputAction m_GameActions_Jump;
+    private readonly InputAction m_GameActions_Newaction;
     public struct GameActionsActions
     {
         private @ControllerInput m_Wrapper;
         public GameActionsActions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions_MoveJumpVectorNegative;
         public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions_MoveJumpVectorPositive;
+        public InputAction @Input => m_Wrapper.m_GameActions_Input;
         public InputAction @Jump => m_Wrapper.m_GameActions_Jump;
+        public InputAction @Newaction => m_Wrapper.m_GameActions_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_GameActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -218,9 +776,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
+            @Input.started += instance.OnInput;
+            @Input.performed += instance.OnInput;
+            @Input.canceled += instance.OnInput;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
         }
 
         private void UnregisterCallbacks(IGameActionsActions instance)
@@ -231,9 +795,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
+            @Input.started -= instance.OnInput;
+            @Input.performed -= instance.OnInput;
+            @Input.canceled -= instance.OnInput;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
         }
 
         public void RemoveCallbacks(IGameActionsActions instance)
@@ -251,10 +821,447 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         }
     }
     public GameActionsActions @GameActions => new GameActionsActions(this);
+
+    // GameActions1
+    private readonly InputActionMap m_GameActions1;
+    private List<IGameActions1Actions> m_GameActions1ActionsCallbackInterfaces = new List<IGameActions1Actions>();
+    private readonly InputAction m_GameActions1_Input;
+    private readonly InputAction m_GameActions1_Jump;
+    public struct GameActions1Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public GameActions1Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Input => m_Wrapper.m_GameActions1_Input;
+        public InputAction @Jump => m_Wrapper.m_GameActions1_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_GameActions1; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions1Actions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions1Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActions1ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActions1ActionsCallbackInterfaces.Add(instance);
+            @Input.started += instance.OnInput;
+            @Input.performed += instance.OnInput;
+            @Input.canceled += instance.OnInput;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IGameActions1Actions instance)
+        {
+            @Input.started -= instance.OnInput;
+            @Input.performed -= instance.OnInput;
+            @Input.canceled -= instance.OnInput;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IGameActions1Actions instance)
+        {
+            if (m_Wrapper.m_GameActions1ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions1Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActions1ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActions1ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions1Actions @GameActions1 => new GameActions1Actions(this);
+
+    // GameActions2
+    private readonly InputActionMap m_GameActions2;
+    private List<IGameActions2Actions> m_GameActions2ActionsCallbackInterfaces = new List<IGameActions2Actions>();
+    private readonly InputAction m_GameActions2_MoveJumpVector;
+    private readonly InputAction m_GameActions2_MovePlayerRight;
+    private readonly InputAction m_GameActions2_MovePlayerLeft;
+    private readonly InputAction m_GameActions2_Jump;
+    public struct GameActions2Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public GameActions2Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveJumpVector => m_Wrapper.m_GameActions2_MoveJumpVector;
+        public InputAction @MovePlayerRight => m_Wrapper.m_GameActions2_MovePlayerRight;
+        public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions2_MovePlayerLeft;
+        public InputAction @Jump => m_Wrapper.m_GameActions2_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_GameActions2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions2Actions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActions2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActions2ActionsCallbackInterfaces.Add(instance);
+            @MoveJumpVector.started += instance.OnMoveJumpVector;
+            @MoveJumpVector.performed += instance.OnMoveJumpVector;
+            @MoveJumpVector.canceled += instance.OnMoveJumpVector;
+            @MovePlayerRight.started += instance.OnMovePlayerRight;
+            @MovePlayerRight.performed += instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled += instance.OnMovePlayerRight;
+            @MovePlayerLeft.started += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled += instance.OnMovePlayerLeft;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IGameActions2Actions instance)
+        {
+            @MoveJumpVector.started -= instance.OnMoveJumpVector;
+            @MoveJumpVector.performed -= instance.OnMoveJumpVector;
+            @MoveJumpVector.canceled -= instance.OnMoveJumpVector;
+            @MovePlayerRight.started -= instance.OnMovePlayerRight;
+            @MovePlayerRight.performed -= instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled -= instance.OnMovePlayerRight;
+            @MovePlayerLeft.started -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled -= instance.OnMovePlayerLeft;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IGameActions2Actions instance)
+        {
+            if (m_Wrapper.m_GameActions2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActions2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActions2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions2Actions @GameActions2 => new GameActions2Actions(this);
+
+    // GameActions3
+    private readonly InputActionMap m_GameActions3;
+    private List<IGameActions3Actions> m_GameActions3ActionsCallbackInterfaces = new List<IGameActions3Actions>();
+    private readonly InputAction m_GameActions3_MoveJumpVector;
+    private readonly InputAction m_GameActions3_MovePlayerRight;
+    private readonly InputAction m_GameActions3_MovePlayerLeft;
+    private readonly InputAction m_GameActions3_Jump;
+    public struct GameActions3Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public GameActions3Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveJumpVector => m_Wrapper.m_GameActions3_MoveJumpVector;
+        public InputAction @MovePlayerRight => m_Wrapper.m_GameActions3_MovePlayerRight;
+        public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions3_MovePlayerLeft;
+        public InputAction @Jump => m_Wrapper.m_GameActions3_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_GameActions3; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions3Actions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions3Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActions3ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActions3ActionsCallbackInterfaces.Add(instance);
+            @MoveJumpVector.started += instance.OnMoveJumpVector;
+            @MoveJumpVector.performed += instance.OnMoveJumpVector;
+            @MoveJumpVector.canceled += instance.OnMoveJumpVector;
+            @MovePlayerRight.started += instance.OnMovePlayerRight;
+            @MovePlayerRight.performed += instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled += instance.OnMovePlayerRight;
+            @MovePlayerLeft.started += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled += instance.OnMovePlayerLeft;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IGameActions3Actions instance)
+        {
+            @MoveJumpVector.started -= instance.OnMoveJumpVector;
+            @MoveJumpVector.performed -= instance.OnMoveJumpVector;
+            @MoveJumpVector.canceled -= instance.OnMoveJumpVector;
+            @MovePlayerRight.started -= instance.OnMovePlayerRight;
+            @MovePlayerRight.performed -= instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled -= instance.OnMovePlayerRight;
+            @MovePlayerLeft.started -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled -= instance.OnMovePlayerLeft;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IGameActions3Actions instance)
+        {
+            if (m_Wrapper.m_GameActions3ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions3Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActions3ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActions3ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions3Actions @GameActions3 => new GameActions3Actions(this);
+
+    // GameActions4
+    private readonly InputActionMap m_GameActions4;
+    private List<IGameActions4Actions> m_GameActions4ActionsCallbackInterfaces = new List<IGameActions4Actions>();
+    private readonly InputAction m_GameActions4_MoveJumpVectorPositive;
+    private readonly InputAction m_GameActions4_MoveJumpVectorNegative;
+    private readonly InputAction m_GameActions4_MovePlayer;
+    private readonly InputAction m_GameActions4_Jump;
+    public struct GameActions4Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public GameActions4Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions4_MoveJumpVectorPositive;
+        public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions4_MoveJumpVectorNegative;
+        public InputAction @MovePlayer => m_Wrapper.m_GameActions4_MovePlayer;
+        public InputAction @Jump => m_Wrapper.m_GameActions4_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_GameActions4; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions4Actions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions4Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActions4ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActions4ActionsCallbackInterfaces.Add(instance);
+            @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorNegative.started += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.performed += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.canceled += instance.OnMoveJumpVectorNegative;
+            @MovePlayer.started += instance.OnMovePlayer;
+            @MovePlayer.performed += instance.OnMovePlayer;
+            @MovePlayer.canceled += instance.OnMovePlayer;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IGameActions4Actions instance)
+        {
+            @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorNegative.started -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.performed -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.canceled -= instance.OnMoveJumpVectorNegative;
+            @MovePlayer.started -= instance.OnMovePlayer;
+            @MovePlayer.performed -= instance.OnMovePlayer;
+            @MovePlayer.canceled -= instance.OnMovePlayer;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IGameActions4Actions instance)
+        {
+            if (m_Wrapper.m_GameActions4ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions4Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActions4ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActions4ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions4Actions @GameActions4 => new GameActions4Actions(this);
+
+    // GameActions5
+    private readonly InputActionMap m_GameActions5;
+    private List<IGameActions5Actions> m_GameActions5ActionsCallbackInterfaces = new List<IGameActions5Actions>();
+    private readonly InputAction m_GameActions5_MoveJumpVectorPositive;
+    private readonly InputAction m_GameActions5_MoveJumpVectorNegative;
+    private readonly InputAction m_GameActions5_MovePlayer;
+    private readonly InputAction m_GameActions5_Jump;
+    public struct GameActions5Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public GameActions5Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions5_MoveJumpVectorPositive;
+        public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions5_MoveJumpVectorNegative;
+        public InputAction @MovePlayer => m_Wrapper.m_GameActions5_MovePlayer;
+        public InputAction @Jump => m_Wrapper.m_GameActions5_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_GameActions5; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions5Actions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions5Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActions5ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActions5ActionsCallbackInterfaces.Add(instance);
+            @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorNegative.started += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.performed += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.canceled += instance.OnMoveJumpVectorNegative;
+            @MovePlayer.started += instance.OnMovePlayer;
+            @MovePlayer.performed += instance.OnMovePlayer;
+            @MovePlayer.canceled += instance.OnMovePlayer;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IGameActions5Actions instance)
+        {
+            @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorNegative.started -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.performed -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.canceled -= instance.OnMoveJumpVectorNegative;
+            @MovePlayer.started -= instance.OnMovePlayer;
+            @MovePlayer.performed -= instance.OnMovePlayer;
+            @MovePlayer.canceled -= instance.OnMovePlayer;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IGameActions5Actions instance)
+        {
+            if (m_Wrapper.m_GameActions5ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions5Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActions5ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActions5ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions5Actions @GameActions5 => new GameActions5Actions(this);
+
+    // GameActions6
+    private readonly InputActionMap m_GameActions6;
+    private List<IGameActions6Actions> m_GameActions6ActionsCallbackInterfaces = new List<IGameActions6Actions>();
+    private readonly InputAction m_GameActions6_Input;
+    private readonly InputAction m_GameActions6_Jump;
+    private readonly InputAction m_GameActions6_ActionChange;
+    public struct GameActions6Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public GameActions6Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Input => m_Wrapper.m_GameActions6_Input;
+        public InputAction @Jump => m_Wrapper.m_GameActions6_Jump;
+        public InputAction @ActionChange => m_Wrapper.m_GameActions6_ActionChange;
+        public InputActionMap Get() { return m_Wrapper.m_GameActions6; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions6Actions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions6Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActions6ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActions6ActionsCallbackInterfaces.Add(instance);
+            @Input.started += instance.OnInput;
+            @Input.performed += instance.OnInput;
+            @Input.canceled += instance.OnInput;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @ActionChange.started += instance.OnActionChange;
+            @ActionChange.performed += instance.OnActionChange;
+            @ActionChange.canceled += instance.OnActionChange;
+        }
+
+        private void UnregisterCallbacks(IGameActions6Actions instance)
+        {
+            @Input.started -= instance.OnInput;
+            @Input.performed -= instance.OnInput;
+            @Input.canceled -= instance.OnInput;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @ActionChange.started -= instance.OnActionChange;
+            @ActionChange.performed -= instance.OnActionChange;
+            @ActionChange.canceled -= instance.OnActionChange;
+        }
+
+        public void RemoveCallbacks(IGameActions6Actions instance)
+        {
+            if (m_Wrapper.m_GameActions6ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions6Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActions6ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActions6ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions6Actions @GameActions6 => new GameActions6Actions(this);
     public interface IGameActionsActions
     {
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
         void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
+        void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IGameActions1Actions
+    {
+        void OnInput(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IGameActions2Actions
+    {
+        void OnMoveJumpVector(InputAction.CallbackContext context);
+        void OnMovePlayerRight(InputAction.CallbackContext context);
+        void OnMovePlayerLeft(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IGameActions3Actions
+    {
+        void OnMoveJumpVector(InputAction.CallbackContext context);
+        void OnMovePlayerRight(InputAction.CallbackContext context);
+        void OnMovePlayerLeft(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IGameActions4Actions
+    {
+        void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
+        void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
+        void OnMovePlayer(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IGameActions5Actions
+    {
+        void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
+        void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
+        void OnMovePlayer(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IGameActions6Actions
+    {
+        void OnInput(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnActionChange(InputAction.CallbackContext context);
     }
 }
