@@ -169,7 +169,7 @@
                 {
                     "name": "",
                     "id": "10c950e7-95c5-49f3-a83b-234f3d7ac36c",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -235,7 +235,7 @@
                 {
                     "name": "",
                     "id": "2f7f2215-fd73-46ee-aa66-847fe6929879",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -323,7 +323,7 @@
                 {
                     "name": "",
                     "id": "74055b7c-69bc-4b42-aa2e-2b2726d6a027",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -371,6 +371,24 @@
             "id": "aa8b232c-dcb1-4d6f-942a-0ea43688c534",
             "actions": [
                 {
+                    "name": "MovePlayerLeft",
+                    "type": "Value",
+                    "id": "86131d66-e9c2-4da5-af48-626305af4bc5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovePlayerRight",
+                    "type": "Value",
+                    "id": "66a1dde6-b9a7-4a38-a322-40004d180083",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "MoveJumpVectorPositive",
                     "type": "Button",
                     "id": "330af6e9-9f3b-4419-8d20-e1824db7cb56",
@@ -389,15 +407,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MovePlayer",
-                    "type": "Button",
-                    "id": "044f1da1-079a-454e-9029-3120ab26943b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "9db58e87-26e5-434b-9d31-640074484b03",
@@ -410,19 +419,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "809ad2c2-4e6a-455a-a51b-985e82a1b777",
-                    "path": "<XInputController>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovePlayer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "674765cb-9321-4b70-b386-1c03f196fd84",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -433,7 +431,7 @@
                 {
                     "name": "",
                     "id": "e3e95293-291e-4de1-9365-6790eded9e16",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -443,8 +441,30 @@
                 },
                 {
                     "name": "",
+                    "id": "e3406204-d4e9-48ac-ad50-3c710fa1721b",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovePlayerRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ae594dd-fa3e-434e-9e67-1e32bf240c28",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovePlayerLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "965331a8-b7be-428d-b0a4-cd9c84d74330",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -458,6 +478,24 @@
             "name": "GameActions5",
             "id": "d8dc6660-aea0-44ee-9cc8-0a675ee5d982",
             "actions": [
+                {
+                    "name": "MovePlayerLeft",
+                    "type": "Value",
+                    "id": "aa5e35a0-deb9-4ad0-a908-272fe6f1ac15",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovePlayerRight",
+                    "type": "Value",
+                    "id": "ef14ec99-244e-4dfb-9468-3821a4813985",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
                 {
                     "name": "MoveJumpVectorPositive",
                     "type": "Button",
@@ -477,15 +515,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MovePlayer",
-                    "type": "Button",
-                    "id": "6213dab1-a131-40c7-8a6c-1fb635b98ece",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "df27b514-6e15-43c9-9b74-77f83a478c64",
@@ -498,19 +527,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "4a32c90c-2003-4658-a713-51ef74d994fa",
-                    "path": "<XInputController>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovePlayer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "89191cff-b609-420d-84f1-27fe8a15dadc",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -539,6 +557,28 @@
                     "action": "MoveJumpVectorPositive",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c4193c9-5460-449d-8efd-80f8e6a425cb",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovePlayerRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1231d666-15bc-4a86-af8a-d577b1c81ed2",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovePlayerLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -565,7 +605,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ActionChange",
+                    "name": "MoveState",
                     "type": "PassThrough",
                     "id": "8541abca-e46d-4909-9700-00bbeff8ea05",
                     "expectedControlType": "Button",
@@ -578,18 +618,7 @@
                 {
                     "name": "",
                     "id": "21cecdf8-81e3-4246-a05a-c88810c9bd85",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "31fe06d2-c57f-47bd-9bdf-f9bd69a52917",
-                    "path": "<Keyboard>/space",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -610,12 +639,12 @@
                 },
                 {
                     "name": "",
-                    "id": "d6193b1d-de7f-43c7-aab8-185a80262368",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "2fcdf9b6-061d-4c17-b419-769ce0f1029e",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActionChange",
+                    "action": "MoveState",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

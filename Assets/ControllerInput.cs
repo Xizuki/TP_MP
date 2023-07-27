@@ -191,7 +191,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""10c950e7-95c5-49f3-a83b-234f3d7ac36c"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -257,7 +257,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2f7f2215-fd73-46ee-aa66-847fe6929879"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -345,7 +345,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""74055b7c-69bc-4b42-aa2e-2b2726d6a027"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -393,6 +393,24 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             ""id"": ""aa8b232c-dcb1-4d6f-942a-0ea43688c534"",
             ""actions"": [
                 {
+                    ""name"": ""MovePlayerLeft"",
+                    ""type"": ""Value"",
+                    ""id"": ""86131d66-e9c2-4da5-af48-626305af4bc5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""66a1dde6-b9a7-4a38-a322-40004d180083"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""MoveJumpVectorPositive"",
                     ""type"": ""Button"",
                     ""id"": ""330af6e9-9f3b-4419-8d20-e1824db7cb56"",
@@ -411,15 +429,6 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MovePlayer"",
-                    ""type"": ""Button"",
-                    ""id"": ""044f1da1-079a-454e-9029-3120ab26943b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""9db58e87-26e5-434b-9d31-640074484b03"",
@@ -432,19 +441,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""809ad2c2-4e6a-455a-a51b-985e82a1b777"",
-                    ""path"": ""<XInputController>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MovePlayer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""674765cb-9321-4b70-b386-1c03f196fd84"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -455,7 +453,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e3e95293-291e-4de1-9365-6790eded9e16"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -465,8 +463,30 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""e3406204-d4e9-48ac-ad50-3c710fa1721b"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ae594dd-fa3e-434e-9e67-1e32bf240c28"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""965331a8-b7be-428d-b0a4-cd9c84d74330"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -480,6 +500,24 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             ""name"": ""GameActions5"",
             ""id"": ""d8dc6660-aea0-44ee-9cc8-0a675ee5d982"",
             ""actions"": [
+                {
+                    ""name"": ""MovePlayerLeft"",
+                    ""type"": ""Value"",
+                    ""id"": ""aa5e35a0-deb9-4ad0-a908-272fe6f1ac15"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""ef14ec99-244e-4dfb-9468-3821a4813985"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
                 {
                     ""name"": ""MoveJumpVectorPositive"",
                     ""type"": ""Button"",
@@ -499,15 +537,6 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MovePlayer"",
-                    ""type"": ""Button"",
-                    ""id"": ""6213dab1-a131-40c7-8a6c-1fb635b98ece"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""df27b514-6e15-43c9-9b74-77f83a478c64"",
@@ -520,19 +549,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""4a32c90c-2003-4658-a713-51ef74d994fa"",
-                    ""path"": ""<XInputController>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MovePlayer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""89191cff-b609-420d-84f1-27fe8a15dadc"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -561,6 +579,28 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MoveJumpVectorPositive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c4193c9-5460-449d-8efd-80f8e6a425cb"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1231d666-15bc-4a86-af8a-d577b1c81ed2"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -587,7 +627,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ActionChange"",
+                    ""name"": ""MoveState"",
                     ""type"": ""PassThrough"",
                     ""id"": ""8541abca-e46d-4909-9700-00bbeff8ea05"",
                     ""expectedControlType"": ""Button"",
@@ -600,18 +640,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""21cecdf8-81e3-4246-a05a-c88810c9bd85"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""31fe06d2-c57f-47bd-9bdf-f9bd69a52917"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -632,12 +661,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d6193b1d-de7f-43c7-aab8-185a80262368"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""2fcdf9b6-061d-4c17-b419-769ce0f1029e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ActionChange"",
+                    ""action"": ""MoveState"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -671,21 +700,23 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_GameActions3_Jump = m_GameActions3.FindAction("Jump", throwIfNotFound: true);
         // GameActions4
         m_GameActions4 = asset.FindActionMap("GameActions4", throwIfNotFound: true);
+        m_GameActions4_MovePlayerLeft = m_GameActions4.FindAction("MovePlayerLeft", throwIfNotFound: true);
+        m_GameActions4_MovePlayerRight = m_GameActions4.FindAction("MovePlayerRight", throwIfNotFound: true);
         m_GameActions4_MoveJumpVectorPositive = m_GameActions4.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
         m_GameActions4_MoveJumpVectorNegative = m_GameActions4.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
-        m_GameActions4_MovePlayer = m_GameActions4.FindAction("MovePlayer", throwIfNotFound: true);
         m_GameActions4_Jump = m_GameActions4.FindAction("Jump", throwIfNotFound: true);
         // GameActions5
         m_GameActions5 = asset.FindActionMap("GameActions5", throwIfNotFound: true);
+        m_GameActions5_MovePlayerLeft = m_GameActions5.FindAction("MovePlayerLeft", throwIfNotFound: true);
+        m_GameActions5_MovePlayerRight = m_GameActions5.FindAction("MovePlayerRight", throwIfNotFound: true);
         m_GameActions5_MoveJumpVectorPositive = m_GameActions5.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
         m_GameActions5_MoveJumpVectorNegative = m_GameActions5.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
-        m_GameActions5_MovePlayer = m_GameActions5.FindAction("MovePlayer", throwIfNotFound: true);
         m_GameActions5_Jump = m_GameActions5.FindAction("Jump", throwIfNotFound: true);
         // GameActions6
         m_GameActions6 = asset.FindActionMap("GameActions6", throwIfNotFound: true);
         m_GameActions6_Input = m_GameActions6.FindAction("Input", throwIfNotFound: true);
         m_GameActions6_Jump = m_GameActions6.FindAction("Jump", throwIfNotFound: true);
-        m_GameActions6_ActionChange = m_GameActions6.FindAction("ActionChange", throwIfNotFound: true);
+        m_GameActions6_MoveState = m_GameActions6.FindAction("MoveState", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1019,17 +1050,19 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     // GameActions4
     private readonly InputActionMap m_GameActions4;
     private List<IGameActions4Actions> m_GameActions4ActionsCallbackInterfaces = new List<IGameActions4Actions>();
+    private readonly InputAction m_GameActions4_MovePlayerLeft;
+    private readonly InputAction m_GameActions4_MovePlayerRight;
     private readonly InputAction m_GameActions4_MoveJumpVectorPositive;
     private readonly InputAction m_GameActions4_MoveJumpVectorNegative;
-    private readonly InputAction m_GameActions4_MovePlayer;
     private readonly InputAction m_GameActions4_Jump;
     public struct GameActions4Actions
     {
         private @ControllerInput m_Wrapper;
         public GameActions4Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions4_MovePlayerLeft;
+        public InputAction @MovePlayerRight => m_Wrapper.m_GameActions4_MovePlayerRight;
         public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions4_MoveJumpVectorPositive;
         public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions4_MoveJumpVectorNegative;
-        public InputAction @MovePlayer => m_Wrapper.m_GameActions4_MovePlayer;
         public InputAction @Jump => m_Wrapper.m_GameActions4_Jump;
         public InputActionMap Get() { return m_Wrapper.m_GameActions4; }
         public void Enable() { Get().Enable(); }
@@ -1040,15 +1073,18 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameActions4ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameActions4ActionsCallbackInterfaces.Add(instance);
+            @MovePlayerLeft.started += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled += instance.OnMovePlayerLeft;
+            @MovePlayerRight.started += instance.OnMovePlayerRight;
+            @MovePlayerRight.performed += instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled += instance.OnMovePlayerRight;
             @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorNegative.started += instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.performed += instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.canceled += instance.OnMoveJumpVectorNegative;
-            @MovePlayer.started += instance.OnMovePlayer;
-            @MovePlayer.performed += instance.OnMovePlayer;
-            @MovePlayer.canceled += instance.OnMovePlayer;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -1056,15 +1092,18 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IGameActions4Actions instance)
         {
+            @MovePlayerLeft.started -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled -= instance.OnMovePlayerLeft;
+            @MovePlayerRight.started -= instance.OnMovePlayerRight;
+            @MovePlayerRight.performed -= instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled -= instance.OnMovePlayerRight;
             @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorNegative.started -= instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.performed -= instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.canceled -= instance.OnMoveJumpVectorNegative;
-            @MovePlayer.started -= instance.OnMovePlayer;
-            @MovePlayer.performed -= instance.OnMovePlayer;
-            @MovePlayer.canceled -= instance.OnMovePlayer;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -1089,17 +1128,19 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     // GameActions5
     private readonly InputActionMap m_GameActions5;
     private List<IGameActions5Actions> m_GameActions5ActionsCallbackInterfaces = new List<IGameActions5Actions>();
+    private readonly InputAction m_GameActions5_MovePlayerLeft;
+    private readonly InputAction m_GameActions5_MovePlayerRight;
     private readonly InputAction m_GameActions5_MoveJumpVectorPositive;
     private readonly InputAction m_GameActions5_MoveJumpVectorNegative;
-    private readonly InputAction m_GameActions5_MovePlayer;
     private readonly InputAction m_GameActions5_Jump;
     public struct GameActions5Actions
     {
         private @ControllerInput m_Wrapper;
         public GameActions5Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions5_MovePlayerLeft;
+        public InputAction @MovePlayerRight => m_Wrapper.m_GameActions5_MovePlayerRight;
         public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions5_MoveJumpVectorPositive;
         public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions5_MoveJumpVectorNegative;
-        public InputAction @MovePlayer => m_Wrapper.m_GameActions5_MovePlayer;
         public InputAction @Jump => m_Wrapper.m_GameActions5_Jump;
         public InputActionMap Get() { return m_Wrapper.m_GameActions5; }
         public void Enable() { Get().Enable(); }
@@ -1110,15 +1151,18 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameActions5ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameActions5ActionsCallbackInterfaces.Add(instance);
+            @MovePlayerLeft.started += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled += instance.OnMovePlayerLeft;
+            @MovePlayerRight.started += instance.OnMovePlayerRight;
+            @MovePlayerRight.performed += instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled += instance.OnMovePlayerRight;
             @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorNegative.started += instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.performed += instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.canceled += instance.OnMoveJumpVectorNegative;
-            @MovePlayer.started += instance.OnMovePlayer;
-            @MovePlayer.performed += instance.OnMovePlayer;
-            @MovePlayer.canceled += instance.OnMovePlayer;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -1126,15 +1170,18 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IGameActions5Actions instance)
         {
+            @MovePlayerLeft.started -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled -= instance.OnMovePlayerLeft;
+            @MovePlayerRight.started -= instance.OnMovePlayerRight;
+            @MovePlayerRight.performed -= instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled -= instance.OnMovePlayerRight;
             @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorNegative.started -= instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.performed -= instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.canceled -= instance.OnMoveJumpVectorNegative;
-            @MovePlayer.started -= instance.OnMovePlayer;
-            @MovePlayer.performed -= instance.OnMovePlayer;
-            @MovePlayer.canceled -= instance.OnMovePlayer;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -1161,14 +1208,14 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private List<IGameActions6Actions> m_GameActions6ActionsCallbackInterfaces = new List<IGameActions6Actions>();
     private readonly InputAction m_GameActions6_Input;
     private readonly InputAction m_GameActions6_Jump;
-    private readonly InputAction m_GameActions6_ActionChange;
+    private readonly InputAction m_GameActions6_MoveState;
     public struct GameActions6Actions
     {
         private @ControllerInput m_Wrapper;
         public GameActions6Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Input => m_Wrapper.m_GameActions6_Input;
         public InputAction @Jump => m_Wrapper.m_GameActions6_Jump;
-        public InputAction @ActionChange => m_Wrapper.m_GameActions6_ActionChange;
+        public InputAction @MoveState => m_Wrapper.m_GameActions6_MoveState;
         public InputActionMap Get() { return m_Wrapper.m_GameActions6; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1184,9 +1231,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @ActionChange.started += instance.OnActionChange;
-            @ActionChange.performed += instance.OnActionChange;
-            @ActionChange.canceled += instance.OnActionChange;
+            @MoveState.started += instance.OnMoveState;
+            @MoveState.performed += instance.OnMoveState;
+            @MoveState.canceled += instance.OnMoveState;
         }
 
         private void UnregisterCallbacks(IGameActions6Actions instance)
@@ -1197,9 +1244,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @ActionChange.started -= instance.OnActionChange;
-            @ActionChange.performed -= instance.OnActionChange;
-            @ActionChange.canceled -= instance.OnActionChange;
+            @MoveState.started -= instance.OnMoveState;
+            @MoveState.performed -= instance.OnMoveState;
+            @MoveState.canceled -= instance.OnMoveState;
         }
 
         public void RemoveCallbacks(IGameActions6Actions instance)
@@ -1246,22 +1293,24 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     }
     public interface IGameActions4Actions
     {
+        void OnMovePlayerLeft(InputAction.CallbackContext context);
+        void OnMovePlayerRight(InputAction.CallbackContext context);
         void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
-        void OnMovePlayer(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }
     public interface IGameActions5Actions
     {
+        void OnMovePlayerLeft(InputAction.CallbackContext context);
+        void OnMovePlayerRight(InputAction.CallbackContext context);
         void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
-        void OnMovePlayer(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }
     public interface IGameActions6Actions
     {
         void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnActionChange(InputAction.CallbackContext context);
+        void OnMoveState(InputAction.CallbackContext context);
     }
 }

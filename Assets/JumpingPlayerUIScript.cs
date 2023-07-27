@@ -17,6 +17,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Transform jumpingVectorIndicatorEndPoint;
     public float jumpingVectorEndPointYMaxDistance;
     public float playerHeadLookUpAngleLimit;
+    public float playerJumpVectorIndicatorHardAngleLimit;
 
     public Color startingColor;
     public Color endColor;
@@ -62,7 +63,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         {
 
             float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
-            playerHeadTransform.localEulerAngles = new Vector3(0, 0, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
+            playerHeadTransform.localEulerAngles = new Vector3(0, playerHeadTransform.localEulerAngles.y, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
         }
 
 

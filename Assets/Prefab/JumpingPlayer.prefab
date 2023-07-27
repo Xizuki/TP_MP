@@ -2946,7 +2946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8824464933198582658
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,6 +3244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824464933389489933}
+  - component: {fileID: 8824464932475558566}
   - component: {fileID: 8824464933389489932}
   - component: {fileID: 8824464933389489939}
   - component: {fileID: 8824464933389489938}
@@ -3283,6 +3284,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &8824464932475558566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ac9a4328be9d540918fe2c60fa8f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 0}
+  controlType: 1
 --- !u!65 &8824464933389489932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3349,6 +3364,12 @@ MonoBehaviour:
   feetPos: {fileID: 8824464932100929528}
   fallingGravityStrength: 15
   jumpChargeScalar: 2
+  faceFront: 0
+  recentInput: 0
+  checkInputDelay: 1
+  canRotate: 1
+  joystickVector: {x: 0, y: 0}
+  eulerY: 0
 --- !u!114 &8824464933389489937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,11 +3406,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipeName: MyNamedPipe
   jumpingPlayer: {fileID: 8824464933389489938}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
