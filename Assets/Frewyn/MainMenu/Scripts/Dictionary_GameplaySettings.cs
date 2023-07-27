@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -9,70 +10,124 @@ A dictionary that is used to store the settings, format will be:
 Settings name , value.
 For example : Movement Speed, Medium
 */
-public class Dictionary_GameplaySettings : MonoBehaviour
+
+namespace Menu
 {
-    public SettingAssociations settingAssociations;
-
-
-
-
-    public Dictionary<string, List<Image>> TestingDictionary = new Dictionary<string, List<Image>>()
-
+    public class Dictionary_GameplaySettings : MonoBehaviour
     {
+        public Dictionary<string, List<Image>> ButtonDictionary = new Dictionary<string, List<Image>>()
 
-
-   
-
-
-    };
-
-
-
-    public Dictionary<string, string> GameplaySettings = new Dictionary<string, string>()
-
-    {
-        {"EnemySpawnFrequency", "Medium" }
-
-    };
-
-
-
-    // Method to add the testList to the GameplaySettings dictionary.
-    public void AddSettingList(string settingName, List<Image> settingList)
-    {
-        //// Check if the settingName already exists in the dictionary.
-        //if (GameplaySettings.ContainsKey(settingName))
-        //{
-        //    Debug.Log("Setting '" + settingName + "' already exists in the GameplaySettings dictionary.");
-        //    return;
-        //}
-
-        // Add the settingList to the dictionary.
-        TestingDictionary.Add(settingName, settingList);
-    }
-
-
-
-
-    private void Awake()
-    {
-        foreach (KeyValuePair<string, string> pair in GameplaySettings)
         {
-            Debug.Log(pair.Key + ": " + pair.Value);
+
+        };
+
+        public Dictionary<string, Difficulty> GameplaySettings = new Dictionary<string, Difficulty>()
+        {
+            {"EnemySpawnFrequency", Difficulty.Easy },
+            {"ShootingSpeed", Difficulty.Medium },
+            {"EnemyMovementSpeed", Difficulty.Easy }
+
+
+        };
+
+
+        private void Awake()
+        {
+
+            InitalizeDictionaryWithPlayerPrefs();
+
+
+            foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)//Writes out each settings with its key and value
+            {
+
+                Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
+                //PlayerPrefs.SetString(pair.Key, pair.Value.ToString());
+            }
+
+
+        }
+        private void InitalizeDictionaryWithPlayerPrefs()
+        {
+
+            List<string> keysToUpdate = new List<string>(); //Used to store values that should be updated
+
+            foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)//Only adds to keysToUpdate if the value exists in playerprefs
+            {
+                if (PlayerPrefs.HasKey(pair.Key))
+                {
+                    Debug.Log("Existing key: " + pair.Key);
+                    keysToUpdate.Add(pair.Key);
+                }
+                else
+                {
+                    Debug.Log("Not existing key: " + pair.Key);
+                }
+            }
+
+
+            foreach (string key in keysToUpdate)//Modify the dictioanry with playerprefs values if the values exist in playerprefs
+            {   
+                if(PlayerPrefs.HasKey(key))                
+                {
+
+                    UpdateDictionaryWithPlayerPrefs(key);
+                }
+            
+             
+            }
+
         }
 
-        foreach (KeyValuePair<string, List<Image>> pair in TestingDictionary)
+        //Referenced https://forum.unity.com/threads/saving-player-prefs-with-enums.397304/
+        private void UpdateDictionaryWithPlayerPrefs(string key) //Changes the values in dictionary into those in player prefs
         {
-            Debug.Log("Something");
-            Debug.Log(pair.Key + ": " + pair.Value);
+            GameplaySettings[key] = GetPlayerPrefValue(key); // Adjust the value to your desired value
         }
+        private Difficulty GetPlayerPrefValue(string key) //Get the difficulty in player prefs as a enum
+        {
+            Difficulty something = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(key));
+            return something;
+        }
+
+
+
+        public void WriteToPlayerPrefs() //Writes everything in the dictionary to playerprefs
+        {
+
+            foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)
+            {
+
+                //Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
+                PlayerPrefs.SetString(pair.Key, pair.Value.ToString());
+            }
+
+        }
+
+
+        //Add a list of buttons to ButtonDictionary
+        public void AddSettingList(string settingName, List<Image> settingList)
+        {
+            // Check if the settingName already exists in the dictionary.
+            if (ButtonDictionary.ContainsKey(settingName))
+            {
+                Debug.Log("Setting '" + settingName + "' already exists in the GameplaySettings dictionary.");
+                return;
+            }
+
+            // Add the settingList to the dictionary.
+            ButtonDictionary.Add(settingName, settingList);
+        }
+
+        //Edit list in ButtonDictionary
+        public void EditSettingList(string settingName, List<Image> settingList)
+
+        {
+            // Add the settingList to the dictionary.
+            ButtonDictionary[settingName] = settingList;
+        }
+
+
 
     }
 
- 
-
-
-
-
- 
 }

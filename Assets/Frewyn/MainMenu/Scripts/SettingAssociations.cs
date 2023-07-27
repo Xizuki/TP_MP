@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingAssociations : MonoBehaviour
+
+namespace Menu
 {
-
-    public Dictionary_GameplaySettings dictionary;
-    public Image[] enemySpawnFrequency;
-
-
-
-
-    private void Awake()
+    public class SettingAssociations : MonoBehaviour
     {
-        // Call the AddSettingList method in the Dictionary script to add testList to the dictionary.
-        dictionary.AddSettingList("EnemySpawnFrequency", new List<Image>(enemySpawnFrequency));
 
-        //dictionary.TestingDictionary.Add("EnemySpawnFrequency", new List<Image>(enemySpawnFrequency));
+        public Dictionary_GameplaySettings dictionary;
+        public Image[] enemySpawnFrequency;
+        public Image[] shootingSpeed;
+
+
+
+        private void Awake()
+        {
+            //Call the AddSettingList method in the Dictionary script to add settings to the dictionary.
+            dictionary.AddSettingList("EnemySpawnFrequency", new List<Image>(enemySpawnFrequency));
+            dictionary.AddSettingList("ShootingSpeed", new List<Image>(shootingSpeed));
+
+        }
+
+     
+
+
 
 
     }
-
-
-
-
 }
