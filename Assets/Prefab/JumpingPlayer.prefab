@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464932080693802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
@@ -3268,7 +3268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464933389489936}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.79, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3416,6 +3416,8 @@ MonoBehaviour:
   slowMultiplyer: 2
   cactusEnemies: []
   mushroomEnemies: []
+  sliderFill: {fileID: 0}
+  delay: 0
 --- !u!114 &683046005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3430,6 +3432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isActivated: 0
+  auraShield: {fileID: 0}
+  sliderFill: {fileID: 0}
+  delay: 0
 --- !u!135 &1187221124590797305
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3455,6 +3460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 0}
+  colliderInv: {fileID: 0}
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0

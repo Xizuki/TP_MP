@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using XizukiMethods.GameObjects;
 
@@ -8,6 +9,10 @@ public class StopWatchPowerUp : PowerUpScript
     public float slowMultiplyer;
     public CactusEnemy[] cactusEnemies;
     public MushroomEnemy[] mushroomEnemies;
+    //public ParticleSystem auraShield;
+    public Image sliderFill;
+    public float delay = 0;
+    float timer = 10f;
     public override void Effect()
     {
         base.Effect();
@@ -37,6 +42,16 @@ public class StopWatchPowerUp : PowerUpScript
             foreach (BulletMove bullet in bullets)
             {
                 bullet.speed = bullet.baseSpeed / slowMultiplyer;
+            }
+            sliderFill.fillAmount = 1;
+            sliderFill.fillAmount = timer / 10;
+            timer -= Time.deltaTime;
+            if (timer < delay)
+            {
+                isActivated = false;
+                timer = 10f;
+                sliderFill.fillAmount = 0;
+                //auraShield.Stop();
             }
         }
         else
