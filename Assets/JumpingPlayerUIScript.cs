@@ -34,8 +34,10 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Image sliderColor1;
     public Image sliderColor2;
 
-
     public Vector3 faceForward = new(0, 0, 270);
+
+    public Vector3 faceForward = new Vector3(0, 0, 270);
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -68,6 +70,15 @@ public class JumpingPlayerUIScript : MonoBehaviour
         {
             playerHeadTransform.localEulerAngles = faceForward;
             //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+
+
+      
+        if (player.isCharging == true)
+        {
+            Debug.Log("Testing Code");
+                playerHeadTransform.localEulerAngles = faceForward ;
+            //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+            
 
         }
 
