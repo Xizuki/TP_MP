@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4695514709622592754}
   m_LocalRotation: {x: 0.7071068, y: -0, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 5.6387744, y: 6.3, z: 3.6187792}
-  m_LocalScale: {x: 1.6629, y: 1.6629, z: 1.6629}
+  m_LocalScale: {x: 2.5741692, y: 2.5741692, z: 2.5741692}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7480204994514390266}
@@ -111,10 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d77ccddeeb98a4abde8b30175fc430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiba: {fileID: 0}
   anim: {fileID: 0}
-  shield: {fileID: 4695514709622592754}
-  equipParticle: {fileID: 7278446777864713184}
+  shield: {fileID: 0}
+  equipParticle: {fileID: 0}
+  auraShield: {fileID: 0}
+  shieldPowerUp: {fileID: 0}
 --- !u!1001 &7476045781092138508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,6 +123,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4695514709622425810}
     m_Modifications:
+    - target: {fileID: 1064834829004598, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278236788414174, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
       propertyPath: m_Name
       value: CFX4 Aura Bubble C
@@ -182,6 +191,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198858562690846188, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198858562690846188, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.93226576
+      objectReference: {fileID: 0}
     - target: {fileID: 199218836714256136, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -196,11 +213,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
---- !u!198 &7278446777864713184 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198858562690846188, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
-  m_PrefabInstance: {fileID: 7476045781092138508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7480204994514390266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299952606933750, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
