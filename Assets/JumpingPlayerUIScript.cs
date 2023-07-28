@@ -34,8 +34,6 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Image sliderColor1;
     public Image sliderColor2;
 
-    public Vector3 faceForward = new(0, 0, 270);
-
     public Vector3 faceForward = new Vector3(0, 0, 270);
 
     // Start is called before the first frame update
@@ -72,69 +70,71 @@ public class JumpingPlayerUIScript : MonoBehaviour
             //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
 
 
-      
-        if (player.isCharging == true)
-        {
-            Debug.Log("Testing Code");
-                playerHeadTransform.localEulerAngles = faceForward ;
-            //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
-            
 
-        }
-
-        //Make player face camera
-        //If want to make player facefront, determined by timer
-        //If player is grounded
-        //If player can rotate, this is meant to stop player from resetting when charging
-        else if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
-        {
-
-            playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);
-            player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
-        }
-
-        //Make player look at jump direction
-        else if (player.faceFront == false && player.canRotate == true && player.isGrounded)
-        {
-
-            float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
-            playerHeadTransform.localEulerAngles = new Vector3(0, playerHeadTransform.localEulerAngles.y, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
-        }
-
-
-
-
-        // Interpolate the color between startColor and endColor based on the interpolationValue
-        interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
-        // Assign the interpolated color to the renderer component
-        sliderColor1.color = interpolatedColor;
-        sliderColor2.color = interpolatedColor;
-
-        // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
-        // But im lazy rn
-        
-        if (!player.isGrounded)
-        {
-            jumpChargeSlider.gameObject.SetActive(false);
-        }
-        else
-        {
-            jumpChargeSlider.gameObject.SetActive(true);
-
-            jumpChargeSlider.value = player.jumpCharge;
-            jumpChargeSlider.maxValue = 1;
-
-            if (jumpChargeSlider.value <= 0)
+            if (player.isCharging == true)
             {
-                jumpChargeSliderFill.SetActive(false);
+                Debug.Log("Testing Code");
+                playerHeadTransform.localEulerAngles = faceForward;
+                //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+
+
+            }
+
+            //Make player face camera
+            //If want to make player facefront, determined by timer
+            //If player is grounded
+            //If player can rotate, this is meant to stop player from resetting when charging
+            else if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
+            {
+
+                playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);
+                player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+            }
+
+            //Make player look at jump direction
+            else if (player.faceFront == false && player.canRotate == true && player.isGrounded)
+            {
+
+                float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
+                playerHeadTransform.localEulerAngles = new Vector3(0, playerHeadTransform.localEulerAngles.y, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
+            }
+
+
+
+
+            // Interpolate the color between startColor and endColor based on the interpolationValue
+            interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
+            // Assign the interpolated color to the renderer component
+            sliderColor1.color = interpolatedColor;
+            sliderColor2.color = interpolatedColor;
+
+            // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
+            // But im lazy rn
+
+            if (!player.isGrounded)
+            {
+                jumpChargeSlider.gameObject.SetActive(false);
             }
             else
             {
-                jumpChargeSliderFill.SetActive(true);
+                jumpChargeSlider.gameObject.SetActive(true);
+
+                jumpChargeSlider.value = player.jumpCharge;
+                jumpChargeSlider.maxValue = 1;
+
+                if (jumpChargeSlider.value <= 0)
+                {
+                    jumpChargeSliderFill.SetActive(false);
+                }
+                else
+                {
+                    jumpChargeSliderFill.SetActive(true);
+                }
             }
         }
-    }
 
+
+    }
     void ChargeBarFill()
     {
         chargeBar.fillAmount = charge / maxCharge;
