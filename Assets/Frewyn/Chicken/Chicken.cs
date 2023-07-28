@@ -179,6 +179,7 @@ public class Chicken : MonoBehaviour
 
     public void TravelToPlayer()
     {
+        transform.rotation = flyingRotation;
         //If not already carrying and the player is downed, move to the player
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 

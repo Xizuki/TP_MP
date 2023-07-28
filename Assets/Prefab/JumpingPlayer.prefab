@@ -929,6 +929,38 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3660010153025952474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8954238205221934661}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8954238205221934661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660010153025952474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8824464932915549963}
+  m_Father: {fileID: 8824464933389489933}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4858602155478907565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,14 +2309,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464932915549962}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8824464933598472605}
   - {fileID: 8824464934056851840}
-  m_Father: {fileID: 8824464933389489933}
+  m_Father: {fileID: 8954238205221934661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8824464932942612237
@@ -2946,7 +2978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8824464933198582658
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,6 +3276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824464933389489933}
+  - component: {fileID: 8824464932475558566}
   - component: {fileID: 8824464933389489932}
   - component: {fileID: 8824464933389489939}
   - component: {fileID: 8824464933389489938}
@@ -3271,7 +3304,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8824464932915549963}
+  - {fileID: 8954238205221934661}
   - {fileID: 8824464932080693803}
   - {fileID: 8824464932100929528}
   - {fileID: 8824464933182293966}
@@ -3283,6 +3316,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &8824464932475558566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ac9a4328be9d540918fe2c60fa8f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 0}
+  controlType: 1
 --- !u!65 &8824464933389489932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3327,6 +3374,8 @@ MonoBehaviour:
   jumpingPlayerChildrenModel: {fileID: 8824464932080693802}
   playerUI: {fileID: 0}
   rb: {fileID: 0}
+  resetChargeOnMove: 0
+  moveSpeed: 0
   jumpCharge: 0
   jumpChargePrev: 0
   jumpChargeSpeedCurrent: 0.85
@@ -3346,9 +3395,15 @@ MonoBehaviour:
   hitStrength: 10
   isGrounded: 0
   isJumping: 0
+  isMoving: 0
   feetPos: {fileID: 8824464932100929528}
   fallingGravityStrength: 15
   jumpChargeScalar: 2
+  faceFront: 0
+  recentInput: 0
+  checkInputDelay: 1
+  canRotate: 1
+  joystickVector: {x: 0, y: 0}
 --- !u!114 &8824464933389489937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3426,7 @@ MonoBehaviour:
   jumpingVectorIndicatorEndPoint: {fileID: 8824464934056851840}
   jumpingVectorEndPointYMaxDistance: 0
   playerHeadLookUpAngleLimit: 55
+  playerJumpVectorIndicatorHardAngleLimit: 0
   startingColor: {r: 0.93333334, g: 0.070463926, b: 0, a: 1}
   endColor: {r: 0.14653397, g: 1, b: 0, a: 1}
   interpolatedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3385,11 +3441,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipeName: MyNamedPipe
   jumpingPlayer: {fileID: 8824464933389489938}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
