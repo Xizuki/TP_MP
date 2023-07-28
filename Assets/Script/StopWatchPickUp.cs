@@ -20,6 +20,9 @@ public class StopWatchPickUp : MonoBehaviour
             Destroy(gameObject);
             powerUp.isActivated = true;
             SFX.stopwatchPickSound = true;
+
+            
+
             grayEffects.SetActive(true);
 
             if (powerUp.isActivated)
