@@ -1246,6 +1246,7 @@ GameObject:
   - component: {fileID: 6813166255381857244}
   - component: {fileID: 1431225781531034334}
   - component: {fileID: 4910074123508288655}
+  - component: {fileID: 2934361178787933712}
   m_Layer: 0
   m_Name: DogPolyart
   m_TagString: Untagged
@@ -1392,6 +1393,20 @@ MonoBehaviour:
   - {fileID: 8824464933291686808}
   - {fileID: 8824464933035769246}
   - {fileID: 8824464932213283313}
+--- !u!114 &2934361178787933712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464932080693802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 0}
+  colliderInv: {fileID: 0}
 --- !u!1 &8824464932082430358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,8 +3266,6 @@ GameObject:
   - component: {fileID: 683046004}
   - component: {fileID: 3426643511485465010}
   - component: {fileID: 683046005}
-  - component: {fileID: 1187221124590797305}
-  - component: {fileID: 4677802610462506536}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -3331,6 +3344,7 @@ MonoBehaviour:
   jumpCharge: 0
   jumpChargePrev: 0
   jumpChargeSpeedCurrent: 0.85
+  jumpChargeSpeedReduction: 0
   jumpChargeSpeedMax: 1
   isCharging: 0
   jumpAngleVector: {x: 0, y: 0}
@@ -3435,33 +3449,6 @@ MonoBehaviour:
   auraShield: {fileID: 0}
   sliderFill: {fileID: 0}
   delay: 0
---- !u!135 &1187221124590797305
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.76799035
-  m_Center: {x: -0.0031882524, y: 0.2220521, z: 0.103878975}
---- !u!114 &4677802610462506536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 0}
-  colliderInv: {fileID: 0}
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0

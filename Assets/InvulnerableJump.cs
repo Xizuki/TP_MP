@@ -9,24 +9,23 @@ public class InvulnerableJump : MonoBehaviour
 
     private void Start()
     {
-        jumpingPlayer = GetComponent<JumpingPlayerScript>();
-        StartCoroutine(Invulnerability());
+        colliderInv.enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(jumpingPlayer.isJumping == true && jumpingPlayer.jumpChargePrev >= 0.9)
+        if (jumpingPlayer.jumpChargePrev >= 0.9 && jumpingPlayer.isJumping == true)
         {
-            Invulnerability();
+            StartCoroutine(Invulnerability());
         }
     }
 
-    private IEnumerator Invulnerability()
+    IEnumerator Invulnerability()
     {
-        colliderInv.enabled = !colliderInv.enabled;
-        yield return new WaitForSeconds(2.0f);
+        colliderInv.enabled = true;
+        yield return new WaitForSeconds(1.0f);
         Debug.Log("Works");
-        colliderInv.enabled = colliderInv.enabled;
+        colliderInv.enabled = false;
     }
 
 

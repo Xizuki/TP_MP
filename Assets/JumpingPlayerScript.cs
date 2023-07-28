@@ -14,6 +14,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public float jumpCharge;
     public float jumpChargePrev;
     public float jumpChargeSpeedCurrent;
+    public float jumpChargeSpeedReduction;
     public float jumpChargeSpeedMax;
     public bool isCharging;
     public Vector2 jumpAngleVector;
@@ -66,7 +67,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         Timer();
         ResetInputCountdown();
-        
+
         chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y + 20f, chickenExit.transform.position.z);
 
         Inputs();
@@ -75,6 +76,11 @@ public class JumpingPlayerScript : MonoBehaviour
 
         if (!chicken.playerDowned)
             rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
+
+        if (jumpCharge > 0)
+        {
+            jumpCharge -= Time.deltaTime * jumpChargeSpeedCurrent / jumpChargeSpeedReduction;
+        }
     }
 
 
@@ -188,6 +194,7 @@ public class JumpingPlayerScript : MonoBehaviour
         jumpChargePrev = jumpCharge;
         jumpCharge = 0;
         isGrounded = false;
+        isJumping = true;
 
         SFX.jumpSound = true;
         animator.SetTrigger("Jump");
@@ -200,6 +207,7 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y)
         {
             isGrounded = true;
+            isJumping = false;
 
             ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
