@@ -19,6 +19,11 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public float playerHeadLookUpAngleLimit;
     public float playerJumpVectorIndicatorHardAngleLimit;
 
+    public ParticleSystem[] interpolateParticle;
+    //private ParticleSystem.MainModule interpolateps;
+    //private ParticleSystem.MainModule interpolateps2;
+
+
     public Color startingColor;
     public Color endColor;
     public Color interpolatedColor;
@@ -28,6 +33,9 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Image chargeBar;
     public Image sliderColor1;
     public Image sliderColor2;
+
+
+    public Vector3 faceForward = new(0, 0, 270);
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,21 +45,37 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public void Start()
     {
         jumpingVectorEndPointYMaxDistance = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y);
+        //interpolateps = interpolateParticle[1].main;
+        //interpolateps2 = interpolateParticle[2].main;
+
 
     }
 
     private void Update()
     {
         if (charge > maxCharge) charge = maxCharge;
+        interpolateParticle[1].startColor = interpolatedColor;
+        interpolateParticle[2].startColor = interpolatedColor;
+        interpolateParticle[3].startColor = interpolatedColor;
+        interpolateParticle[4].startColor = interpolatedColor;
+        interpolateParticle[5].startColor = interpolatedColor;
+        interpolateParticle[6].startColor = interpolatedColor;
     }
     // Update is called once per frame
     void LateUpdate()
     {
+        if (player.isCharging == true)
+        {
+            playerHeadTransform.localEulerAngles = faceForward;
+            //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+
+        }
+
         //Make player face camera
         //If want to make player facefront, determined by timer
         //If player is grounded
         //If player can rotate, this is meant to stop player from resetting when charging
-        if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
+        else if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
         {
 
             playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);

@@ -17,6 +17,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public float jumpCharge;
     public float jumpChargePrev;
     public float jumpChargeSpeedCurrent;
+    public float jumpChargeSpeedReduction;
     public float jumpChargeSpeedMax;
     public bool isCharging;
     public Vector2 jumpAngleVector;
@@ -26,6 +27,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem chargeParticle;
     public ParticleSystem chargeTapParticle;
     public ParticleSystem chargeTapParticle2;
+    public ParticleSystem maxParticle;
 
     public Animator animator;
     public Chicken chicken;
@@ -50,6 +52,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public bool canRotate = true; //Used to lock rotations
 
     public Vector2 joystickVector;
+
     public void Awake()
     {
         inputs = new ControllerInput();
@@ -76,7 +79,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         Timer();
         ResetInputCountdown();
-        
+
         chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y + 20f, chickenExit.transform.position.z);
 
         Inputs();
@@ -85,6 +88,11 @@ public class JumpingPlayerScript : MonoBehaviour
 
         if (!chicken.playerDowned)
             rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
+
+        if (jumpCharge > 0)
+        {
+            jumpCharge -= Time.deltaTime * jumpChargeSpeedCurrent / jumpChargeSpeedReduction;
+        }
     }
 
 
@@ -129,6 +137,7 @@ public class JumpingPlayerScript : MonoBehaviour
         if(jumpCharge > 1)
         {
             jumpCharge = 1;
+            maxParticle.Play();
         }
 
 
@@ -283,6 +292,7 @@ public class JumpingPlayerScript : MonoBehaviour
         jumpChargePrev = jumpCharge;
         jumpCharge = 0;
         isGrounded = false;
+        isJumping = true;
 
         SFX.jumpSound = true;
 
@@ -300,6 +310,7 @@ public class JumpingPlayerScript : MonoBehaviour
         if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
         {
             isGrounded = true;
+            isJumping = false;
 
             ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
@@ -319,7 +330,7 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             //ComboCount.hit = false;
         }
-        if (collision.collider.tag == "Enemy")
+        if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet")
         {
             animator.SetTrigger("Hit"); 
             hitParticle.Play();
