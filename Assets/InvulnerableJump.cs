@@ -6,6 +6,7 @@ public class InvulnerableJump : MonoBehaviour
 {
     public JumpingPlayerScript jumpingPlayer;
     public SphereCollider colliderInv;
+    public ParticleSystem explosion;
 
     private void Start()
     {
@@ -33,6 +34,9 @@ public class InvulnerableJump : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
+        {
             Destroy(other.gameObject);
+            Object.Instantiate(explosion, other.transform.position, other.transform.rotation);
+        }
     }
 }
