@@ -29,6 +29,8 @@ public class ShieldPickup : MonoBehaviour
             equipParticle.Play();
             auraShield.Play();
             Destroy(this.gameObject);
+
+            SFX.shieldPick = true;
         }
     }
 }

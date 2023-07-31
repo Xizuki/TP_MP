@@ -3266,6 +3266,7 @@ GameObject:
   - component: {fileID: 683046004}
   - component: {fileID: 3426643511485465010}
   - component: {fileID: 683046005}
+  - component: {fileID: 4878284276289323204}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -3341,6 +3342,8 @@ MonoBehaviour:
   jumpingPlayerChildrenModel: {fileID: 8824464932080693802}
   playerUI: {fileID: 0}
   rb: {fileID: 0}
+  resetChargeOnMove: 0
+  moveSpeed: 0
   jumpCharge: 0
   jumpChargePrev: 0
   jumpChargeSpeedCurrent: 0.85
@@ -3362,6 +3365,7 @@ MonoBehaviour:
   hitStrength: 10
   isGrounded: 0
   isJumping: 0
+  isMoving: 0
   feetPos: {fileID: 8824464932100929528}
   fallingGravityStrength: 15
   jumpChargeScalar: 2
@@ -3369,6 +3373,7 @@ MonoBehaviour:
   recentInput: 0
   checkInputDelay: 1
   canRotate: 1
+  joystickVector: {x: 0, y: 0}
 --- !u!114 &8824464933389489937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,6 +3396,7 @@ MonoBehaviour:
   jumpingVectorIndicatorEndPoint: {fileID: 8824464934056851840}
   jumpingVectorEndPointYMaxDistance: 0
   playerHeadLookUpAngleLimit: 55
+  playerJumpVectorIndicatorHardAngleLimit: 0
   interpolateParticle: []
   startingColor: {r: 0.93333334, g: 0.070463926, b: 0, a: 1}
   endColor: {r: 0.14653397, g: 1, b: 0, a: 1}
@@ -3412,6 +3418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipeName: MyNamedPipe
   jumpingPlayer: {fileID: 8824464933389489938}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
@@ -3449,6 +3456,20 @@ MonoBehaviour:
   auraShield: {fileID: 0}
   sliderFill: {fileID: 0}
   delay: 0
+--- !u!114 &4878284276289323204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ac9a4328be9d540918fe2c60fa8f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 0}
+  controlType: 0
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0

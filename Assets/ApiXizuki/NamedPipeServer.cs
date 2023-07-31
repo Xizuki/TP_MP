@@ -1,61 +1,169 @@
-using System;
+using UnityEngine;
 using System.IO;
 using System.IO.Pipes;
-using UnityEngine;
+using System.Threading;
+using System;
+using System.Collections;
 
 public class NamedPipeServer : MonoBehaviour
 {
-    private NamedPipeServerStream serverStream;
+    public string pipeName = "MyNamedPipe";
+    public JumpingPlayerScript jumpingPlayer;
+    private NamedPipeServerStream pipeServer;
+    private bool isRunning = true;
+    //public bool isConnected = false;
+    private StreamReader reader;
 
-    public JumpingPlayerScript jumpingPlayer; // Reference to the JumpingPlayerScript
-    string lastestLine;
-
-    private void Awake()
+    private void Start()
     {
-        jumpingPlayer = GetComponent<JumpingPlayerScript>(); // Get a reference to the JumpingPlayerScript component
+        jumpingPlayer = GetComponent<JumpingPlayerScript>();
+        // Register the Application.quitting event to handle application exit
+        Application.quitting += HandleApplicationQuit;
+
+        // Start the named pipe server asynchronously
+        StartNamedPipeServer();
     }
-    StreamReader reader;
 
-    // Replace "pipeName" with the actual pipe name you're using
-
-    private void CheckPipeStream()
+    private void HandleApplicationQuit()
     {
-        using (NamedPipeServerStream pipeStream = serverStream)
+        // Set isRunning to false to exit the server loop gracefully
+        isRunning = false;
+        // Close the pipe server if it was created
+        if (pipeServer != null)
         {
-            // Wait for a client to connect
-            pipeStream.WaitForConnection();
-
-            // Check if the pipe stream is broken
             try
             {
-                // Attempt to read or write to the pipe
-                pipeStream.ReadByte();
-                Debug.Log("The pipe stream is not broken.");
+                //pipeServer.EndWaitForConnection(result);
+
+                pipeServer.Close();
+                Debug.Log("Pipe server closed.");
             }
-            catch (IOException ex) when (IsPipeBrokenException(ex))
+            catch (IOException ex)
             {
-                Debug.Log("The pipe stream is broken.");
+                Debug.LogError("An error occurred while closing the pipe server: " + ex.Message);
             }
         }
     }
 
-
-    private void Start()
+    private void StartNamedPipeServer()
     {
-        // Create a new thread to avoid blocking the main Unity thread
-        System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
-        thread.Start();
-
-        // Create a named pipe server with a specific name
-        serverStream = new NamedPipeServerStream("MyNamedPipe", PipeDirection.In);
-        print("new serverStream");
-        reader = new StreamReader(serverStream);
-        //print("BeginWaitForConnection 1");
-
-        serverStream.BeginWaitForConnection(OnClientConnected, null);
-
-        //print("BeginWaitForConnection 2");
+        // Start a coroutine to handle the named pipe server asynchronously
+        StartCoroutine(NamedPipeServerCoroutine());
     }
+    //int i = 0;
+    IAsyncResult result;
+
+    private IEnumerator NamedPipeServerCoroutine()
+    {
+        while (isRunning)
+        {
+            if (pipeServer == null || !pipeServer.IsConnected)
+            {
+                // Replace the named pipe server creation with async version for Unity
+                pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+
+                // Start the asynchronous operation to wait for the client connection
+                result = pipeServer.BeginWaitForConnection(OnClientConnected, null);
+            }
+            // Wait for the connection or timeout
+            float startTime = Time.time;
+            while (!result.IsCompleted)
+            {
+                yield return null; // Yield until the next frame
+            }
+
+            if (pipeServer == null || !pipeServer.IsConnected)
+            {
+                // Complete the connection process
+                pipeServer.EndWaitForConnection(result);
+            }
+
+            // Handle communication with the connected client here...
+            //HandleClientCommunication(pipeServer);
+
+            // Do not close the pipe after communication; keep it open for the next messages
+            //pipeServer.Close();
+
+            isRunning = false;
+        }
+
+    }
+    //private IEnumerator NamedPipeServerCoroutine()
+    //{
+    //    //print("NamedPipeServerCoroutine  1");
+    //    while (isRunning)
+    //    {
+    //        //print("isConnected 1 = " + isConnected);
+
+
+    //        //if (pipeServer!=null)
+
+    //        //if (!isConnected)
+    //        //{ 
+    //        // print("pipeServer.IsConnected 1 = " + pipeServer.IsConnected);
+    //        // Replace the named pipe server creation with async version for Unity
+    //        pipeServer = new NamedPipeServerStream(pipeName);
+
+
+    //        //print("NamedPipeServerCoroutine  3");
+    //        //print("pipeServer.IsConnected 1.5 = " + pipeServer.IsConnected);
+
+    //        // Start the asynchronous operation to wait for the client connection\
+    //        IAsyncResult result = pipeServer.BeginWaitForConnection(OnClientConnected, null);
+    //        //print("NamedPipeServerCoroutine  4");
+
+    //        //print("pipeServer.IsConnected 2 = " + pipeServer.IsConnected);
+    //        //print("isConnected 2 = " + isConnected);
+
+    //        while (!result.IsCompleted)
+    //        {
+    //            print("1result.IsCompleted");
+    //            yield return null; // Yield until the next frame
+
+    //        }
+
+    //        //print("isConnected 3 = " + isConnected);
+
+    //        //print("pipeServer.IsConnected 3 = " + pipeServer.IsConnected);
+
+    //        //pipeServer.EndWaitForConnection(result);
+    //        //}
+    //        //print("NamedPipeServerCoroutine  5");
+
+    //        //print("NamedPipeServerCoroutine  6");
+    //        //print("pipeServer.IsConnected 4 = " + pipeServer.IsConnected);
+
+    //        //Complete the connection process
+    //        pipeServer.EndWaitForConnection(result);
+    //        //print("NamedPipeServerCoroutine  5");
+
+    //        // Handle communication with the connected client here...
+    //        // For example, you can use StreamReader and StreamWriter to read and write data on the pipe.
+
+    //        // After communication, close the pipe
+    //        //if(!isConnected)
+    //        pipeServer.Close();
+    //        //try
+    //        //{
+    //        //    // Attempt to read or write to the pipe
+    //        //    pipeServer.ReadByte();
+    //        //    Debug.Log("The pipe stream is not broken.");
+    //        //}
+    //        //catch (IOException ex) when (IsPipeBrokenException(ex))
+    //        //{
+
+    //        //    Debug.Log("The pipe stream is broken.");
+    //        //}
+
+    //        //isRunning = false;
+
+    //    }
+
+    //    //pipeServer.EndWaitForConnection(result);
+    //    //pipeServer.Close();
+
+    //}
+
 
     static bool IsPipeBrokenException(IOException ex)
     {
@@ -65,58 +173,420 @@ public class NamedPipeServer : MonoBehaviour
         var errorCode = ex.HResult & 0xFFFF;
         return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
     }
-    private void Update()
+    public void Update()
     {
-        //print("server.isconnected = " + serverStream.IsConnected);
-        System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
+        //print("pipeServer.IsConnected UPDATE = " + pipeServer.IsConnected);
+        //print("isConnected UPDATE = " + isConnected);
 
+        //if (isConnected)
+        //{
+        //    print("reader.ReadLine() = " + reader.ReadLine());
+        //}
+        //print("IsRunning = " + isRunning);
     }
 
-    private void OnClientConnected(System.IAsyncResult result)
+    private void OnClientConnected(IAsyncResult result)
     {
+        //isConnected = true;
+        reader = new StreamReader(pipeServer);
         ReadMessage();
+        try
+        {
+            // Attempt to read or write to the pipe
+            pipeServer.ReadByte();
+            Debug.Log("The pipe stream is not broken.");
+        }
+        catch (IOException ex) when (IsPipeBrokenException(ex))
+        {
+
+            Debug.Log("The pipe stream is broken.");
+        }
+
+        print("OnClientConnected()");
     }
+
+    string lastestLine;
     public async void ReadMessage()
     {
+        print("ReadMessage()");
+
         while (true)
         {
+            print("ReadMessage()1");
+
             //if (!serverStream.IsConnected) { continue; }
-            if (lastestLine == "Null") { serverStream.Close(); }
+            //if (lastestLine == "Null") { serverStream.Close(); }
+            //lastestLine =  reader.ReadLine();
             lastestLine = await reader.ReadLineAsync();
-
             print(lastestLine);
-            if(lastestLine == "Jump")
-            {
-                jumpingPlayer.Jump();
-            }
-        }
-    }
-    void test()
-    {
-        Jump();
-        for(int i =0; i <500; i++)
-        {
-            //print(i);
-        }
-    }
-    public void Jump()
-    {
-      
 
-    }
-    private void OnDisable()
-    {
-        if (serverStream.IsConnected)
-            serverStream.Disconnect();
-        serverStream.Close();
-        serverStream.Dispose();
-    }
-    
-    private void OnApplicationQuit()
-    {
-        if(serverStream.IsConnected)
-            serverStream.Disconnect();
-        serverStream.Close();
-        serverStream.Dispose();
+            if (lastestLine.Contains("Trigger:"))
+            {
+                string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
+                print(boolean);
+
+                if (boolean == "True")
+                {
+                    jumpingPlayer.isCharging = true;
+                }
+                else if (boolean == "False")
+                {
+                    jumpingPlayer.isCharging = false;
+                }
+
+                //jumpingPlayer.isCharging();
+            }
+
+
+            //CheckPipeStream();
+
+            //reader.Close();
+            //reader.Dispose();
+            //if (serverStream.IsConnected)
+            //serverStream.Disconnect();
+            //serverStream.Close();
+            //serverStream.Dispose();
+        }
     }
 }
+
+
+
+
+
+
+////using System;
+//using System.IO;
+//using System.IO.Pipes;
+//using System.Threading;
+//using System.Threading.Tasks;
+//using UnityEngine;
+
+//public class NamedPipeServer : MonoBehaviour
+//{
+//    private NamedPipeServerStream serverStream;
+//    private static CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+//    private static CancellationToken cancellationToken;
+//    private StreamReader reader;
+//    private Task waitingTask;
+
+//    public JumpingPlayerScript jumpingPlayer; // Reference to the JumpingPlayerScript
+//    string lastestLine;
+
+//    private void Awake()
+//    {
+//        jumpingPlayer = GetComponent<JumpingPlayerScript>(); // Get a reference to the JumpingPlayerScript component
+//    }
+
+//    private void Start()
+//    {
+//        // Create a named pipe server with a specific name
+//        serverStream = new NamedPipeServerStream("MyNamedPipe", PipeDirection.In);
+//        reader = new StreamReader(serverStream);
+
+//        // Start waiting for a client to connect asynchronously
+//        //cancellationTokenSource = new CancellationTokenSource();
+//        // Step 2: Get the CancellationToken from the CancellationTokenSource
+//        cancellationToken = cancellationTokenSource.Token;
+
+//        cancellationToken.Register(() =>
+//        {
+//            Console.WriteLine("Task has been cancelled!");
+//        });
+
+//        Debug.Log("Start() 0 is token CanBeCanceled =  " + cancellationToken.CanBeCanceled);
+
+//        Debug.Log("Start() 1 ");
+//        //cancellationTokenSource.Cancel();
+//        Task.Run(async () =>
+//        {
+//            await WaitForConnectionAsync(cancellationToken);
+//        });
+//        //waitingTask = 
+//        cancellationTokenSource.Cancel();
+//        Debug.Log("Start() 2 ");
+//    }
+
+//    public void CancelToken()
+//    {
+//        cancellationTokenSource.Cancel();
+//    }
+//    static bool WantsToQuit()
+//    {
+//        Debug.Log("Player prevented from quitting.");
+//        cancellationTokenSource.Cancel();
+//        return true;
+//    }
+
+//    private async Task WaitForConnectionAsync(CancellationToken cancellationToken)
+//    {
+//        Debug.Log("WaitForConnectionAsync() 1 ");
+//        // Check if cancellation has been requested before proceeding
+//        //cancellationToken.ThrowIfCancellationRequested();
+//        //try
+//        //{
+//        //    // Wait for a client to connect zasynchronously
+
+//        Application.wantsToQuit += WantsToQuit;
+//        //if (!Application.isPlaying)
+//        //{
+//        //    print("!Application.isPlaying");
+//        //    cancellationTokenSource.Cancel();
+//        //    return;
+//        //}
+
+//        await serverStream. (cancellationToken);
+//            Debug.Log("WaitForConnectionAsync() 2 ");
+
+//            // Check if the pipe stream is broken
+//            try
+//            {
+//                // Attempt to read or write to the pipe
+//                serverStream.ReadByte();
+//                Debug.Log("The pipe stream is not broken.");
+//            }
+//            catch (IOException ex) when (IsPipeBrokenException(ex))
+//            {
+
+//                Debug.Log("The pipe stream is broken.");
+//            }
+
+//            // Start reading messages from the connected client
+//            ReadMessage();
+//        //}
+//        //catch (OperationCanceledException)
+//        //{
+//        //    // The waiting task has been canceled, ignore the exception
+//        //    return;
+//        //}
+//        //catch (Exception ex)
+//        //{
+//        //    // Handle any other exceptions
+//        //    Debug.LogError($"An error occurred while waiting for connection: {ex.Message}");
+//        //}
+//    }
+
+//    static bool IsPipeBrokenException(IOException ex)
+//    {
+//        const int ERROR_PIPE_NOT_CONNECTED = 233;
+//        const int ERROR_NO_DATA = 232;
+
+//        var errorCode = ex.HResult & 0xFFFF;
+//        return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
+//    }
+
+//    private void ReadMessage()
+//    {
+//        Debug.Log("ReadMessage() 1 ");
+
+//        while (serverStream.IsConnected)
+//        {
+//            Debug.Log("ReadMessage() 2 ");
+
+//            if (lastestLine == "Null")
+//            {
+//                serverStream.Close();
+//            }
+
+
+
+//            // Read the next line from the stream
+//            lastestLine = reader.ReadLine();
+//        }
+//    }
+
+//    private void Update()
+//    {
+
+//    }
+
+//    private void OnDisable()
+//    {
+//        print("ONDISABLE");
+//        cancellationTokenSource.Cancel();
+
+//    }
+
+//    private void OnApplicationQuit()
+//    {
+//        print("OnApplicationQuit");
+
+//        cancellationTokenSource.Cancel();
+
+//    }
+//}
+
+
+
+
+
+
+
+
+
+//using System;
+//using System.IO;
+//using System.IO.Pipes;
+//using UnityEngine;
+
+//public class NamedPipeServer : MonoBehaviour
+//{
+//    private NamedPipeServerStream serverStream;
+
+//    public JumpingPlayerScript jumpingPlayer; // Reference to the JumpingPlayerScript
+//    string lastestLine;
+
+//    private void Awake()
+//    {
+//        jumpingPlayer = GetComponent<JumpingPlayerScript>(); // Get a reference to the JumpingPlayerScript component
+//    }
+//    StreamReader reader;
+
+//    // Replace "pipeName" with the actual pipe name you're using
+
+//    private void CheckPipeStream()
+//    {
+
+//        // Wait for a client to connect
+//        serverStream.WaitForConnection();
+
+//        // Check if the pipe stream is broken
+//        try
+//        {
+//            // Attempt to read or write to the pipe
+//            serverStream.ReadByte();
+//            Debug.Log("The pipe stream is not broken.");
+//        }
+//        catch (IOException ex) when (IsPipeBrokenException(ex))
+//        {
+//            Debug.Log("The pipe stream is broken.");
+//        }
+
+//    }
+
+
+//    private void Start()
+//    {
+//        // Create a named pipe server with a specific name
+//        serverStream = new NamedPipeServerStream("MyNamedPipe", PipeDirection.In);
+//        print("new serverStream");
+//        reader = new StreamReader(serverStream);
+//        //print("BeginWaitForConnection 1");
+
+
+//        print("BeginWaitForConnection 1");
+
+//        serverStream.BeginWaitForConnection(OnClientConnected, null);
+//        print("BeginWaitForConnection 2");
+
+//        print("BeginWaitForConnection 3 if connected = " + serverStream.IsConnected);
+
+//        //print("BeginWaitForConnection 2");
+
+//        // Create a new thread to avoid blocking the main Unity thread
+//        //System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
+//        //thread.Start();
+//    }
+
+//    static bool IsPipeBrokenException(IOException ex)
+//    {
+//        const int ERROR_PIPE_NOT_CONNECTED = 233;
+//        const int ERROR_NO_DATA = 232;
+
+//        var errorCode = ex.HResult & 0xFFFF;
+//        return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
+//    }
+//    private void Update()
+//    {
+//        //jumpingPlayer.namedPipeJumpCharging = false;
+//        //print("server.isconnected = " + serverStream.IsConnected);
+//        //System.Threading.Thread thread = new System.Threading.Thread(CheckPipeStream);
+//        //print("Update if connected = " + serverStream.IsConnected);
+//        //print("Update serverstream null = " + (serverStream == null));
+
+//    }
+
+//    private void OnClientConnected(System.IAsyncResult result)
+//    {
+//        print("OnClientConnected()");
+
+//        ReadMessage();
+//    }
+//    public async void ReadMessage()
+//    {
+//        print("ReadMessage()");
+
+//        while (true)
+//        {
+//            print("ReadMessage()1");
+
+//            //if (!serverStream.IsConnected) { continue; }
+//            //if (lastestLine == "Null") { serverStream.Close(); }
+//            //lastestLine =  reader.ReadLine();
+//            lastestLine = await reader.ReadLineAsync();
+//            print(lastestLine);
+
+//            if (lastestLine.Contains("Trigger:"))
+//            {
+//                string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
+//                print(boolean);
+
+//                if (boolean == "True")
+//                {
+//                    jumpingPlayer.isCharging = true;
+//                }
+//                else if (boolean == "False")
+//                {
+//                    jumpingPlayer.isCharging = false;
+//                }
+
+//                //jumpingPlayer.isCharging();
+//            }
+
+
+//            //CheckPipeStream();
+
+//            //reader.Close();
+//            //reader.Dispose();
+//            //if (serverStream.IsConnected)
+//            //serverStream.Disconnect();
+//            //serverStream.Close();
+//            //serverStream.Dispose();
+//        }
+//    }
+//    public void Jump()
+//    {
+
+
+//    }
+
+//    private void OnDisable()
+//    {
+//        reader.Close();
+//        reader.Dispose();
+//        if (serverStream.IsConnected)
+//        {
+//            serverStream.Disconnect();
+
+//        }
+
+//        serverStream.Close();
+//        serverStream.Dispose();
+
+//    }
+
+//    private void OnApplicationQuit()
+//    {
+//        reader.Close();
+//        reader.Dispose();
+//        if (serverStream.IsConnected)
+//        {
+//            serverStream.Disconnect();
+//        }
+
+//        serverStream.Close();
+//        serverStream.Dispose();
+
+//    }
+
+//}

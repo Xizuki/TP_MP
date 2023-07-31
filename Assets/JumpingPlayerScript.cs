@@ -41,6 +41,8 @@ public class JumpingPlayerScript : MonoBehaviour
     public int i = 0;
     public bool isGrounded;
     public bool isJumping;
+    public bool isMoving;
+
     public Transform feetPos;
     public float fallingGravityStrength;
     public float jumpChargeScalar;
@@ -52,16 +54,22 @@ public class JumpingPlayerScript : MonoBehaviour
     private float checkInputDelay = 1f; //How long before 'isInput' is reset
     private float checkInputDelayCountdown = 1f;
     public bool canRotate = true; //Used to lock rotations
+
+    public Vector2 joystickVector;
+
     public void Awake()
     {
         inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();
 
-        inputs.GameActions.Enable();
+        //inputs.GameActions.Enable();
 
-        inputs.GameActions.Jump.performed += a => Jump();
+        //inputs.GameActions.Jump.performed += a => Jump();
+        //inputs.GameActions.Input.performed += a => SetJoyStickVector2(a.ReadValue<Vector2>());
     }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +77,7 @@ public class JumpingPlayerScript : MonoBehaviour
         shibaCollider = gameObject.GetComponent<BoxCollider>();
         lineRenderer.positionCount = 2;
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -102,11 +111,11 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void Inputs()
     {
-
         // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
         if (Input.GetKeyDown(KeyCode.Q))
         {
             animator.SetBool("Charge", true);
+            SFX.charging = true; //Added charging SFX
             isCharging = true;
             canRotate = false;//Logic for rotation when charging
         }
@@ -117,16 +126,19 @@ public class JumpingPlayerScript : MonoBehaviour
             animator.SetBool("Charge", false);
 
         }
-        if (isCharging)
+        if (isGrounded && !isMoving)
         {
-            chargeParticle.Play();
-            jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
-            chargeTapParticle.Play();
-            chargeTapParticle2.Play();
-        }
-        if (!isCharging)
-        {
-            chargeParticle.Stop();
+            if (isCharging)
+            {
+                chargeParticle.Play();
+                jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+                chargeTapParticle.Play();
+                chargeTapParticle2.Play();
+            }
+            if (!isCharging)
+            {
+                chargeParticle.Stop();
+            }
         }
         if(jumpCharge > 1)
         {
@@ -134,33 +146,117 @@ public class JumpingPlayerScript : MonoBehaviour
             maxParticle.Play();
         }
 
+
+
+     
+    }
+
+
+
+    public void SetJoyStickVector2(Vector2 vector)
+    {
+        joystickVector = vector;
+    }
+    public void MovePlayer(int value)
+    {
+        if (!isGrounded || chicken.playerDowned) return;
+
+        transform.position += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+        rb.velocity += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
+        if(resetChargeOnMove)
+            jumpCharge = 0;
+        isMoving = true;
+    }
+
+    public void MovementAndJumpVector(Vector2 v2)
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
+        recentInput = false;
+
+        // Can make this less hard coded but idk how rn and abit laze 
+        playerUI.jumpingVectorIndicator.transform.up = new Vector3(-v2.x, v2.y, 0);
+        playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(playerUI.jumpingVectorIndicator.transform.eulerAngles.x, 0, playerUI.jumpingVectorIndicator.transform.eulerAngles.z);
+
+        if (LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.playerJumpVectorIndicatorHardAngleLimit) && isGrounded)
+        {
+            transform.position += new Vector3(v2.x, 0, 0) * Time.deltaTime * moveSpeed;
+
+            if (resetChargeOnMove)
+                jumpCharge = 0;
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+    }
+    public void MoveJumpVectorV3(Vector2 v2)
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
+        recentInput = false;
+        
+        
+        // Can make this less hard coded but idk how rn and abit laze 
+        playerUI.jumpingVectorIndicator.transform.up = new Vector3(-v2.x, v2.y, 0);
+        playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(playerUI.jumpingVectorIndicator.transform.eulerAngles.x,0, playerUI.jumpingVectorIndicator.transform.eulerAngles.z);
+
+
+        LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
+    }
+    public void IncrementalMoveJumpVectorNegative()
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
+        MoveJumpVectorNegative();
+        recentInput = false;
+
+
+        LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
+
+    }
+    public void IncrementalMoveJumpVectorPositive()
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
+        MoveJumpVectorPositive();
+        recentInput = false;
+
+        LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
+    }
+
+    public bool LimitJumpVectorAngle(bool forceLock, float checkLimitAngle, float visualLimitAngle)
+    {
         float angle = playerUI.jumpingVectorIndicator.transform.eulerAngles.z;
         float negative = angle >= 180 ? -1 : 1;
         angle = angle >= 180 ? 180 - (angle % 180) : angle;
 
-        if (angle > playerUI.jumpingVectorAngleLimit + Time.deltaTime)
+        if (angle > checkLimitAngle + Time.deltaTime)
         {
-            playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(0, 0, playerUI.jumpingVectorAngleLimit * negative);
-            return;
+            if(forceLock && angle > visualLimitAngle + Time.deltaTime)
+                playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(0, 0, visualLimitAngle * negative);
+            return true;
         }
 
-        if (inputs.GameActions.MoveJumpVectorNegative.IsPressed())
-        {
-            //recentInput = true;
-            faceFront = false;
-            checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-            MoveJumpVectorNegative();
-            recentInput = false;
-        }
-        if (inputs.GameActions.MoveJumpVectorPositive.IsPressed())
-        {
-            //recentInput = true;
-            faceFront = false;
-            checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
-            MoveJumpVectorPositive();
-            recentInput = false;
-        }
+        return false;
     }
+    public void MoveState(float scale)
+    {
+        if (!isGrounded) return;
+
+        transform.position += new Vector3(playerUI.jumpingVectorIndicator.transform.up.x* scale * moveSpeed, 0, 0)*Time.deltaTime;
+
+        if (resetChargeOnMove)
+            jumpCharge = 0;
+        isMoving = true;
+    }
+
 
     private void Timer() //Timer goes down when no input
     {
@@ -184,7 +280,6 @@ public class JumpingPlayerScript : MonoBehaviour
 
     }
 
-
     private void MoveJumpVectorNegative()
     {
         playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, -1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
@@ -195,7 +290,7 @@ public class JumpingPlayerScript : MonoBehaviour
     }
     public void Jump()
     {
-        if (!isGrounded || jumpCharge <= 0) { return; }
+        if (!isGrounded || chicken.playerDowned || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
         transform.position += new Vector3(0, 0.01f, 0);
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
@@ -206,6 +301,11 @@ public class JumpingPlayerScript : MonoBehaviour
         isJumping = true;
 
         SFX.jumpSound = true;
+
+        if (Random.Range(1,5) >= 3)
+        {
+            SFX.voiceJump = true; //Added jumping voice
+        }
         animator.SetTrigger("Jump");
         Instantiate(jumpParticle, transform.position, transform.rotation);
     }
@@ -213,7 +313,7 @@ public class JumpingPlayerScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Very Simple, could maybe have bugs
-        if (collision.contacts[0].point.y <= feetPos.position.y)
+        if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
         {
             isGrounded = true;
             isJumping = false;
@@ -238,7 +338,7 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet")
         {
-            animator.SetTrigger("Hit");
+            animator.SetTrigger("Hit"); 
             hitParticle.Play();
             HitPhase();
         }
@@ -246,17 +346,19 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void HitPhase()
     {
+        isGrounded = false;
         Time.timeScale = 0;
         shibaCollider.enabled = false;
         rb.AddForce(new Vector3(0, hitStrength, 0), ForceMode.Impulse);
         StartCoroutine(StartDelay());
+        SFX.hit = true;
     }
 
 
 
     IEnumerator StartDelay()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.15f); //Reduced the delay 0.5 -> 0.15
         Debug.Log("Back");
         Time.timeScale = 1;
     }

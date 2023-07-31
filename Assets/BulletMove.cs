@@ -37,6 +37,9 @@ public class BulletMove : MonoBehaviour
                 return;
             }
         }
+
+        //Debug.Log("Hit");
+
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
     }
