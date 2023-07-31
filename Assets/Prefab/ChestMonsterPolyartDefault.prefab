@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1512148224729488641}
   m_Layer: 0
   m_Name: EyeCTRL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1512148224729488643}
   m_Layer: 0
   m_Name: FrontLeftLeg01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1512148224729488649}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1512148224724044841}
   m_Layer: 0
   m_Name: ChestMesh
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: -7337956087009733084}
   m_Layer: 0
   m_Name: ChestMonsterPolyartDefault
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,7 +343,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestAnimator: {fileID: 1512148224719975145}
-  raycastLine: {fileID: 1512148224729317679}
+  raycastLine: {fileID: 0}
+  boxCollider: {fileID: 4227900838202279781}
   distanceSet: 5
 --- !u!1 &1512148224729317679
 GameObject:
@@ -356,7 +357,7 @@ GameObject:
   - component: {fileID: 1512148224729488655}
   m_Layer: 0
   m_Name: EyeBallCTRL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,7 +388,7 @@ GameObject:
   - component: {fileID: 1512148224729488657}
   m_Layer: 0
   m_Name: LockCTRL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,7 +419,7 @@ GameObject:
   - component: {fileID: 1512148224729488659}
   m_Layer: 0
   m_Name: LowerEyelid
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,7 +450,7 @@ GameObject:
   - component: {fileID: 1512148224729488661}
   m_Layer: 0
   m_Name: LowerTeethCTRL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,7 +481,7 @@ GameObject:
   - component: {fileID: 1512148224729488663}
   m_Layer: 0
   m_Name: RearLeftLeg01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -512,7 +513,7 @@ GameObject:
   - component: {fileID: 1512148224729488665}
   m_Layer: 0
   m_Name: FrontRightLeg01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,9 +606,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512148224729488671}
+  - component: {fileID: 4227900838202279781}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,6 +631,19 @@ Transform:
   m_Father: {fileID: 1512148224729488649}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4227900838202279781
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512148224729317695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.93740726, y: 0.6944836, z: 1}
+  m_Center: {x: -0.031296358, y: -0.15275832, z: -0.000000009142285}
 --- !u!1 &1512148224729317697
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +686,7 @@ GameObject:
   - component: {fileID: 1512148224729488675}
   m_Layer: 0
   m_Name: Root
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,7 +718,7 @@ GameObject:
   - component: {fileID: 1512148224729488677}
   m_Layer: 0
   m_Name: UppderEyeLid
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +749,7 @@ GameObject:
   - component: {fileID: 1512148224729488679}
   m_Layer: 0
   m_Name: UpperTeethCTRL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,7 +843,7 @@ GameObject:
   - component: {fileID: 1512148224729488685}
   m_Layer: 0
   m_Name: RearRightLeg01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -37,11 +37,13 @@ public class JumpingPlayerScript : MonoBehaviour
     public GameObject chickenExit;
 
     public Collider shibaCollider;
+    public int moveSpeed;
     public int hitStrength = 15;
     public int i = 0;
     public bool isGrounded;
     public bool isJumping;
     public bool isMoving;
+    public bool resetChargeOnMove;
 
     public Transform feetPos;
     public float fallingGravityStrength;

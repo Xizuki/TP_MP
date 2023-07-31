@@ -14,14 +14,20 @@ public class ChestEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject gameObject = transform.GetChild(1).gameObject;
+        GameObject gameObject2 = gameObject.transform.GetChild(0).gameObject;
+        raycastLine = gameObject2.transform.GetChild(2).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Physics.Raycast(raycastLine.transform.position, -raycastLine.transform.up, out hit, distanceSet);
-        Debug.DrawRay(raycastLine.transform.position, -raycastLine.transform.up, Color.red);
+        if (raycastLine == null)
+        {
+            return;
+        }
+            Physics.Raycast(raycastLine.transform.position, raycastLine.transform.forward, out hit, distanceSet);
+        Debug.DrawRay(raycastLine.transform.position, raycastLine.transform.forward, Color.red);
         if (hit.collider == null)
         {
             return;

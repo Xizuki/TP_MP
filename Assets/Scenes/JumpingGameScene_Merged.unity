@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17292504, g: 0.21610881, b: 0.29807755, a: 1}
+  m_IndirectSpecularColor: {r: 0.17292523, g: 0.2161091, b: 0.29807812, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8575,6 +8575,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8824464932475558574}
     - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: chickenExit
       value: 
       objectReference: {fileID: 1797976224}
@@ -8621,11 +8625,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9650c7df3de3d9444aa8d9afe4f57571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 0}
+  jumpingPlayer: {fileID: 8824464932475558557}
   raycastLine: {fileID: 1863692336}
   raycastLine2: {fileID: 1537212499}
   mainCamera: {fileID: 1441620867}
-  distanceSet: 1000
+  distanceSet: 20
 --- !u!135 &8824464932475558569
 SphereCollider:
   m_ObjectHideFlags: 0
