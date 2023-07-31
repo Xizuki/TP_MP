@@ -10,6 +10,8 @@ public class JumpingPlayerScript : MonoBehaviour
     public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
+    public bool checkLandSound; //Checking for sound effect when successfully landing
+    public bool checkMaxChargeSoundSfx;
 
     public bool resetChargeOnMove;
 
@@ -28,6 +30,9 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem chargeTapParticle;
     public ParticleSystem chargeTapParticle2;
     public ParticleSystem maxParticle;
+
+    public ParticleSystem maxChargeParticleOut;
+    public ParticleSystem maxChargeParticleIn;
 
     public Animator animator;
     public Chicken chicken;
@@ -132,12 +137,39 @@ public class JumpingPlayerScript : MonoBehaviour
             if (!isCharging)
             {
                 chargeParticle.Stop();
+                maxChargeParticleOut.Stop();
             }
         }
-        if(jumpCharge > 1)
+        if (jumpCharge > 1 && isCharging)
+        {
+            if (checkMaxChargeSoundSfx == false)
+            {
+                checkMaxChargeSoundSfx = true;
+                SFX.contiCharging = true;
+                StartCoroutine(maxChargeSfx());
+            }
+        }
+        if (jumpCharge >= 0.85)
+        {
+            maxChargeParticleIn.Play();
+        }
+        if (jumpCharge < 0.85)
+        {
+            maxChargeParticleIn.Stop();
+        }
+        if (jumpCharge > 1)
         {
             jumpCharge = 1;
             maxParticle.Play();
+            maxChargeParticleIn.Play();
+            //maxChargeParticleOut.Play();
+
+        }
+
+        IEnumerator maxChargeSfx()
+        {
+            yield return new WaitForSeconds(0.25f);
+            checkMaxChargeSoundSfx = false;
         }
 
 
@@ -295,11 +327,8 @@ public class JumpingPlayerScript : MonoBehaviour
         isJumping = true;
 
         SFX.jumpSound = true;
+        SFX.voiceJump = true; //Added jumping voice
 
-        if (Random.Range(1,5) >= 3)
-        {
-            SFX.voiceJump = true; //Added jumping voice
-        }
         animator.SetTrigger("Jump");
         Instantiate(jumpParticle, transform.position, transform.rotation);
     }
@@ -311,6 +340,12 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
+
+            if (checkLandSound == false)
+            {
+                SFX.landSound = true;
+                checkLandSound = true;
+            }
 
             ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
@@ -329,6 +364,7 @@ public class JumpingPlayerScript : MonoBehaviour
         else if (collision.contacts[0].point.y > feetPos.position.y)
         {
             //ComboCount.hit = false;
+            checkLandSound = false;
         }
         if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet")
         {
