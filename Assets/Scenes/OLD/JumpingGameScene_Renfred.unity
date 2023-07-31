@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,6 +233,8 @@ MonoBehaviour:
   slowMultiplyer: 0
   cactusEnemies: []
   mushroomEnemies: []
+  sliderFill: {fileID: 0}
+  delay: 0
 --- !u!114 &114279793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,21 +279,38 @@ MonoBehaviour:
   jumpingPlayerChildrenModel: {fileID: 0}
   playerUI: {fileID: 0}
   rb: {fileID: 0}
+  resetChargeOnMove: 0
+  moveSpeed: 0
   jumpCharge: 0
+  jumpChargePrev: 0
   jumpChargeSpeedCurrent: 0
+  jumpChargeSpeedReduction: 0
   jumpChargeSpeedMax: 0
+  isCharging: 0
   jumpAngleVector: {x: 0, y: 0}
   rbJumpStrength: 0
   jumpParticle: {fileID: 0}
   hitParticle: {fileID: 0}
   chargeParticle: {fileID: 0}
+  chargeTapParticle: {fileID: 0}
+  chargeTapParticle2: {fileID: 0}
+  maxParticle: {fileID: 0}
   animator: {fileID: 0}
   chicken: {fileID: 0}
+  chickenExit: {fileID: 0}
+  shibaCollider: {fileID: 0}
+  hitStrength: 15
   isGrounded: 0
   isJumping: 0
+  isMoving: 0
   feetPos: {fileID: 0}
   fallingGravityStrength: 0
   jumpChargeScalar: 0
+  faceFront: 0
+  recentInput: 0
+  checkInputDelay: 1
+  canRotate: 1
+  joystickVector: {x: 0, y: 0}
 --- !u!114 &114279796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,11 +333,16 @@ MonoBehaviour:
   jumpingVectorIndicatorEndPoint: {fileID: 0}
   jumpingVectorEndPointYMaxDistance: 0
   playerHeadLookUpAngleLimit: 0
+  playerJumpVectorIndicatorHardAngleLimit: 0
+  interpolateParticle: []
   startingColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
   interpolatedColor: {r: 0, g: 0, b: 0, a: 0}
+  chargeText: {fileID: 0}
+  chargeBar: {fileID: 0}
   sliderColor1: {fileID: 0}
   sliderColor2: {fileID: 0}
+  faceForward: {x: 0, y: 0, z: 270}
 --- !u!1 &164837386
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesOnPlatform: []
 --- !u!65 &690890092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -741,7 +766,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -818,6 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesOnPlatform: []
 --- !u!65 &837723913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -851,7 +877,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1095,6 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesOnPlatform: []
 --- !u!65 &1327393838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1128,7 +1155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1210,6 +1237,10 @@ MonoBehaviour:
   player: {fileID: 0}
   platforms: []
   lastLandedPlatform: {fileID: 2017939075}
+  scoreScript: {fileID: 0}
+  comboCountScript: {fileID: 0}
+  chargeBarScoreMultiplyer: 0
+  chargeBarFullScoreMultiplyer: 0
   platformDissappearingPoint: {fileID: 1106978294}
 --- !u!1001 &1738361361
 PrefabInstance:
@@ -1456,7 +1487,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1498,6 +1529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesOnPlatform: []
 --- !u!1001 &2029725350
 PrefabInstance:
   m_ObjectHideFlags: 0
