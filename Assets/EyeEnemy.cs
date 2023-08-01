@@ -8,7 +8,7 @@ public class EyeEnemy : MonoBehaviour
     public RaycastHit hit;
     public GameObject eye;
     public GameObject bullet;
-    public bool eyeShoot = false;
+    public bool eyeShoot; //= false;
     void Start()
     {
         GameObject gameObject = transform.GetChild(1).gameObject;
@@ -21,11 +21,11 @@ public class EyeEnemy : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Scan");
-        Debug.DrawRay(eye.transform.position, -eye.transform.up, Color.red);
-        Physics.Raycast(eye.transform.position, -eye.transform.up, out hit, Mathf.Infinity);
+        Debug.DrawRay(eye.transform.position, transform.forward, Color.red);
+        Physics.Raycast(eye.transform.position, transform.forward, out hit, Mathf.Infinity);
         if (hit.collider == null)
         {
+            eyeShoot = false;
             return;
         }
         else if (hit.collider.tag == "Player")
@@ -37,6 +37,7 @@ public class EyeEnemy : MonoBehaviour
             eyeShoot = false;
         }
 
+
     }
 
     IEnumerator ShootBullet()
@@ -46,9 +47,11 @@ public class EyeEnemy : MonoBehaviour
             if (eyeShoot)
             {
                 bAnimator.SetTrigger("Attack");
-                Instantiate(bullet, eye.transform.position, transform.rotation);
                 yield return new WaitForSeconds(1.2f);
+                Instantiate(bullet, eye.transform.position, transform.rotation);
             }
+
+            yield return null;
         }
     }
 }

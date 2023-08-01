@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 4530003306004526970}
   - component: {fileID: 4530003305994672282}
   - component: {fileID: 5136639627576090072}
+  - component: {fileID: 6459329651704908240}
   m_Layer: 0
   m_Name: BeholderPBRDefault
   m_TagString: Untagged
@@ -1626,6 +1627,20 @@ MonoBehaviour:
   bAnimator: {fileID: 4530003305994672282}
   eye: {fileID: 2058038981}
   bullet: {fileID: 8967348658920793609, guid: 8abd05c292f3ce6459953133cb91153d, type: 3}
+  eyeShoot: 0
+--- !u!65 &6459329651704908240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530003306004163418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8077034, y: 1.6279836, z: 1.3195136}
+  m_Center: {x: 0.051498353, y: 1.407675, z: -0.1597569}
 --- !u!1 &4530003306004163420
 GameObject:
   m_ObjectHideFlags: 0
