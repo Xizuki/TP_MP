@@ -6,10 +6,12 @@ public class InvulnerableJump : MonoBehaviour
 {
     public JumpingPlayerScript jumpingPlayer;
     public SphereCollider colliderInv;
+    public Outline outlineScript;
 
     private void Start()
     {
         colliderInv.enabled = false;
+        //outlineScript.enabled = false;
     }
 
     private void FixedUpdate()
@@ -18,14 +20,35 @@ public class InvulnerableJump : MonoBehaviour
         {
             StartCoroutine(Invulnerability());
         }
+
+        if (jumpingPlayer.isJumping == true)
+        {
+            outlineScript.OutlineWidth = 5f;
+        }
+        if (jumpingPlayer.isJumping == false)
+        {
+            outlineScript.OutlineWidth -= 0.35f;
+            
+            if (outlineScript.OutlineWidth < 0)
+            {
+                outlineScript.OutlineWidth = 0f;
+            }
+
+        }
+
     }
 
     IEnumerator Invulnerability()
     {
         colliderInv.enabled = true;
+        //outlineScript.enabled = true;
+
         yield return new WaitForSeconds(1.0f);
-        Debug.Log("Works");
         colliderInv.enabled = false;
+        //outlineScript.enabled = false;
+        outlineScript.OutlineWidth += 0.15f;
+        Debug.Log("Works");
+        
     }
 
 
