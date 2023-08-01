@@ -16,7 +16,9 @@ public class ChestEnemy : MonoBehaviour
     {
         GameObject gameObject = transform.GetChild(1).gameObject;
         GameObject gameObject2 = gameObject.transform.GetChild(0).gameObject;
-        raycastLine = gameObject2.transform.GetChild(2).gameObject;
+        GameObject gameObject3 = gameObject2.transform.GetChild(2).gameObject;
+        GameObject gameObject4 = gameObject3.transform.GetChild(0).gameObject;
+        raycastLine = gameObject4.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -26,8 +28,8 @@ public class ChestEnemy : MonoBehaviour
         {
             return;
         }
-            Physics.Raycast(raycastLine.transform.position, raycastLine.transform.forward, out hit, distanceSet);
-        Debug.DrawRay(raycastLine.transform.position, raycastLine.transform.forward, Color.red);
+            Physics.Raycast(raycastLine.transform.position, -raycastLine.transform.up, out hit, distanceSet);
+        Debug.DrawRay(raycastLine.transform.position, -raycastLine.transform.up, Color.red);
         if (hit.collider == null)
         {
             return;

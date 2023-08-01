@@ -33,9 +33,16 @@ public class InvulnerableJump : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet" || other.gameObject.tag == "ChestEnemy")
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.tag == "ChestEnemy")
+            {
+                Destroy(other.gameObject.transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
             Object.Instantiate(explosion, other.transform.position, other.transform.rotation);
         }
     }
