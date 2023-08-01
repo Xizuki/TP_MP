@@ -21,14 +21,18 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: castle
-  m_Shader: {fileID: -6465566751694194690, guid: f88e28ac3cc80fa45b5e67cf420d49ae, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_Shader: {fileID: 4800000, guid: b7839dad95683814aa64166edc107ae2, type: 3}
+  m_ValidKeywords:
+  - _EMISSION
+  - _METALLICSPECGLOSSMAP
+  m_InvalidKeywords:
+  - _FLIPBOOKBLENDING_OFF
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -297,6 +301,7 @@ Material:
     - _MinLight: 0
     - _Mode: 0
     - _NumLayersCount: 1
+    - _Occlusion: 0
     - _OcclusionStrength: 1
     - _Offset: 0
     - _OpacityThreshold: 0
@@ -365,7 +370,10 @@ Material:
     - _WireThickness: 100
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _float: 0
     - _multiplyer: 11.7
+    - _uOffset: 0.2
+    - _vOffset: -0.05
     m_Colors:
     - Color_5DF75355: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
