@@ -8,8 +8,7 @@ public class BulletMove : MonoBehaviour
     public float speed;
     public ParticleSystem explosion;
     public ParticleSystem aura;
-    public MeshRenderer bulletMesh;
-    public SphereCollider bulletCollider;
+    public Collider bulletCollider;
     public int destroyTimer;
 
     private void Update()
