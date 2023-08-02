@@ -48,6 +48,8 @@ public class JumpingPlayerScript : MonoBehaviour
     public float fallingGravityStrength;
     public float jumpChargeScalar;
 
+    //public Outline outlineScript;
+    public static bool fullyCharge;
 
     public bool faceFront = false;//Used to determine if should face front
     public bool recentInput;// Used to check if there has been input recently
@@ -63,7 +65,7 @@ public class JumpingPlayerScript : MonoBehaviour
         inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();
-
+        
         //inputs.GameActions.Enable();
 
         //inputs.GameActions.Jump.performed += a => Jump();
@@ -147,6 +149,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 checkMaxChargeSoundSfx = true;
                 SFX.contiCharging = true;
                 StartCoroutine(maxChargeSfx());
+                fullyCharge = true;
             }
         }
         if (jumpCharge >= 0.85)
@@ -156,6 +159,10 @@ public class JumpingPlayerScript : MonoBehaviour
         if (jumpCharge < 0.85)
         {
             maxChargeParticleIn.Stop();
+        }
+        if (jumpCharge < 1)
+        {
+            fullyCharge = false;
         }
         if (jumpCharge > 1)
         {

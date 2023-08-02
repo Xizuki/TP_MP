@@ -8,6 +8,8 @@ public class InvulnerableJump : MonoBehaviour
     public SphereCollider colliderInv;
     public Outline outlineScript;
 
+    public bool chargeInitial;
+
     private void Start()
     {
         colliderInv.enabled = false;
@@ -21,12 +23,28 @@ public class InvulnerableJump : MonoBehaviour
             StartCoroutine(Invulnerability());
         }
 
-        if (jumpingPlayer.isJumping == true)
+        if (jumpingPlayer.isJumping == true || JumpingPlayerScript.fullyCharge == true)
         {
-            outlineScript.OutlineWidth = 5f;
+            
+            if (outlineScript.OutlineWidth < 5f)
+            {
+                if (chargeInitial == false)
+                {
+                    outlineScript.OutlineWidth = 1f;
+                    chargeInitial = true;
+                }
+                outlineScript.OutlineWidth += 0.35f;
+            }
+            else if (outlineScript.OutlineWidth >= 5f)
+            {
+                outlineScript.OutlineWidth = 5f;
+            }
         }
-        if (jumpingPlayer.isJumping == false)
+
+
+        if (jumpingPlayer.isJumping == false && JumpingPlayerScript.fullyCharge == false)
         {
+            chargeInitial = false;
             outlineScript.OutlineWidth -= 0.35f;
             
             if (outlineScript.OutlineWidth < 0)
@@ -42,11 +60,9 @@ public class InvulnerableJump : MonoBehaviour
     {
         colliderInv.enabled = true;
         //outlineScript.enabled = true;
-
         yield return new WaitForSeconds(1.0f);
         colliderInv.enabled = false;
         //outlineScript.enabled = false;
-        outlineScript.OutlineWidth += 0.15f;
         Debug.Log("Works");
         
     }
