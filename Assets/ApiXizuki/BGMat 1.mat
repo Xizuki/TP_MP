@@ -33,22 +33,23 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BGMat
-  m_Shader: {fileID: -6465566751694194690, guid: a8620047d32b9c84e86f34e6c433a4bb, type: 3}
+  m_Name: BGMat 1
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: c16cb2e5ab22a8d46a03b94582cffcd3, type: 3}
+        m_Scale: {x: 3.17, y: 10.09622}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
@@ -87,8 +88,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: c16cb2e5ab22a8d46a03b94582cffcd3, type: 3}
+        m_Scale: {x: 3.17, y: 10.09622}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -119,10 +120,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c16cb2e5ab22a8d46a03b94582cffcd3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_0929b81180f945a3a60f6f018a04143b_Out_0:
+        m_Texture: {fileID: 2800000, guid: c1fd7ade2bee9c94d8d41c6a0107d84c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_7fb63e29ce414a8ab8b581ece72f9bf8_Out_0:
         m_Texture: {fileID: 2800000, guid: c1fd7ade2bee9c94d8d41c6a0107d84c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -183,6 +188,7 @@ Material:
     - _FalloffAmount: 0.05
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
+    - _Float: 0
     - _FresnelBrightness: 0
     - _FresnelPower: 0
     - _FresnelShadowDropoff: 0
@@ -206,11 +212,12 @@ Material:
     - _Metallic: 0
     - _MinLight: 0
     - _Mode: 0
-    - _Occlusion: 0.5
+    - _Occlusion: 0.25
     - _OcclusionStrength: 1
     - _Offset: 0
     - _OutlineSize: 10
     - _Parallax: 0.005
+    - _Posterise: 20
     - _QueueControl: 0
     - _QueueOffset: 0
     - _R: 0
@@ -258,7 +265,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _float: 0
-    - _multiplyer: 106.83
+    - _multiplyer: 175.3
     - _uOffset: 0
     - _vOffset: 0
     m_Colors:
@@ -281,5 +288,6 @@ Material:
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
