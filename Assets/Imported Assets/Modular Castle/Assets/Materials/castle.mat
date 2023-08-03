@@ -21,12 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: castle
-  m_Shader: {fileID: 4800000, guid: b7839dad95683814aa64166edc107ae2, type: 3}
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _EMISSION
-  - _METALLICSPECGLOSSMAP
-  m_InvalidKeywords:
-  - _FLIPBOOKBLENDING_OFF
+  - _NORMALMAP
+  - _PARALLAXMAP
+  - _SPECULARHIGHLIGHTS_OFF
+  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -46,11 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 03ee790e104a8bf40b8cbfc1b1926e87, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3ad8bfd620443c04b965f1dde75552b2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control:
@@ -106,8 +107,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 03ee790e104a8bf40b8cbfc1b1926e87, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _Mask0:
         m_Texture: {fileID: 0}
@@ -130,7 +131,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 1487e4bf1a17ae549b9f925b9c733f96, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal0:
@@ -166,7 +167,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e53c53dcd3b61b44a9fa9f57bd8eb79e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondColorTex:
@@ -236,7 +237,7 @@ Material:
     - _Blend: 0
     - _BlendOp: 0
     - _BlendingType: 0
-    - _BumpScale: 1
+    - _BumpScale: 15
     - _CFXR_DITHERED_SHADOWS: 1
     - _CFXR_OVERLAYBLEND: 0
     - _CFXR_OVERLAYTEX: 0
@@ -376,10 +377,10 @@ Material:
     - _vOffset: -0.05
     m_Colors:
     - Color_5DF75355: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.6310727, g: 0.62695795, b: 0.6886792, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.6310727, g: 0.6269579, b: 0.6886792, a: 1}
     - _DissolveScroll: {r: 0, g: 0, b: 0, a: 0}
     - _DistortScrolling: {r: 0, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
