@@ -21,12 +21,28 @@ namespace Menu
 
         };
 
+      
+
         public Dictionary<string, Difficulty> GameplaySettings = new Dictionary<string, Difficulty>()
         {
-            {"EnemySpawnFrequency", Difficulty.Easy },
-            {"ShootingSpeed", Difficulty.Medium },
-            {"EnemyMovementSpeed", Difficulty.Easy }
 
+            {"PlayerJumpHeight", Difficulty.Easy},
+
+            {"EnemySpawnFrequency", Difficulty.Easy},
+            {"EnemyMovementSpeed", Difficulty.Easy},
+            {"EnemyProjectileSpeed", Difficulty.Easy},
+            {"EnemyDisappearOnAttack", Difficulty.On},
+
+            {"PowerupSpawnFrequency", Difficulty.Easy},
+
+            {"Mute", Difficulty.Off},
+
+        };
+
+        public Dictionary<string, int> SoundSettings = new Dictionary<string, int>()
+        {
+
+            {"Volume", 0}
 
         };
 
@@ -39,9 +55,7 @@ namespace Menu
 
             foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)//Writes out each settings with its key and value
             {
-
                 Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
-                //PlayerPrefs.SetString(pair.Key, pair.Value.ToString());
             }
 
 
@@ -91,8 +105,9 @@ namespace Menu
 
 
 
-        public void WriteToPlayerPrefs() //Writes everything in the dictionary to playerprefs
+        public void WriteToPlayerPrefsGameplay() //Writes everything in the dictionary to playerprefs
         {
+            Debug.Log("Writing gameplay settings to player prefs");
 
             foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)
             {
@@ -104,8 +119,13 @@ namespace Menu
         }
 
 
+
+      
+
+
+
         //Add a list of buttons to ButtonDictionary
-        public void AddSettingList(string settingName, List<Image> settingList)
+        public void AddToButtonDictionary(string settingName, List<Image> settingList)
         {
             // Check if the settingName already exists in the dictionary.
             if (ButtonDictionary.ContainsKey(settingName))
@@ -117,6 +137,7 @@ namespace Menu
             // Add the settingList to the dictionary.
             ButtonDictionary.Add(settingName, settingList);
         }
+
 
         //Edit list in ButtonDictionary
         public void EditSettingList(string settingName, List<Image> settingList)

@@ -12,7 +12,10 @@ namespace Menu
         [SerializeField]
         private Dictionary_GameplaySettings gameplaySettingsScript;
         [SerializeField]
+        private DictionaryVolumeSettings volumeSettingsScript;
+        [SerializeField]
         private SettingAssociations settingAssociations;
+    
 
         [SerializeField]
         private Color opaque = new Color(1.0f, 1.0f, 1.0f, 1f);
@@ -20,14 +23,121 @@ namespace Menu
         [SerializeField]
         private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 
+     
 
 
         private void Start()
         {
+            CheckDifficulty("PlayerJumpHeight");
+
             CheckDifficulty("EnemySpawnFrequency");
+            CheckDifficulty("EnemyMovementSpeed");
+            CheckDifficulty("EnemyProjectileSpeed");
+            CheckOnOff("EnemyDisappearOnAttack");
 
-            CheckDifficulty("ShootingSpeed");
+            CheckDifficulty("PowerupSpawnFrequency");
 
+            CheckOnOff("Mute");
+
+        }
+
+        public void EasyPreset()
+        {
+            gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Easy;
+
+            gameplaySettingsScript.GameplaySettings["EnemySpawnFrequency"] = Difficulty.Easy;
+            gameplaySettingsScript.GameplaySettings["EnemyMovementSpeed"] = Difficulty.Easy;
+            gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Easy;
+            gameplaySettingsScript.GameplaySettings["EnemyDisappearOnAttack"] = Difficulty.On;
+
+            gameplaySettingsScript.GameplaySettings["PowerupSpawnFrequency"] = Difficulty.Easy;
+
+            CheckDifficulty("PlayerJumpHeight");
+
+            CheckDifficulty("EnemySpawnFrequency");
+            CheckDifficulty("EnemyMovementSpeed");
+            CheckDifficulty("EnemyProjectileSpeed");
+            CheckOnOff("EnemyDisappearOnAttack");
+
+            CheckDifficulty("PowerupSpawnFrequency");
+
+        }
+
+        public void MediumPreset()
+        {
+            gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Medium;
+
+            gameplaySettingsScript.GameplaySettings["EnemySpawnFrequency"] = Difficulty.Medium;
+            gameplaySettingsScript.GameplaySettings["EnemyMovementSpeed"] = Difficulty.Medium;
+            gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Medium;
+            gameplaySettingsScript.GameplaySettings["EnemyDisappearOnAttack"] = Difficulty.On;
+
+            gameplaySettingsScript.GameplaySettings["PowerupSpawnFrequency"] = Difficulty.Medium;
+
+            CheckDifficulty("PlayerJumpHeight");
+
+            CheckDifficulty("EnemySpawnFrequency");
+            CheckDifficulty("EnemyMovementSpeed");
+            CheckDifficulty("EnemyProjectileSpeed");
+            CheckOnOff("EnemyDisappearOnAttack");
+
+            CheckDifficulty("PowerupSpawnFrequency");
+        }
+
+        public void HardPreset()
+        {
+            gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Hard;
+
+            gameplaySettingsScript.GameplaySettings["EnemySpawnFrequency"] = Difficulty.Hard;
+            gameplaySettingsScript.GameplaySettings["EnemyMovementSpeed"] = Difficulty.Hard;
+            gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Hard;
+            gameplaySettingsScript.GameplaySettings["EnemyDisappearOnAttack"] = Difficulty.Off;
+
+            gameplaySettingsScript.GameplaySettings["PowerupSpawnFrequency"] = Difficulty.Hard;
+
+            CheckDifficulty("PlayerJumpHeight");
+
+            CheckDifficulty("EnemySpawnFrequency");
+            CheckDifficulty("EnemyMovementSpeed");
+            CheckDifficulty("EnemyProjectileSpeed");
+            CheckOnOff("EnemyDisappearOnAttack");
+
+            CheckDifficulty("PowerupSpawnFrequency");
+        }
+
+
+
+        public void CheckOnOff(string setting)
+        {
+
+            if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
+            {
+                // Now you have the list, you can access its elements using indices.
+                if (settingList.Count > 0)
+                {
+                    Debug.Log(setting);
+                    Difficulty difficulty = gameplaySettingsScript.GameplaySettings[setting];
+
+                    Image onButton = settingList[0];
+                    Image offButton = settingList[1];
+ 
+                    if (difficulty == Difficulty.On)
+                    {
+                        onButton.color = opaque;
+                        offButton.color = transparent;
+                 
+                    }
+                    else if (difficulty == Difficulty.Off)
+                    {
+                        onButton.color = transparent;
+                        offButton.color = opaque;
+                   
+                    }
+              
+
+                }
+
+            }
         }
 
         public void CheckDifficulty(string setting)
@@ -38,25 +148,27 @@ namespace Menu
                 // Now you have the list, you can access its elements using indices.
                 if (settingList.Count > 0)
                 {
-                    Difficulty something = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(setting));
+                    //Difficulty difficulty = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(setting));
+
+                    Difficulty difficulty = gameplaySettingsScript.GameplaySettings[setting];
 
                     Image easyButton = settingList[0];
                     Image mediumButton = settingList[1];
                     Image hardButton = settingList[2];
 
-                    if (something == Difficulty.Easy)
+                    if (difficulty == Difficulty.Easy)
                     {
                         easyButton.color = opaque;
                         mediumButton.color = transparent;
                         hardButton.color = transparent;
                     }
-                    else if (something == Difficulty.Medium)
+                    else if (difficulty == Difficulty.Medium)
                     {
                         easyButton.color = transparent;
                         mediumButton.color = opaque;
                         hardButton.color = transparent;
                     }
-                    else if (something == Difficulty.Hard)
+                    else if (difficulty == Difficulty.Hard)
                     {
                         easyButton.color = transparent;
                         mediumButton.color = transparent;
@@ -138,19 +250,69 @@ namespace Menu
             
         }
 
-
-        public void Save()
+        public void SettingOn(string setting)
         {
-            Debug.Log("Inital values Spawn Frequency: " + PlayerPrefs.GetString("EnemySpawnFrequency"));
+            gameplaySettingsScript.GameplaySettings[setting] = Difficulty.On; // Adjust the value to your desired value
+            Debug.Log("Setting On");
+            if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
+            {
+                // Now you have the list, you can access its elements using indices.
+                if (settingList.Count > 0)
+                {
+                    //Debug.Log("Settings accessed");
+                    // Access the objects in the list.
+                    Image onButton = settingList[0];
+                    Image offButton = settingList[1];
 
-            Debug.Log("Inital values Shooting Speed: " + PlayerPrefs.GetString("ShootingSpeed"));
+
+                    // Do something with the firstImage object, for example:
+                    onButton.color = opaque;
+                    offButton.color = transparent;
+                  
+                }
+            }
+
+        }
+
+        public void SettingOff(string setting)
+        {
+            gameplaySettingsScript.GameplaySettings[setting] = Difficulty.Off; // Adjust the value to your desired value
+            Debug.Log("Setting Off");
+            if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
+            {
+                // Now you have the list, you can access its elements using indices.
+                if (settingList.Count > 0)
+                {
+                    //Debug.Log("Settings accessed");
+                    // Access the objects in the list.
+                    Image onButton = settingList[0];
+                    Image offButton = settingList[1];
+
+                    // Do something with the firstImage object, for example:
+                    onButton.color = transparent;
+                    offButton.color = opaque;
+
+                }
+            }
+
+        }
 
 
-            gameplaySettingsScript.WriteToPlayerPrefs();
+        public void SaveGameplaySettings()
+        {
+         
 
-            Debug.Log("New values Spawn Frequency: " + PlayerPrefs.GetString("EnemySpawnFrequency"));
+            gameplaySettingsScript.WriteToPlayerPrefsGameplay();
 
-            Debug.Log("New values Shooting Speed: " + PlayerPrefs.GetString("ShootingSpeed"));
+   
+        }
+
+        public void SaveSoundSettings()
+        {
+
+
+            volumeSettingsScript.WriteToPlayerPrefsSound();
+
 
         }
 
