@@ -12,6 +12,8 @@ public class PlatformManager : MonoBehaviour
     public static PlatformManager instance;
     public PlatformScript lastLandedPlatform;
 
+    public bool playedFallingSound;
+
     public Score scoreScript;
     public ComboCount comboCountScript;
 
@@ -104,7 +106,17 @@ public class PlatformManager : MonoBehaviour
         if (player.transform.position.y < platformDissappearingPoint.transform.position.y - 1f)
         {
             chicken.playerDowned = true;
+            if (playedFallingSound == false)
+            {
+                SFX.fallingVoiceCheck = true;
+                playedFallingSound = true;
+            }
             chicken.AbovePlatformCheck();
+        }
+        else if ((player.transform.position.y > platformDissappearingPoint.transform.position.y - 1f))
+        {
+            playedFallingSound = false;
+            SFX.fallingVoiceCheck = false;
         }
     }
 }

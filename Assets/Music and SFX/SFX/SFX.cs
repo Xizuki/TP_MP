@@ -14,7 +14,7 @@ public class SFX : MonoBehaviour
     public AudioClip shieldPickup;
     public AudioClip gettingHit;
     public AudioClip jumpVoice;
-    public AudioClip hitSound;
+    public AudioClip fallingVoice;
     public AudioClip chargingSound;
     public AudioClip contiCharge;
     public static bool scoreSound;
@@ -25,6 +25,7 @@ public class SFX : MonoBehaviour
     public static bool stopwatchPickEnd;
     public static bool shieldPick;
     public static bool hit;
+    public static bool fallingVoiceCheck;
     public static bool voiceJump;
     public static bool charging;
     public static bool contiCharging;
@@ -50,6 +51,10 @@ public class SFX : MonoBehaviour
             audio.clip = landSfx;
             sfxVolume = sfxVol;
             audio.PlayOneShot(landSfx);
+            if (Random.Range(1,3) == 2)
+            {
+                audio.PlayOneShot(jumpVoice);
+            }
             landSound = false;
         }
         if (jumpSound == true)
@@ -100,15 +105,26 @@ public class SFX : MonoBehaviour
             audio.clip = gettingHit;
             sfxVolume = sfxVol;
             audio.PlayOneShot(gettingHit);
-            audio.PlayOneShot(hitSound);
+            audio.PlayOneShot(fallingVoice);
             hit = false;
+        }
+        if (fallingVoiceCheck == true)
+        {
+            sfxVol = sfxVolume;
+            audio.clip = fallingVoice;
+            sfxVolume = sfxVol;
+            audio.PlayOneShot(fallingVoice);
+            fallingVoiceCheck = false;
         }
         if (voiceJump == true)
         {
             sfxVol = sfxVolume;
             audio.clip = jumpVoice;
             sfxVolume = sfxVol;
-            audio.PlayOneShot(jumpVoice);
+            if (Random.Range(1, 5) >= 3)
+            {
+                audio.PlayOneShot(jumpVoice);
+            }
             voiceJump = false;
         }
         if (charging == true)

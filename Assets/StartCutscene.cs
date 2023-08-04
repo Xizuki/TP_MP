@@ -5,6 +5,10 @@ using UnityEngine;
 public class StartCutscene : MonoBehaviour
 {
     public Animator camAnim;
+    public Canvas UI;
+    public Canvas UI2;
+
+    public Animator blackBars;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +17,15 @@ public class StartCutscene : MonoBehaviour
 
     IEnumerator timeWait()
     {
-        yield return new WaitForSeconds(5.5f);
+        UI.enabled = false;
+        UI2.enabled = false;
+        blackBars.enabled = true;
+        blackBars.SetTrigger("Show");
+        yield return new WaitForSeconds(4.5f);
+        UI.enabled = true;
+        UI2.enabled = true;
+        blackBars.SetTrigger("Hide");
+        yield return new WaitForSeconds(1f);
         camAnim.enabled = false;
     }
 
