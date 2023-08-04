@@ -9,7 +9,10 @@ namespace Menu
     {
         Easy,
         Medium,
-        Hard
+        Hard,
+        On,
+        Off
+        
     }
 
 
