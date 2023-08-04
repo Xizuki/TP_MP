@@ -10,7 +10,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
-    public LineRenderer lineRenderer;
+    //public LineRenderer lineRenderer;
     public Vector3 startPosition;
     public Vector3 endPosition;
     public float lineLength = 10f;
@@ -84,7 +84,7 @@ public class JumpingPlayerScript : MonoBehaviour
     void Start()
     {
         shibaCollider = gameObject.GetComponent<BoxCollider>();
-        lineRenderer.positionCount = 2;
+        //lineRenderer.positionCount = 2;
     }
     
 
@@ -412,7 +412,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         startPosition = transform.position;
         endPosition = transform.position + rb.velocity.normalized * lineLength;
-        lineRenderer.SetPosition(0, startPosition);
-        lineRenderer.SetPosition(1, endPosition);
+        //lineRenderer.SetPosition(0, startPosition);
+        //lineRenderer.SetPosition(1, endPosition);
     }
 }
