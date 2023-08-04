@@ -10,10 +10,13 @@ public class JumpingPlayerScript : MonoBehaviour
     public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
+    public LineRenderer lineRenderer;
+    public Vector3 startPosition;
+    public Vector3 endPosition;
+    public float lineLength = 10f;
 
-    public bool resetChargeOnMove;
-
-    public float moveSpeed;
+    public float initialForce;
+    public float InitialAngle;
     public float jumpCharge;
     public float jumpChargePrev;
     public float jumpChargeSpeedCurrent;
@@ -34,10 +37,13 @@ public class JumpingPlayerScript : MonoBehaviour
     public GameObject chickenExit;
 
     public Collider shibaCollider;
+    public int moveSpeed;
     public int hitStrength = 15;
+    public int i = 0;
     public bool isGrounded;
     public bool isJumping;
     public bool isMoving;
+    public bool resetChargeOnMove;
 
     public Transform feetPos;
     public float fallingGravityStrength;
@@ -71,12 +77,14 @@ public class JumpingPlayerScript : MonoBehaviour
     void Start()
     {
         shibaCollider = gameObject.GetComponent<BoxCollider>();
+        lineRenderer.positionCount = 2;
     }
     
 
     // Update is called once per frame
     void Update()
     {
+        TrajectoryProjection();
         Timer();
         ResetInputCountdown();
 
@@ -330,7 +338,7 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             //ComboCount.hit = false;
         }
-        if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet")
+        if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet" || collision.collider.tag == "ChestEnemy")
         {
             animator.SetTrigger("Hit"); 
             hitParticle.Play();
@@ -355,5 +363,13 @@ public class JumpingPlayerScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.15f); //Reduced the delay 0.5 -> 0.15
         Debug.Log("Back");
         Time.timeScale = 1;
+    }
+
+    void TrajectoryProjection()
+    {
+        startPosition = transform.position;
+        endPosition = transform.position + rb.velocity.normalized * lineLength;
+        lineRenderer.SetPosition(0, startPosition);
+        lineRenderer.SetPosition(1, endPosition);
     }
 }

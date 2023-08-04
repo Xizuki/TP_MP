@@ -60,6 +60,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         interpolateParticle[4].startColor = interpolatedColor;
         interpolateParticle[5].startColor = interpolatedColor;
         interpolateParticle[6].startColor = interpolatedColor;
+        jumpChargeSlider.value = player.jumpCharge;
     }
     // Update is called once per frame
     void LateUpdate()

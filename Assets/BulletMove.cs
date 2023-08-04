@@ -8,8 +8,7 @@ public class BulletMove : MonoBehaviour
     public float speed;
     public ParticleSystem explosion;
     public ParticleSystem aura;
-    public MeshRenderer bulletMesh;
-    public SphereCollider bulletCollider;
+    public Collider bulletCollider;
     public int destroyTimer;
 
     private void Update()
@@ -20,7 +19,7 @@ public class BulletMove : MonoBehaviour
 
     public void FlyBullet()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(-Vector3.up * speed * Time.deltaTime);
         if (bulletCollider.enabled == false)
         {
             transform.Translate(Vector3.back * speed * Time.deltaTime);
