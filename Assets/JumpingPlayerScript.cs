@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
-    //public LineRenderer lineRenderer;
-    public Vector3 startPosition;
-    public Vector3 endPosition;
+
     public float lineLength = 10f;
     public bool checkLandSound; //Checking for sound effect when successfully landing
     public bool checkMaxChargeSoundSfx;
@@ -65,6 +64,24 @@ public class JumpingPlayerScript : MonoBehaviour
     public bool canRotate = true; //Used to lock rotations
 
     public Vector2 joystickVector;
+
+
+    [Header("Trajectory")]
+    [SerializeField]
+    public LineRenderer lineRenderer;
+    [SerializeField]
+    public Transform releasePosition;
+    //public Vector3 startPosition;
+    //public Vector3 endPosition;
+
+
+    [Header("Display Controls")]
+    [SerializeField]
+    [Range(10, 100)]
+    private int linePoints = 25;
+    [SerializeField]
+    [Range(0.01f, 0.25f)]
+    private float timeBetweenPoints = 0.1f;
 
     public void Awake()
     {
@@ -410,9 +427,35 @@ public class JumpingPlayerScript : MonoBehaviour
 
     void TrajectoryProjection()
     {
-        startPosition = transform.position;
-        endPosition = transform.position + rb.velocity.normalized * lineLength;
-        //lineRenderer.SetPosition(0, startPosition);
-        //lineRenderer.SetPosition(1, endPosition);
+
+        lineRenderer.enabled = true;
+        lineRenderer.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
+        Vector3 startPosition = rb.transform.position;
+        Vector3 startVeloctiy = (playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar)) /rb.mass;
+
+        int i = 0;
+
+        for(float time = 0; time<linePoints;time+=timeBetweenPoints)
+        {
+            i++;
+            Vector3 point = startPosition + time * startVeloctiy;
+            Vector3 additionalGravity =new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100,0);
+            point.y = (startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y+additionalGravity.y)) / 2f * time * time);
+
+            lineRenderer.SetPosition(i, point);
+
+              
+        }
+
+
+
+
+
+
+
+
+        //endPosition = transform.position + rb.velocity.normalized * lineLength;
+        ////lineRenderer.SetPosition(0, startPosition);
+        ////lineRenderer.SetPosition(1, endPosition);
     }
 }
