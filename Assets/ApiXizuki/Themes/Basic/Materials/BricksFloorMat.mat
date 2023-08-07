@@ -33,22 +33,25 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BGMat 2
-  m_Shader: {fileID: -6465566751694194690, guid: b081ed47a134d7549b2eb8e6510f9f80, type: 3}
-  m_ValidKeywords: []
+  m_Name: BricksFloorMat
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ValidKeywords:
+  - _NORMALMAP
+  - _PARALLAXMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
-        m_Scale: {x: 0.5, y: 0.17}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 3ad8bfd620443c04b965f1dde75552b2, type: 3}
@@ -88,7 +91,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
-        m_Scale: {x: 0.5, y: 0.17}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -119,7 +122,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
+        m_Texture: {fileID: 2800000, guid: c16cb2e5ab22a8d46a03b94582cffcd3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_0929b81180f945a3a60f6f018a04143b_Out_0:
@@ -154,7 +157,7 @@ Material:
     - _Blend: 0
     - _BlendOp: 0
     - _BlendingType: 0
-    - _BumpScale: 2
+    - _BumpScale: 20
     - _CFXR_DITHERED_SHADOWS: 0
     - _CFXR_OVERLAYBLEND: 0
     - _CFXR_OVERLAYTEX: 0

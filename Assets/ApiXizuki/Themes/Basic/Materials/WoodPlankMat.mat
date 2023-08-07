@@ -33,25 +33,27 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BGMat 2
-  m_Shader: {fileID: -6465566751694194690, guid: b081ed47a134d7549b2eb8e6510f9f80, type: 3}
-  m_ValidKeywords: []
+  m_Name: WoodPlankMat
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ValidKeywords:
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
-        m_Scale: {x: 0.5, y: 0.17}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 2.5, y: 7.5}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 3ad8bfd620443c04b965f1dde75552b2, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -87,8 +89,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
-        m_Scale: {x: 0.5, y: 0.17}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 2.5, y: 7.5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -107,7 +109,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: e53c53dcd3b61b44a9fa9f57bd8eb79e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondColorTex:
@@ -119,7 +121,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 2dbdd6578bdb53c4fb53ae2f245b6243, type: 3}
+        m_Texture: {fileID: 2800000, guid: c16cb2e5ab22a8d46a03b94582cffcd3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_0929b81180f945a3a60f6f018a04143b_Out_0:
@@ -154,7 +156,7 @@ Material:
     - _Blend: 0
     - _BlendOp: 0
     - _BlendingType: 0
-    - _BumpScale: 2
+    - _BumpScale: 100
     - _CFXR_DITHERED_SHADOWS: 0
     - _CFXR_OVERLAYBLEND: 0
     - _CFXR_OVERLAYTEX: 0
@@ -214,8 +216,9 @@ Material:
     - _Occlusion: 0.25
     - _OcclusionStrength: 1
     - _Offset: 0
+    - _OtlWidth: 1
     - _OutlineSize: 10
-    - _Parallax: 0.02
+    - _Parallax: 0.08
     - _Posterise: 20
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -233,7 +236,7 @@ Material:
     - _ShnRange: 0.15
     - _ShnSmooth: 0
     - _SingleChannel: 0
-    - _Smoothness: 0.1
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFadeDistanceFar: 1
@@ -261,24 +264,25 @@ Material:
     - _UseSecondColor: 0
     - _UseUV2Distortion: 0
     - _UseUVDistortion: 0
-    - _WorkflowMode: 1
+    - _WorkflowMode: 0
     - _ZWrite: 1
     - _float: 0
     - _multiplyer: 175.3
     - _uOffset: 0
     - _vOffset: 0
     m_Colors:
-    - _BaseColor: {r: 0.36245105, g: 0.38729855, b: 0.4245283, a: 1}
+    - _BaseColor: {r: 0.754717, g: 0.30500808, b: 0.15307939, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.36245102, g: 0.38729852, b: 0.42452827, a: 1}
+    - _Color: {r: 0.75471693, g: 0.30500802, b: 0.15307936, a: 1}
     - _DiffuseColor: {r: 0.23754005, g: 0.30795243, b: 0.3207547, a: 1}
     - _DissolveScroll: {r: 0, g: 0, b: 0, a: 0}
     - _DistortScrolling: {r: 0, g: 0, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.23050906, g: 0.26415092, b: 0.26315248, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
     - _LowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OtlColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OverlayTex_Scroll: {r: 0.1, g: 0.1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}

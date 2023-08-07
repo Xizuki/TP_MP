@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Axis { xy, yz, xz };
+
 public class Xi_TextureAutoTiling : MonoBehaviour
 {
+    public Axis axis;
     public Material sourceMat;
     public Material matInstance;
     public float scale;
@@ -17,22 +21,28 @@ public class Xi_TextureAutoTiling : MonoBehaviour
 
         //mat.mainTexture = textureInstance;
 
-        if (matInstance == sourceMat || matInstance == null)
+        if(axis == Axis.xy)
         {
 
-            Renderer renderer = GetComponent<Renderer>();
-            sourceMat = renderer.material;
-
-            matInstance = Instantiate(sourceMat);
-            renderer.material = matInstance;
-
-            matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.y) * scale;
         }
-        else
-        {
-            matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.y) * scale;
-        }
+
+
+        matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z) * scale;
+
     }
+
+    [ContextMenu("Generate Material Instance")]
+    public void GenerateMatInstance()
+    {
+        Renderer renderer = GetComponent<Renderer>();
+       // sourceMat = renderer.GetMaterials();
+
+        matInstance = Instantiate(sourceMat);
+        renderer.material = matInstance;
+
+        matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z) * scale;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
