@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
-    //public LineRenderer lineRenderer;
-    public Vector3 startPosition;
-    public Vector3 endPosition;
+
     public float lineLength = 10f;
     public bool checkLandSound; //Checking for sound effect when successfully landing
     public bool checkMaxChargeSoundSfx;
@@ -66,11 +65,42 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public Vector2 joystickVector;
 
+
+    [Header("Trajectory")]
+    [SerializeField]
+    public LineRenderer lineRenderer;
+    [SerializeField]
+    public Transform releasePosition;
+    //public Vector3 startPosition;
+    //public Vector3 endPosition;
+    private LayerMask collisionMask;
+
+
+    [Header("Display Controls")]
+    [SerializeField]
+    [Range(10, 100)]
+    private int linePoints = 25;
+    [SerializeField]
+    [Range(0.01f, 0.25f)]
+    private float timeBetweenPoints = 0.1f;
+
+    
+
     public void Awake()
     {
         inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();
+
+        int playerLayer = rb.gameObject.layer;
+        for (int i =0; i < 32;i++)
+        {
+            if(!Physics.GetIgnoreLayerCollision(playerLayer, i))
+            {
+                collisionMask |= 1 << i;
+            }
+
+        }
         
         //inputs.GameActions.Enable();
 
@@ -84,6 +114,7 @@ public class JumpingPlayerScript : MonoBehaviour
     void Start()
     {
         shibaCollider = gameObject.GetComponent<BoxCollider>();
+        //Physics.gravity=new Vector3(0, Physics.gravity.y-fallingGravityStrength,0);
         //lineRenderer.positionCount = 2;
     }
     
@@ -91,7 +122,7 @@ public class JumpingPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TrajectoryProjection();
+    
         Timer();
         ResetInputCountdown();
 
@@ -101,13 +132,26 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, -playerUI.jumpingVectorIndicator.transform.eulerAngles.z, 0);
 
-        if (!chicken.playerDowned)
-            rb.AddForce(new Vector3(0, -fallingGravityStrength * Time.deltaTime * 100, 0));
+       
+         
+
+
+
 
         if (jumpCharge > 0)
         {
             jumpCharge -= Time.deltaTime * jumpChargeSpeedCurrent / jumpChargeSpeedReduction;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!chicken.playerDowned)
+           rb.AddForce(new Vector3(0, (-fallingGravityStrength * Time.deltaTime * 100) , 0));
+        if (isJumping == false)    
+            TrajectoryProjection();
+        else
+            lineRenderer.enabled = false;
     }
 
 
@@ -334,9 +378,11 @@ public class JumpingPlayerScript : MonoBehaviour
         if (!isGrounded || chicken.playerDowned || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
         transform.position += new Vector3(0, 0.01f, 0);
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
+        //rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
 
-        jumpChargePrev = jumpCharge;
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
+
+        jumpChargePrev = jumpCharge;    
         jumpCharge = 0;
         isGrounded = false;
         isJumping = true;
@@ -410,9 +456,45 @@ public class JumpingPlayerScript : MonoBehaviour
 
     void TrajectoryProjection()
     {
-        startPosition = transform.position;
-        endPosition = transform.position + rb.velocity.normalized * lineLength;
-        //lineRenderer.SetPosition(0, startPosition);
-        //lineRenderer.SetPosition(1, endPosition);
+
+        lineRenderer.enabled = true;
+        lineRenderer.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
+
+        //float width = lineRenderer.startWidth;
+        //lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
+
+        Vector3 startPosition = releasePosition.transform.position; 
+
+        Vector3 startVeloctiy = (playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar))/rb.mass;
+
+        int i = 0;
+
+        lineRenderer.SetPosition(i, startPosition);
+
+ 
+
+        for (float time = 0; time<linePoints;time+=timeBetweenPoints)
+        {
+            i++;
+            //i+=2;
+            Vector3 point = startPosition + time * startVeloctiy;
+            Vector3 additionalGravity =new Vector3(0, -fallingGravityStrength*Time.deltaTime* 100,0);
+            point.y = startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y + additionalGravity.y)) / 2f * time * time;
+            //point.y = startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y )) / 2f * time * time;
+
+            lineRenderer.SetPosition(i, point);
+
+            Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
+
+            if(Physics.Raycast(lastPosition,(point-lastPosition).normalized, out RaycastHit hit,(point-lastPosition).magnitude,collisionMask) )
+                
+            { 
+                lineRenderer.SetPosition(i, hit.point);
+                lineRenderer.positionCount = i + 1;
+                return;
+            
+            }
+        }
+
     }
 }
