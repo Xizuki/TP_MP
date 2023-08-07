@@ -5,9 +5,9 @@ using UnityEngine;
 public class BottomCheck : MonoBehaviour
 {
     public float baseSpeed;
+    public Quaternion turtleRotation;
     public float speed;
     public float distance;
-    private bool movingRight = true;
     private float timer = 1.5f;
     private bool hit = false;
 
@@ -24,20 +24,12 @@ public class BottomCheck : MonoBehaviour
 
     private void Update()
     {
+        turtleRotation = transform.rotation;
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         Physics.Raycast(groundCheck.position, transform.TransformDirection(Vector3.down), out groundInfo, distance);
         if (groundInfo.collider == false)
         {
-            if (movingRight == true)
-            {
-                transform.eulerAngles = new Vector3(180 , -270, 0);
-                movingRight = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(180 , -90, 0);
-                movingRight = true;
-            }
+            transform.eulerAngles = new Vector3(turtleRotation.x - 90, turtleRotation.y = 90, turtleRotation.z = 180);
         }
 
         if (hit == true)
