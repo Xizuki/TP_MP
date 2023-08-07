@@ -1491,6 +1491,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpingPlayer: {fileID: 0}
   colliderInv: {fileID: 0}
+  explosion: {fileID: 19800018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  outlineScript: {fileID: 0}
+  chargeInitial: 0
 --- !u!1 &8824464932082430358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,8 +3430,13 @@ MonoBehaviour:
   jumpingPlayerChildrenModel: {fileID: 8824464932080693802}
   playerUI: {fileID: 0}
   rb: {fileID: 0}
-  resetChargeOnMove: 0
-  moveSpeed: 0
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: 0}
+  lineLength: 10
+  checkLandSound: 0
+  checkMaxChargeSoundSfx: 0
+  initialForce: 0
+  InitialAngle: 0
   jumpCharge: 0
   jumpChargePrev: 0
   jumpChargeSpeedCurrent: 0.85
@@ -3443,14 +3451,19 @@ MonoBehaviour:
   chargeTapParticle: {fileID: 1338137462379808626}
   chargeTapParticle2: {fileID: 4782692192381082906}
   maxParticle: {fileID: 0}
+  maxChargeParticleOut: {fileID: 0}
+  maxChargeParticleIn: {fileID: 0}
   animator: {fileID: 8824464932080693796}
   chicken: {fileID: 0}
   chickenExit: {fileID: 0}
   shibaCollider: {fileID: 8824464933389489932}
+  moveSpeed: 0
   hitStrength: 10
+  i: 0
   isGrounded: 0
   isJumping: 0
   isMoving: 0
+  resetChargeOnMove: 0
   feetPos: {fileID: 8824464932100929528}
   fallingGravityStrength: 15
   jumpChargeScalar: 2
