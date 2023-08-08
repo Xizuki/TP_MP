@@ -19,10 +19,10 @@ public class BulletMove : MonoBehaviour
 
     public void FlyBullet()
     {
-        transform.Translate(-Vector3.up * speed * Time.deltaTime);
+        transform.position += (transform.forward* speed * Time.deltaTime);
         if (bulletCollider.enabled == false)
         {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
+            transform.position += (-transform.forward * speed * Time.deltaTime);
         }
 
     }

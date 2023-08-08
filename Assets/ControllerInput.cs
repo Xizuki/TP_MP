@@ -71,6 +71,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""6dd684c1-9e4b-4374-adaf-8545436b1b01"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -161,6 +170,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""New action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c84d07df-f131-455b-97fc-0139c83c9c0f"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -181,6 +201,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""dd683697-bac3-4257-a73b-999aa49e25ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""66343626-d06b-4aaa-b60f-011df31c8f24"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -207,6 +236,28 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50a7f548-a357-4d5b-aff8-d4b494bb1b9a"",
+                    ""path"": ""<Mouse>/radius"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c590e0e-5049-49e8-8eec-e864600624ec"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -247,6 +298,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""94861725-dc32-4b91-b73a-0d73a9efa200"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""b83792fe-e116-4ad4-9c41-13f9661dd4ce"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -297,6 +357,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MovePlayerRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44c6489f-1e3f-41f9-87ca-81dfc0ae98e5"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -335,6 +406,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""af214a37-204e-4124-8cae-636a4069e0f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""2cc5dd61-34f6-45b4-af92-8762481d6392"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -385,6 +465,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MovePlayerRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd44d6c9-84f8-41fd-a4ea-8ec541f3aa4d"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -432,6 +523,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""9db58e87-26e5-434b-9d31-640074484b03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d2964d8-e76a-4c8e-b5be-44198673fc21"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -493,6 +593,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MoveJumpVectorPositive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba2a63fc-8e69-4052-9c3f-ba624471d3ce"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -540,6 +651,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""df27b514-6e15-43c9-9b74-77f83a478c64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5977183-6fa5-4e25-8e1b-0cf3a1e35158"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -601,6 +721,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MovePlayerLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95029bc0-da9a-428e-90cc-6a5989c0d789"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -630,6 +761,15 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": ""MoveState"",
                     ""type"": ""PassThrough"",
                     ""id"": ""8541abca-e46d-4909-9700-00bbeff8ea05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c0f51ad-7bac-48ac-b464-c493bc36aa5a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -669,6 +809,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""MoveState"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""920891c4-35d4-439a-9e2d-6fdccc2e769b"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -682,22 +833,26 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_GameActions_Input = m_GameActions.FindAction("Input", throwIfNotFound: true);
         m_GameActions_Jump = m_GameActions.FindAction("Jump", throwIfNotFound: true);
         m_GameActions_Newaction = m_GameActions.FindAction("New action", throwIfNotFound: true);
+        m_GameActions_DebugIsgrounded = m_GameActions.FindAction("DebugIsgrounded", throwIfNotFound: true);
         // GameActions1
         m_GameActions1 = asset.FindActionMap("GameActions1", throwIfNotFound: true);
         m_GameActions1_Input = m_GameActions1.FindAction("Input", throwIfNotFound: true);
         m_GameActions1_Jump = m_GameActions1.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions1_DebugIsgrounded = m_GameActions1.FindAction("DebugIsgrounded", throwIfNotFound: true);
         // GameActions2
         m_GameActions2 = asset.FindActionMap("GameActions2", throwIfNotFound: true);
         m_GameActions2_MoveJumpVector = m_GameActions2.FindAction("MoveJumpVector", throwIfNotFound: true);
         m_GameActions2_MovePlayerRight = m_GameActions2.FindAction("MovePlayerRight", throwIfNotFound: true);
         m_GameActions2_MovePlayerLeft = m_GameActions2.FindAction("MovePlayerLeft", throwIfNotFound: true);
         m_GameActions2_Jump = m_GameActions2.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions2_DebugIsgrounded = m_GameActions2.FindAction("DebugIsgrounded", throwIfNotFound: true);
         // GameActions3
         m_GameActions3 = asset.FindActionMap("GameActions3", throwIfNotFound: true);
         m_GameActions3_MoveJumpVector = m_GameActions3.FindAction("MoveJumpVector", throwIfNotFound: true);
         m_GameActions3_MovePlayerRight = m_GameActions3.FindAction("MovePlayerRight", throwIfNotFound: true);
         m_GameActions3_MovePlayerLeft = m_GameActions3.FindAction("MovePlayerLeft", throwIfNotFound: true);
         m_GameActions3_Jump = m_GameActions3.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions3_DebugIsgrounded = m_GameActions3.FindAction("DebugIsgrounded", throwIfNotFound: true);
         // GameActions4
         m_GameActions4 = asset.FindActionMap("GameActions4", throwIfNotFound: true);
         m_GameActions4_MovePlayerLeft = m_GameActions4.FindAction("MovePlayerLeft", throwIfNotFound: true);
@@ -705,6 +860,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_GameActions4_MoveJumpVectorPositive = m_GameActions4.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
         m_GameActions4_MoveJumpVectorNegative = m_GameActions4.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
         m_GameActions4_Jump = m_GameActions4.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions4_DebugIsgrounded = m_GameActions4.FindAction("DebugIsgrounded", throwIfNotFound: true);
         // GameActions5
         m_GameActions5 = asset.FindActionMap("GameActions5", throwIfNotFound: true);
         m_GameActions5_MovePlayerLeft = m_GameActions5.FindAction("MovePlayerLeft", throwIfNotFound: true);
@@ -712,11 +868,13 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_GameActions5_MoveJumpVectorPositive = m_GameActions5.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
         m_GameActions5_MoveJumpVectorNegative = m_GameActions5.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
         m_GameActions5_Jump = m_GameActions5.FindAction("Jump", throwIfNotFound: true);
+        m_GameActions5_DebugIsgrounded = m_GameActions5.FindAction("DebugIsgrounded", throwIfNotFound: true);
         // GameActions6
         m_GameActions6 = asset.FindActionMap("GameActions6", throwIfNotFound: true);
         m_GameActions6_Input = m_GameActions6.FindAction("Input", throwIfNotFound: true);
         m_GameActions6_Jump = m_GameActions6.FindAction("Jump", throwIfNotFound: true);
         m_GameActions6_MoveState = m_GameActions6.FindAction("MoveState", throwIfNotFound: true);
+        m_GameActions6_DebugIsgrounded = m_GameActions6.FindAction("DebugIsgrounded", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -783,6 +941,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions_Input;
     private readonly InputAction m_GameActions_Jump;
     private readonly InputAction m_GameActions_Newaction;
+    private readonly InputAction m_GameActions_DebugIsgrounded;
     public struct GameActionsActions
     {
         private @ControllerInput m_Wrapper;
@@ -792,6 +951,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @Input => m_Wrapper.m_GameActions_Input;
         public InputAction @Jump => m_Wrapper.m_GameActions_Jump;
         public InputAction @Newaction => m_Wrapper.m_GameActions_Newaction;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -816,6 +976,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Newaction.started += instance.OnNewaction;
             @Newaction.performed += instance.OnNewaction;
             @Newaction.canceled += instance.OnNewaction;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActionsActions instance)
@@ -835,6 +998,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Newaction.started -= instance.OnNewaction;
             @Newaction.performed -= instance.OnNewaction;
             @Newaction.canceled -= instance.OnNewaction;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActionsActions instance)
@@ -858,12 +1024,14 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private List<IGameActions1Actions> m_GameActions1ActionsCallbackInterfaces = new List<IGameActions1Actions>();
     private readonly InputAction m_GameActions1_Input;
     private readonly InputAction m_GameActions1_Jump;
+    private readonly InputAction m_GameActions1_DebugIsgrounded;
     public struct GameActions1Actions
     {
         private @ControllerInput m_Wrapper;
         public GameActions1Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Input => m_Wrapper.m_GameActions1_Input;
         public InputAction @Jump => m_Wrapper.m_GameActions1_Jump;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions1_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -879,6 +1047,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActions1Actions instance)
@@ -889,6 +1060,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActions1Actions instance)
@@ -914,6 +1088,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions2_MovePlayerRight;
     private readonly InputAction m_GameActions2_MovePlayerLeft;
     private readonly InputAction m_GameActions2_Jump;
+    private readonly InputAction m_GameActions2_DebugIsgrounded;
     public struct GameActions2Actions
     {
         private @ControllerInput m_Wrapper;
@@ -922,6 +1097,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @MovePlayerRight => m_Wrapper.m_GameActions2_MovePlayerRight;
         public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions2_MovePlayerLeft;
         public InputAction @Jump => m_Wrapper.m_GameActions2_Jump;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions2_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -943,6 +1119,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActions2Actions instance)
@@ -959,6 +1138,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActions2Actions instance)
@@ -984,6 +1166,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions3_MovePlayerRight;
     private readonly InputAction m_GameActions3_MovePlayerLeft;
     private readonly InputAction m_GameActions3_Jump;
+    private readonly InputAction m_GameActions3_DebugIsgrounded;
     public struct GameActions3Actions
     {
         private @ControllerInput m_Wrapper;
@@ -992,6 +1175,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @MovePlayerRight => m_Wrapper.m_GameActions3_MovePlayerRight;
         public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions3_MovePlayerLeft;
         public InputAction @Jump => m_Wrapper.m_GameActions3_Jump;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions3_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions3; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1013,6 +1197,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActions3Actions instance)
@@ -1029,6 +1216,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActions3Actions instance)
@@ -1055,6 +1245,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions4_MoveJumpVectorPositive;
     private readonly InputAction m_GameActions4_MoveJumpVectorNegative;
     private readonly InputAction m_GameActions4_Jump;
+    private readonly InputAction m_GameActions4_DebugIsgrounded;
     public struct GameActions4Actions
     {
         private @ControllerInput m_Wrapper;
@@ -1064,6 +1255,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions4_MoveJumpVectorPositive;
         public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions4_MoveJumpVectorNegative;
         public InputAction @Jump => m_Wrapper.m_GameActions4_Jump;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions4_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions4; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1088,6 +1280,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActions4Actions instance)
@@ -1107,6 +1302,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActions4Actions instance)
@@ -1133,6 +1331,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions5_MoveJumpVectorPositive;
     private readonly InputAction m_GameActions5_MoveJumpVectorNegative;
     private readonly InputAction m_GameActions5_Jump;
+    private readonly InputAction m_GameActions5_DebugIsgrounded;
     public struct GameActions5Actions
     {
         private @ControllerInput m_Wrapper;
@@ -1142,6 +1341,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions5_MoveJumpVectorPositive;
         public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions5_MoveJumpVectorNegative;
         public InputAction @Jump => m_Wrapper.m_GameActions5_Jump;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions5_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions5; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1166,6 +1366,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActions5Actions instance)
@@ -1185,6 +1388,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActions5Actions instance)
@@ -1209,6 +1415,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions6_Input;
     private readonly InputAction m_GameActions6_Jump;
     private readonly InputAction m_GameActions6_MoveState;
+    private readonly InputAction m_GameActions6_DebugIsgrounded;
     public struct GameActions6Actions
     {
         private @ControllerInput m_Wrapper;
@@ -1216,6 +1423,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @Input => m_Wrapper.m_GameActions6_Input;
         public InputAction @Jump => m_Wrapper.m_GameActions6_Jump;
         public InputAction @MoveState => m_Wrapper.m_GameActions6_MoveState;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_GameActions6_DebugIsgrounded;
         public InputActionMap Get() { return m_Wrapper.m_GameActions6; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1234,6 +1442,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @MoveState.started += instance.OnMoveState;
             @MoveState.performed += instance.OnMoveState;
             @MoveState.canceled += instance.OnMoveState;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
         }
 
         private void UnregisterCallbacks(IGameActions6Actions instance)
@@ -1247,6 +1458,9 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @MoveState.started -= instance.OnMoveState;
             @MoveState.performed -= instance.OnMoveState;
             @MoveState.canceled -= instance.OnMoveState;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
         }
 
         public void RemoveCallbacks(IGameActions6Actions instance)
@@ -1271,11 +1485,13 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnNewaction(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
     public interface IGameActions1Actions
     {
         void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
     public interface IGameActions2Actions
     {
@@ -1283,6 +1499,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnMovePlayerRight(InputAction.CallbackContext context);
         void OnMovePlayerLeft(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
     public interface IGameActions3Actions
     {
@@ -1290,6 +1507,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnMovePlayerRight(InputAction.CallbackContext context);
         void OnMovePlayerLeft(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
     public interface IGameActions4Actions
     {
@@ -1298,6 +1516,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
     public interface IGameActions5Actions
     {
@@ -1306,11 +1525,13 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
     public interface IGameActions6Actions
     {
         void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMoveState(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
 }

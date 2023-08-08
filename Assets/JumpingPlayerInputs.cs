@@ -48,7 +48,24 @@ public class JumpingPlayerInputs : MonoBehaviour
         inputs.GameActions6.Jump.performed += a => jumpingPlayer.Jump();
         inputs.GameActions6.Input.performed += a => jumpingPlayer.SetJoyStickVector2(a.ReadValue<Vector2>());
         inputs.GameActions6.MoveState.canceled += a => jumpingPlayer.isMoving=false;
+
+
+
+        inputs.GameActions1.DebugIsgrounded.performed += a => DebugIsGrounded();
+        inputs.GameActions2.DebugIsgrounded.performed += a => DebugIsGrounded();
+        inputs.GameActions3.DebugIsgrounded.performed += a => DebugIsGrounded();
+        inputs.GameActions4.DebugIsgrounded.performed += a => DebugIsGrounded();
+        inputs.GameActions5.DebugIsgrounded.performed += a => DebugIsGrounded();
+        inputs.GameActions6.DebugIsgrounded.performed += a => DebugIsGrounded();
     }
+
+    public void DebugIsGrounded()
+    {
+        jumpingPlayer.isJumping = false;
+        jumpingPlayer.isMoving = false;
+        jumpingPlayer.isGrounded = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -198,7 +215,7 @@ public class JumpingPlayerInputs : MonoBehaviour
                 inputs.GameActions.Disable();
                 inputs.GameActions1.Disable();
                 inputs.GameActions2.Enable();
-                inputs.GameActions3.Disable();
+                inputs.GameActions3.Enable();
                 inputs.GameActions4.Disable();
                 inputs.GameActions5.Disable();
                 inputs.GameActions6.Disable();
@@ -206,7 +223,7 @@ public class JumpingPlayerInputs : MonoBehaviour
             case ControlType.option3:
                 inputs.GameActions.Disable();
                 inputs.GameActions1.Disable();
-                inputs.GameActions2.Disable();
+                inputs.GameActions2.Enable();
                 inputs.GameActions3.Enable();
                 inputs.GameActions4.Disable();
                 inputs.GameActions5.Disable();

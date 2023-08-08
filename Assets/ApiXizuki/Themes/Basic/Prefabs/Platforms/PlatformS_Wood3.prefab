@@ -46,9 +46,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7444439163873701653}
   - component: {fileID: 3925817397875142859}
+  - component: {fileID: -1734398542745526865}
   m_Layer: 0
   m_Name: PlatformS_Wood3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +83,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.83, y: 1, z: 7.88}
   m_Center: {x: -1.1, y: 0, z: 0}
+--- !u!114 &-1734398542745526865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444439163873701654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesOnPlatform: []
 --- !u!1001 &7444439163185915286
 PrefabInstance:
   m_ObjectHideFlags: 0
