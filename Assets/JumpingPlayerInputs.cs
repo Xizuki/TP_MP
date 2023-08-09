@@ -1,6 +1,9 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public enum ControlType { PC ,option1, option2, option3, option4, option5, option6 }
 public class JumpingPlayerInputs : MonoBehaviour
@@ -75,6 +78,34 @@ public class JumpingPlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            DebugIsGrounded();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            controlType = ControlType.PC;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            controlType = ControlType.option1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            controlType = ControlType.option2;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            controlType = ControlType.option4;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            controlType = ControlType.option5;
+        }
+
+
+
+
         CheckOptions();
 
 

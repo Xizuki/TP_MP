@@ -11,6 +11,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public ControllerInput inputs;
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
+    public FullChargeHit fullChargeHit;
 
     public float lineLength = 10f;
     public bool checkLandSound; //Checking for sound effect when successfully landing
@@ -20,6 +21,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public float InitialAngle;
     public float jumpCharge;
     public float jumpChargePrev;
+
     public float jumpChargeSpeedCurrent;
     public float jumpChargeSpeedReduction;
     public float jumpChargeSpeedMax;
@@ -91,7 +93,7 @@ public class JumpingPlayerScript : MonoBehaviour
         inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();
-
+        fullChargeHit = GetComponent<FullChargeHit>();
         int playerLayer = rb.gameObject.layer;
         for (int i =0; i < 32;i++)
         {
@@ -152,6 +154,8 @@ public class JumpingPlayerScript : MonoBehaviour
             TrajectoryProjection();
         else
             lineRenderer.enabled = false;
+
+        
     }
 
 
@@ -381,8 +385,8 @@ public class JumpingPlayerScript : MonoBehaviour
         //rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
 
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
-
-        jumpChargePrev = jumpCharge;    
+       
+        jumpChargePrev = jumpCharge;
         jumpCharge = 0;
         isGrounded = false;
         isJumping = true;
@@ -420,6 +424,8 @@ public class JumpingPlayerScript : MonoBehaviour
             if (collision.gameObject.GetComponent<PlatformScript>() == true)
             {
                 PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
+                fullChargeHit.Landing(collision);
+                jumpChargePrev = 0;
             }
         }
         else if (collision.contacts[0].point.y > feetPos.position.y)

@@ -22,6 +22,7 @@ public class PlatformManager : MonoBehaviour
 
     // Very half ass way of doing it, should be done in code if have time
     public Transform platformDissappearingPoint;
+    public Transform PlayerStatisFallPoint;
 
     private void Awake()
     {
@@ -103,7 +104,7 @@ public class PlatformManager : MonoBehaviour
         //very inefficient, the fix in this should be done with the one on top
         platforms.Clear();
 
-        if (player.transform.position.y < platformDissappearingPoint.transform.position.y - 1f)
+        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
         {
             chicken.playerDowned = true;
             if (playedFallingSound == false)
@@ -113,7 +114,7 @@ public class PlatformManager : MonoBehaviour
             }
             chicken.AbovePlatformCheck();
         }
-        else if ((player.transform.position.y > platformDissappearingPoint.transform.position.y - 1f))
+        else if ((player.transform.position.y > PlayerStatisFallPoint.transform.position.y - 1f))
         {
             playedFallingSound = false;
             SFX.fallingVoiceCheck = false;

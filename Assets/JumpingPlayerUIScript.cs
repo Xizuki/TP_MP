@@ -23,6 +23,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
     //private ParticleSystem.MainModule interpolateps;
     //private ParticleSystem.MainModule interpolateps2;
 
+    public Color arrowStartingColor;
+    public Color arrowEndColor;  
 
     public Color startingColor;
     public Color endColor;
