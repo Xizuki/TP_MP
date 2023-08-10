@@ -10,6 +10,7 @@ public class InvulnerableJump : MonoBehaviour
     public ParticleSystem explosion;
 
     public Outline outlineScript;
+    public float outlineWidth = 0f;
 
     public bool chargeInitial;
 
@@ -29,7 +30,7 @@ public class InvulnerableJump : MonoBehaviour
         if (jumpingPlayer.isJumping == true || JumpingPlayerScript.fullyCharge == true)
         {
             
-            if (outlineScript.OutlineWidth < 5f)
+            if (outlineScript.OutlineWidth < outlineWidth)
             {
                 if (chargeInitial == false)
                 {
@@ -38,9 +39,9 @@ public class InvulnerableJump : MonoBehaviour
                 }
                 outlineScript.OutlineWidth += 0.35f;
             }
-            else if (outlineScript.OutlineWidth >= 5f)
+            else if (outlineScript.OutlineWidth >= outlineWidth)
             {
-                outlineScript.OutlineWidth = 5f;
+                outlineScript.OutlineWidth = outlineWidth;
             }
         }
 
