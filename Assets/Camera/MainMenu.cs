@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public GameObject UI;
     public GameObject options;
     public AudioSource audioSource;
+    public GameObject blackBars;
+    public GameObject skipBtn;
     public AudioClip clip;
     public AudioClip clipOptions;
     public GameObject loadingTxtObject;
@@ -24,8 +26,10 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        blackBars.SetActive(false);
         cam.SetActive(false);
         camUp = false;
+        skipBtn.SetActive(false);
         loadingTxtObject.SetActive(false);
     }
     
@@ -44,6 +48,8 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickStart()
     {
+        blackBars.SetActive(true);
+        skipBtn.SetActive(true);
         camUp = true;
         audioSource.PlayOneShot(clip);
         loadingTxtObject.SetActive(true);
@@ -63,6 +69,17 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(5.75f);
         SceneManager.LoadScene(1);
 
+    }
+
+    IEnumerator SkipIntro()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(1);
+    }
+
+    public void SkipIntroMain()
+    {
+        StartCoroutine(SkipIntro());
     }
 
     private void Update()
