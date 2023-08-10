@@ -32,10 +32,10 @@ public class JumpingPlayerScript : MonoBehaviour
     public ParticleSystem chargeParticle;
     public ParticleSystem chargeTapParticle;
     public ParticleSystem chargeTapParticle2;
-    public ParticleSystem maxParticle;
+    //public ParticleSystem maxParticle;
 
-    public ParticleSystem maxChargeParticleOut;
-    public ParticleSystem maxChargeParticleIn;
+    //public ParticleSystem maxChargeParticleOut;
+    //public ParticleSystem maxChargeParticleIn;
 
     public Animator animator;
     public Chicken chicken;
@@ -144,11 +144,11 @@ public class JumpingPlayerScript : MonoBehaviour
                 chargeTapParticle.Play();
                 chargeTapParticle2.Play();
             }
-            if (!isCharging)
-            {
-                chargeParticle.Stop();
-                maxChargeParticleOut.Stop();
-            }
+            //if (!isCharging)
+            //{
+            //    chargeParticle.Stop();
+            //    maxChargeParticleOut.Stop();
+            //}
         }
         if (jumpCharge > 1 && isCharging)
         {
@@ -160,26 +160,26 @@ public class JumpingPlayerScript : MonoBehaviour
                 fullyCharge = true;
             }
         }
-        if (jumpCharge >= 0.85)
-        {
-            maxChargeParticleIn.Play();
-        }
-        if (jumpCharge < 0.85)
-        {
-            maxChargeParticleIn.Stop();
-        }
-        if (jumpCharge < 1)
-        {
-            fullyCharge = false;
-        }
-        if (jumpCharge > 1)
-        {
-            jumpCharge = 1;
-            maxParticle.Play();
-            maxChargeParticleIn.Play();
-            //maxChargeParticleOut.Play();
+        //if (jumpCharge >= 0.85)
+        //{
+        //    maxChargeParticleIn.Play();
+        //}
+        //if (jumpCharge < 0.85)
+        //{
+        //    maxChargeParticleIn.Stop();
+        //}
+        //if (jumpCharge < 1)
+        //{
+        //    fullyCharge = false;
+        //}
+        //if (jumpCharge > 1)
+        //{
+        //    jumpCharge = 1;
+        //    maxParticle.Play();
+        //    maxChargeParticleIn.Play();
+        //    //maxChargeParticleOut.Play();
 
-        }
+        //}
 
         IEnumerator maxChargeSfx()
         {
