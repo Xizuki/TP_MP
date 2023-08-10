@@ -94,6 +94,10 @@ public class PlatformManager : MonoBehaviour
             {
                 Destroy(platform.gameObject);
             }
+            //else if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y)
+            //{
+            //    platform.GetComponent<BoxCollider>().enabled = false;
+            //}
         }
 
         foreach (PlatformScript platform in platformsToRemove)
@@ -106,6 +110,7 @@ public class PlatformManager : MonoBehaviour
 
         if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
         {
+            player.shibaCollider.enabled = true;
             chicken.playerDowned = true;
             if (playedFallingSound == false)
             {

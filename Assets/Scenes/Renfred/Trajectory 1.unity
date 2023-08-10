@@ -2822,6 +2822,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393698313}
   m_CullTransparentMesh: 1
+--- !u!212 &404640252 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3928387888304046207, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &412278192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9408,12 +9413,12 @@ GameObject:
   - component: {fileID: 1175997190}
   - component: {fileID: 1175997189}
   m_Layer: 5
-  m_Name: Image
+  m_Name: JumpChargeScreenVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1175997188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9424,7 +9429,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 208244483}
   m_RootOrder: 1
@@ -9447,14 +9452,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f37ba2ba399fd6f4aa740886d26d2e51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8ba2df01d019bd4cbf53ec668cc3c8b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11206,8 +11211,56 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: jumpChargeScreenVFX
+      value: 
+      objectReference: {fileID: 1175997189}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXEndColor.a
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXEndColor.b
+      value: 0.84313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXEndColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXEndColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXStartColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXStartColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXStartColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: screenVFXStartColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: jumpChargeScreenVFXScaleDiff
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: jumpChargeValueStorageDecaySpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: jumpChargeValueStorage4FOVDecaySpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: jumpChargeValueStorage4ScreenVFXDecaySpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326649054202, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_RootOrder
@@ -15466,6 +15519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63729252785820a49b16459d0c97332d, type: 3}
+--- !u!198 &1880034152 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 535729279713804870, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1888037204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17651,6 +17709,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpingPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowSprite
+      value: 
+      objectReference: {fileID: 404640252}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowEndColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowEndColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowEndColor.g
+      value: 0.32031077
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowEndColor.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: jumpChargeScreenVFX
+      value: 
+      objectReference: {fileID: 1175997189}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowStartingColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowStartingColor.b
+      value: 0.7971698
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowStartingColor.g
+      value: 0.9932208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: arrowStartingColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: chicken
       value: 
@@ -17691,6 +17789,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpingPlayer: {fileID: 8824464932475558557}
   colliderInv: {fileID: 8824464932475558569}
-  explosion: {fileID: 198602994958770764, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
+  explosion: {fileID: 1880034152}
   outlineScript: {fileID: 1267350524}
   chargeInitial: 1

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JumpingPlayerCameraScript : MonoBehaviour
 {
@@ -9,10 +10,17 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     public float highestY;
     public float platformHeightOffset = 1;
 
-   
-    public float jumpChargeValueStorageDecaySpeed;
-    public float jumpChargeValueStorage;
+    public Color screenVFXStartColor;
+    public Color screenVFXEndColor;
+    public float jumpChargeValueStorage4FOVDecaySpeed;
+    public float jumpChargeValueStorage4ScreenVFXDecaySpeed;
+    public float jumpChargeValueStorage4FOV;
+    public float jumpChargeValueStorage4ScreenVFX;
     public float jumpChargeFOVDiff;
+    public float jumpChargeScreenVFXScaleDiff;
+
+    public Image jumpChargeScreenVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +39,27 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
     public void CameraEnlargeOnCharge()
     {
-        JumpingPlayerScript jumpingPlayer = player.GetComponent<JumpingPlayerScript>();
-        if (jumpingPlayer.jumpCharge > 0 && jumpingPlayer.isGrounded && jumpingPlayer.isCharging)
-            jumpChargeValueStorage = jumpingPlayer.jumpCharge;
-        else if(jumpingPlayer.jumpChargePrev == 0 && jumpingPlayer.jumpCharge == 0 && jumpChargeValueStorage >0 && !jumpingPlayer.isCharging)
-            jumpChargeValueStorage -= jumpChargeValueStorageDecaySpeed * Time.deltaTime;
 
-        Camera.main.fieldOfView = baseFOV + ((jumpChargeValueStorage) * jumpChargeFOVDiff);
+        // NEED BETTER WAY TO DO THIS, EASING VARIABLES
+
+        JumpingPlayerScript jumpingPlayer = player.GetComponent<JumpingPlayerScript>();
+        if (jumpingPlayer.jumpCharge > 0 && jumpingPlayer.isGrounded)
+        {
+            jumpChargeValueStorage4FOV = jumpingPlayer.jumpCharge;
+            jumpChargeValueStorage4ScreenVFX = jumpingPlayer.jumpCharge;
+        }
+        if (jumpingPlayer.jumpChargePrev == 0 && jumpingPlayer.jumpCharge == 0 && jumpChargeValueStorage4FOV > 0 )
+            jumpChargeValueStorage4FOV -= jumpChargeValueStorage4FOVDecaySpeed * Time.deltaTime;
+        if (jumpingPlayer.jumpCharge == 0 && jumpChargeValueStorage4ScreenVFX > 0 && !jumpingPlayer.isGrounded)
+            jumpChargeValueStorage4ScreenVFX -= jumpChargeValueStorage4ScreenVFXDecaySpeed * Time.deltaTime;
+
+
+        float jumpChargeFOVValue = baseFOV + ((jumpChargeValueStorage4FOV) * jumpChargeFOVDiff);
+        float jumpChargeScreenVFXValue = 1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeScreenVFXScaleDiff);
+
+        jumpChargeScreenVFX.color = Color.Lerp(screenVFXStartColor, screenVFXEndColor, jumpChargeValueStorage4ScreenVFX);
+        jumpChargeScreenVFX.rectTransform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+        Camera.main.fieldOfView = jumpChargeFOVValue;
     }
     public void CameraPositioning()
     {

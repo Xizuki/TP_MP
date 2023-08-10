@@ -3661,6 +3661,7 @@ MonoBehaviour:
   jumpingPlayerChildrenModel: {fileID: 8824464932080693802}
   playerUI: {fileID: 0}
   rb: {fileID: 0}
+  fullChargeHit: {fileID: 0}
   lineLength: 10
   checkLandSound: 0
   checkMaxChargeSoundSfx: 0
@@ -3668,7 +3669,6 @@ MonoBehaviour:
   InitialAngle: 0
   jumpCharge: 0
   jumpChargePrev: 0
-  jumpChargePrevDecaySpeed: 8
   jumpChargeSpeedCurrent: 1.5
   jumpChargeSpeedReduction: 15
   jumpChargeSpeedMax: 1
@@ -3737,6 +3737,9 @@ MonoBehaviour:
   - {fileID: 4782688151487402882}
   - {fileID: 4782113080897035512}
   - {fileID: 1337851426926315782}
+  arrowSprite: {fileID: 0}
+  arrowStartingColor: {r: 0, g: 0, b: 0, a: 0}
+  arrowEndColor: {r: 0, g: 0, b: 0, a: 0}
   startingColor: {r: 0.93333334, g: 0.070463926, b: 0, a: 1}
   endColor: {r: 0.14653397, g: 1, b: 0, a: 1}
   interpolatedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -4792,6 +4795,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: SizeBySpeedModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+      propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}

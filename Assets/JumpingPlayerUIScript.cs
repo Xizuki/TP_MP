@@ -19,10 +19,12 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public float playerHeadLookUpAngleLimit;
     public float playerJumpVectorIndicatorHardAngleLimit;
 
+
     public ParticleSystem[] interpolateParticle;
     //private ParticleSystem.MainModule interpolateps;
     //private ParticleSystem.MainModule interpolateps2;
 
+    public SpriteRenderer arrowSprite;
     public Color arrowStartingColor;
     public Color arrowEndColor;  
 
@@ -63,10 +65,24 @@ public class JumpingPlayerUIScript : MonoBehaviour
         interpolateParticle[5].startColor = interpolatedColor;
         interpolateParticle[6].startColor = interpolatedColor;
         jumpChargeSlider.value = player.jumpCharge;
+
+
+       
     }
     // Update is called once per frame
     void LateUpdate()
     {
+
+        // Interpolate the color between startColor and endColor based on the interpolationValue
+        interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
+        // Assign the interpolated color to the renderer component
+        sliderColor1.color = interpolatedColor;
+        sliderColor2.color = interpolatedColor;
+
+
+
+        arrowSprite.color = Color.Lerp(arrowStartingColor, arrowEndColor, player.jumpCharge);
+
         if (player.isCharging == true)
         {
             playerHeadTransform.localEulerAngles = faceForward;
@@ -105,11 +121,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
 
 
-            // Interpolate the color between startColor and endColor based on the interpolationValue
-            interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
-            // Assign the interpolated color to the renderer component
-            sliderColor1.color = interpolatedColor;
-            sliderColor2.color = interpolatedColor;
+
 
             // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
             // But im lazy rn
