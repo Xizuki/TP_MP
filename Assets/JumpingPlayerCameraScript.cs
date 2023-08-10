@@ -21,6 +21,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
     public Image jumpChargeScreenVFX;
 
+    public Camera overlayCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         CameraEnlargeOnCharge();
 
         CameraPositioning();
+
+        overlayCamera.fieldOfView = Camera.main.fieldOfView;
     }
 
     private float baseFOV;
@@ -59,6 +63,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         jumpChargeScreenVFX.color = Color.Lerp(screenVFXStartColor, screenVFXEndColor, jumpChargeValueStorage4ScreenVFX);
         jumpChargeScreenVFX.rectTransform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+        jumpingPlayer.playerUI.jumpingVectorIndicator.transform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+
         Camera.main.fieldOfView = jumpChargeFOVValue;
     }
     public void CameraPositioning()

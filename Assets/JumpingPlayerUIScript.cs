@@ -55,6 +55,36 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
     }
 
+    //public void JumpArrowVFX()
+    //{
+    //    GameObject GO = GameObject.Instantiate(jumpingVectorIndicator, jumpingVectorIndicator.transform.position, jumpingVectorIndicator.transform.rotation, transform);
+    //    GO.transform.parent = null;
+    //    GO.transform.SetSiblingIndex(0);
+    //    GO.GetComponentInChildren<LineRenderer>().enabled = false;
+
+    //    StartCoroutine(JumpArrowVFXCoroutine(GO));
+    //}
+
+    //public IEnumerator JumpArrowVFXCoroutine(GameObject animatedSprite)
+    //{
+    //    float duration = 0.5f;
+    //    float i = player.jumpCharge;
+    //    float colorR = animatedSprite.GetComponentInChildren<SpriteRenderer>().color.r;
+    //    float colorG = animatedSprite.GetComponentInChildren<SpriteRenderer>().color.g;
+    //    float colorB = animatedSprite.GetComponentInChildren<SpriteRenderer>().color.b;
+
+    //    jumpingVectorIndicator.GetComponentInChildren<SpriteRenderer>().enabled = (false);
+    //    while (player.jumpChargePrev>=0)
+    //    {
+    //        i -= Time.deltaTime/ duration;
+    //        animatedSprite.transform.localScale += new Vector3(2f, 2f, 2f) * Time.deltaTime / duration;
+    //        animatedSprite.GetComponentInChildren<SpriteRenderer>().color = new Vector4(colorR, colorG,colorB, i);
+
+    //        yield return null;
+    //    }
+
+    //}
+
     private void Update()
     {
         if (charge > maxCharge) charge = maxCharge;
@@ -67,7 +97,6 @@ public class JumpingPlayerUIScript : MonoBehaviour
         jumpChargeSlider.value = player.jumpCharge;
 
 
-       
     }
     // Update is called once per frame
     void LateUpdate()
@@ -149,6 +178,13 @@ public class JumpingPlayerUIScript : MonoBehaviour
         }
 
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag != "Platform") { return; }
+
+        jumpingVectorIndicator.GetComponentInChildren<SpriteRenderer>().enabled = (true);
     }
     void ChargeBarFill()
     {

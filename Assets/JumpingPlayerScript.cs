@@ -385,7 +385,10 @@ public class JumpingPlayerScript : MonoBehaviour
         //rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
 
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
-       
+
+        //playerUI.JumpArrowVFX();
+
+
         jumpChargePrev = jumpCharge;
         jumpCharge = 0;
         isGrounded = false;
@@ -411,6 +414,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 SFX.landSound = true;
                 checkLandSound = true;
             }
+
 
             ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
