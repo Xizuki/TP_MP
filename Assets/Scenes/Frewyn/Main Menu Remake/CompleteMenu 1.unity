@@ -792,7 +792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &67811730
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6830,7 +6830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &482891006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12953,6 +12953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1140507107}
   - component: {fileID: 1140507106}
+  - component: {fileID: 1140507108}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -13037,6 +13038,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1140507108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140507105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1146926903
 GameObject:
   m_ObjectHideFlags: 0
@@ -17125,6 +17146,8 @@ MonoBehaviour:
   UI: {fileID: 482891005}
   options: {fileID: 0}
   audioSource: {fileID: 334428733}
+  blackBars: {fileID: 0}
+  skipBtn: {fileID: 0}
   clip: {fileID: 8300000, guid: 14926d4fd131fc04e82a640c62219c5a, type: 3}
   clipOptions: {fileID: 8300000, guid: 42c3f5b4a66b0cc47ba377ad506d13be, type: 3}
   loadingTxtObject: {fileID: 5862633}
