@@ -30,5 +30,13 @@ public class Score : MonoBehaviour
         score += iterationScore;
 
         scoreTxt.text = "Score: " + Mathf.Round(score);
+
+
+        ScoreVFX(multiplyer, platformYDistance, iterationScore);
+    }
+
+    public void ScoreVFX(float multiplyer, float platformYDistance, float iterationScore)
+    {
+
     }
 }

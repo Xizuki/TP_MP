@@ -401,7 +401,7 @@ public class JumpingPlayerScript : MonoBehaviour
         Instantiate(jumpParticle, transform.position, transform.rotation);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         // Very Simple, could maybe have bugs
         if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
@@ -419,7 +419,7 @@ public class JumpingPlayerScript : MonoBehaviour
             ///* Moved to PlatformManager 
             CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
             //ComboCount.combo += 1;
-            print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
+            //print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
             //ComboCount.hit = true;
             //SFX.scoreSound = true;
             //SFX.landSound = true;

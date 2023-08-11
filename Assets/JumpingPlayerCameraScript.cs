@@ -27,11 +27,15 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     void Start()
     {
         baseFOV = Camera.main.fieldOfView;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(XizukiMethods.Data.Xi_Helper_Data.GetVariableName(() => baseFOV));
+        print(XizukiMethods.Data.Xi_Helper_Data.GetDynamicVariableName(() => baseFOV));
+        //print(XizukiMethods.Math.Xi_Helper_Math.CalculateFromString("cos(15)"));
         CameraEnlargeOnCharge();
 
         CameraPositioning();
