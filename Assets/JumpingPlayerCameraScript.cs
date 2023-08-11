@@ -39,7 +39,6 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
     public void CameraEnlargeOnCharge()
     {
-
         // NEED BETTER WAY TO DO THIS, EASING VARIABLES
 
         JumpingPlayerScript jumpingPlayer = player.GetComponent<JumpingPlayerScript>();
@@ -48,7 +47,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             jumpChargeValueStorage4FOV = jumpingPlayer.jumpCharge;
             jumpChargeValueStorage4ScreenVFX = jumpingPlayer.jumpCharge;
         }
-        if (jumpingPlayer.jumpChargePrev == 0 && jumpingPlayer.jumpCharge == 0 && jumpChargeValueStorage4FOV > 0 )
+        if (jumpingPlayer.jumpChargePrev == 0 && jumpingPlayer.jumpCharge == 0 && jumpChargeValueStorage4FOV > 0)
             jumpChargeValueStorage4FOV -= jumpChargeValueStorage4FOVDecaySpeed * Time.deltaTime;
         if (jumpingPlayer.jumpCharge == 0 && jumpChargeValueStorage4ScreenVFX > 0 && !jumpingPlayer.isGrounded)
             jumpChargeValueStorage4ScreenVFX -= jumpChargeValueStorage4ScreenVFXDecaySpeed * Time.deltaTime;
@@ -59,6 +58,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         jumpChargeScreenVFX.color = Color.Lerp(screenVFXStartColor, screenVFXEndColor, jumpChargeValueStorage4ScreenVFX);
         jumpChargeScreenVFX.rectTransform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+        jumpingPlayer.playerUI.jumpingVectorIndicator.transform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+
         Camera.main.fieldOfView = jumpChargeFOVValue;
     }
     public void CameraPositioning()
