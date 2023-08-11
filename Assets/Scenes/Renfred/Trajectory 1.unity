@@ -5389,6 +5389,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724782916}
   m_CullTransparentMesh: 1
+--- !u!114 &731256960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3457479639076973114, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &731735628
 GameObject:
   m_ObjectHideFlags: 0
@@ -11193,11 +11204,39 @@ PrefabInstance:
     - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 1769224324}
+      objectReference: {fileID: 208244482}
     - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: UI2
       value: 
       objectReference: {fileID: 208244482}
+    - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: camAnim
+      value: 
+      objectReference: {fileID: 1746759408}
+    - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: blackBars
+      value: 
+      objectReference: {fileID: 1710961574}
+    - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: skipButton
+      value: 
+      objectReference: {fileID: 731256960}
+    - target: {fileID: 3457479639076973114, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457479639076973114, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1441620869}
+    - target: {fileID: 3457479639076973114, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipCutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457479639076973114, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StartCutscene, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187547, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: field of view
       value: 60
@@ -11322,6 +11361,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2773457066260461889, guid: a56b90f6be26800449ae89250555594b, type: 3}
   m_PrefabInstance: {fileID: 1441620866}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1441620869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96910feab9e0b8b44ba28d4b79feaeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1444389108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14670,6 +14720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63729252785820a49b16459d0c97332d, type: 3}
+--- !u!95 &1710961574 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2411193754547738481, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1712539507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831147191014842679, guid: 63729252785820a49b16459d0c97332d, type: 3}
@@ -14877,6 +14932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ce5e30a3e573044b052bbf3371b2a1, type: 3}
+--- !u!95 &1746759408 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1441620869, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1747762081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831147191014842679, guid: 63729252785820a49b16459d0c97332d, type: 3}
@@ -17791,4 +17851,5 @@ MonoBehaviour:
   colliderInv: {fileID: 8824464932475558569}
   explosion: {fileID: 1880034152}
   outlineScript: {fileID: 1267350524}
+  outlineWidth: 0
   chargeInitial: 1
