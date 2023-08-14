@@ -15,6 +15,24 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "MovePlayerLeft",
+                    "type": "Value",
+                    "id": "55d34407-3f1f-4b0a-b5f2-4f0cfef5dd58",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovePlayerRight",
+                    "type": "Value",
+                    "id": "7c15276e-67b4-48b7-9788-143521b32def",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "MoveJumpVectorPositive",
                     "type": "Value",
                     "id": "3d3b2a0b-cada-44e0-b651-16294c520fec",
@@ -157,6 +175,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DebugIsgrounded",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b33e8708-fd45-4775-aad6-c26313779b37",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovePlayerRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d5ccb64-cfe9-4716-a023-b27daa1762ad",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovePlayerLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

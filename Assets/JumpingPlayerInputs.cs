@@ -129,6 +129,15 @@ public class JumpingPlayerInputs : MonoBehaviour
             {
                 jumpingPlayer.isMoving = false;
             }
+            if (inputs.GameActions.MovePlayerRight.IsPressed())
+            {
+                jumpingPlayer.MovePlayer(1);
+            }
+            if (inputs.GameActions.MovePlayerLeft.IsPressed())
+            {
+                jumpingPlayer.MovePlayer(-1);
+            }
+         
         }
 
 

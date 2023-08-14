@@ -13,6 +13,9 @@ public class StopWatchPowerUp : PowerUpScript
     public Image sliderFill;
     public float delay = 0;
     float timer = 10f;
+    public GameObject stopwatchFilter;
+    public AudioSource stopwatch;
+    public AudioClip stopwatchEnd;
     public override void Effect()
     {
         base.Effect();
@@ -27,6 +30,17 @@ public class StopWatchPowerUp : PowerUpScript
 
 
         BulletMove[] bullets = GameObject.FindObjectsByType<BulletMove>(FindObjectsSortMode.None);
+
+        if (sliderFill.fillAmount == 0)
+        {
+            stopwatchFilter.SetActive(false);
+        }
+        else if (sliderFill.fillAmount >= 0.1)
+        {
+            stopwatchFilter.SetActive(true);
+            
+        }
+
 
         if (isActivated)
         {

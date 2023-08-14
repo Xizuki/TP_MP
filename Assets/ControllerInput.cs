@@ -37,6 +37,24 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""MovePlayerLeft"",
+                    ""type"": ""Value"",
+                    ""id"": ""55d34407-3f1f-4b0a-b5f2-4f0cfef5dd58"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovePlayerRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""7c15276e-67b4-48b7-9788-143521b32def"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""MoveJumpVectorPositive"",
                     ""type"": ""Value"",
                     ""id"": ""3d3b2a0b-cada-44e0-b651-16294c520fec"",
@@ -179,6 +197,28 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b33e8708-fd45-4775-aad6-c26313779b37"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d5ccb64-cfe9-4716-a023-b27daa1762ad"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovePlayerLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -829,6 +869,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         // GameActions
         m_GameActions = asset.FindActionMap("GameActions", throwIfNotFound: true);
         m_GameActions_MoveJumpVectorNegative = m_GameActions.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
+        m_GameActions_MovePlayerLeft = m_GameActions.FindAction("MovePlayerLeft", throwIfNotFound: true);
+        m_GameActions_MovePlayerRight = m_GameActions.FindAction("MovePlayerRight", throwIfNotFound: true);
         m_GameActions_MoveJumpVectorPositive = m_GameActions.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
         m_GameActions_Input = m_GameActions.FindAction("Input", throwIfNotFound: true);
         m_GameActions_Jump = m_GameActions.FindAction("Jump", throwIfNotFound: true);
@@ -937,6 +979,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_GameActions;
     private List<IGameActionsActions> m_GameActionsActionsCallbackInterfaces = new List<IGameActionsActions>();
     private readonly InputAction m_GameActions_MoveJumpVectorNegative;
+    private readonly InputAction m_GameActions_MovePlayerLeft;
+    private readonly InputAction m_GameActions_MovePlayerRight;
     private readonly InputAction m_GameActions_MoveJumpVectorPositive;
     private readonly InputAction m_GameActions_Input;
     private readonly InputAction m_GameActions_Jump;
@@ -947,6 +991,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         private @ControllerInput m_Wrapper;
         public GameActionsActions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveJumpVectorNegative => m_Wrapper.m_GameActions_MoveJumpVectorNegative;
+        public InputAction @MovePlayerLeft => m_Wrapper.m_GameActions_MovePlayerLeft;
+        public InputAction @MovePlayerRight => m_Wrapper.m_GameActions_MovePlayerRight;
         public InputAction @MoveJumpVectorPositive => m_Wrapper.m_GameActions_MoveJumpVectorPositive;
         public InputAction @Input => m_Wrapper.m_GameActions_Input;
         public InputAction @Jump => m_Wrapper.m_GameActions_Jump;
@@ -964,6 +1010,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @MoveJumpVectorNegative.started += instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.performed += instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.canceled += instance.OnMoveJumpVectorNegative;
+            @MovePlayerLeft.started += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed += instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled += instance.OnMovePlayerLeft;
+            @MovePlayerRight.started += instance.OnMovePlayerRight;
+            @MovePlayerRight.performed += instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled += instance.OnMovePlayerRight;
             @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
@@ -986,6 +1038,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @MoveJumpVectorNegative.started -= instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.performed -= instance.OnMoveJumpVectorNegative;
             @MoveJumpVectorNegative.canceled -= instance.OnMoveJumpVectorNegative;
+            @MovePlayerLeft.started -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.performed -= instance.OnMovePlayerLeft;
+            @MovePlayerLeft.canceled -= instance.OnMovePlayerLeft;
+            @MovePlayerRight.started -= instance.OnMovePlayerRight;
+            @MovePlayerRight.performed -= instance.OnMovePlayerRight;
+            @MovePlayerRight.canceled -= instance.OnMovePlayerRight;
             @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
             @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
@@ -1481,6 +1539,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     public interface IGameActionsActions
     {
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
+        void OnMovePlayerLeft(InputAction.CallbackContext context);
+        void OnMovePlayerRight(InputAction.CallbackContext context);
         void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
         void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
