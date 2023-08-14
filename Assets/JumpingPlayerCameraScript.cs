@@ -21,6 +21,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
     public Image jumpChargeScreenVFX;
 
+    public Camera overlayCam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         jumpingPlayer.playerUI.jumpingVectorIndicator.transform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
 
         Camera.main.fieldOfView = jumpChargeFOVValue;
+        //overlayCam.fieldOfView = jumpChargeFOVValue;
     }
     public void CameraPositioning()
     {

@@ -398,48 +398,65 @@ public class JumpingPlayerScript : MonoBehaviour
         Instantiate(jumpParticle, transform.position, transform.rotation);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         // Very Simple, could maybe have bugs
         if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
         {
             isGrounded = true;
             isJumping = false;
-
-            if (checkLandSound == false)
-            {
-                SFX.landSound = true;
-                checkLandSound = true;
-            }
-
-            ///* Moved to PlatformManager 
-            CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
-            //ComboCount.combo += 1;
-            print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
-            //ComboCount.hit = true;
-            //SFX.scoreSound = true;
-            //SFX.landSound = true;
-            //Tweening.comboUp = true;
-
-            if (collision.gameObject.GetComponent<PlatformScript>() == true)
-            {
-                PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
-                fullChargeHit.Landing(collision);
-                jumpChargePrev = 0;
-            }
-        }
-        else if (collision.contacts[0].point.y > feetPos.position.y)
-        {
-            //ComboCount.hit = false;
-            checkLandSound = false;
-        }
-        if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet" || collision.collider.tag == "ChestEnemy")
-        {
-            animator.SetTrigger("Hit"); 
-            hitParticle.Play();
-            HitPhase();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Very Simple, could maybe have bugs
+        for (int i = 0; i < collision.contacts.Length; i++)
+        {
+
+            if (collision.contacts[i].point.y <= feetPos.position.y && !chicken.playerDowned)
+            {
+                isGrounded = true;
+                isJumping = false;
+
+                if (checkLandSound == false)
+                {
+                    SFX.landSound = true;
+                    checkLandSound = true;
+                }
+
+                ///* Moved to PlatformManager 
+                CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
+                                                                       //ComboCount.combo += 1;
+                print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
+                //ComboCount.hit = true;
+                //SFX.scoreSound = true;
+                //SFX.landSound = true;
+                //Tweening.comboUp = true;
+
+                if (collision.gameObject.GetComponent<PlatformScript>() == true)
+                {
+                    if ((collision.impulse.magnitude / 35) <= 0) { return; }
+                    PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
+                    fullChargeHit.Landing(collision);
+                    jumpChargePrev = 0;
+                }
+            }
+            else if (collision.contacts[0].point.y > feetPos.position.y)
+            {
+                //ComboCount.hit = false;
+                checkLandSound = false;
+            }
+            if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet" || collision.collider.tag == "ChestEnemy")
+            {
+                animator.SetTrigger("Hit");
+                hitParticle.Play();
+                HitPhase();
+            }
+
+        }
+    }
+
 
     private void HitPhase()
     {

@@ -555,14 +555,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537212499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.166, z: 0.093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8824464933389489933}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1618455092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,9 +1685,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpingPlayer: {fileID: 8824464933389489938}
   colliderInv: {fileID: 1267350517}
-  explosion: {fileID: 0}
+  explosion: {fileID: 535729279713804870}
   outlineScript: {fileID: 1267350524}
-  chargeInitial: 0
+  outlineWidth: 10
+  chargeInitial: 1
 --- !u!135 &1267350517
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3583,6 +3584,7 @@ GameObject:
   - component: {fileID: 4878284276289323204}
   - component: {fileID: 8824464932475558569}
   - component: {fileID: 8824464932475558560}
+  - component: {fileID: 8824464932475558577}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -3737,9 +3739,9 @@ MonoBehaviour:
   - {fileID: 4782688151487402882}
   - {fileID: 4782113080897035512}
   - {fileID: 1337851426926315782}
-  arrowSprite: {fileID: 0}
-  arrowStartingColor: {r: 0, g: 0, b: 0, a: 0}
-  arrowEndColor: {r: 0, g: 0, b: 0, a: 0}
+  arrowSprite: {fileID: 3928387888304046207}
+  arrowStartingColor: {r: 1, g: 0.9932208, b: 0.7971698, a: 0.78431374}
+  arrowEndColor: {r: 0.6981132, g: 0.32031077, b: 0, a: 1}
   startingColor: {r: 0.93333334, g: 0.070463926, b: 0, a: 1}
   endColor: {r: 0.14653397, g: 1, b: 0, a: 1}
   interpolatedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3842,6 +3844,24 @@ MonoBehaviour:
   raycastLine2: {fileID: 1537212499}
   mainCamera: {fileID: 0}
   distanceSet: 1000
+--- !u!114 &8824464932475558577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 8824464933389489938}
+  colliderInv: {fileID: 8824464932475558569}
+  explosion: {fileID: 535729279713804870}
+  outlineScript: {fileID: 1267350524}
+  outlineWidth: 0
+  chargeInitial: 1
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,6 +5036,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
   m_PrefabInstance: {fileID: 1162097202031710035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4442282040675875545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3280519133430969738, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  m_PrefabInstance: {fileID: 1162097202031710035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1583351749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442282040675875545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &1176443019907441982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5434,6 +5479,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
   m_PrefabInstance: {fileID: 6864308503855726889}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7951376781551253131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3538170396574824354, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+  m_PrefabInstance: {fileID: 6864308503855726889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1999209917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951376781551253131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &8624204839027194944
 PrefabInstance:
   m_ObjectHideFlags: 0

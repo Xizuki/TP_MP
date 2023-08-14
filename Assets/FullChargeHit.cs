@@ -20,10 +20,7 @@ public class FullChargeHit : MonoBehaviour
 
     private void Update()
     {
-        if(hit.collider!=null)
-            print("hit.collider.tag = " + hit.collider.tag);
-        if (hit2.collider != null)
-            print("hit2.collider.tag = " + hit2.collider.tag);
+
 
     }
 
