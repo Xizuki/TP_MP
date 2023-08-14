@@ -492,9 +492,20 @@ public class JumpingPlayerScript : MonoBehaviour
 
             Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
 
-            if(Physics.Raycast(lastPosition,(point-lastPosition).normalized, out RaycastHit hit,(point-lastPosition).magnitude,collisionMask) )
+            //Stops the line if it touches object
+            if(Physics.Raycast(lastPosition,Vector3.up, out RaycastHit hitUp,1,collisionMask))
+            {
+                Debug.Log("Hit Up");
+                lineRenderer.SetPosition(i, hitUp.point);
+                lineRenderer.positionCount = i + 1;
+                return;
+
+            }
+            else if(Physics.Raycast(lastPosition,(point-lastPosition).normalized, out RaycastHit hit,(point-lastPosition).magnitude,collisionMask) )
                 
-            { 
+            {
+
+                Debug.Log("Hit Platform");
                 lineRenderer.SetPosition(i, hit.point);
                 lineRenderer.positionCount = i + 1;
                 return;
