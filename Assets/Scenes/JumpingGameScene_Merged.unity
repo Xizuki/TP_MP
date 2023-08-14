@@ -2935,7 +2935,7 @@ RectTransform:
   m_GameObject: {fileID: 674515994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.63762, y: 0.63762, z: 0.63762}
+  m_LocalScale: {x: 0.9035948, y: 0.9035948, z: 0.9035948}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731735629}
@@ -2943,7 +2943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 4.3}
+  m_AnchoredPosition: {x: -4.4, y: -2.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674515996
@@ -3702,7 +3702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &820555654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7692,13 +7692,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shibaKnight: {fileID: 1988791692}
   heroPosition: {x: 0, y: 0, z: 0}
+  spawnTop: {fileID: 858389995}
+  roomType: 0
   spawnRoom:
   - {fileID: 8827970032163676334, guid: 9697ed1246e8b674692347fb2aab889d, type: 3}
   - {fileID: 6995581322524112245, guid: 0717c3106f6531c40a7505a12c113036, type: 3}
   - {fileID: 5636499093209537394, guid: fe2c22cd993fab04092590c4e6284961, type: 3}
-  spawnTop: {fileID: 858389995}
-  roomType: 0
   spawnBottom: 80
+  spawnedRooms: 0
 --- !u!4 &1454552393
 Transform:
   m_ObjectHideFlags: 0
