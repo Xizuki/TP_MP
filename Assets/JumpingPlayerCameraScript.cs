@@ -63,7 +63,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         jumpingPlayer.playerUI.jumpingVectorIndicator.transform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
 
         Camera.main.fieldOfView = jumpChargeFOVValue;
-        //overlayCam.fieldOfView = jumpChargeFOVValue;
+        overlayCam.fieldOfView = jumpChargeFOVValue;
     }
     public void CameraPositioning()
     {
