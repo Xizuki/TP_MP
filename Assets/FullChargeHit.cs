@@ -20,66 +20,89 @@ public class FullChargeHit : MonoBehaviour
 
     private void Update()
     {
+        if (hit.collider != null)
+            print("hit.collider.tag = " + hit.collider.tag);
+        if (hit2.collider != null)
+            print("hit2.collider.tag = " + hit2.collider.tag);
+
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void Landing(Collision collision)
     {
-        if(collision.collider.tag == "Platform" && jumpingPlayer.jumpChargePrev >= 0.9)
-        {
-            Physics.Raycast(raycastLine.transform.position, raycastLine.transform.right, out hit,  distanceSet);
-            if (hit.collider == null)
-            {
-                return;
-            }
-            if(hit.collider.tag == "Enemy")
-            {
-                Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
-                hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            }
-            Physics.Raycast(raycastLine.transform.position, -raycastLine.transform.right,out hit2, distanceSet);
 
-            if (hit2.collider == null)
+        if (collision.collider.tag == "Platform" && jumpingPlayer.jumpChargePrev >= 0.9)
+        {
+            Debug.DrawRay(raycastLine.transform.position, raycastLine.transform.right * distanceSet, Color.red, 1000f);
+            Debug.DrawRay(raycastLine2.transform.position, raycastLine2.transform.right * distanceSet, Color.blue, 1000f);
+
+            if (Physics.Raycast(raycastLine.transform.position, raycastLine.transform.right, out hit, distanceSet))
             {
-                return;
+                if (hit.collider == null)
+                {
+                    //return;
+                }
+                else if (hit.collider.tag == "Enemy")
+                {
+                    Vector3 camDir = mainCamera.transform.position - hit.transform.position;
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
+                    hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
+
+                    print("ASDASDASFASFASF");
+                }
             }
-            if (hit2.collider.tag == "Enemy")
+            if (Physics.Raycast(raycastLine.transform.position, -raycastLine.transform.right, out hit, distanceSet))
             {
-                Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
-                hit2.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            }
-            else
-            {
+                if (hit2.collider == null)
+                {
+                    //return;
+                }
+                else if (hit2.collider.tag == "Enemy")
+                {
+                    Vector3 camDir = mainCamera.transform.position - hit.transform.position;
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
+                    hit2.rigidbody.AddForce(flyDir, ForceMode.Impulse);
+                    print("ASDASDASFASFASF");
+
+                }
+                else
+                {
+                }
             }
         }
         if (collision.collider.tag == "Platform" && jumpingPlayer.jumpChargePrev >= 0.9)
         {
-            Physics.Raycast(raycastLine2.transform.position, raycastLine2.transform.right, out hit, distanceSet);
-            if (hit.collider == null)
+            if (Physics.Raycast(raycastLine2.transform.position, raycastLine2.transform.right, out hit, distanceSet))
             {
-                return;
-            }
-            if (hit.collider.tag == "Enemy")
-            {
-                Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
-                hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            }
-            Physics.Raycast(raycastLine2.transform.position, -raycastLine2.transform.right, out hit2, distanceSet);
+                if (hit.collider == null)
+                {
+                    //return;
+                }
+                else if (hit.collider.tag == "Enemy")
+                {
+                    Vector3 camDir = mainCamera.transform.position - hit.transform.position;
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
+                    hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
+                    print("ASDASDASFASFASF");
 
-            if (hit2.collider == null)
-            {
-                return;
+                }
             }
-            if (hit2.collider.tag == "Enemy")
+            if (Physics.Raycast(raycastLine2.transform.position, -raycastLine2.transform.right, out hit2, distanceSet))
             {
-                Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
-                hit2.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            }
-            else
-            {
+                if (hit2.collider == null)
+                {
+                    //return;
+                }
+                else if (hit2.collider.tag == "Enemy")
+                {
+                    Vector3 camDir = mainCamera.transform.position - hit.transform.position;
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
+                    hit2.rigidbody.AddForce(flyDir, ForceMode.Impulse);
+                    print("ASDASDASFASFASF");
+
+                }
+                else
+                {
+                }
             }
         }
     }

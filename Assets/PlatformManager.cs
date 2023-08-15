@@ -22,6 +22,7 @@ public class PlatformManager : MonoBehaviour
 
     // Very half ass way of doing it, should be done in code if have time
     public Transform platformDissappearingPoint;
+    public Transform PlayerStatisFallPoint;
 
     private void Awake()
     {
@@ -57,7 +58,7 @@ public class PlatformManager : MonoBehaviour
         // ADD VISUAL EFFECT TO ADD SCORE in FUTURE
         scoreScript.AddScore(scoreMultiplied, platformYDistance);
 
-        
+
 
         AddCombo();
     }
@@ -93,6 +94,10 @@ public class PlatformManager : MonoBehaviour
             {
                 Destroy(platform.gameObject);
             }
+            //else if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y)
+            //{
+            //    platform.GetComponent<BoxCollider>().enabled = false;
+            //}
         }
 
         foreach (PlatformScript platform in platformsToRemove)
@@ -103,8 +108,11 @@ public class PlatformManager : MonoBehaviour
         //very inefficient, the fix in this should be done with the one on top
         platforms.Clear();
 
-        if (player.transform.position.y < platformDissappearingPoint.transform.position.y - 1f)
+        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
         {
+            player.normalShiba.gameObject.SetActive(false);
+            player.stunShiba.gameObject.SetActive(true);
+            player.shibaCollider.enabled = true;
             chicken.playerDowned = true;
             if (playedFallingSound == false)
             {
@@ -113,7 +121,7 @@ public class PlatformManager : MonoBehaviour
             }
             chicken.AbovePlatformCheck();
         }
-        else if ((player.transform.position.y > platformDissappearingPoint.transform.position.y - 1f))
+        else if ((player.transform.position.y > PlayerStatisFallPoint.transform.position.y - 1f))
         {
             playedFallingSound = false;
             SFX.fallingVoiceCheck = false;
