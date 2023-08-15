@@ -14,12 +14,22 @@ public class StopWatchPowerUp : PowerUpScript
     public float delay = 0;
     float timer = 10f;
     public GameObject stopwatchFilter;
-    public AudioSource stopwatch;
+    public GameObject stopwatchEndVfx;
+    public AudioSource stopwatchEndSfx;
     public AudioClip stopwatchEnd;
+    public bool stopwatchHasEnd;
+    public float snowWeatherSpd;
+    public Animator snowWeatherVfx;
+
+    public void Start()
+    {
+        stopwatchHasEnd = true;
+    }
     public override void Effect()
     {
         base.Effect();
     }
+
     private void Update()
     {
         // should make it so it only runs once on activation for optimization but im lazy rn
@@ -33,11 +43,18 @@ public class StopWatchPowerUp : PowerUpScript
 
         if (sliderFill.fillAmount == 0)
         {
-            stopwatchFilter.SetActive(false);
+            if (stopwatchHasEnd == false)
+            {
+                StartCoroutine(StopwatchEnd());
+            }
         }
         else if (sliderFill.fillAmount >= 0.1)
         {
+            stopwatchHasEnd = false;
+            stopwatchEndVfx.SetActive(false);
             stopwatchFilter.SetActive(true);
+
+            snowWeatherVfx.speed = 0.5f;
             
         }
 
@@ -83,6 +100,16 @@ public class StopWatchPowerUp : PowerUpScript
                 bullet.speed = bullet.baseSpeed;
             }
 
+        }
+
+        IEnumerator StopwatchEnd()
+        {
+            stopwatchHasEnd = true;
+            stopwatchEndVfx.SetActive(true);
+            yield return new WaitForSeconds(1.75f);
+            snowWeatherVfx.speed = 1f;
+            stopwatchEndVfx.SetActive(false);
+            stopwatchFilter.SetActive(false);
         }
     }
 }
