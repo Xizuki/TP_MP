@@ -22,7 +22,7 @@ public class SliderMask : MonoBehaviour
     //        DupeSlider();
 
 
-    //    maskedSlider.value = slider.value;
+        maskedSlider.value = slider.value;
 
     }
 
