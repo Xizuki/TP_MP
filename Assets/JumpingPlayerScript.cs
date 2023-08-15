@@ -187,15 +187,15 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             if (isCharging)
             {
-                chargeParticle.Play();
+                //chargeParticle.Play();
                 jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
-                chargeTapParticle.Play();
-                chargeTapParticle2.Play();
+                //chargeTapParticle.Play();
+                //chargeTapParticle2.Play();
             }
             if (!isCharging)
             {
-                chargeParticle.Stop();
-                maxChargeParticleOut.Stop();
+                //chargeParticle.Stop();
+                //maxChargeParticleOut.Stop();
             }
         }
         if (jumpCharge > 1 && isCharging)
@@ -210,11 +210,11 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         if (jumpCharge >= 0.85)
         {
-            maxChargeParticleIn.Play();
+            //maxChargeParticleIn.Play();
         }
         if (jumpCharge < 0.85)
         {
-            maxChargeParticleIn.Stop();
+            //maxChargeParticleIn.Stop();
         }
         if (jumpCharge < 1)
         {
@@ -223,8 +223,8 @@ public class JumpingPlayerScript : MonoBehaviour
         if (jumpCharge > 1)
         {
             jumpCharge = 1;
-            maxParticle.Play();
-            maxChargeParticleIn.Play();
+            //maxParticle.Play();
+            //maxChargeParticleIn.Play();
             //maxChargeParticleOut.Play();
 
         }

@@ -18,6 +18,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     public float jumpChargeValueStorage4ScreenVFX;
     public float jumpChargeFOVDiff;
     public float jumpChargeScreenVFXScaleDiff;
+    public float jumpChargeArrowScaleDiff;
 
     public Image jumpChargeScreenVFX;
 
@@ -55,10 +56,14 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         float jumpChargeFOVValue = baseFOV + ((jumpChargeValueStorage4FOV) * jumpChargeFOVDiff);
         float jumpChargeScreenVFXValue = 1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeScreenVFXScaleDiff);
+        float jumpChargeArrowScaleValue = 1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeArrowScaleDiff);
+
 
         jumpChargeScreenVFX.color = Color.Lerp(screenVFXStartColor, screenVFXEndColor, jumpChargeValueStorage4ScreenVFX);
         jumpChargeScreenVFX.rectTransform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
-        jumpingPlayer.playerUI.jumpingVectorIndicator.transform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+        jumpingPlayer.playerUI.jumpingVectorIndicator.transform.localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+
+
 
         Camera.main.fieldOfView = jumpChargeFOVValue;
     }

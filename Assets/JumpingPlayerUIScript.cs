@@ -11,7 +11,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public float jumpVectorRotationSpeed;
     public JumpingPlayerScript player;
     public GameObject jumpingVectorIndicator;
-    public Slider jumpChargeSlider;
+    public ImageProgressBar jumpChargeSlider;
     public GameObject jumpChargeSliderFill;
     public Transform playerHeadTransform;
     public Transform jumpingVectorIndicatorEndPoint;
@@ -24,7 +24,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     //private ParticleSystem.MainModule interpolateps;
     //private ParticleSystem.MainModule interpolateps2;
 
-    public SpriteRenderer arrowSprite;
+    //public SpriteRenderer arrowSprite;
     public Color arrowStartingColor;
     public Color arrowEndColor;  
 
@@ -58,12 +58,12 @@ public class JumpingPlayerUIScript : MonoBehaviour
     private void Update()
     {
         if (charge > maxCharge) charge = maxCharge;
-        interpolateParticle[1].startColor = interpolatedColor;
-        interpolateParticle[2].startColor = interpolatedColor;
-        interpolateParticle[3].startColor = interpolatedColor;
-        interpolateParticle[4].startColor = interpolatedColor;
-        interpolateParticle[5].startColor = interpolatedColor;
-        interpolateParticle[6].startColor = interpolatedColor;
+        //interpolateParticle[1].startColor = interpolatedColor;
+        //interpolateParticle[2].startColor = interpolatedColor;
+        //interpolateParticle[3].startColor = interpolatedColor;
+        //interpolateParticle[4].startColor = interpolatedColor;
+        //interpolateParticle[5].startColor = interpolatedColor;
+        //interpolateParticle[6].startColor = interpolatedColor;
         jumpChargeSlider.value = player.jumpCharge;
 
 
@@ -81,7 +81,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
 
 
-        arrowSprite.color = Color.Lerp(arrowStartingColor, arrowEndColor, player.jumpCharge);
+        //arrowSprite.color = Color.Lerp(arrowStartingColor, arrowEndColor, player.jumpCharge);
 
         if (player.isCharging == true)
         {
