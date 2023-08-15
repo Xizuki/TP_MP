@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -68,23 +69,30 @@ public class JumpingPlayerScript : MonoBehaviour
     public Vector2 joystickVector;
 
 
-    [Header("Trajectory")]
-    [SerializeField]
-    public LineRenderer lineRenderer;
-    [SerializeField]
-    public Transform releasePosition;
-    //public Vector3 startPosition;
-    //public Vector3 endPosition;
-    private LayerMask collisionMask;
+    //[Header("Trajectory")]
+    //[SerializeField]
+    //public LineRenderer lineRenderer;
+    //[SerializeField]
+    //public Transform releasePosition;
+    ////public Vector3 startPosition;
+    ////public Vector3 endPosition;
+    //private LayerMask collisionMask;
+
+    //BoxCollider playerCollider;
+
+    ////[SerializeField]
+    ////GameObject playerSize;
+    ////GameObject instantiatedPlayerSize;
+    ////PlayerSizeCheck playerSizeCheck;
 
 
-    [Header("Display Controls")]
-    [SerializeField]
-    [Range(10, 100)]
-    private int linePoints = 25;
-    [SerializeField]
-    [Range(0.01f, 0.25f)]
-    private float timeBetweenPoints = 0.1f;
+    //[Header("Display Controls")]
+    //[SerializeField]
+    //[Range(10, 100)]
+    //private int linePoints = 25;
+    //[SerializeField]
+    //[Range(0.01f, 0.25f)]
+    //private float timeBetweenPoints = 0.1f;
 
     
 
@@ -95,15 +103,16 @@ public class JumpingPlayerScript : MonoBehaviour
         playerUI = GetComponent<JumpingPlayerUIScript>();
         fullChargeHit = GetComponent<FullChargeHit>();
         int playerLayer = rb.gameObject.layer;
-        for (int i =0; i < 32;i++)
-        {
-            if(!Physics.GetIgnoreLayerCollision(playerLayer, i))
-            {
-                collisionMask |= 1 << i;
-            }
+        //for (int i =0; i < 32;i++)
+        //{
+        //    if(!Physics.GetIgnoreLayerCollision(playerLayer, i))
+        //    {
+        //        collisionMask |= 1 << i;
+        //    }
 
-        }
-        
+        //}
+        //playerCollider = GetComponent<BoxCollider>();
+
         //inputs.GameActions.Enable();
 
         //inputs.GameActions.Jump.performed += a => Jump();
@@ -116,17 +125,28 @@ public class JumpingPlayerScript : MonoBehaviour
     void Start()
     {
         shibaCollider = gameObject.GetComponent<BoxCollider>();
-        //Physics.gravity=new Vector3(0, Physics.gravity.y-fallingGravityStrength,0);
-        //lineRenderer.positionCount = 2;
+
+        //instantiatedPlayerSize= Instantiate(playerSize, this.transform.position,Quaternion.identity);
+
+    
+
+        //playerSizeCheck = instantiatedPlayerSize.GetComponent<PlayerSizeCheck>();
+
+
     }
     
 
     // Update is called once per frame
     void Update()
     {
-    
+
+        //Debug.Log("Collided: " + playerSizeCheck.collided);
+
+
         Timer();
         ResetInputCountdown();
+
+      
 
         chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y + 20f, chickenExit.transform.position.z);
 
@@ -134,8 +154,8 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, -playerUI.jumpingVectorIndicator.transform.eulerAngles.z, 0);
 
-       
-         
+
+        
 
 
 
@@ -150,12 +170,21 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         if (!chicken.playerDowned)
            rb.AddForce(new Vector3(0, (-fallingGravityStrength * Time.deltaTime * 100) , 0));
-        if (isJumping == false)    
-            TrajectoryProjection();
-        else
-            lineRenderer.enabled = false;
 
-        
+
+        ////TrajectoryProjection();
+        //if (isCharging == true)
+        //{
+
+        //    // instantiatedPlayerSize.SetActive(true);
+        //    TrajectoryProjection();
+        //}
+        //else
+        //{
+        //    //  instantiatedPlayerSize.SetActive(false);
+        //    lineRenderer.enabled = false;
+        //}
+
     }
 
 
@@ -460,58 +489,116 @@ public class JumpingPlayerScript : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    void TrajectoryProjection()
-    {
+    //void TrajectoryProjection()
+    //{
 
-        lineRenderer.enabled = true;
-        lineRenderer.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
+    //    lineRenderer.enabled = true;
+    //    lineRenderer.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
 
-        //float width = lineRenderer.startWidth;
-        //lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
+    //    //float width = lineRenderer.startWidth;
+    //    //lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
 
-        Vector3 startPosition = releasePosition.transform.position; 
+    //    Vector3 startPosition = releasePosition.transform.position; 
 
-        Vector3 startVeloctiy = (playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar))/rb.mass;
+    //    Vector3 startVeloctiy = (playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar))/rb.mass;
 
-        int i = 0;
+    //    int i = 0;
 
-        lineRenderer.SetPosition(i, startPosition);
+    //    lineRenderer.SetPosition(i, startPosition);
 
  
 
-        for (float time = 0; time<linePoints;time+=timeBetweenPoints)
-        {
-            i++;
-            //i+=2;
-            Vector3 point = startPosition + time * startVeloctiy;
-            Vector3 additionalGravity =new Vector3(0, -fallingGravityStrength*Time.deltaTime* 100,0);
-            point.y = startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y + additionalGravity.y)) / 2f * time * time;
-            //point.y = startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y )) / 2f * time * time;
+    //    for (float time = 0; time<linePoints;time+=timeBetweenPoints)
+    //    {
+    //        i++;
+    //        //i+=2;
+    //        Vector3 point = startPosition + time * startVeloctiy;
+    //        Vector3 additionalGravity =new Vector3(0, -fallingGravityStrength*Time.deltaTime* 100,0);
+    //        point.y = startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y + additionalGravity.y)) / 2f * time * time;
+    //        //point.y = startPosition.y + startVeloctiy.y * time + ((Physics.gravity.y )) / 2f * time * time;
 
-            lineRenderer.SetPosition(i, point);
 
-            Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
 
-            //Stops the line if it touches object
-            if(Physics.Raycast(lastPosition,Vector3.up, out RaycastHit hitUp,1,collisionMask))
-            {
-                Debug.Log("Hit Up");
-                lineRenderer.SetPosition(i, hitUp.point);
-                lineRenderer.positionCount = i + 1;
-                return;
+    //        lineRenderer.SetPosition(i, point);
 
-            }
-            else if(Physics.Raycast(lastPosition,(point-lastPosition).normalized, out RaycastHit hit,(point-lastPosition).magnitude,collisionMask) )
-                
-            {
+    //        //instantiatedPlayerSize.transform.position = point;
 
-                Debug.Log("Hit Platform");
-                lineRenderer.SetPosition(i, hit.point);
-                lineRenderer.positionCount = i + 1;
-                return;
-            
-            }
-        }
+       
 
-    }
+    //        Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
+
+
+
+
+
+    //        //if (playerSizeCheck.collided == true)
+    //        //{
+    //        //    Debug.Log("playersizecheck true");
+    //        //    lineRenderer.SetPosition(i, lastPosition);
+    //        //    lineRenderer.positionCount = i + 1;
+    //        //    instantiatedPlayerSize.transform.position = lastPosition;
+    //        //    return;
+    //        //}
+
+
+
+
+    //        //if (Physics.Raycast(lastPosition, (point - lastPosition).normalized, out RaycastHit hit, (point - lastPosition).magnitude))
+
+    //        //{
+
+    //        //    Debug.Log("Hit Platform");
+    //        //    lineRenderer.SetPosition(i, hit.point);
+    //        //    lineRenderer.positionCount = i + 1;
+    //        //    return;
+
+    //        //}
+
+
+    //        ////Stops the line if it touches object
+    //        //if (Physics.Raycast(lastPosition, Vector3.up, out RaycastHit hitUp, playerCollider.size.y + playerCollider.center.y +0.3f, collisionMask))
+    //        //{
+    //        //    Debug.Log("Hit Up");
+    //        //    lineRenderer.SetPosition(i, point);
+    //        //    lineRenderer.positionCount = i + 1;
+    //        //    return;
+
+    //        //}
+
+    //        //else if (Physics.Raycast(lastPosition, Vector3.left, out RaycastHit hitLeft, playerCollider.size.x + 0.3f))
+    //        //{
+    //        //    Debug.Log("Hit Left");
+
+    //        //    Debug.Log("Thing hit:" + hitLeft.collider.gameObject.name);
+
+
+    //        //    lineRenderer.SetPosition(i, point);
+    //        //    lineRenderer.positionCount = i + 1;
+    //        //    return;
+
+    //        //}
+
+    //        //else if (Physics.Raycast(lastPosition, Vector3.right, out RaycastHit hitRight, playerCollider.size.x + 0.3f))
+    //        //{
+    //        //    Debug.Log("Hit Right");
+    //        //    lineRenderer.SetPosition(i, point);
+    //        //    lineRenderer.positionCount = i + 1;
+    //        //    return;
+
+    //        //}
+
+
+    //         if (Physics.Raycast(lastPosition, (point - lastPosition).normalized, out RaycastHit hit, (point - lastPosition).magnitude))
+
+    //        {
+
+    //            Debug.Log("Hit Platform");
+    //            lineRenderer.SetPosition(i, hit.point);
+    //            lineRenderer.positionCount = i + 1;
+    //            return;
+
+    //        }
+    //    }
+
+    //}
 }

@@ -12,7 +12,8 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag ("Chicken"))
         {
 
-         
+            //Debug.Log("Destroy checkpoint!");
+            Destroy(this.gameObject);
 
 
         }

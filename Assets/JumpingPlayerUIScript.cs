@@ -92,7 +92,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
             if (player.isCharging == true)
             {
-                Debug.Log("Testing Code");
+                //Debug.Log("Testing Code");
                 playerHeadTransform.localEulerAngles = faceForward;
                 //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
 

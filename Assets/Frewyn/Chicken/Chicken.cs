@@ -91,6 +91,11 @@ public class Chicken : MonoBehaviour
     void Update()
     {
 
+        if(isCarrying==true)
+        {
+            Carrying();
+        }
+
 
         if (playerDowned == false) //If player has recovered, leave
         {

@@ -1687,6 +1687,7 @@ MonoBehaviour:
   colliderInv: {fileID: 1267350517}
   explosion: {fileID: 0}
   outlineScript: {fileID: 1267350524}
+  outlineWidth: 0
   chargeInitial: 0
 --- !u!135 &1267350517
 SphereCollider:
@@ -3576,6 +3577,7 @@ GameObject:
   - component: {fileID: 8824464933389489932}
   - component: {fileID: 8824464933389489939}
   - component: {fileID: 8824464933389489938}
+  - component: {fileID: 7823393949829768114}
   - component: {fileID: 8824464933389489937}
   - component: {fileID: 683046004}
   - component: {fileID: 3426643511485465010}
@@ -3704,6 +3706,23 @@ MonoBehaviour:
   joystickVector: {x: 0, y: 0}
   lineRenderer: {fileID: 3946354713105432752}
   releasePosition: {fileID: 8824464932080693803}
+  linePoints: 100
+  timeBetweenPoints: 0.01
+--- !u!114 &7823393949829768114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d614351f2f3f933439b5d5f90db87d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayerScript: {fileID: 8824464933389489938}
+  lineRenderer: {fileID: 3946354713105432752}
+  releasePosition: {fileID: 8824464933389489933}
   linePoints: 100
   timeBetweenPoints: 0.01
 --- !u!114 &8824464933389489937
