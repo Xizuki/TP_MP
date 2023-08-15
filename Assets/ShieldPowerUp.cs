@@ -8,6 +8,7 @@ public class ShieldPowerUp : PowerUpScript
     public ParticleSystem auraShield;
     public Image sliderFill;
     public float delay = 0;
+    public GameObject shieldVfx;
     float timer = 10f;
 
     private void Update()
@@ -17,8 +18,10 @@ public class ShieldPowerUp : PowerUpScript
             sliderFill.fillAmount = 1;
             sliderFill.fillAmount = timer / 10;
             timer -= Time.deltaTime;
+            shieldVfx.SetActive(true);
             if (timer < delay)
             {
+                shieldVfx.SetActive(false);
                 isActivated = false;
                 timer = 10f;
                 sliderFill.fillAmount = 0;

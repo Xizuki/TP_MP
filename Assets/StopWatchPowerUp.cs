@@ -24,6 +24,7 @@ public class StopWatchPowerUp : PowerUpScript
     public void Start()
     {
         stopwatchHasEnd = true;
+        snowWeatherVfx.speed = 0.75f;
     }
     public override void Effect()
     {
@@ -54,7 +55,7 @@ public class StopWatchPowerUp : PowerUpScript
             stopwatchEndVfx.SetActive(false);
             stopwatchFilter.SetActive(true);
 
-            snowWeatherVfx.speed = 0.5f;
+            snowWeatherVfx.speed = 0.25f;
             
         }
 
@@ -107,7 +108,7 @@ public class StopWatchPowerUp : PowerUpScript
             stopwatchHasEnd = true;
             stopwatchEndVfx.SetActive(true);
             yield return new WaitForSeconds(1.75f);
-            snowWeatherVfx.speed = 1f;
+            snowWeatherVfx.speed = 0.75f;
             stopwatchEndVfx.SetActive(false);
             stopwatchFilter.SetActive(false);
         }

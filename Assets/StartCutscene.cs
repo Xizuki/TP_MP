@@ -69,7 +69,7 @@ public class StartCutscene : MonoBehaviour
         if (gameHasStarted == true)
         {
             gameHasStart.SetActive(true);
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(2.5f);
             gameHasStart.SetActive(false);
             gameHasStarted = false;
         }
