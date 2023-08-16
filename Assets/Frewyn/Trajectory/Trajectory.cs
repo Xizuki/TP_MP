@@ -99,13 +99,13 @@ public class Trajectory : MonoBehaviour
 
             Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
 
-            
-            if(Physics.BoxCast(point,new Vector3(playerCollider.size.x,playerCollider.size.y+playerCollider.center.y,playerCollider.size.z),Vector3.down,Quaternion.identity,10))
-            {
 
-                Debug.Log("Hit box!");
-                return;
-            }
+            //if(Physics.BoxCast(point,new Vector3(playerCollider.size.x,playerCollider.size.y+playerCollider.center.y,playerCollider.size.z),Vector3.down,Quaternion.identity,10))
+            //{
+
+            //    Debug.Log("Hit box!");
+            //    return;
+            //}
 
 
 
@@ -173,18 +173,18 @@ public class Trajectory : MonoBehaviour
 
 
 
-            ////Normal way
-            // if (Physics.Raycast(lastPosition, (point - lastPosition).normalized, out RaycastHit hit, (point - lastPosition).magnitude))
+            //Normal way
+            if (Physics.Raycast(lastPosition, (point - lastPosition).normalized, out RaycastHit hit, (point - lastPosition).magnitude))
 
-            //{
+            {
 
-            //    Debug.Log("Hit Platform");
-            //    Debug.Log("Thing hit:" + hit.collider.gameObject.name);
-            //    lineRenderer.SetPosition(i, hit.point);
-            //    lineRenderer.positionCount = i + 1;
-            //    return;
+                Debug.Log("Hit Platform");
+                Debug.Log("Thing hit:" + hit.collider.gameObject.name);
+                lineRenderer.SetPosition(i, hit.point);
+                lineRenderer.positionCount = i + 1;
+                return;
 
-            //}
+            }
         }
 
     }
