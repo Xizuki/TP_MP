@@ -99,6 +99,7 @@ public class Chicken : MonoBehaviour
 
         if (playerDowned == false) //If player has recovered, leave
         {
+            abovePlayer = false;
             ExitStage();
         }
 
@@ -226,6 +227,7 @@ public class Chicken : MonoBehaviour
         if (other.CompareTag("Checkpoint")) //Checks if chicken at platform
         {
             abovePlatform = true;
+           
         }
 
         if (other.CompareTag("ExitPoint")) //Checks if chicken at platform

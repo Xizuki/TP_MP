@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class Trajectory : MonoBehaviour
 {
+
+    bool m_Started;
 
     [SerializeField]
     private JumpingPlayerScript jumpingPlayerScript;
@@ -36,8 +40,8 @@ public class Trajectory : MonoBehaviour
     void Start()
     {
         playerCollider = GetComponent<BoxCollider>();
+        m_Started = true;
 
-    
     }
 
 
@@ -66,8 +70,7 @@ public class Trajectory : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
 
-        //float width = lineRenderer.startWidth;
-        //lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
+
 
         Vector3 startPosition = releasePosition.transform.position; 
 
@@ -77,7 +80,9 @@ public class Trajectory : MonoBehaviour
 
         lineRenderer.SetPosition(i, startPosition);
 
- 
+        Collider[] hitColliders;
+
+
 
         for (float time = 0; time<linePoints;time+=timeBetweenPoints)
         {
@@ -93,11 +98,60 @@ public class Trajectory : MonoBehaviour
             lineRenderer.SetPosition(i, point);
 
            
+          
+
+
+            Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
+
+
+            if (i > 15)
+            {
+                hitColliders = null;
+
+                hitColliders = Physics.OverlapBox(point, new Vector3(playerCollider.size.x, playerCollider.size.y, playerCollider.size.z), Quaternion.identity);
+
+
+
+
+
+                if (hitColliders.Length > 0 && hitColliders[0].CompareTag("Platform"))
+                {
+                    lineRenderer.SetPosition(i, point);
+                    lineRenderer.positionCount = i + 1;
+
+                    Debug.Log("Hit : " + hitColliders[0].name + " " + "Hit Collider size : " + hitColliders.Length);
+
+
+                    return;
+                }
+            }
+
+
+            //int z = 0;
+            ////Check when there is a new collider coming into contact with the box
+            //while (z < hitColliders.Length)
+            //{
+            //    //Output all of the collider names
+            //    Debug.Log("Hit : " + hitColliders[z].name + z);
+            //    //Increase the number of Colliders in the array
+            //    z++;
+
+            //    if (hitColliders.Length > 0)
+            //    {
+            //        lineRenderer.SetPosition(i, point);
+            //        lineRenderer.positionCount = i + 1;
+
+            //        Debug.Log("Hit collidr size" + hitColliders.Length);
+
+            //        return;
+            //    }
+            //}
+
+
             //instantiatedPlayerSize = Instantiate(playerSize,point, Quaternion.identity);
             //playerSizeCheck = instantiatedPlayerSize.GetComponent<PlayerSizeCheck>();
 
 
-            Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
 
 
             //if(Physics.BoxCast(point,new Vector3(playerCollider.size.x,playerCollider.size.y+playerCollider.center.y,playerCollider.size.z),Vector3.down,Quaternion.identity,10))
@@ -173,20 +227,30 @@ public class Trajectory : MonoBehaviour
 
 
 
-            //Normal way
-            if (Physics.Raycast(lastPosition, (point - lastPosition).normalized, out RaycastHit hit, (point - lastPosition).magnitude))
+            ////Normal way
+            //if (Physics.Raycast(lastPosition, (point - lastPosition).normalized, out RaycastHit hit, (point - lastPosition).magnitude))
 
-            {
+            //{
 
-                Debug.Log("Hit Platform");
-                Debug.Log("Thing hit:" + hit.collider.gameObject.name);
-                lineRenderer.SetPosition(i, hit.point);
-                lineRenderer.positionCount = i + 1;
-                return;
+            //    Debug.Log("Hit Platform");
+            //    Debug.Log("Thing hit:" + hit.collider.gameObject.name);
+            //    lineRenderer.SetPosition(i, hit.point);
+            //    lineRenderer.positionCount = i + 1;
+            //    return;
 
-            }
+            //}
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = UnityEngine.Color.red;
+        //Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
+        if (m_Started)
+            //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
+            Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 
 }
