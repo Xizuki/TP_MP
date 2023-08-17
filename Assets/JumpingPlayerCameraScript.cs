@@ -107,7 +107,10 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        JumpingPlayerScript jumpingPlayer = player.GetComponent<JumpingPlayerScript>();
+
         baseFOV = Camera.main.fieldOfView;
+        baseArrowScale = jumpingPlayer.playerUI.jumpingVectorIndicator.GetComponentInChildren<RectTransform>().localScale.x;
     }
 
     // Update is called once per frame
@@ -119,7 +122,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     }
 
     private float baseFOV;
-
+    private float baseArrowScale;
     public void CameraEnlargeOnCharge()
     {
         // NEED BETTER WAY TO DO THIS, EASING VARIABLES
@@ -138,11 +141,11 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         float jumpChargeFOVValue = baseFOV + ((jumpChargeValueStorage4FOV) * jumpChargeFOVDiff);
         float jumpChargeScreenVFXValue = 1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeScreenVFXScaleDiff);
-        float jumpChargeArrowScaleValue = 1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeArrowScaleDiff);
+        float jumpChargeArrowScaleValue = (1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeArrowScaleDiff)) * baseArrowScale;
 
         jumpChargeScreenVFX.color = Color.Lerp(screenVFXStartColor, screenVFXEndColor, jumpChargeValueStorage4ScreenVFX);
         jumpChargeScreenVFX.rectTransform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
-        //jumpingPlayer.playerUI.jumpingVectorIndicator.GetComponentInChildren<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+        jumpingPlayer.playerUI.jumpingVectorIndicator.GetComponentInChildren<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
 
         Camera.main.fieldOfView = jumpChargeFOVValue;
     }

@@ -11,6 +11,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public float jumpVectorRotationSpeed;
     public JumpingPlayerScript player;
     public GameObject jumpingVectorIndicator;
+    public ImageProgressBar jumpChargeArrow;
     public ImageProgressBar jumpChargeSlider;
     public GameObject jumpChargeSliderFill;
     public Transform playerHeadTransform;
@@ -18,7 +19,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public float jumpingVectorEndPointYMaxDistance;
     public float playerHeadLookUpAngleLimit;
     public float playerJumpVectorIndicatorHardAngleLimit;
-
+    private Outline outlineScript;
 
     public ParticleSystem[] interpolateParticle;
     //private ParticleSystem.MainModule interpolateps;
@@ -32,11 +33,10 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Color endColor;
     public Color interpolatedColor;
     public TextMeshPro chargeText;
-    float charge, maxCharge = 100;
 
-    public Image chargeBar;
     public Image sliderColor1;
     public Image sliderColor2;
+    public ParticleSystem chargePulseVFX;
 
     public Vector3 faceForward = new Vector3(0, 0, 270);
 
@@ -44,6 +44,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
     void Awake()
     {
         player = GetComponent<JumpingPlayerScript>();
+        outlineScript = GetComponentInChildren<Outline>();
+        chargePulseVFX = GetComponentInChildren<ParticleSystem>();
 
     }
     public void Start()
@@ -57,7 +59,6 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
     private void Update()
     {
-        if (charge > maxCharge) charge = maxCharge;
         //interpolateParticle[1].startColor = interpolatedColor;
         //interpolateParticle[2].startColor = interpolatedColor;
         //interpolateParticle[3].startColor = interpolatedColor;
@@ -65,21 +66,24 @@ public class JumpingPlayerUIScript : MonoBehaviour
         //interpolateParticle[5].startColor = interpolatedColor;
         //interpolateParticle[6].startColor = interpolatedColor;
         jumpChargeSlider.value = player.jumpCharge;
-
-
+        jumpChargeArrow.value = player.jumpCharge;
+        var vfx = chargePulseVFX.main;
+        vfx.startLifetime = 2+ (player.jumpCharge * 3);
+        //vfx.duration =3f - (player.jumpCharge * 1.5f);
        
     }
     // Update is called once per frame
     void LateUpdate()
     {
-
-        // Interpolate the color between startColor and endColor based on the interpolationValue
-        interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
+        if(player.jumpCharge > 0)
+            // Interpolate the color between startColor and endColor based on the interpolationValue
+            interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
         // Assign the interpolated color to the renderer component
         sliderColor1.color = interpolatedColor;
         sliderColor2.color = interpolatedColor;
-
-
+        //player.lineRenderer.startColor = new Color(0.01f + (interpolatedColor.r) * 10, 0.01f + (interpolatedColor.g) * 10, 0.01f+(interpolatedColor.b) * 10, interpolatedColor.a);
+        player.lineRenderer.endColor = interpolatedColor;
+        outlineScript.OutlineColor = interpolatedColor;
 
         //arrowSprite.color = Color.Lerp(arrowStartingColor, arrowEndColor, player.jumpCharge);
 
@@ -126,32 +130,30 @@ public class JumpingPlayerUIScript : MonoBehaviour
             // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
             // But im lazy rn
 
-            if (!player.isGrounded)
-            {
-                jumpChargeSlider.gameObject.SetActive(false);
-            }
-            else
-            {
-                jumpChargeSlider.gameObject.SetActive(true);
+            //if (!player.isGrounded)
+            //{
+            //    jumpChargeSlider.gameObject.SetActive(false);
+            //}
+            //else
+            //{
+            //    jumpChargeSlider.gameObject.SetActive(true);
 
-                jumpChargeSlider.value = player.jumpCharge;
-                jumpChargeSlider.maxValue = 1;
+            //    jumpChargeSlider.value = player.jumpCharge;
+            //    jumpChargeSlider.maxValue = 1;
 
-                if (jumpChargeSlider.value <= 0)
-                {
-                    jumpChargeSliderFill.SetActive(false);
-                }
-                else
-                {
-                    jumpChargeSliderFill.SetActive(true);
-                }
-            }
+            //    if (jumpChargeSlider.value <= 0)
+            //    {
+            //        jumpChargeSliderFill.SetActive(false);
+            //    }
+            //    else
+            //    {
+            //        jumpChargeSliderFill.SetActive(true);
+            //    }
+            //}
+
         }
 
 
     }
-    void ChargeBarFill()
-    {
-        chargeBar.fillAmount = charge / maxCharge;
-    }
+  
 }

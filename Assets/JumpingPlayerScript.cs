@@ -1,3 +1,4 @@
+using Nyp.Razor.Spectrum;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public GameObject chickenExit;
 
     public Collider shibaCollider;
-    public int moveSpeed;
+    public float moveSpeed;
     public int hitStrength = 15;
     public int i = 0;
     public bool isGrounded;
@@ -302,7 +303,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //recentInput = true;
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-        MoveJumpVectorNegative();
+        MoveJumpVector(-1);
         recentInput = false;
 
 
@@ -314,10 +315,39 @@ public class JumpingPlayerScript : MonoBehaviour
         //recentInput = true;
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
-        MoveJumpVectorPositive();
+        MoveJumpVector(1); 
         recentInput = false;
 
+
         LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
+    }
+    public void IncrementalMoveJumpVector(float value)
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
+        MoveJumpVector(value);
+        recentInput = false;
+
+
+
+        MovePlayer((int)value);
+        LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
+    }
+
+    public void IncrementalMoveJumpVectorAndMovement(float value)
+    {
+        //recentInput = true;
+        faceFront = false;
+        checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
+        MoveJumpVector(value);
+        recentInput = false;
+
+
+        if (LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit))
+        {
+            MovePlayer((int)(value / Mathf.Abs(value)));
+        }
     }
 
     public bool LimitJumpVectorAngle(bool forceLock, float checkLimitAngle, float visualLimitAngle)
@@ -369,19 +399,18 @@ public class JumpingPlayerScript : MonoBehaviour
 
     }
 
-    private void MoveJumpVectorNegative()
+    private void MoveJumpVector(float value)
     {
-        playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, -1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
+        Vector3 increment = new Vector3(0, 0, value) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
+        playerUI.jumpingVectorIndicator.transform.localEulerAngles += increment;
     }
-    private void MoveJumpVectorPositive()
-    {
-        playerUI.jumpingVectorIndicator.transform.eulerAngles += new Vector3(0, 0, 1) * Time.deltaTime * playerUI.jumpVectorRotationSpeed;
-    }
+
+
     public void Jump()
     {
         if (!isGrounded || chicken.playerDowned || jumpCharge <= 0) { return; }
         //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        transform.position += new Vector3(0, 0.01f, 0);
+        //transform.position += new Vector3(0, 0.4f, 0);
         //rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
 
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
@@ -401,11 +430,16 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        // Very Simple, could maybe have bugs
-        if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
+        for (int i = 0; i < collision.contacts.Length; i++)
         {
-            isGrounded = true;
-            isJumping = false;
+            // Very Simple, could maybe have bugs
+            if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
+            {
+                print("collision.impulse.y  = " + collision.impulse.y);
+                if (collision.impulse.y <= 0) { return; }
+                isGrounded = true;
+                isJumping = false;
+            }
         }
     }
 
@@ -456,6 +490,44 @@ public class JumpingPlayerScript : MonoBehaviour
             }
 
         }
+    }
+
+    public void Left1()
+    {
+        IncrementalMoveJumpVector(-2.25f);
+        MovePlayer(-1);
+    }
+
+    public void Right1()
+    {
+        IncrementalMoveJumpVector(2.25f);
+        MovePlayer(1);
+    }
+
+    public void Left2(float value)
+    {
+        IncrementalMoveJumpVectorAndMovement(value);
+    }
+
+    public void Right2(float value)
+    {
+        IncrementalMoveJumpVectorAndMovement(value);
+    }
+
+    public void Left3()
+    {
+        MovePlayer(-1);
+
+        Vector3 platformPos = PlatformManager.instance.lastLandedPlatform.transform.position;
+        MoveJumpVectorV3((transform.position - platformPos).normalized);
+    }
+
+    public void Right3()
+    {
+        MovePlayer(1);
+
+        Vector3 platformPos = PlatformManager.instance.lastLandedPlatform.transform.position;
+        MoveJumpVectorV3((transform.position - platformPos).normalized);
     }
 
     private void HitPhase()

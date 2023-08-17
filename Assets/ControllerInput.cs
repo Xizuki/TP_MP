@@ -822,6 +822,138 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Rework1"",
+            ""id"": ""3ef248b0-4a7b-418c-b219-ef61924dbdbb"",
+            ""actions"": [
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Value"",
+                    ""id"": ""58cac8b8-fd93-4fc6-a3db-0e815865128a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Value"",
+                    ""id"": ""0462dddc-eb5b-4a5f-bd4e-05a6a002d04b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""566d623f-55f7-47f3-a8d9-6ac6d93ef614"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugIsgrounded"",
+                    ""type"": ""Button"",
+                    ""id"": ""2cea47b4-063c-4c3e-8c53-686d23dd32bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cb07e20a-9620-4e57-bd46-5a378916556b"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5c7f90b-b362-433b-adca-5e62fab7b9b5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8182cf73-738c-43b4-973d-ad508d6847a4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbdd3178-4707-4eb4-9d9e-6656cf548cf6"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96ce424a-4f8d-4c1f-b04a-82c7e5a0cb05"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89dc1eaa-6687-4efc-8ec9-9186991b9abb"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22c40910-31e9-4cd6-a84a-ead784550abc"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11968efc-e463-4c14-85f5-f81fd8f886c2"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugIsgrounded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -875,6 +1007,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_GameActions6_Jump = m_GameActions6.FindAction("Jump", throwIfNotFound: true);
         m_GameActions6_MoveState = m_GameActions6.FindAction("MoveState", throwIfNotFound: true);
         m_GameActions6_DebugIsgrounded = m_GameActions6.FindAction("DebugIsgrounded", throwIfNotFound: true);
+        // Rework1
+        m_Rework1 = asset.FindActionMap("Rework1", throwIfNotFound: true);
+        m_Rework1_Left = m_Rework1.FindAction("Left", throwIfNotFound: true);
+        m_Rework1_Right = m_Rework1.FindAction("Right", throwIfNotFound: true);
+        m_Rework1_Jump = m_Rework1.FindAction("Jump", throwIfNotFound: true);
+        m_Rework1_DebugIsgrounded = m_Rework1.FindAction("DebugIsgrounded", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1478,6 +1616,76 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         }
     }
     public GameActions6Actions @GameActions6 => new GameActions6Actions(this);
+
+    // Rework1
+    private readonly InputActionMap m_Rework1;
+    private List<IRework1Actions> m_Rework1ActionsCallbackInterfaces = new List<IRework1Actions>();
+    private readonly InputAction m_Rework1_Left;
+    private readonly InputAction m_Rework1_Right;
+    private readonly InputAction m_Rework1_Jump;
+    private readonly InputAction m_Rework1_DebugIsgrounded;
+    public struct Rework1Actions
+    {
+        private @ControllerInput m_Wrapper;
+        public Rework1Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Left => m_Wrapper.m_Rework1_Left;
+        public InputAction @Right => m_Wrapper.m_Rework1_Right;
+        public InputAction @Jump => m_Wrapper.m_Rework1_Jump;
+        public InputAction @DebugIsgrounded => m_Wrapper.m_Rework1_DebugIsgrounded;
+        public InputActionMap Get() { return m_Wrapper.m_Rework1; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Rework1Actions set) { return set.Get(); }
+        public void AddCallbacks(IRework1Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Rework1ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Rework1ActionsCallbackInterfaces.Add(instance);
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @DebugIsgrounded.started += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
+        }
+
+        private void UnregisterCallbacks(IRework1Actions instance)
+        {
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
+            @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
+        }
+
+        public void RemoveCallbacks(IRework1Actions instance)
+        {
+            if (m_Wrapper.m_Rework1ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRework1Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Rework1ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Rework1ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Rework1Actions @Rework1 => new Rework1Actions(this);
     public interface IGameActionsActions
     {
         void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
@@ -1532,6 +1740,13 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnInput(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMoveState(InputAction.CallbackContext context);
+        void OnDebugIsgrounded(InputAction.CallbackContext context);
+    }
+    public interface IRework1Actions
+    {
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
         void OnDebugIsgrounded(InputAction.CallbackContext context);
     }
 }
