@@ -55,7 +55,7 @@ public class StopWatchPowerUp : PowerUpScript
             stopwatchEndVfx.SetActive(false);
             stopwatchFilter.SetActive(true);
 
-            snowWeatherVfx.speed = 0.25f;
+            snowWeatherVfx.speed = 0.5f;
             
         }
 
