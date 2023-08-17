@@ -15,6 +15,7 @@ public class StopWatchPowerUp : PowerUpScript
     float timer = 10f;
     public GameObject stopwatchFilter;
     public GameObject stopwatchEndVfx;
+    public GameObject stopwatchIconVfx;
     public AudioSource stopwatchEndSfx;
     public AudioClip stopwatchEnd;
     public bool stopwatchHasEnd;
@@ -54,7 +55,7 @@ public class StopWatchPowerUp : PowerUpScript
             stopwatchHasEnd = false;
             stopwatchEndVfx.SetActive(false);
             stopwatchFilter.SetActive(true);
-
+            stopwatchIconVfx.SetActive(true);
             snowWeatherVfx.speed = 0.5f;
             
         }
@@ -110,6 +111,7 @@ public class StopWatchPowerUp : PowerUpScript
             yield return new WaitForSeconds(1.75f);
             snowWeatherVfx.speed = 0.75f;
             stopwatchEndVfx.SetActive(false);
+            stopwatchIconVfx.SetActive(false);
             stopwatchFilter.SetActive(false);
         }
     }

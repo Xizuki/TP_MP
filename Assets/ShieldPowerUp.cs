@@ -9,6 +9,7 @@ public class ShieldPowerUp : PowerUpScript
     public Image sliderFill;
     public float delay = 0;
     public GameObject shieldVfx;
+    public GameObject shieldIconVfx;
     float timer = 10f;
 
     private void Update()
@@ -19,6 +20,7 @@ public class ShieldPowerUp : PowerUpScript
             sliderFill.fillAmount = timer / 10;
             timer -= Time.deltaTime;
             shieldVfx.SetActive(true);
+            shieldIconVfx.SetActive(true);
             if (timer < delay)
             {
                 shieldVfx.SetActive(false);
@@ -26,6 +28,7 @@ public class ShieldPowerUp : PowerUpScript
                 timer = 10f;
                 sliderFill.fillAmount = 0;
                 auraShield.Stop();
+                shieldIconVfx.SetActive(false);
             }
         }
     }
