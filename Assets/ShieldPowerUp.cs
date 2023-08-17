@@ -12,6 +12,11 @@ public class ShieldPowerUp : PowerUpScript
     public GameObject shieldIconVfx;
     float timer = 10f;
 
+    private void Start()
+    {
+        shieldIconVfx.SetActive(false);
+    }
+
     private void Update()
     {
         if(isActivated == true)

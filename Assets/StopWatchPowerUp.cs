@@ -26,6 +26,7 @@ public class StopWatchPowerUp : PowerUpScript
     {
         stopwatchHasEnd = true;
         snowWeatherVfx.speed = 0.75f;
+        stopwatchIconVfx.SetActive(false);
     }
     public override void Effect()
     {
