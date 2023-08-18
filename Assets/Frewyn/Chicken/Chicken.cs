@@ -102,8 +102,8 @@ public class Chicken : MonoBehaviour
         {
             abovePlayer = false;
             ExitStage();
-            jumpingPlayerScript.normalShiba.gameObject.SetActive(true);
-            jumpingPlayerScript.stunShiba.gameObject.SetActive(false);
+            jumpingPlayerScript.playerUI.normalShiba.gameObject.SetActive(true);
+            jumpingPlayerScript.playerUI.stunShiba.gameObject.SetActive(false);
         }
 
 

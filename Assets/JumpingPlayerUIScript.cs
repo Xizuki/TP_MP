@@ -40,6 +40,9 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
     public Vector3 faceForward = new Vector3(0, 0, 270);
 
+    public Image normalShiba;
+    public Image stunShiba;
+
     // Start is called before the first frame update
     void Awake()
     {

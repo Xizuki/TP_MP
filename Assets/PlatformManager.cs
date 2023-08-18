@@ -111,8 +111,8 @@ public class PlatformManager : MonoBehaviour
         if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
         {
 
-            player.normalShiba.gameObject.SetActive(false);
-            player.stunShiba.gameObject.SetActive(true);
+            player.playerUI.normalShiba.gameObject.SetActive(false);
+            player.playerUI.stunShiba.gameObject.SetActive(true);
 
             player.shibaCollider.enabled = true;
             chicken.playerDowned = true;
