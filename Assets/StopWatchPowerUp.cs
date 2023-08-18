@@ -12,7 +12,7 @@ public class StopWatchPowerUp : PowerUpScript
     //public ParticleSystem auraShield;
     public Image sliderFill;
     public float delay = 0;
-    float timer = 10f;
+    public float timer;
     public override void Effect()
     {
         base.Effect();

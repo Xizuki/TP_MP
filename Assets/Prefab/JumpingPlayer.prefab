@@ -19924,7 +19924,7 @@ ParticleSystem:
   m_GameObject: {fileID: 5293414804550537393}
   serializedVersion: 8
   lengthInSec: 2.5
-  simulationSpeed: 5
+  simulationSpeed: 8.5
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -21174,7 +21174,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0.74509805}
-        key1: {r: 1, g: 1, b: 1, a: 0.27579856}
+        key1: {r: 1, g: 1, b: 1, a: 0.7058824}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 1, g: 1, b: 1, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -21190,7 +21190,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 193
-        atime1: 43253
+        atime1: 41056
         atime2: 64764
         atime3: 65535
         atime4: 65535
@@ -32384,7 +32384,6 @@ GameObject:
   - component: {fileID: 8824464933389489939}
   - component: {fileID: 8824464933389489938}
   - component: {fileID: 8824464933389489937}
-  - component: {fileID: 683046004}
   - component: {fileID: 3426643511485465010}
   - component: {fileID: 683046005}
   - component: {fileID: 4878284276289323204}
@@ -32466,7 +32465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingPlayerChildrenModel: {fileID: 8824464932080693802}
-  playerUI: {fileID: 0}
+  playerUI: {fileID: 8824464933389489937}
   rb: {fileID: 0}
   fullChargeHit: {fileID: 0}
   lineLength: 10
@@ -32494,7 +32493,7 @@ MonoBehaviour:
   chicken: {fileID: 0}
   chickenExit: {fileID: 0}
   shibaCollider: {fileID: 8824464933389489932}
-  moveSpeed: 5
+  moveSpeed: 3.5
   hitStrength: 10
   i: 0
   isGrounded: 0
@@ -32555,20 +32554,6 @@ MonoBehaviour:
   sliderColor2: {fileID: 6036657068403173851}
   chargePulseVFX: {fileID: 0}
   faceForward: {x: 0, y: 0, z: 270}
---- !u!114 &683046004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipeName: MyNamedPipe
-  jumpingPlayer: {fileID: 8824464933389489938}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32588,6 +32573,7 @@ MonoBehaviour:
   mushroomEnemies: []
   sliderFill: {fileID: 0}
   delay: 0
+  timer: 0
 --- !u!114 &683046005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32605,6 +32591,7 @@ MonoBehaviour:
   auraShield: {fileID: 535729279713804870}
   sliderFill: {fileID: 0}
   delay: 0
+  timer: 0
 --- !u!114 &4878284276289323204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32618,7 +32605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingPlayer: {fileID: 0}
-  controlType: 0
+  controlType: 2
+  option3JumpVectorLimit: 0
 --- !u!135 &8824464932475558569
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -4,16 +4,17 @@ using System.IO.Pipes;
 using System.Threading;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class NamedPipeServer : MonoBehaviour
+public  class NamedPipeServer : MonoBehaviour
 {
-    public NamedPipeServer instance;
     public string pipeName = "MyNamedPipe";
     public JumpingPlayerScript jumpingPlayer;
     private NamedPipeServerStream pipeServer;
     private bool isRunning = true;
     //public bool isConnected = false;
     private StreamReader reader;
+
 
     private void Awake()
     {
@@ -22,12 +23,19 @@ public class NamedPipeServer : MonoBehaviour
 
     private void Start()
     {
-        jumpingPlayer = GetComponent<JumpingPlayerScript>();
         // Register the Application.quitting event to handle application exit
         Application.quitting += HandleApplicationQuit;
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
         // Start the named pipe server asynchronously
         StartNamedPipeServer();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+        }
     }
 
     private void HandleApplicationQuit()
@@ -193,6 +201,7 @@ public class NamedPipeServer : MonoBehaviour
 
     private void OnClientConnected(IAsyncResult result)
     {
+        if(jumpingPlayer) { return; }
         //isConnected = true;
         reader = new StreamReader(pipeServer);
         ReadMessage();

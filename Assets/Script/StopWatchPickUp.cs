@@ -19,6 +19,8 @@ public class StopWatchPickUp : MonoBehaviour
             powerUp = other.gameObject.GetComponent<StopWatchPowerUp>();
             Destroy(gameObject);
             powerUp.isActivated = true;
+            powerUp.timer = 10f;
+
             SFX.stopwatchPickSound = true;
 
             

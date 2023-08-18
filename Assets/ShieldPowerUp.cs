@@ -8,7 +8,7 @@ public class ShieldPowerUp : PowerUpScript
     public ParticleSystem auraShield;
     public Image sliderFill;
     public float delay = 0;
-    float timer = 10f;
+    public float timer;
 
     private void Update()
     {
