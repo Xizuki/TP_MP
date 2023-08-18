@@ -239,7 +239,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -32389,6 +32389,8 @@ GameObject:
   - component: {fileID: 4878284276289323204}
   - component: {fileID: 8824464932475558569}
   - component: {fileID: 8824464932475558560}
+  - component: {fileID: 8824464932475558558}
+  - component: {fileID: 8824464932475558568}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -32508,10 +32510,6 @@ MonoBehaviour:
   checkInputDelay: 1
   canRotate: 1
   joystickVector: {x: 0, y: 0}
-  lineRenderer: {fileID: 2775951068022863847}
-  releasePosition: {fileID: 8824464932080693803}
-  linePoints: 100
-  timeBetweenPoints: 0.01
 --- !u!114 &8824464933389489937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32552,7 +32550,7 @@ MonoBehaviour:
   chargeText: {fileID: 0}
   sliderColor1: {fileID: 8541569628566681579}
   sliderColor2: {fileID: 6036657068403173851}
-  chargePulseVFX: {fileID: 0}
+  chargePulseVFX: {fileID: 8733420916628327746}
   faceForward: {x: 0, y: 0, z: 270}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
@@ -32574,6 +32572,14 @@ MonoBehaviour:
   sliderFill: {fileID: 0}
   delay: 0
   timer: 0
+  stopwatchFilter: {fileID: 0}
+  stopwatchEndVfx: {fileID: 0}
+  stopwatchIconVfx: {fileID: 0}
+  stopwatchEndSfx: {fileID: 0}
+  stopwatchEnd: {fileID: 0}
+  stopwatchHasEnd: 0
+  snowWeatherSpd: 0
+  snowWeatherVfx: {fileID: 0}
 --- !u!114 &683046005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32592,6 +32598,8 @@ MonoBehaviour:
   sliderFill: {fileID: 0}
   delay: 0
   timer: 0
+  shieldVfx: {fileID: 0}
+  shieldIconVfx: {fileID: 0}
 --- !u!114 &4878284276289323204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32637,6 +32645,37 @@ MonoBehaviour:
   raycastLine2: {fileID: 1537212499}
   mainCamera: {fileID: 0}
   distanceSet: 1000
+--- !u!114 &8824464932475558558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipeName: MyNamedPipe
+  jumpingPlayer: {fileID: 0}
+--- !u!114 &8824464932475558568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d614351f2f3f933439b5d5f90db87d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayerScript: {fileID: 8824464933389489938}
+  lineRenderer: {fileID: 2775951068022863847}
+  releasePosition: {fileID: 8824464933389489933}
+  linePoints: 100
+  timeBetweenPoints: 0.01
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,7 +82,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         sliderColor1.color = interpolatedColor;
         sliderColor2.color = interpolatedColor;
         //player.lineRenderer.startColor = new Color(0.01f + (interpolatedColor.r) * 10, 0.01f + (interpolatedColor.g) * 10, 0.01f+(interpolatedColor.b) * 10, interpolatedColor.a);
-        player.lineRenderer.endColor = interpolatedColor;
+        //player.lineRenderer.endColor = interpolatedColor;
         outlineScript.OutlineColor = interpolatedColor;
 
         //arrowSprite.color = Color.Lerp(arrowStartingColor, arrowEndColor, player.jumpCharge);
