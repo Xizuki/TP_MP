@@ -3386,6 +3386,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!198 &469664829 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1062515947415207743, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &473182455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11659,6 +11664,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1249118504 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7234010463145113178, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1252306270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13305,6 +13315,10 @@ PrefabInstance:
     - target: {fileID: 3463168326649054207, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168327283722739, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: stopwatchOn
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5281566836302681612, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
@@ -21390,6 +21404,10 @@ PrefabInstance:
       propertyPath: chargeInitial
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3077236124843108193, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatch
       value: 
@@ -21438,6 +21456,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7234010463145113178, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8151140985333494308, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -21449,6 +21471,10 @@ PrefabInstance:
     - target: {fileID: 8356324834026010496, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_Intensity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697771211013253392, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.078431375
       objectReference: {fileID: 0}
     - target: {fileID: 8824464932475558560, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: mainCamera
@@ -21570,6 +21596,26 @@ PrefabInstance:
       propertyPath: chickenExit
       value: 
       objectReference: {fileID: 1797976224}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: maxParticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: chargeTapParticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: chargeTapParticle2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: maxChargeParticleIn
+      value: 
+      objectReference: {fileID: 469664829}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: maxChargeParticleOut
+      value: 
+      objectReference: {fileID: 1249118504}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
 --- !u!114 &8824464932475558557 stripped
