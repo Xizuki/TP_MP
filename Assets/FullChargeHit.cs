@@ -21,7 +21,6 @@ public class FullChargeHit : MonoBehaviour
     private void Update()
     {
 
-
     }
 
     public void Landing(Collision collision)
@@ -89,7 +88,7 @@ public class FullChargeHit : MonoBehaviour
                 {
                     //return;
                 }
-                else if(hit2.collider.tag == "Enemy")
+                else if (hit2.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);

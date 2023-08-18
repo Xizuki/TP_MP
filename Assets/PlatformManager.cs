@@ -58,7 +58,7 @@ public class PlatformManager : MonoBehaviour
         // ADD VISUAL EFFECT TO ADD SCORE in FUTURE
         scoreScript.AddScore(scoreMultiplied, platformYDistance);
 
-        
+
 
         AddCombo();
     }
@@ -110,6 +110,10 @@ public class PlatformManager : MonoBehaviour
 
         if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
         {
+
+            player.normalShiba.gameObject.SetActive(false);
+            player.stunShiba.gameObject.SetActive(true);
+
             player.shibaCollider.enabled = true;
             chicken.playerDowned = true;
             if (playedFallingSound == false)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Chicken : MonoBehaviour
@@ -101,6 +102,8 @@ public class Chicken : MonoBehaviour
         {
             abovePlayer = false;
             ExitStage();
+            jumpingPlayerScript.normalShiba.gameObject.SetActive(true);
+            jumpingPlayerScript.stunShiba.gameObject.SetActive(false);
         }
 
 

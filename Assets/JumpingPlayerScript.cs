@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(JumpingPlayerUIScript))]
+[RequireComponent(typeof(JumpingPlayerUIScript))]	
 public class JumpingPlayerScript : MonoBehaviour
 {
     public GameObject jumpingPlayerChildrenModel;
