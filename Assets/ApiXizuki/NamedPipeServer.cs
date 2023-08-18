@@ -25,18 +25,25 @@ public  class NamedPipeServer : MonoBehaviour
     {
         // Register the Application.quitting event to handle application exit
         Application.quitting += HandleApplicationQuit;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
         // Start the named pipe server asynchronously
-        StartNamedPipeServer();
-    }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
         }
+
+        StartNamedPipeServer();
+
     }
+
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (GameObject.FindGameObjectWithTag("Player"))
+    //    {
+    //        jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+    //    }
+    //}
 
     private void HandleApplicationQuit()
     {

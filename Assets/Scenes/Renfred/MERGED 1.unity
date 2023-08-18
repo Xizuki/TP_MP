@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17292523, g: 0.2161091, b: 0.29807812, a: 1}
+  m_IndirectSpecularColor: {r: 0.17292504, g: 0.21610881, b: 0.29807755, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3048,6 +3048,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831147191014842679, guid: 63729252785820a49b16459d0c97332d, type: 3}
   m_PrefabInstance: {fileID: 621681957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &440204648 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8733420916628327746, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &495118599
 PrefabInstance:
@@ -17246,6 +17251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpingPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: chargePulseVFX
+      value: 
+      objectReference: {fileID: 440204648}
     - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: chicken
       value: 
@@ -17267,3 +17276,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7a2aca69ff11549864dbe4d97eb799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8824464932475558558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988791692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipeName: MyNamedPipe
+  jumpingPlayer: {fileID: 0}
