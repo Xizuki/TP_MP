@@ -12,10 +12,12 @@ public class ShieldPickup : MonoBehaviour
     public ShieldPowerUp shieldPowerUp;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             shieldPowerUp = other.gameObject.GetComponent<ShieldPowerUp>();
             shieldPowerUp.isActivated = true;
+            shieldPowerUp.timer = 10f;
+
             GameObject child1 = other.gameObject.transform.GetChild(1).gameObject;
             GameObject child1of2 = child1.gameObject.transform.GetChild(0).gameObject;
             GameObject child1of2of3 = child1of2.gameObject.transform.GetChild(1).gameObject;

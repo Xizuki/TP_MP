@@ -62,7 +62,7 @@ public class JumpingPlayerInputs : MonoBehaviour
 
 
         //inputs.GameActions1.DebugIsgrounded.performed += a => DebugIsGrounded();
-        //inputs.GameActions2.DebugIsgrounded.performed += a => DebugIsGrounded();
+
         //inputs.GameActions3.DebugIsgrounded.performed += a => DebugIsGrounded();
         //inputs.GameActions4.DebugIsgrounded.performed += a => DebugIsGrounded();
         //inputs.GameActions5.DebugIsgrounded.performed += a => DebugIsGrounded();
@@ -72,6 +72,8 @@ public class JumpingPlayerInputs : MonoBehaviour
 
         baseSpeed = jumpingPlayer.moveSpeed;
         option2Speed = baseSpeed * 2;
+        baseJumpVectorLimit = jumpingPlayer.playerUI.jumpingVectorAngleLimit;
+        option3JumpVectorLimit = baseJumpVectorLimit - 15f;
 
 
         CheckOptions();
@@ -93,6 +95,9 @@ public class JumpingPlayerInputs : MonoBehaviour
 
     private float baseSpeed;
     private float option2Speed;
+    private float baseJumpVectorLimit;
+    public float option3JumpVectorLimit;
+   
     // Update is called once per frame
     void Update()
     {
@@ -264,14 +269,17 @@ public class JumpingPlayerInputs : MonoBehaviour
             case ControlType.option1:
                 inputs.Rework1.Enable();
                 jumpingPlayer.moveSpeed = baseSpeed;
+                jumpingPlayer.playerUI.jumpingVectorAngleLimit = baseJumpVectorLimit;
                 break;
             case ControlType.option2:
                 inputs.Rework1.Enable();
                 jumpingPlayer.moveSpeed = option2Speed;
+                jumpingPlayer.playerUI.jumpingVectorAngleLimit = baseJumpVectorLimit;
                 break;
             case ControlType.option3:
                 inputs.Rework1.Enable();
                 jumpingPlayer.moveSpeed = baseSpeed;
+                jumpingPlayer.playerUI.jumpingVectorAngleLimit = option3JumpVectorLimit;
                 break;
                 //    case ControlType.PC:
                 //        inputs.GameActions.Enable();

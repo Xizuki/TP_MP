@@ -7,12 +7,18 @@ using System.Collections;
 
 public class NamedPipeServer : MonoBehaviour
 {
+    public NamedPipeServer instance;
     public string pipeName = "MyNamedPipe";
     public JumpingPlayerScript jumpingPlayer;
     private NamedPipeServerStream pipeServer;
     private bool isRunning = true;
     //public bool isConnected = false;
     private StreamReader reader;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
