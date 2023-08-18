@@ -208,7 +208,6 @@ public  class NamedPipeServer : MonoBehaviour
 
     private void OnClientConnected(IAsyncResult result)
     {
-        if(jumpingPlayer) { return; }
         //isConnected = true;
         reader = new StreamReader(pipeServer);
         ReadMessage();
@@ -236,6 +235,8 @@ public  class NamedPipeServer : MonoBehaviour
         {
             print("ReadMessage()1");
 
+
+
             //if (!serverStream.IsConnected) { continue; }
             //if (lastestLine == "Null") { serverStream.Close(); }
             //lastestLine =  reader.ReadLine();
@@ -244,22 +245,24 @@ public  class NamedPipeServer : MonoBehaviour
 
             if (lastestLine.Contains("Trigger:"))
             {
-                string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
-                print(boolean);
-
-                if (boolean == "True")
+                if (jumpingPlayer != null)
                 {
-                    jumpingPlayer.isCharging = true;
-                }
-                else if (boolean == "False")
-                {
-                    jumpingPlayer.isCharging = false;
-                }
+                    string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
+                    print(boolean);
 
-                //jumpingPlayer.isCharging();
+                    if (boolean == "True")
+                    {
+                        jumpingPlayer.isCharging = true;
+                    }
+                    else if (boolean == "False")
+                    {
+                        jumpingPlayer.isCharging = false;
+                    }
+
+                    //jumpingPlayer.isCharging();
+                }
             }
-
-
+        
             //CheckPipeStream();
 
             //reader.Close();
