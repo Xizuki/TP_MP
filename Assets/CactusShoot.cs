@@ -9,6 +9,8 @@ public class CactusShoot : MonoBehaviour
     public GameObject bullet;
     public GameObject cactus;
     public Animator animator;
+    public AudioSource shootingSfx;
+    public AudioClip shootingClip;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class CactusShoot : MonoBehaviour
         WaitForSeconds waitTime = new WaitForSeconds(shootDelayTimer);
         while (true)
         {
+            shootingSfx.PlayOneShot(shootingClip);
             animator.SetTrigger("Attack");
             GameObject.Instantiate(bullet, transform.position, cactus.transform.rotation);
             yield return waitTime;

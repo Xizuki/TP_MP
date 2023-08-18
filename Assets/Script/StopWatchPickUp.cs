@@ -5,7 +5,6 @@ using UnityEngine;
 public class StopWatchPickUp : MonoBehaviour
 {
     StopWatchPowerUp powerUp;
-    public GameObject grayEffects; //an image that acts as background effect when stopwatch is picked up
 
     private void Start()
     {
@@ -23,13 +22,11 @@ public class StopWatchPickUp : MonoBehaviour
 
             SFX.stopwatchPickSound = true;
 
-            
-
-            grayEffects.SetActive(true);
 
             if (powerUp.isActivated)
             {
                 SFX.stopwatchPickOn = true;
+                PickUpPowerup.stopwatch = true;
             }
         }
     }

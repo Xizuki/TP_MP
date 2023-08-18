@@ -13,10 +13,27 @@ public class StopWatchPowerUp : PowerUpScript
     public Image sliderFill;
     public float delay = 0;
     public float timer;
+
+    public GameObject stopwatchFilter;
+    public GameObject stopwatchEndVfx;
+    public GameObject stopwatchIconVfx;
+    public AudioSource stopwatchEndSfx;
+    public AudioClip stopwatchEnd;
+    public bool stopwatchHasEnd;
+    public float snowWeatherSpd;
+    public Animator snowWeatherVfx;
+
+    public void Start()
+    {
+        stopwatchHasEnd = true;
+        snowWeatherVfx.speed = 0.75f;
+        stopwatchIconVfx.SetActive(false);
+    }
     public override void Effect()
     {
         base.Effect();
     }
+
     private void Update()
     {
         // should make it so it only runs once on activation for optimization but im lazy rn
@@ -27,6 +44,24 @@ public class StopWatchPowerUp : PowerUpScript
 
 
         BulletMove[] bullets = GameObject.FindObjectsByType<BulletMove>(FindObjectsSortMode.None);
+
+        if (sliderFill.fillAmount == 0)
+        {
+            if (stopwatchHasEnd == false)
+            {
+                StartCoroutine(StopwatchEnd());
+            }
+        }
+        else if (sliderFill.fillAmount >= 0.1)
+        {
+            stopwatchHasEnd = false;
+            stopwatchEndVfx.SetActive(false);
+            stopwatchFilter.SetActive(true);
+            stopwatchIconVfx.SetActive(true);
+            snowWeatherVfx.speed = 0.5f;
+            
+        }
+
 
         if (isActivated)
         {
@@ -69,6 +104,17 @@ public class StopWatchPowerUp : PowerUpScript
                 bullet.speed = bullet.baseSpeed;
             }
 
+        }
+
+        IEnumerator StopwatchEnd()
+        {
+            stopwatchHasEnd = true;
+            stopwatchEndVfx.SetActive(true);
+            yield return new WaitForSeconds(1.75f);
+            snowWeatherVfx.speed = 0.75f;
+            stopwatchEndVfx.SetActive(false);
+            stopwatchIconVfx.SetActive(false);
+            stopwatchFilter.SetActive(false);
         }
     }
 }

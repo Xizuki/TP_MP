@@ -220,9 +220,11 @@ public class JumpingPlayerScript : MonoBehaviour
         if (jumpCharge < 1)
         {
             fullyCharge = false;
+            PulseVfx.playerPulse = false;
         }
         if (jumpCharge > 1)
         {
+            PulseVfx.playerPulse = true;
             jumpCharge = 1;
             //maxParticle.Play();
             //maxChargeParticleIn.Play();
