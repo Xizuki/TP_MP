@@ -1,13 +1,10 @@
-using Nyp.Razor.Spectrum;
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(JumpingPlayerUIScript))]	
+[RequireComponent(typeof(JumpingPlayerUIScript))]
 public class JumpingPlayerScript : MonoBehaviour
 {
     public GameObject jumpingPlayerChildrenModel;
@@ -96,7 +93,7 @@ public class JumpingPlayerScript : MonoBehaviour
     //[Range(0.01f, 0.25f)]
     //private float timeBetweenPoints = 0.1f;
 
-
+    
 
     public void Awake()
     {
@@ -480,6 +477,7 @@ public class JumpingPlayerScript : MonoBehaviour
         // Very Simple, could maybe have bugs
         for (int i = 0; i < collision.contacts.Length; i++)
         {
+
             if (collision.contacts[i].point.y <= feetPos.position.y && !chicken.playerDowned)
             {
                 isGrounded = true;
@@ -515,8 +513,6 @@ public class JumpingPlayerScript : MonoBehaviour
             }
             if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet" || collision.collider.tag == "ChestEnemy")
             {
-                playerUI.normalShiba.gameObject.SetActive(true);
-                playerUI.stunShiba.gameObject.SetActive(false);
                 animator.SetTrigger("Hit");
                 hitParticle.Play();
                 HitPhase();
