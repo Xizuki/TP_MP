@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(JumpingPlayerUIScript))]
 public class JumpingPlayerScript : MonoBehaviour
@@ -37,6 +38,9 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public ParticleSystem maxChargeParticleOut;
     public ParticleSystem maxChargeParticleIn;
+
+    public Image shibaNormal;
+    public Image shibaStun;
 
     public Animator animator;
     public Chicken chicken;
@@ -444,6 +448,8 @@ public class JumpingPlayerScript : MonoBehaviour
     private void HitPhase()
     {
         isGrounded = false;
+        shibaNormal.gameObject.SetActive(false);
+        shibaStun.gameObject.SetActive(true);
         Time.timeScale = 0;
         shibaCollider.enabled = false;
         rb.AddForce(new Vector3(0, hitStrength, 0), ForceMode.Impulse);

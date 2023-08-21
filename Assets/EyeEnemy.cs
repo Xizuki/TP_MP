@@ -48,7 +48,7 @@ public class EyeEnemy : MonoBehaviour
             {
                 bAnimator.SetTrigger("Attack");
                 yield return new WaitForSeconds(1.2f);
-                Instantiate(bullet, eye.transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90));
+                Instantiate(bullet, eye.transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
             }
 
             yield return null;

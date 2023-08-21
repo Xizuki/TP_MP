@@ -95,6 +95,8 @@ public class Chicken : MonoBehaviour
         if (playerDowned == false) //If player has recovered, leave
         {
             ExitStage();
+            jumpingPlayerScript.shibaNormal.gameObject.SetActive(true);
+            jumpingPlayerScript.shibaStun.gameObject.SetActive(false);
         }
 
 
@@ -116,6 +118,11 @@ public class Chicken : MonoBehaviour
             //isCarrying = false;
         }
 
+        if(playerDowned == true)
+        {
+            jumpingPlayerScript.shibaNormal.gameObject.SetActive(false);
+            jumpingPlayerScript.shibaStun.gameObject.SetActive(true);
+        }
 
         if (playerDowned == true && abovePlayer == true) //If player is down and chicken has reached the player
         {
