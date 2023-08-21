@@ -8,8 +8,11 @@ public class Pause : MonoBehaviour
     public Button pause;
     public GameObject pauseMenu;
     public JumpingPlayerScript playerControl;
+    public bool gamePause;
+
     public void PauseGame()
     {
+        gamePause = true;
         playerControl.enabled = false;
         AudioListener.pause = true;
         Time.timeScale = 0f;
@@ -18,6 +21,7 @@ public class Pause : MonoBehaviour
 
     public void ResumeGame()
     {
+        gamePause=false;
         playerControl.enabled = true;
         //StartCoroutine(EnableSound());
         AudioListener.pause = false;
@@ -41,12 +45,22 @@ public class Pause : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gamePause = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) && gamePause == false)
+        {
+            Debug.Log("pause");
+            PauseGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && gamePause == true)
+        {
+            Debug.Log("unpause");
+            ResumeGame();
+        }
     }
+
 }
