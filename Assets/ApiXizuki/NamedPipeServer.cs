@@ -19,10 +19,18 @@ public  class NamedPipeServer : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
+        NamedPipeServer[] namePipeServers = GameObject.FindObjectsByType<NamedPipeServer>(FindObjectsSortMode.None);
+
+        foreach (NamedPipeServer namePipeServer in namePipeServers)
+        {
+            if (namePipeServer != this) { Destroy(namePipeServer); }
+        }
+
         // Register the Application.quitting event to handle application exit
         Application.quitting += HandleApplicationQuit;
         //SceneManager.sceneLoaded += OnSceneLoaded;
@@ -37,13 +45,13 @@ public  class NamedPipeServer : MonoBehaviour
 
     }
 
-    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    if (GameObject.FindGameObjectWithTag("Player"))
-    //    {
-    //        jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
-    //    }
-    //}
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+        }
+    }
 
     private void HandleApplicationQuit()
     {
@@ -242,6 +250,19 @@ public  class NamedPipeServer : MonoBehaviour
             //lastestLine =  reader.ReadLine();
             lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
+
+            if(lastestLine == "PAUSE")
+            {
+                Debug.Log("PAUSE FROM EEG");
+                Time.timeScale = 0;
+            }
+
+            if (lastestLine == "RESUME")
+            {
+                Debug.Log("RESUME FROM EEG"); 
+                Time.timeScale = 1;
+            }
+
 
             if (lastestLine.Contains("Trigger:"))
             {
