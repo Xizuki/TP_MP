@@ -249,7 +249,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 maxChargeParticleOut.Stop();
             }
         }
-        if (jumpCharge > 1 && isCharging)
+        if (jumpCharge > 0.1 && isCharging)
         {
             if (checkMaxChargeSoundSfx == false)
             {
