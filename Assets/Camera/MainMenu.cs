@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject cam;
     public GameObject UI;
+    public GameObject selectStage;
     public GameObject options;
     public AudioSource audioSource;
     public GameObject blackBars;
@@ -18,7 +19,7 @@ public class MainMenu : MonoBehaviour
     public TMP_Text loadingTxt;
     public bool camUp;
 
-    string[] lore = {"Shiba is sneaking into the castle to save the princess.","The Shiba is able to jump high with it's powered boots."
+    string[] lore = {"Shiba is sneaking into the castle to save the princess.","The Shiba is able to jump high with it's Power Crystal!"
             ,"The Shiba is a dog of justice, with the goal of saving the princess!","The Shiba is able to defend itself with it's Mighty Shield."
             ,"The Shiba has squishy cheeks that everyone loves.","Use your focus to charge up your jump to jump higher!","The Stopwatch is able to slow down time for you to get past enemies more easily."
             ,"The Mighty Chicken is strong enough to carry the Shiba. It's the Shiba's loyal sidekick!","To protect the kingdom of Shibaland, the Shiba must reach the top of the castle!"
@@ -46,10 +47,23 @@ public class MainMenu : MonoBehaviour
 
     }   
 
+    public void SelectStage()
+    {
+        UI.SetActive(false);
+        selectStage.SetActive(true);
+    }
+
+    public void CloseStage()
+    {
+        UI.SetActive(true);
+        selectStage.SetActive(false);
+    }
+
     public void OnClickStart()
     {
         blackBars.SetActive(true);
         skipBtn.SetActive(true);
+        selectStage.SetActive(false);
         camUp = true;
         audioSource.PlayOneShot(clip);
         loadingTxtObject.SetActive(true);

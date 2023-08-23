@@ -5,6 +5,7 @@ using UnityEngine;
 public class SFX : MonoBehaviour
 {
     public AudioSource audio;
+    public AudioSource audio2;
     public AudioClip scoreSfx;
     public AudioClip landSfx;
     public AudioClip jumpSfx;
@@ -17,6 +18,7 @@ public class SFX : MonoBehaviour
     public AudioClip fallingVoice;
     public AudioClip chargingSound;
     public AudioClip contiCharge;
+    public GameObject performance;
     public static bool scoreSound;
     public static bool landSound;
     public static bool jumpSound;
@@ -29,6 +31,7 @@ public class SFX : MonoBehaviour
     public static bool voiceJump;
     public static bool charging;
     public static bool contiCharging;
+    public static bool performanceCharge;
 
     public static float sfxVol;
     public float sfxVolume;
@@ -36,7 +39,19 @@ public class SFX : MonoBehaviour
     private void Update()
     {
         audio.volume = sfxVolume / 100;
+        audio2.volume = sfxVolume / 100;
 
+        if (performanceCharge == true)
+        {
+            sfxVol = sfxVolume;
+            performance.SetActive(true);
+            sfxVolume = sfxVol;
+            //audio.PlayOneShot(performance);
+        }
+        if (performanceCharge == false)
+        {
+            performance.SetActive(false);
+        }
         if (scoreSound == true)
         {
             sfxVol = sfxVolume;
@@ -69,7 +84,7 @@ public class SFX : MonoBehaviour
         if (stopwatchPickOn == true)
         {
             sfxVol = sfxVolume;
-            audio.clip = jumpSfx;
+            audio.clip = stopwatchOn;
             sfxVolume = sfxVol;
             audio.PlayOneShot(stopwatchOn);
             stopwatchPickOn = false;
