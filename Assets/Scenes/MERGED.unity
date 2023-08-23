@@ -10380,7 +10380,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1094048484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 782514982}
+        m_TargetAssemblyTypeName: EndScene, Assembly-CSharp
+        m_MethodName: TryAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1026015309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13756,7 +13768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6212029483191078519, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -13
+      value: -13.000015
       objectReference: {fileID: 0}
     - target: {fileID: 6663761518977667814, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -22271,7 +22283,8 @@ PrefabInstance:
       propertyPath: chickenExit
       value: 
       objectReference: {fileID: 1797976224}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8824464932475558558, guid: 7ac353848683d324ea1644be9550573d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
 --- !u!114 &8824464932475558557 stripped
 MonoBehaviour:

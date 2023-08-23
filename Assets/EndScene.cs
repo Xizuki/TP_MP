@@ -56,7 +56,7 @@ public class EndScene : MonoBehaviour
             {
                 PlayerPrefs.SetFloat("Highscore", highScore);
             }
-            progressBars[timePressed].fillAmount = highScore / highScore;
+            //progressBars[timePressed].fillAmount = highScore / highScore;
         }
 
     }
@@ -67,5 +67,6 @@ public class EndScene : MonoBehaviour
         PlayerPrefs.SetInt("Timepressed", timePressed);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+        Time.timeScale = 1;
     }
 }
