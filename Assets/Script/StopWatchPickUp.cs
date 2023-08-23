@@ -5,6 +5,7 @@ using UnityEngine;
 public class StopWatchPickUp : MonoBehaviour
 {
     StopWatchPowerUp powerUp;
+    public ParticleSystem clockVFX;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class StopWatchPickUp : MonoBehaviour
             Destroy(gameObject);
             powerUp.isActivated = true;
             powerUp.timer = 10f;
+            GameObject.Instantiate(clockVFX, transform.position, transform.rotation);
 
             SFX.stopwatchPickSound = true;
 
