@@ -14,7 +14,7 @@ public  class NamedPipeServer : MonoBehaviour
     private bool isRunning = true;
     //public bool isConnected = false;
     private StreamReader reader;
-
+    public bool connected;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public  class NamedPipeServer : MonoBehaviour
 
         foreach (NamedPipeServer namePipeServer in namePipeServers)
         {
-            if (namePipeServer != this) { Destroy(namePipeServer); }
+            if (namePipeServer != this) { Destroy(namePipeServer.gameObject); Time.timeScale = 1; return; }
         }
 
         // Register the Application.quitting event to handle application exit
@@ -40,8 +40,8 @@ public  class NamedPipeServer : MonoBehaviour
         {
             jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
         }
-
-        StartNamedPipeServer();
+        if( pipeServer == null)
+            StartNamedPipeServer();
 
     }
 
