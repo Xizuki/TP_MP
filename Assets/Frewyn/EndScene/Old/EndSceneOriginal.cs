@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class EndScene : MonoBehaviour
+public class EndSceneOriginal : MonoBehaviour
 {
     public Score score;
     public int timePressed;
