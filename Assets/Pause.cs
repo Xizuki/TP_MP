@@ -8,20 +8,23 @@ public class Pause : MonoBehaviour
     public Button pause;
     public GameObject pauseMenu;
     public JumpingPlayerScript playerControl;
+    public AudioSource pauseSound;
     public bool gamePause;
 
     public void PauseGame()
     {
+        pauseSound.ignoreListenerPause = true;
+        pauseMenu.SetActive(true);
         gamePause = true;
         playerControl.enabled = false;
-        AudioListener.pause = true;
+        AudioListener.pause = true; 
         Time.timeScale = 0f;
-        pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        gamePause=false;
+        pauseSound.Play();
+        gamePause = false;
         playerControl.enabled = true;
         //StartCoroutine(EnableSound());
         AudioListener.pause = false;
@@ -38,6 +41,7 @@ public class Pause : MonoBehaviour
 
     public void MainMenu()
     {
+        pauseSound.Play();
         playerControl.enabled = true;
         SceneManager.LoadScene(0);
     }
