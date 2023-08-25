@@ -34,24 +34,40 @@ public class SFX : MonoBehaviour
     public static bool performanceCharge;
 
     public static float sfxVol;
+    public static float sfxPerformanceVol;
     public float sfxVolume;
+    public float sfxVolume2;
 
-    private void Update()
+    IEnumerator PerformanceCharging()
     {
-        audio.volume = sfxVolume / 100;
-        audio2.volume = sfxVolume / 100;
-
+        performance.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
         if (performanceCharge == true)
         {
-            sfxVol = sfxVolume;
             performance.SetActive(true);
-            sfxVolume = sfxVol;
-            //audio.PlayOneShot(performance);
         }
-        if (performanceCharge == false)
+        else if (performanceCharge == false)
         {
             performance.SetActive(false);
         }
+    }
+    
+    private void Update()
+    {
+        audio.volume = sfxVolume / 100;
+        audio2.volume = sfxPerformanceVol / 100;
+
+        if (performanceCharge == true)
+        {
+            sfxPerformanceVol = sfxVolume2;
+            sfxVolume2 = sfxPerformanceVol;
+            StartCoroutine(PerformanceCharging());
+            //audio.PlayOneShot(performance);
+        }
+        /*if (performanceCharge == false)
+        {
+            performance.SetActive(false);
+        }*/
         if (scoreSound == true)
         {
             sfxVol = sfxVolume;
