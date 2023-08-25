@@ -30,15 +30,23 @@ public class EndScene : MonoBehaviour
     void Update()
     {
 
-        CheckHighscore();
-     
-        SetScore();
+      
  
     }
 
     private void OnEnable()
     {
-        progressBars[timesPlayed].score = score.score;
+        if (timesPlayed < 10)
+        {
+            SetScore();
+            CheckHighscore();
+        }
+        else
+        {
+            timesPlayed = 0;
+            SetScore();
+            CheckHighscore();   
+        }
     }
 
     private void OnDisable()
@@ -76,7 +84,15 @@ public class EndScene : MonoBehaviour
 
     public void TryAgain()
     {
-        timesPlayed += 1;    
+        if (timesPlayed < 10)
+        {
+            timesPlayed += 1;
+        }
+        else
+        {
+            timesPlayed = 0;
+        }
+            
         //Scene scene = SceneManager.GetActiveScene();
         //SceneManager.LoadScene(scene.name);
         //Time.timeScale = 1;

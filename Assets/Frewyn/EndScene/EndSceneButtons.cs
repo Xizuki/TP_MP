@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EndSceneButtons : MonoBehaviour
@@ -9,6 +10,8 @@ public class EndSceneButtons : MonoBehaviour
     private Score score;
     [SerializeField]
     EndScene endScene;
+    [SerializeField]
+    GameObject objectEndScene;
 
 
     public enum Stage
@@ -20,6 +23,9 @@ public class EndSceneButtons : MonoBehaviour
     }
 
     Stage chosenStage ;
+
+
+
 
 
     public void CastleStage()
@@ -45,7 +51,9 @@ public class EndSceneButtons : MonoBehaviour
 
     {
         Debug.Log("Next session clicked! ");
+        objectEndScene.SetActive(false);
         endScene.TryAgain();
+
     }
 
 

@@ -20,6 +20,7 @@ public class Score : MonoBehaviour
         //{
         //    score = 0;
         //}
+        scoreTxt.text = "Score: " + Mathf.Round(score);
     }
 
     public void AddScore(float multiplyer, float platformYDistance)
