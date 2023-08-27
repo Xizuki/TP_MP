@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
 {
-    public Score score; //Reference to Score script
+    public Score scoreScript; //Reference to Score script
+    public ComboCount comboCountScript; //Reference to combo count script
+    [SerializeField]
+    private EndSceneButtons endSceneButtons;
+
+
     public int timesPlayed; //How many scores there are, I.E how many times game has been completed
     public Button tryAgain; 
     public GameTimer gameTimer;
@@ -18,24 +23,50 @@ public class EndScene : MonoBehaviour
 
 
 
-    public TextMeshProUGUI highScoreText;
+
+    [SerializeField]
+    GameObject objectEndScene;
+
+    [Header("Timer")]
+    [SerializeField]
+    private int endScreenTimerOriginal = 15;
+    [SerializeField]
+    private int endScreenTimer = 15;
+
+    [Header("Text Objects")]
+    [SerializeField]
+    private TextMeshProUGUI timerText;
+    [SerializeField]
+    private TextMeshProUGUI comboText;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
      
     }
 
     // Update is called once per frame
     void Update()
     {
-
       
- 
+
     }
 
     private void OnEnable()
     {
+
+
+        StartCoroutine(Countdown());
+        //comboCount = GameObject.FindObjectOfType<ComboCount>();
+        // Gets the score script from the scene its in
+        //scoreScript = GameObject.FindObjectOfType<Score>();
+        comboText.text = ComboCount.combo.ToString();
+
         if (timesPlayed < 10)
         {
             SetScore();
@@ -45,38 +76,89 @@ public class EndScene : MonoBehaviour
         {
             timesPlayed = 0;
             SetScore();
-            CheckHighscore();   
+            CheckHighscore();
         }
+
+
+
     }
 
     private void OnDisable()
     {
-        score.score = 0;
+        
 
-        //TryAgain();
-
+        TryAgain();
+        ResetScene();
+    
 
 
     }
 
+ 
 
 
     void SetScore()
     {
-        progressBars[timesPlayed].score = score.score;
+        progressBars[timesPlayed].score = scoreScript.score;
     }
 
-    
 
- 
+    public void ResetScene() //Sets score, combo and timer to orignal values
+    {
+        ComboCount.combo = 0;
+        scoreScript.score = 0;
+        endScreenTimer = endScreenTimerOriginal;
+    }
+
+    public void NextScene()
+    {
+        if(endSceneButtons.chosenStage==EndSceneButtons.Stage.Castle)
+        {
+            ResetScene();
+            //Go to scene...
+        }
+        else if (endSceneButtons.chosenStage == EndSceneButtons.Stage.Forest)
+        {
+            ResetScene();
+        }
+        else if (endSceneButtons.chosenStage == EndSceneButtons.Stage.Winter)
+        {
+            ResetScene();
+        }
+    }
+
+    IEnumerator Countdown()
+    {
+        while (endScreenTimer>=0)
+        {
+            yield return new WaitForSeconds(1f);
+            if (endScreenTimer > 0)
+            {
+                endScreenTimer -= 1;
+                timerText.text = endScreenTimer.ToString();
+            }
+            else if(endScreenTimer<= 0)
+            {
+                Debug.Log("Close end scene");
+                objectEndScene.SetActive(false);
+                StopCoroutine(Countdown());
+            }
+        }
+
+    }
+
+
+
+
+
 
 
     //Replaces the highscore whenever the a new highscore is achieved.
     public void CheckHighscore()
     {
-        if (score.score > highScore)
+        if (scoreScript.score > highScore)
         {
-            highScore = score.score;
+            highScore = scoreScript.score;
         }
     }    
 

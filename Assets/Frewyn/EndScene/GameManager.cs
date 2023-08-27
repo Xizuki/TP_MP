@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject endSceneObject;
+  
 
     void Start()
     {
@@ -18,7 +19,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown("j"))
         {
             Debug.Log("Change");
+            
             endSceneObject.SetActive(true);
         }
     }
+
+  
+
 }
