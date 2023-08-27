@@ -251,16 +251,18 @@ public  class NamedPipeServer : MonoBehaviour
             lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
 
-            if(lastestLine == "PAUSE")
+            if(lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex != 0)
             {
                 Debug.Log("PAUSE FROM EEG");
-                Time.timeScale = 0;
+                Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                pauseScript.PauseGame();
             }
 
-            if (lastestLine == "RESUME")
+            if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex != 0)
             {
-                Debug.Log("RESUME FROM EEG"); 
-                Time.timeScale = 1;
+                Debug.Log("RESUME FROM EEG");
+                Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                pauseScript.ResumeGame();
             }
 
 

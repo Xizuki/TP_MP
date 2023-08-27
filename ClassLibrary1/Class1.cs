@@ -109,23 +109,38 @@ namespace BTGame
         }
 
 
-        protected override void OnGamePause(EventArgs e)
+        public override void Pause_Game()
         {
-            base.OnGamePause(e);
+            base.Pause_Game();
             if (writer != null || !(clientStream == null || !clientStream.IsConnected))
             {
                 writer.WriteLine("PAUSE");
-                
+                try
+                {
+                    writer.Flush();
+                }
+                catch (IOException ex)
+                {
+                    //Exit();
+                }
             }
         }
 
         public override void Resume_Game()
         {
             base.Resume_Game();
-            //if (writer != null || !(clientStream == null || !clientStream.IsConnected))
-            //{
-            //    writer.WriteLine("RESUME");
-            //}
+            if (writer != null || !(clientStream == null || !clientStream.IsConnected))
+            {
+                writer.WriteLine("RESUME");
+                try
+                {
+                    writer.Flush();
+                }
+                catch (IOException ex)
+                {
+                    //Exit();
+                }
+            }
         }
 
         public override void Update(double elapsed)
@@ -179,8 +194,10 @@ namespace BTGame
             textBox11.Text = "Client.EegChannel.A_Threshold =  " + Client.EegChannel.A_Threshold;
             textBox12.Text = "Client.EegChannel.B_Threshold =  " + Client.EegChannel.B_Threshold;
            textBox13.Text = "Client.EegChannel.C_Threshold =  " + Client.EegChannel.C_Threshold;
-            //textBox14.Text = "Client.EegChannel.D_Threshold =  " + Client.EegChannel.D_Threshold;
-            //textBox15.Text = "Client.EegChannel.R_Threshold =  " + Client.EegChannel.R_Threshold;
+
+
+            textBox14.Text = "Client.EegChannel.D_Threshold =  " + Client.EegChannel.D_Threshold;
+            textBox15.Text = "Client.EegChannel.R_Threshold =  " + Client.EegChannel.R_Threshold;
 
         }
 

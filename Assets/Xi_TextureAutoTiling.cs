@@ -3,31 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Axis { xy, yz, xz };
 
 public class Xi_TextureAutoTiling : MonoBehaviour
 {
-    public Axis axis;
+    public bool zAxisInclude;
     public Material sourceMat;
     public Material matInstance;
     public float scale;
     private void OnValidate()
     {
-        //Texture2D newTextureInstance = new Texture2D(mat.mainTexture.width, mat.mainTexture.height);
 
-        //newTextureInstance.SetPixels(((Texture2D)mat.mainTexture).GetPixels());
-
-        //textureInstance = newTextureInstance;
-
-        //mat.mainTexture = textureInstance;
-
-        if(axis == Axis.xy)
-        {
-
-        }
-
-
-        matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z) * scale;
+        if(!zAxisInclude)
+            matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.y) * scale;
+        else
+            matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z * (transform.localScale.z/ transform.localScale.y)) * scale;
 
     }
 
@@ -37,10 +26,18 @@ public class Xi_TextureAutoTiling : MonoBehaviour
         Renderer renderer = GetComponent<Renderer>();
        // sourceMat = renderer.GetMaterials();
 
+        if(matInstance!=null)
+        {
+            DestroyImmediate(matInstance);
+        }
+
         matInstance = Instantiate(sourceMat);
         renderer.material = matInstance;
 
-        matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z) * scale;
+        if (!zAxisInclude)
+            matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.y) * scale;
+        else
+            matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z * (transform.localScale.z / transform.localScale.y)) * scale;
     }
 
     // Start is called before the first frame update
