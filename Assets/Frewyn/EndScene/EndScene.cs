@@ -32,6 +32,8 @@ public class EndScene : MonoBehaviour
     [Header("Gameobjects")]
     [SerializeField]
     GameObject objectEndScene;
+    [SerializeField]
+    GameObject playerUI;
 
     [Header("Timer")]
     [SerializeField]
@@ -69,13 +71,13 @@ public class EndScene : MonoBehaviour
     {
 
 
-        StartCoroutine(Countdown());
-        //comboCount = GameObject.FindObjectOfType<ComboCount>();
-        // Gets the score script from the scene its in
-        //scoreScript = GameObject.FindObjectOfType<Score>();
-        comboText.text = ComboCount.combo.ToString();
+        StartCoroutine(Countdown());//Countdown timer
+ 
+        comboText.text = ComboCount.combo.ToString();//Sets combo text
 
-        if (timesPlayed < 10)
+        playerUI.SetActive(false);
+
+        if (timesPlayed < 10)//If it goes beyond 10 sessions, starts overwriting score from session 1
         {
             SetScore();
             CheckHighscore();
@@ -91,7 +93,7 @@ public class EndScene : MonoBehaviour
 
     }
 
-    private void OnDisable()
+    private void OnDisable()//Reset the scene
     {
         
 
@@ -105,19 +107,22 @@ public class EndScene : MonoBehaviour
  
 
 
-    void SetScore()
+    void SetScore()//Save the current score to progress bar
     {
-        progressBars[timesPlayed].score = Score.score;    
+        progressBars[timesPlayed].score = Score.score;
+
+        scoreText.text = "Total Score: " + Mathf.Round(Score.score);
     }
 
 
-    public void ResetScene() //Sets score, combo and timer to orignal values
+    public void ResetScene() //Sets score, combo and timer to orignal values... Resets stuff in canvas to original state
     {
 
         ComboCount.combo = 0;
         Score.score = 0;
         endScreenTimer = endScreenTimerOriginal;
         gameTimerScript.timer = gameTimerScript.timerOriginal;
+        playerUI.SetActive(true);
         Time.timeScale = 1;
     }
 
@@ -126,15 +131,17 @@ public class EndScene : MonoBehaviour
         if(endSceneButtons.chosenStage==EndSceneButtons.Stage.Castle)
         {
             ResetScene();
-            //Go to scene...
+            SceneManager.LoadScene("Castle");
         }
         else if (endSceneButtons.chosenStage == EndSceneButtons.Stage.Forest)
         {
             ResetScene();
+            SceneManager.LoadScene("Forest");
         }
         else if (endSceneButtons.chosenStage == EndSceneButtons.Stage.Winter)
         {
             ResetScene();
+            SceneManager.LoadScene("Winter");
         }
     }
 
@@ -142,9 +149,11 @@ public class EndScene : MonoBehaviour
     {
         while (endScreenTimer>=0)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
             if (endScreenTimer > 0)
             {
+
+                Debug.Log("Countdown");
                 endScreenTimer -= 1;
                 timerText.text = endScreenTimer.ToString();
             }
