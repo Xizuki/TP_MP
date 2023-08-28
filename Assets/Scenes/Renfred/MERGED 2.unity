@@ -12475,17 +12475,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &1267350524 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1267350524, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!21 &1275506470
 Material:
   serializedVersion: 8
@@ -14033,6 +14022,10 @@ PrefabInstance:
     - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: screenVFXStartColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: jumpChargeArrowScaleDiff
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: jumpChargeScreenVFXScaleDiff
@@ -16290,31 +16283,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577631476}
   m_CullTransparentMesh: 1
---- !u!1 &1583351746 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442282040675875545, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1583351749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583351746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1609098167
 GameObject:
   m_ObjectHideFlags: 0
@@ -19627,11 +19595,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63729252785820a49b16459d0c97332d, type: 3}
---- !u!198 &1880034152 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 535729279713804870, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881222429
 GameObject:
   m_ObjectHideFlags: 0
@@ -20579,31 +20542,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8824464933389489936, guid: 7ac353848683d324ea1644be9550573d, type: 3}
   m_PrefabInstance: {fileID: 8824464932475558556}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1999209914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7951376781551253131, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1999209917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999209914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &2009869172
 GameObject:
   m_ObjectHideFlags: 0
@@ -22626,10 +22564,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1176672003}
     - target: {fileID: 683046005, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: shieldAura
-      value: 
-      objectReference: {fileID: 445163134}
-    - target: {fileID: 683046005, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: sliderFill
       value: 
       objectReference: {fileID: 1808126709}
@@ -22637,78 +22571,10 @@ PrefabInstance:
       propertyPath: shieldIconVfx
       value: 
       objectReference: {fileID: 445163134}
-    - target: {fileID: 1537212500, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1537212500, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1537212500, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 826096228288100771, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2fe3114a6ddad542a4c6c07edbe4471, type: 3}
-    - target: {fileID: 1074204401505380105, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2fe3114a6ddad542a4c6c07edbe4471, type: 3}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -2138913373
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Parameters.textureMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775951068022863847, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.5394745
-      objectReference: {fileID: 0}
-    - target: {fileID: 2934361178787933712, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 1880034152}
-    - target: {fileID: 2934361178787933712, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: outlineWidth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2934361178787933712, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: chargeInitial
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: stopwatch
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: sliderFill
       value: 
       objectReference: {fileID: 1881222431}
-    - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: stopwatchEnd
-      value: 
-      objectReference: {fileID: 8300000, guid: e6b6a7b3466997648827a1c16e1c8080, type: 3}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: snowWeatherVfx
       value: 
@@ -22729,74 +22595,26 @@ PrefabInstance:
       propertyPath: stopwatchIconVfx
       value: 
       objectReference: {fileID: 1022700745}
-    - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: stopwatchContinue
-      value: 
-      objectReference: {fileID: 8300000, guid: 1ed27c2de8b43d7499d1f1ea1f3c7d5b, type: 3}
-    - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: stopwatchOngoingVfx
-      value: 
-      objectReference: {fileID: 1022700745}
-    - target: {fileID: 4250178193829337173, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4442282040675875546, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876471729920344090, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5293414804550537393, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+    - target: {fileID: 6085321417060142518, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5830862450800090234, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6928165338541905870, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7838088062044966094, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2fe3114a6ddad542a4c6c07edbe4471, type: 3}
-    - target: {fileID: 8151140985333494308, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8151140985333494308, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356324834026010496, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541569628566681579, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2fe3114a6ddad542a4c6c07edbe4471, type: 3}
     - target: {fileID: 8824464932475558560, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1441620867}
+    - target: {fileID: 8824464932475558587, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: stopwatchVfx
+      value: 
+      objectReference: {fileID: 144397638}
+    - target: {fileID: 8824464932475558587, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: stopwatchFilter
+      value: 
+      objectReference: {fileID: 1467449236}
     - target: {fileID: 8824464933182293961, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1441620867}
-    - target: {fileID: 8824464933198582658, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0007122756
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933198582658, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.25608668
-      objectReference: {fileID: 0}
     - target: {fileID: 8824464933389489933, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -22850,61 +22668,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1611505832}
     - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowSprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: normalShiba
       value: 
       objectReference: {fileID: 2101175889}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowEndColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowEndColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowEndColor.g
-      value: 0.32031077
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowEndColor.r
-      value: 0.6981132
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: startingColor.b
-      value: 0.8202615
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: startingColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: startingColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: jumpChargeScreenVFX
-      value: 
-      objectReference: {fileID: 1175997189}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowStartingColor.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowStartingColor.b
-      value: 0.7971698
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowStartingColor.g
-      value: 0.9932208
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-      propertyPath: arrowStartingColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: chicken
       value: 
@@ -22913,8 +22679,7 @@ PrefabInstance:
       propertyPath: chickenExit
       value: 
       objectReference: {fileID: 1797976224}
-    m_RemovedComponents:
-    - {fileID: 8824464932475558558, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
 --- !u!114 &8824464932475558557 stripped
 MonoBehaviour:
@@ -22927,40 +22692,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7a2aca69ff11549864dbe4d97eb799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &8824464932475558569 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 8824464932475558569, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8824464932475558577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988791692}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 8824464932475558557}
-  colliderInv: {fileID: 8824464932475558569}
-  explosion: {fileID: 1880034152}
-  outlineScript: {fileID: 1267350524}
-  outlineWidth: 0
-  chargeInitial: 1
---- !u!114 &8824464932475558587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988791692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da9936468e8f6974cbd44ce1ce0d3500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopwatchVfx: {fileID: 144397638}
-  stopwatchFilter: {fileID: 1467449236}

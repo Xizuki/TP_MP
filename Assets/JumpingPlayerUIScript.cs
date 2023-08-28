@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Nyp.Razor.Spectrum;
 
 [RequireComponent(typeof(JumpingPlayerScript))]
 public class JumpingPlayerUIScript : MonoBehaviour
@@ -43,13 +44,21 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Image normalShiba;
     public Image stunShiba;
 
+    public LineRenderer lineRenderer;
+
+
+    public ImageProgressBar[] arrows;
+    public float enlargeArrowsScalar;
+    public float vibrationScalar;
+    public ParticleSystem[] arrowCellsChargedVFX;
+    public AudioClip arrowCellsChargedSFX;
     // Start is called before the first frame update
     void Awake()
     {
         player = GetComponent<JumpingPlayerScript>();
         outlineScript = GetComponentInChildren<Outline>();
         chargePulseVFX = GetComponentInChildren<ParticleSystem>();
-
+        lineRenderer = GetComponentInChildren<LineRenderer>();
     }
     public void Start()
     {
@@ -57,11 +66,79 @@ public class JumpingPlayerUIScript : MonoBehaviour
         //interpolateps = interpolateParticle[1].main;
         //interpolateps2 = interpolateParticle[2].main;
 
-
+        
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        //float cellMaxCharge = 0.33f;
+        //float jumpChargeValue = player.jumpCharge;
+        //print("jumpChargeValue = " + jumpChargeValue);
+        for (int i = 0; i < arrows.Length; i++)
+        {
+
+            //if (jumpChargeValue < 0)
+            //{
+            //    arrows[i].value = 0;
+            //    if (i > 0) { arrows[i].gameObject.SetActive(false); }
+            //    continue;
+            //}
+
+            //arrows[i].gameObject.SetActive(true);
+
+            //float dividedJumpCharge = cellMaxCharge;
+
+            //jumpChargeValue -= cellMaxCharge;
+
+            //if (jumpChargeValue < 0)
+            //{
+            //    dividedJumpCharge += jumpChargeValue;
+            //}
+
+            //dividedJumpCharge *=  arrows.Length;
+
+            //arrows[i].value = dividedJumpCharge;
+
+            //// << RUN VFXs on arrows
+
+
+
+
+            //if (player.jumpCharge > 0 && player.isGrounded)
+            //{
+            //    jumpChargeValueStorage4FOV = player.jumpCharge;
+            //    jumpChargeValueStorage4ScreenVFX = player.jumpCharge;
+            //}
+            //if (player.jumpChargePrev == 0 && player.jumpCharge == 0 && jumpChargeValueStorage4FOV > 0)
+            //    jumpChargeValueStorage4FOV -= jumpChargeValueStorage4FOVDecaySpeed * Time.deltaTime;
+            //if (player.jumpCharge == 0 && jumpChargeValueStorage4ScreenVFX > 0 && !player.isGrounded)
+            //    jumpChargeValueStorage4ScreenVFX -= jumpChargeValueStorage4ScreenVFXDecaySpeed * Time.deltaTime;
+
+
+            //float jumpChargeFOVValue = baseFOV + ((jumpChargeValueStorage4FOV) * jumpChargeFOVDiff);
+            //float jumpChargeScreenVFXValue = 1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeScreenVFXScaleDiff);
+            //float jumpChargeArrowScaleValue = (1 + ((jumpChargeValueStorage4ScreenVFX) * jumpChargeArrowScaleDiff)) * baseArrowScale;
+
+            //jumpChargeScreenVFX.color = Color.Lerp(screenVFXStartColor, screenVFXEndColor, jumpChargeValueStorage4ScreenVFX);
+
+            //jumpChargeScreenVFX.rectTransform.localScale = new Vector3(jumpChargeScreenVFXValue, jumpChargeScreenVFXValue, jumpChargeScreenVFXValue);
+
+            //playerUI.arrows[0].GetComponentInChildren<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+            //jumpChargeArrowScaleValue -= 0.33f;
+            //playerUI.arrows[1].GetComponentInChildren<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+            //jumpChargeArrowScaleValue -= 0.33f;
+            //playerUI.arrows[2].GetComponentInChildren<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+
+            //Camera.main.fieldOfView = jumpChargeFOVValue;
+
+
+
+
+            // >>
+
+
+        }
+
         //interpolateParticle[1].startColor = interpolatedColor;
         //interpolateParticle[2].startColor = interpolatedColor;
         //interpolateParticle[3].startColor = interpolatedColor;
@@ -78,7 +155,9 @@ public class JumpingPlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(player.jumpCharge > 0)
+
+
+        if (player.jumpCharge > 0)
             // Interpolate the color between startColor and endColor based on the interpolationValue
             interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
         // Assign the interpolated color to the renderer component
@@ -93,7 +172,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         if (player.isCharging == true)
         {
             playerHeadTransform.localEulerAngles = faceForward;
-            //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+            //player.playerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
 
 
 
@@ -101,7 +180,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
             {
                 //Debug.Log("Testing Code");
                 playerHeadTransform.localEulerAngles = faceForward;
-                //player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+                //player.playerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
 
 
             }
@@ -130,7 +209,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
 
 
-            // Should be Moved to a method to be called by jumpingPlayerScript to stop unnessary calculations and effiency
+            // Should be Moved to a method to be called by playerScript to stop unnessary calculations and effiency
             // But im lazy rn
 
             //if (!player.isGrounded)
