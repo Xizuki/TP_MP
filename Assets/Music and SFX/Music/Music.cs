@@ -11,6 +11,7 @@ public class Music : MonoBehaviour
 
     private void Start()
     {
+        music.ignoreListenerPause = true;
         music.playOnAwake = true;
     }
     // Update is called once per frame

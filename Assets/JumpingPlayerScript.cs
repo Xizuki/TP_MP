@@ -70,6 +70,10 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public Vector2 joystickVector;
 
+    public float chargeCount;
+    public float timeSinceCharge;
+    public float chargeCountSoundSFXCooldown = 1f;
+
 
     //[Header("Trajectory")]
     //[SerializeField]
@@ -157,8 +161,15 @@ public class JumpingPlayerScript : MonoBehaviour
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, -playerUI.jumpingVectorIndicator.transform.eulerAngles.z, 0);
 
 
-        
-
+        Debug.Log(chargeCount);
+        if (chargeCount < 0f)
+        {
+            chargeCount = 0f;
+        }
+        if (chargeCount > 5f)
+        {
+            chargeCount = 5f;
+        }
 
 
 
@@ -166,6 +177,9 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             jumpCharge -= Time.deltaTime * jumpChargeSpeedCurrent / jumpChargeSpeedReduction;
         }
+
+        chargeCountSoundSFXCooldown -= 1 * Time.deltaTime;
+
     }
 
     private void FixedUpdate()
@@ -218,34 +232,41 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             if (isCharging)
             {
-                //chargeParticle.Play();
+                chargeParticle.Play();
+                chargeCount += 3f * Time.deltaTime;
                 jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+                SFX.performanceCharge = true;
+                chargeCountSoundSFXCooldown = 1f;
+
                 //chargeTapParticle.Play();
                 //chargeTapParticle2.Play();
             }
             if (!isCharging)
             {
-                //chargeParticle.Stop();
-                //maxChargeParticleOut.Stop();
+                SFX.performanceCharge = false;
+                chargeCount -= 0.55f * Time.deltaTime; //chargecount 
+                chargeParticle.Stop();
+                maxChargeParticleOut.Stop();
             }
         }
-        if (jumpCharge > 1 && isCharging)
+        if (jumpCharge > 0.1 && isCharging)
         {
             if (checkMaxChargeSoundSfx == false)
             {
                 checkMaxChargeSoundSfx = true;
                 SFX.contiCharging = true;
+                Debug.Log(chargeCount);
                 StartCoroutine(maxChargeSfx());
                 fullyCharge = true;
             }
         }
         if (jumpCharge >= 0.85)
         {
-            //maxChargeParticleIn.Play();
+            maxChargeParticleIn.Play();
         }
         if (jumpCharge < 0.85)
         {
-            //maxChargeParticleIn.Stop();
+            maxChargeParticleIn.Stop();
         }
         if (jumpCharge < 1)
         {
@@ -254,13 +275,30 @@ public class JumpingPlayerScript : MonoBehaviour
         }
         if (jumpCharge > 1)
         {
+
             PulseVfx.playerPulse = true;
             jumpCharge = 1;
             //maxParticle.Play();
-            //maxChargeParticleIn.Play();
-            //maxChargeParticleOut.Play();
+            maxChargeParticleIn.Play();
+            maxChargeParticleOut.Play();
+/*            StartCoroutine(ChargeCount());*/
+            }
+/*
+        IEnumerator ChargeCount()
+        {
+            bool chargeSound = false;
 
-        }
+            if (chargeCount >= 5f)
+            {
+                if (chargeSound == false)
+                {
+                    chargeSound = true;
+                    yield return new WaitForSeconds(1f);
+                    SFX.performanceCharge = true;
+                    chargeCountSoundSFXCooldown = 1f;
+                }
+            }
+        }*/
 
         IEnumerator maxChargeSfx()
         {
