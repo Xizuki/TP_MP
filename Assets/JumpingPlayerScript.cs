@@ -144,6 +144,14 @@ public class JumpingPlayerScript : MonoBehaviour
 
         //Debug.Log("Collided: " + playerSizeCheck.collided);
 
+        if(isMoving == true)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }
 
         Timer();
         ResetInputCountdown();
@@ -284,7 +292,10 @@ public class JumpingPlayerScript : MonoBehaviour
         if (!isGrounded || chicken.playerDowned) return;
 
         transform.position += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
+
         rb.velocity += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
 
         if(resetChargeOnMove)
             jumpCharge = 0;
