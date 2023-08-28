@@ -50,7 +50,7 @@ public class EndSceneOriginal : MonoBehaviour
 
         if(gameTimer.gameEnded == true)
         {
-            highScore = score.score;
+            highScore = Score.score;
 
             if (highScore > PlayerPrefs.GetFloat("Highscore"))
             {

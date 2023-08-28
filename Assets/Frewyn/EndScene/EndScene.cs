@@ -7,23 +7,29 @@ using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
 {
+    [Header("Scripts")]
     public Score scoreScript; //Reference to Score script
     public ComboCount comboCountScript; //Reference to combo count script
     [SerializeField]
     private EndSceneButtons endSceneButtons;
 
+    [SerializeField]
+    private GameTimer gameTimerScript;
 
+    [Header("Logic")]
     public int timesPlayed; //How many scores there are, I.E how many times game has been completed
     public Button tryAgain; 
     public GameTimer gameTimer;
 
 
     public float highScore; //Current highestscore, the fill percentage of other bars are based on this score
+
+    [Header("ProgresBars")]
     public HighscoreBar[] progressBars;
 
 
 
-
+    [Header("Gameobjects")]
     [SerializeField]
     GameObject objectEndScene;
 
@@ -99,15 +105,18 @@ public class EndScene : MonoBehaviour
 
     void SetScore()
     {
-        progressBars[timesPlayed].score = scoreScript.score;
+        progressBars[timesPlayed].score = Score.score;    
     }
 
 
     public void ResetScene() //Sets score, combo and timer to orignal values
     {
+
         ComboCount.combo = 0;
-        scoreScript.score = 0;
+        Score.score = 0;
         endScreenTimer = endScreenTimerOriginal;
+        gameTimerScript.timer = gameTimerScript.timerOriginal;
+        Time.timeScale = 1;
     }
 
     public void NextScene()
@@ -156,9 +165,9 @@ public class EndScene : MonoBehaviour
     //Replaces the highscore whenever the a new highscore is achieved.
     public void CheckHighscore()
     {
-        if (scoreScript.score > highScore)
+        if (Score.score> highScore)
         {
-            highScore = scoreScript.score;
+            highScore = Score.score;
         }
     }    
 

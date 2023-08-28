@@ -7,7 +7,8 @@ using TMPro;
 public class GameTimer : MonoBehaviour
 {
     public TextMeshProUGUI timetTest;
-    public GameObject endMenu;
+
+    public float timerOriginal;
     public float timer;
     public bool gameEnded;
 
@@ -28,11 +29,12 @@ public class GameTimer : MonoBehaviour
             if (timer <= 0)
             {
                 Time.timeScale = 0;
-                endMenu.gameObject.SetActive(true);
+                endScene.gameObject.SetActive(true);
                 gameEnded = true;
             }
         }
        
         
     }
+
 }

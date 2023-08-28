@@ -2165,7 +2165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &208244480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2234,7 +2234,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208244476}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -2291,7 +2291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1988791692}
   scoreTxt: {fileID: 241212522}
-  score: 0
 --- !u!114 &208244486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8402,6 +8401,7 @@ MonoBehaviour:
   scoreScript: {fileID: 208244485}
   comboCountScript: {fileID: 208244484}
   endSceneButtons: {fileID: 782514983}
+  gameTimerScript: {fileID: 1769224327}
   timesPlayed: 0
   tryAgain: {fileID: 619461101}
   gameTimer: {fileID: 1769224327}
@@ -15423,6 +15423,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3463168327283722739, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: audio2
+      value: 
+      objectReference: {fileID: 1978358281}
+    - target: {fileID: 3463168327283722739, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: performance
+      value: 
+      objectReference: {fileID: 1978358280}
     - target: {fileID: 5281566836302681612, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -15538,6 +15546,10 @@ PrefabInstance:
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Cameras.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998494958856113219, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a56b90f6be26800449ae89250555594b, type: 3}
@@ -20079,7 +20091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1769224322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20198,11 +20210,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timetTest: {fileID: 1915049256}
-  endMenu: {fileID: 782514977}
+  timerOriginal: 10
   timer: 10
   gameEnded: 0
-  timerEnabled: 0
-  endScene: {fileID: 0}
+  timerEnabled: 1
+  endScene: {fileID: 782514977}
 --- !u!1 &1785698910
 GameObject:
   m_ObjectHideFlags: 0
@@ -22564,6 +22576,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959396116}
   m_CullTransparentMesh: 1
+--- !u!1 &1978358280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7998494958856113219, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1978358281 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7998494958856113217, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1987247564
 GameObject:
   m_ObjectHideFlags: 0
