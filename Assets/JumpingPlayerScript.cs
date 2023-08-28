@@ -1,13 +1,10 @@
-using Nyp.Razor.Spectrum;
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(JumpingPlayerUIScript))]	
+[RequireComponent(typeof(JumpingPlayerUIScript))]
 public class JumpingPlayerScript : MonoBehaviour
 {
     public GameObject jumpingPlayerChildrenModel;
@@ -100,7 +97,7 @@ public class JumpingPlayerScript : MonoBehaviour
     //[Range(0.01f, 0.25f)]
     //private float timeBetweenPoints = 0.1f;
 
-
+    
 
     public void Awake()
     {
@@ -148,6 +145,14 @@ public class JumpingPlayerScript : MonoBehaviour
 
         //Debug.Log("Collided: " + playerSizeCheck.collided);
 
+        if(isMoving == true)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }
 
         Timer();
         ResetInputCountdown();
@@ -322,7 +327,10 @@ public class JumpingPlayerScript : MonoBehaviour
         if (!isGrounded || chicken.playerDowned) return;
 
         transform.position += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
+
         rb.velocity += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
 
         if(resetChargeOnMove)
             jumpCharge = 0;
@@ -505,7 +513,6 @@ public class JumpingPlayerScript : MonoBehaviour
             // Very Simple, could maybe have bugs
             if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
             {
-                print("collision.impulse.y  = " + collision.impulse.y);
                 if (collision.impulse.y <= 0) { return; }
                 isGrounded = true;
                 isJumping = false;
@@ -518,6 +525,7 @@ public class JumpingPlayerScript : MonoBehaviour
         // Very Simple, could maybe have bugs
         for (int i = 0; i < collision.contacts.Length; i++)
         {
+
             if (collision.contacts[i].point.y <= feetPos.position.y && !chicken.playerDowned)
             {
                 isGrounded = true;
@@ -532,7 +540,6 @@ public class JumpingPlayerScript : MonoBehaviour
                 ///* Moved to PlatformManager 
                 CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
                                                                        //ComboCount.combo += 1;
-                print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
                 //ComboCount.hit = true;
                 //SFX.scoreSound = true;
                 //SFX.landSound = true;
@@ -553,8 +560,6 @@ public class JumpingPlayerScript : MonoBehaviour
             }
             if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet" || collision.collider.tag == "ChestEnemy")
             {
-                playerUI.normalShiba.gameObject.SetActive(true);
-                playerUI.stunShiba.gameObject.SetActive(false);
                 animator.SetTrigger("Hit");
                 hitParticle.Play();
                 HitPhase();

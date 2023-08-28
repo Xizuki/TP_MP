@@ -50,6 +50,8 @@ public class EndScene : MonoBehaviour
     private TextMeshProUGUI scoreText;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {

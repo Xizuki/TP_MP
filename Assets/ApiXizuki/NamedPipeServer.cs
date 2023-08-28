@@ -14,11 +14,12 @@ public  class NamedPipeServer : MonoBehaviour
     private bool isRunning = true;
     //public bool isConnected = false;
     private StreamReader reader;
-
+    public bool connected;
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -27,7 +28,7 @@ public  class NamedPipeServer : MonoBehaviour
 
         foreach (NamedPipeServer namePipeServer in namePipeServers)
         {
-            if (namePipeServer != this) { Destroy(namePipeServer); }
+            if (namePipeServer != this) { Destroy(namePipeServer.gameObject); Time.timeScale = 1; return; }
         }
 
         // Register the Application.quitting event to handle application exit
@@ -39,8 +40,8 @@ public  class NamedPipeServer : MonoBehaviour
         {
             jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
         }
-
-        StartNamedPipeServer();
+        if( pipeServer == null)
+            StartNamedPipeServer();
 
     }
 
@@ -249,6 +250,21 @@ public  class NamedPipeServer : MonoBehaviour
             //lastestLine =  reader.ReadLine();
             lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
+
+            if(lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                Debug.Log("PAUSE FROM EEG");
+                Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                pauseScript.PauseGame();
+            }
+
+            if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                Debug.Log("RESUME FROM EEG");
+                Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                pauseScript.ResumeGame();
+            }
+
 
             if (lastestLine.Contains("Trigger:"))
             {
