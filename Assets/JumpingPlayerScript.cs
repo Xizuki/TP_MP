@@ -145,6 +145,14 @@ public class JumpingPlayerScript : MonoBehaviour
 
         //Debug.Log("Collided: " + playerSizeCheck.collided);
 
+        if(isMoving == true)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }
 
         Timer();
         ResetInputCountdown();
@@ -319,7 +327,10 @@ public class JumpingPlayerScript : MonoBehaviour
         if (!isGrounded || chicken.playerDowned) return;
 
         transform.position += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
+
         rb.velocity += new Vector3(value * moveSpeed, 0f, 0f)  * Time.deltaTime;
+
 
         if(resetChargeOnMove)
             jumpCharge = 0;
@@ -502,7 +513,6 @@ public class JumpingPlayerScript : MonoBehaviour
             // Very Simple, could maybe have bugs
             if (collision.contacts[0].point.y <= feetPos.position.y && !chicken.playerDowned)
             {
-                print("collision.impulse.y  = " + collision.impulse.y);
                 if (collision.impulse.y <= 0) { return; }
                 isGrounded = true;
                 isJumping = false;
@@ -530,7 +540,6 @@ public class JumpingPlayerScript : MonoBehaviour
                 ///* Moved to PlatformManager 
                 CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
                                                                        //ComboCount.combo += 1;
-                print("collision.impulse.magnitude / 35 = " + (collision.impulse.magnitude / 35));
                 //ComboCount.hit = true;
                 //SFX.scoreSound = true;
                 //SFX.landSound = true;
