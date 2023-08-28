@@ -29,9 +29,17 @@ public class WorldGeneration : MonoBehaviour
 
     void RoomSpawn()
     {
-        roomType = Random.Range(0, 3);
         spawnTop = GameObject.Instantiate(spawnRoom[roomType], spawnTop.transform.position,
         spawnTop.transform.rotation).GetComponentInChildren<SpawnTopScript>().gameObject;
+        roomType += 1;
+
+        if (roomType >= 3)
+        {        
+            Debug.Log(roomType);
+
+            roomType = 0;
+            Debug.Log("hit");
+        }
         spawnedRooms = spawnedRooms + 1;
     }
 }
