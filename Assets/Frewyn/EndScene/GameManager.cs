@@ -6,24 +6,25 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject endSceneObject;
-  
 
-    void Start()
+    [SerializeField]
+    private static GameManager instance;
+
+    private void Awake()
     {
-        
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("j"))
+        if(instance!=null)
         {
-            Debug.Log("Change");
-            
-            endSceneObject.SetActive(true);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-  
+
+
+
 
 }
