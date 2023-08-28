@@ -59,15 +59,15 @@ public class HighscoreBar : MonoBehaviour
 
         if (score < 10)
         {
-            scoreText.text = "     " + Mathf.Round(score);
+            scoreText.text = "" + Mathf.Round(score);
         }
         else if (score<100)
         {
-            scoreText.text = "    " + Mathf.Round(score);
+            scoreText.text = "" + Mathf.Round(score);
         }
         else if (score < 1000)
         {
-            scoreText.text = "  " + Mathf.Round(score);
+            scoreText.text = "" + Mathf.Round(score);
         }
         else if (score < 10000)
         {
