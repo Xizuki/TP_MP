@@ -61,6 +61,8 @@ public class Trajectory : MonoBehaviour
 
     }
 
+   
+
     void TrajectoryProjection()
     {
 
@@ -118,13 +120,16 @@ public class Trajectory : MonoBehaviour
 
 
 
+
+
                 //If object collided with is a platform, stop the line.
-                if (hitColliders.Length > 0 && hitColliders[0].CompareTag("Platform"))
+                if (hitColliders.Length > 0 && hitColliders[0].CompareTag("Platform"))//(hitColliders[0].CompareTag("PlatformLeft")|| hitColliders[0].CompareTag("PlatformRight")|| hitColliders[0].CompareTag("PlatformBottom")))
                 {
+
                     lineRenderer.SetPosition(i, point);
                     lineRenderer.positionCount = i + 1;
 
-                    //Debug.Log("Hit : " + hitColliders[0].name + " " + "Hit Collider size : " + hitColliders.Length);
+                  //  Debug.Log("Hit : " + hitColliders[0].name + " " + "Hit Collider size : " + hitColliders.Length);
 
 
                     return;

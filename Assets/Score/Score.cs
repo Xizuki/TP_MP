@@ -6,7 +6,7 @@ public class Score : MonoBehaviour
 {
     public GameObject player;
     public TMP_Text scoreTxt;
-    public float score;
+    public static float score;
 
     // Score = how high they manage to go up
 
@@ -20,6 +20,7 @@ public class Score : MonoBehaviour
         //{
         //    score = 0;
         //}
+        scoreTxt.text = "Score: " + Mathf.Round(score);
     }
 
     public void AddScore(float multiplyer, float platformYDistance)

@@ -7,7 +7,7 @@ using TMPro;
 public class ComboCount : MonoBehaviour
 {
 
-    public static int combo;
+    public static int combo;// adjusted to not be static in order to work in end screen...Frewyn
     public TMP_Text comboTxt;
     public ParticleSystem ringLight;
     public ParticleSystem lightning;

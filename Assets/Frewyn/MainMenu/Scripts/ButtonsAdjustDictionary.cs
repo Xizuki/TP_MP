@@ -41,7 +41,7 @@ namespace Menu
 
         }
 
-        public void EasyPreset()
+        public void EasyPreset()//Sets settings to easy difficulty
         {
             gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Easy;
 
@@ -63,7 +63,7 @@ namespace Menu
 
         }
 
-        public void MediumPreset()
+        public void MediumPreset() //Sets settings to medium difficulty
         {
             gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Medium;
 
@@ -84,7 +84,7 @@ namespace Menu
             CheckDifficulty("PowerupSpawnFrequency");
         }
 
-        public void HardPreset()
+        public void HardPreset() //Sets settings to hard difficulty
         {
             gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Hard;
 
@@ -107,7 +107,7 @@ namespace Menu
 
 
 
-        public void CheckOnOff(string setting)
+        public void CheckOnOff(string setting)//Used to change the opacity of buttons depending on which was chosen
         {
 
             if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
@@ -140,12 +140,12 @@ namespace Menu
             }
         }
 
-        public void CheckDifficulty(string setting)
+        public void CheckDifficulty(string setting) //Used to change the opacity of buttons depending on which was chosen
         {
 
             if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
             {
-                // Now you have the list, you can access its elements using indices.
+                //  access list elements using indices.
                 if (settingList.Count > 0)
                 {
                     //Difficulty difficulty = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(setting));
@@ -203,7 +203,7 @@ namespace Menu
             }
         }
 
-        public void MediumDifficulty(string setting)
+        public void MediumDifficulty(string setting)//Medium difficulty of a setting, sets the opacity of the buttons
         {
             gameplaySettingsScript.GameplaySettings[setting] = Difficulty.Medium; // Adjust the value to your desired value
             Debug.Log("Difficulty is Medium!");
@@ -226,7 +226,7 @@ namespace Menu
             }
         }
 
-        public void HardDifficulty(string setting)
+        public void HardDifficulty(string setting) //Hard difficulty of a setting, sets the opacity of the buttons
         {
             gameplaySettingsScript.GameplaySettings[setting] = Difficulty.Hard; // Adjust the value to your desired value
             Debug.Log("Difficulty is Hard!");
