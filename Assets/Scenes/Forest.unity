@@ -9172,7 +9172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400043471724790587, guid: 9a098c2fdbd416148b075f6f7ebcdc86, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a098c2fdbd416148b075f6f7ebcdc86, type: 3}
@@ -18517,6 +18517,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661269411}
   m_CullTransparentMesh: 1
+--- !u!1 &1663490203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4607946937320026380, guid: 1591abe8b1acdc3459f4dbe702673b76, type: 3}
+  m_PrefabInstance: {fileID: 709721847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1663605435
 GameObject:
   m_ObjectHideFlags: 0
@@ -24207,7 +24212,7 @@ PrefabInstance:
     - target: {fileID: 683046005, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: shieldVfx
       value: 
-      objectReference: {fileID: 1176672003}
+      objectReference: {fileID: 819866701}
     - target: {fileID: 683046005, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: shieldAura
       value: 
@@ -24223,7 +24228,7 @@ PrefabInstance:
     - target: {fileID: 683046005, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: shieldIconVfx
       value: 
-      objectReference: {fileID: 445163134}
+      objectReference: {fileID: 315367214}
     - target: {fileID: 1537212500, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -24275,19 +24280,19 @@ PrefabInstance:
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchEndSfx
       value: 
-      objectReference: {fileID: 1389128747}
+      objectReference: {fileID: 11868802}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchEndVfx
       value: 
-      objectReference: {fileID: 1389128745}
+      objectReference: {fileID: 11868799}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchFilter
       value: 
-      objectReference: {fileID: 1467449236}
+      objectReference: {fileID: 1167351434}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchIconVfx
       value: 
-      objectReference: {fileID: 1022700745}
+      objectReference: {fileID: 673054185}
     - target: {fileID: 3426643511485465010, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchContinue
       value: 
@@ -24323,11 +24328,11 @@ PrefabInstance:
     - target: {fileID: 8824464932475558587, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchVfx
       value: 
-      objectReference: {fileID: 1022700745}
+      objectReference: {fileID: 673054185}
     - target: {fileID: 8824464932475558587, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: stopwatchFilter
       value: 
-      objectReference: {fileID: 144397638}
+      objectReference: {fileID: 1663490203}
     - target: {fileID: 8824464933182293961, guid: 7ac353848683d324ea1644be9550573d, type: 3}
       propertyPath: m_Camera
       value: 
@@ -24436,6 +24441,14 @@ PrefabInstance:
       propertyPath: arrowStartingColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: chicken
+      value: 
+      objectReference: {fileID: 37393045}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: chickenExit
+      value: 
+      objectReference: {fileID: 1797976224}
     m_RemovedComponents:
     - {fileID: 8824464932475558558, guid: 7ac353848683d324ea1644be9550573d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
@@ -24485,5 +24498,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9936468e8f6974cbd44ce1ce0d3500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopwatchVfx: {fileID: 144397638}
-  stopwatchFilter: {fileID: 1467449236}
+  stopwatchVfx: {fileID: 1663490203}
+  stopwatchFilter: {fileID: 1167351434}
