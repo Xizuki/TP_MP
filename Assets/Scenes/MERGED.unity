@@ -394,6 +394,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 147964086966817350, guid: ab80c55eca615ec45aa7e45fc6c9c7c5, type: 3}
   m_PrefabInstance: {fileID: 23461259}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &23461262 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2231385847052364573, guid: ab80c55eca615ec45aa7e45fc6c9c7c5, type: 3}
+  m_PrefabInstance: {fileID: 23461259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &37393045 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3958870913568760677, guid: 19bf30c444ceac14e95da9e88bc9e274, type: 3}
@@ -8147,6 +8152,11 @@ PrefabInstance:
 --- !u!198 &538713436 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 147964086966817350, guid: ab80c55eca615ec45aa7e45fc6c9c7c5, type: 3}
+  m_PrefabInstance: {fileID: 538713435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &538713437 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2231385847052364573, guid: ab80c55eca615ec45aa7e45fc6c9c7c5, type: 3}
   m_PrefabInstance: {fileID: 538713435}
   m_PrefabAsset: {fileID: 0}
 --- !u!21 &540108717
@@ -22796,6 +22806,22 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: arrowEndPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: arrowEndPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 538713437}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: arrowEndPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 23461262}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: arrowEndPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1837454356}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: jumpChargeScreenVFXScaleDiff
       value: 0.25
       objectReference: {fileID: 0}
@@ -30302,6 +30328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04067ec6982b2bd40a3ad884c7239772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1837454356 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2231385847052364573, guid: ab80c55eca615ec45aa7e45fc6c9c7c5, type: 3}
+  m_PrefabInstance: {fileID: 1837454354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1842627491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7400043471724790587, guid: 9a098c2fdbd416148b075f6f7ebcdc86, type: 3}
@@ -35625,6 +35656,10 @@ PrefabInstance:
       propertyPath: maxChargeParticleOut
       value: 
       objectReference: {fileID: 1249118504}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: jumpChargeSpeedCurrent
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8824464932475558558, guid: 7ac353848683d324ea1644be9550573d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}

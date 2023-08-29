@@ -80,6 +80,7 @@
 
 
 
+using Nyp.Razor.Spectrum;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -119,6 +120,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         baseArrowScale = playerUI.arrows[0].GetComponentInChildren<RectTransform>().localScale.x;
 
         arrowsCharged = new bool[playerUI.arrows.Length];
+
     }
 
     // Update is called once per frame
@@ -134,6 +136,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
 
     public bool[] arrowsCharged;
+    public Transform[] arrowEndPoints;
 
     public void CameraEnlargeOnCharge()
     {
@@ -169,10 +172,13 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
 
         Color interpolatedColor = Color.Lerp(playerUI.startingColor, playerUI.endColor, jumpChargeValueStorage4ScreenVFX);
+        interpolatedColor = SetColor(jumpChargeValueStorage4ScreenVFX);
 
         for (int i = 0; i < playerUI.arrows.Length; i++)
         {
             playerUI.arrows[i].fillImage.color = interpolatedColor;
+            if(i > 0)
+                playerUI.arrows[i].transform.position = arrowEndPoints[i - 1].position;
 
             if (jumpChargeValue <= 0)
             {
@@ -192,12 +198,14 @@ public class JumpingPlayerCameraScript : MonoBehaviour
                     playerUI.arrowCellsChargedVFX[i].gameObject.SetActive(true);
                     playerUI.arrowCellsChargedVFX[i].Play();
                     playerUI.arrowCellsChargedVFX[i].startColor = interpolatedColor;
+
                     //playerUI.arrowCellsChargedVFX[i].startColor = Color.green;
 
                     //playerUI.arrowCellsChargedVFX[i].startRotation = playerUI.jumpingVectorIndicator.transform.rotation.eulerAngles.z / (180.0f / Mathf.PI);
 
                 }
             }
+ 
 
             float dividedJumpCharge = cellMaxCharge;
 
@@ -222,6 +230,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             float jumpChargeArrowScaleValue = (1 + ((dividedJumpCharge) * jumpChargeArrowScaleDiff)) * baseArrowScale;
 
             playerUI.arrows[i].GetComponent<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+
             //playerUI.arrows[i].fillImage.color = Color.Lerp(playerUI.startingColor, playerUI.endColor, dividedJumpCharge);
 
 
@@ -229,6 +238,22 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         }
 
 
+    }
+
+    public Color SetColor(float jumpCharge)
+    {
+
+
+        Gradient colorGradient = new Gradient();
+        colorGradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.red, 0.3f), new GradientColorKey(Color.yellow, 0.65f), new GradientColorKey(Color.green, 1) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1, 1), new GradientAlphaKey(1, 1)} );
+
+
+        // Calculate the color for the current temperature
+        Color color = colorGradient.Evaluate(jumpCharge);
+
+        return color;
     }
     public void CameraPositioning()
     {

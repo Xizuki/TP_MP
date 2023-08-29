@@ -152,6 +152,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         //vfx.duration =3f - (player.jumpCharge * 1.5f);
        
     }
+
     // Update is called once per frame
     void LateUpdate()
     {
@@ -159,7 +160,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
         if (player.jumpCharge > 0)
             // Interpolate the color between startColor and endColor based on the interpolationValue
-            interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
+            //interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
+
         // Assign the interpolated color to the renderer component
         sliderColor1.color = interpolatedColor;
         sliderColor2.color = interpolatedColor;
@@ -237,5 +239,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
 
     }
-  
+
+   
+
+
 }
