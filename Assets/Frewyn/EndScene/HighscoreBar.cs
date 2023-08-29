@@ -43,12 +43,13 @@ public class HighscoreBar : MonoBehaviour
 
 
         SetFill();
-        if (endScene.progressBars[endScene.timesPlayed] == this)
-        {
+        SetScoreText();
+        //if (endScene.progressBars[EndScene.timesPlayed] == this)
+        //{
            
-            SetScoreText();
+        //    SetScoreText();
           
-        }
+        //}
     }
 
 
