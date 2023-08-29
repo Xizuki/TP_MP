@@ -32091,7 +32091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464933198582657}
   m_LocalRotation: {x: -0.1189176, y: 0.69703543, z: 0.12274788, w: 0.6963715}
-  m_LocalPosition: {x: 0.0007122756, y: 0.0221394, z: 0.25608668}
+  m_LocalPosition: {x: 0.0007122756, y: 0.02213952, z: 0.25608662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32389,10 +32389,11 @@ GameObject:
   - component: {fileID: 4878284276289323204}
   - component: {fileID: 8824464932475558569}
   - component: {fileID: 8824464932475558560}
-  - component: {fileID: 8824464932475558558}
   - component: {fileID: 8824464932475558568}
   - component: {fileID: 8824464932475558577}
   - component: {fileID: 8824464932475558587}
+  - component: {fileID: 5247329585529956501}
+  - component: {fileID: 2936057049445953901}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -32662,21 +32663,6 @@ MonoBehaviour:
   raycastLine2: {fileID: 1537212499}
   mainCamera: {fileID: 0}
   distanceSet: 1000
---- !u!114 &8824464932475558558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipeName: MyNamedPipe
-  jumpingPlayer: {fileID: 8824464933389489938}
-  connected: 0
 --- !u!114 &8824464932475558568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32713,6 +32699,38 @@ MonoBehaviour:
   outlineWidth: 0
   chargeInitial: 1
 --- !u!114 &8824464932475558587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9936468e8f6974cbd44ce1ce0d3500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopwatchVfx: {fileID: 0}
+  stopwatchFilter: {fileID: 0}
+--- !u!114 &5247329585529956501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 8824464933389489938}
+  colliderInv: {fileID: 8824464932475558569}
+  explosion: {fileID: 535729279713804870}
+  outlineScript: {fileID: 1267350524}
+  outlineWidth: 0
+  chargeInitial: 1
+--- !u!114 &2936057049445953901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33721,6 +33739,26 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &5231794317130295556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442282040675875545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!114 &8126881681579986344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33741,7 +33779,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &5231794317130295556
+--- !u!114 &3495318143480649905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33997,6 +34035,26 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
 --- !u!114 &5681532455750536708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951376781551253131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &8834592335680693421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
