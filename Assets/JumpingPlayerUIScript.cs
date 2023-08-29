@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Nyp.Razor.Spectrum;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(JumpingPlayerScript))]
 public class JumpingPlayerUIScript : MonoBehaviour
@@ -68,9 +69,24 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
         
     }
+     public Color SetColor(float jumpCharge)
+    {
 
+
+        Gradient colorGradient = new Gradient();
+        colorGradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.red, 0.3f), new GradientColorKey(Color.yellow, 0.65f), new GradientColorKey(Color.green, 1) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1, 1), new GradientAlphaKey(1, 1)} );
+
+
+        // Calculate the color for the current temperature
+        Color color = colorGradient.Evaluate(jumpCharge);
+
+        return color;
+    }
     private void FixedUpdate()
     {
+        interpolatedColor = SetColor(player.jumpCharge);
         //float cellMaxCharge = 0.33f;
         //float jumpChargeValue = player.jumpCharge;
         //print("jumpChargeValue = " + jumpChargeValue);
@@ -147,8 +163,13 @@ public class JumpingPlayerUIScript : MonoBehaviour
         //interpolateParticle[6].startColor = interpolatedColor;
         jumpChargeSlider.value = player.jumpCharge;
         jumpChargeArrow.value = player.jumpCharge;
-        var vfx = chargePulseVFX.main;
-        vfx.startLifetime = 2+ (player.jumpCharge * 3);
+
+
+
+        //var vfx = chargePulseVFX.main;
+        //vfx.startLifetime = 2+ (player.jumpCharge * 3);
+
+
         //vfx.duration =3f - (player.jumpCharge * 1.5f);
        
     }

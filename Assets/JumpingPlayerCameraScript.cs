@@ -137,7 +137,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
     public bool[] arrowsCharged;
     public Transform[] arrowEndPoints;
-
+    bool arrowScalingStarted;
     public void CameraEnlargeOnCharge()
     {
         // NEED BETTER WAY TO DO THIS, EASING VARIABLES
@@ -165,18 +165,36 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
 
 
-
+        bool arrowPulsing = false;
         float cellMaxCharge = 0.33f;
         float jumpChargeValue = jumpChargeValueStorage4ScreenVFX;
         print("jumpChargeValue = " + jumpChargeValue);
 
 
-        Color interpolatedColor = Color.Lerp(playerUI.startingColor, playerUI.endColor, jumpChargeValueStorage4ScreenVFX);
-        interpolatedColor = SetColor(jumpChargeValueStorage4ScreenVFX);
+        //playerUI.interpolatedColor = Color.Lerp(playerUI.startingColor, playerUI.endColor, jumpChargeValueStorage4ScreenVFX);
+        Color interpolatedColor = playerUI.SetColor(jumpChargeValueStorage4ScreenVFX);
+
+
+        if (jumpChargeValue <= 0.995f)
+        {
+            //playerUI.chargePulseVFX.gameObject.SetActive(false);
+            playerUI.chargePulseVFX.Stop();
+            arrowPulsing = false;
+        }
+        else
+        {
+            arrowPulsing = true;
+            //playerUI.chargePulseVFX.gameObject.SetActive(true);
+            playerUI.chargePulseVFX.Play();
+
+        }
+
+
+
 
         for (int i = 0; i < playerUI.arrows.Length; i++)
         {
-            playerUI.arrows[i].fillImage.color = interpolatedColor;
+            playerUI.arrows[i].fillImage.color = playerUI.interpolatedColor;
             if(i > 0)
                 playerUI.arrows[i].transform.position = arrowEndPoints[i - 1].position;
 
@@ -191,13 +209,14 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
             if (jumpChargeValue > cellMaxCharge)
             {
+                
                 if (!arrowsCharged[i])
                 {
 
                     arrowsCharged[i] = true;
                     playerUI.arrowCellsChargedVFX[i].gameObject.SetActive(true);
                     playerUI.arrowCellsChargedVFX[i].Play();
-                    playerUI.arrowCellsChargedVFX[i].startColor = interpolatedColor;
+                    playerUI.arrowCellsChargedVFX[i].startColor = playerUI.interpolatedColor;
 
                     //playerUI.arrowCellsChargedVFX[i].startColor = Color.green;
 
@@ -234,27 +253,57 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             //playerUI.arrows[i].fillImage.color = Color.Lerp(playerUI.startingColor, playerUI.endColor, dividedJumpCharge);
 
 
+
             // >> 
         }
 
 
+        float arrowScale = (1 + jumpChargeArrowScaleDiff)*(baseArrowScale);
+
+
+        if (arrowPulsing)
+        {
+            if (!arrowScalingStarted)
+            {
+                foreach (ImageProgressBar arrow in playerUI.arrows)
+                {
+                    arrow.GetComponent<PulsingScaleScript>().timeElapsed = 0;
+                }
+                    
+                arrowScalingStarted = true;
+            }
+            foreach (ImageProgressBar arrow in playerUI.arrows)
+            {
+                arrow.GetComponent<PulsingScaleScript>().initialScale = new Vector3(arrowScale, arrowScale, arrowScale);
+                
+               
+
+                arrow.GetComponent<PulsingScaleScript>().hasStarted = true;
+                arrow.GetComponent<PulsingScaleScript>().stoppingStarted = false;
+
+            }
+
+        }
+        else
+        {
+            foreach (ImageProgressBar arrow in playerUI.arrows)
+            {
+                if (jumpingPlayer.jumpCharge > 0)
+                {
+                    arrow.GetComponent<PulsingScaleScript>().initialScale = new Vector3(arrowScale, arrowScale, arrowScale); ;
+                    arrow.GetComponent<PulsingScaleScript>().stoppingStarted = true;
+                }
+                else
+                {
+                    arrow.GetComponent<PulsingScaleScript>().forceStop = true;
+                    arrow.GetComponent<RectTransform>().localScale = new Vector3(baseArrowScale, baseArrowScale, baseArrowScale);
+                }
+                arrowScalingStarted = false;
+            }
+        }
     }
 
-    public Color SetColor(float jumpCharge)
-    {
 
-
-        Gradient colorGradient = new Gradient();
-        colorGradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.red, 0.3f), new GradientColorKey(Color.yellow, 0.65f), new GradientColorKey(Color.green, 1) },
-            new GradientAlphaKey[] { new GradientAlphaKey(1, 1), new GradientAlphaKey(1, 1)} );
-
-
-        // Calculate the color for the current temperature
-        Color color = colorGradient.Evaluate(jumpCharge);
-
-        return color;
-    }
     public void CameraPositioning()
     {
         float currentY = jumpingPlayer.transform.position.y;
