@@ -16036,11 +16036,11 @@ PrefabInstance:
     - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 1769224324}
+      objectReference: {fileID: 1990801350}
     - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: UI2
       value: 
-      objectReference: {fileID: 208244482}
+      objectReference: {fileID: 348705975}
     - target: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: camAnim
       value: 
@@ -16109,6 +16109,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1988791692}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 8824464932475558592}
+    - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: jumpingPlayer
+      value: 
+      objectReference: {fileID: 8824464932475558557}
     - target: {fileID: 3463168326649054200, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: jumpChargeFOVDiff
       value: 10
@@ -16223,7 +16231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021441825985123749, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5281566836302681612, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
@@ -16343,7 +16351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8804181651911078946, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a56b90f6be26800449ae89250555594b, type: 3}
@@ -24500,3 +24508,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopwatchVfx: {fileID: 1663490203}
   stopwatchFilter: {fileID: 1167351434}
+--- !u!114 &8824464932475558592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8824464933389489937, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+  m_PrefabInstance: {fileID: 8824464932475558556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988791692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f81cb93dc400924ca1ce31c67fc82b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
