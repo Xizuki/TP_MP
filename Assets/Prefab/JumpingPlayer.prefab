@@ -245,7 +245,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5394745
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -19903,7 +19903,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: 0.0000005215405, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.7487399, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3269791097378950790}
   - {fileID: 4290326583599073326}
@@ -32091,7 +32091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464933198582657}
   m_LocalRotation: {x: -0.1189176, y: 0.69703543, z: 0.12274788, w: 0.6963715}
-  m_LocalPosition: {x: 0.00071239483, y: 0.0221394, z: 0.25608662}
+  m_LocalPosition: {x: 0.0007122756, y: 0.0221394, z: 0.25608668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32391,6 +32391,8 @@ GameObject:
   - component: {fileID: 8824464932475558560}
   - component: {fileID: 8824464932475558558}
   - component: {fileID: 8824464932475558568}
+  - component: {fileID: 8824464932475558577}
+  - component: {fileID: 8824464932475558587}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -32469,8 +32471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpingPlayerChildrenModel: {fileID: 8824464932080693802}
   playerUI: {fileID: 8824464933389489937}
-  rb: {fileID: 0}
-  fullChargeHit: {fileID: 0}
+  rb: {fileID: 8824464933389489939}
+  fullChargeHit: {fileID: 8824464932475558560}
   lineLength: 10
   checkLandSound: 0
   checkMaxChargeSoundSfx: 0
@@ -32490,7 +32492,7 @@ MonoBehaviour:
   chargeTapParticle: {fileID: 0}
   chargeTapParticle2: {fileID: 0}
   maxParticle: {fileID: 0}
-  maxChargeParticleOut: {fileID: 8697771211013253392}
+  maxChargeParticleOut: {fileID: 7234010463145113178}
   maxChargeParticleIn: {fileID: 1062515947415207743}
   animator: {fileID: 8824464932080693796}
   chicken: {fileID: 0}
@@ -32558,6 +32560,12 @@ MonoBehaviour:
   faceForward: {x: 0, y: 0, z: 270}
   normalShiba: {fileID: 0}
   stunShiba: {fileID: 0}
+  lineRenderer: {fileID: 2775951068022863847}
+  arrows: []
+  enlargeArrowsScalar: 0
+  vibrationScalar: 0
+  arrowCellsChargedVFX: []
+  arrowCellsChargedSFX: {fileID: 0}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32570,7 +32578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c890c2f7e8cf549a232c296cdb43fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8824464933389489938}
   isActivated: 0
   slowMultiplyer: 2
   cactusEnemies: []
@@ -32582,7 +32590,7 @@ MonoBehaviour:
   stopwatchEndVfx: {fileID: 0}
   stopwatchIconVfx: {fileID: 0}
   stopwatchEndSfx: {fileID: 0}
-  stopwatchEnd: {fileID: 0}
+  stopwatchEnd: {fileID: 8300000, guid: e6b6a7b3466997648827a1c16e1c8080, type: 3}
   stopwatchHasEnd: 0
   snowWeatherSpd: 0
   snowWeatherVfx: {fileID: 0}
@@ -32598,15 +32606,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f82d01737c1c24eae3e4b31688375f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8824464933389489938}
   isActivated: 0
   auraShield: {fileID: 535729279713804870}
   sliderFill: {fileID: 0}
   delay: 0
   timer: 0
-  shieldPickup: {fileID: 0}
+  shieldPickup: {fileID: 4184638575055179162}
+  pickUpParticle: 0
   shieldVfx: {fileID: 0}
   shieldIconVfx: {fileID: 0}
+  shieldBGVFX: {fileID: 0}
 --- !u!114 &4878284276289323204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32619,7 +32629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ac9a4328be9d540918fe2c60fa8f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 0}
+  jumpingPlayer: {fileID: 8824464933389489938}
   controlType: 2
   option3JumpVectorLimit: 0
 --- !u!135 &8824464932475558569
@@ -32647,7 +32657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9650c7df3de3d9444aa8d9afe4f57571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 0}
+  jumpingPlayer: {fileID: 8824464933389489938}
   raycastLine: {fileID: 1863692336}
   raycastLine2: {fileID: 1537212499}
   mainCamera: {fileID: 0}
@@ -32659,13 +32669,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625bd37e230047c4b90403ca9ed85ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pipeName: MyNamedPipe
-  jumpingPlayer: {fileID: 0}
+  jumpingPlayer: {fileID: 8824464933389489938}
+  connected: 0
 --- !u!114 &8824464932475558568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32683,6 +32694,38 @@ MonoBehaviour:
   releasePosition: {fileID: 8824464933389489933}
   linePoints: 100
   timeBetweenPoints: 0.01
+--- !u!114 &8824464932475558577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 8824464933389489938}
+  colliderInv: {fileID: 8824464932475558569}
+  explosion: {fileID: 535729279713804870}
+  outlineScript: {fileID: 1267350524}
+  outlineWidth: 0
+  chargeInitial: 1
+--- !u!114 &8824464932475558587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824464933389489936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9936468e8f6974cbd44ce1ce0d3500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopwatchVfx: {fileID: 0}
+  stopwatchFilter: {fileID: 0}
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0
@@ -33698,6 +33741,26 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &5231794317130295556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442282040675875545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &6072721766101372378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33709,6 +33772,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buff_01b
       objectReference: {fileID: 0}
+    - target: {fileID: 7950109918404460608, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950109918404460608, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950109918404460608, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
+      propertyPath: simulationSpeed
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8125191225477324522, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -33719,7 +33794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8125191225477324522, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.494
       objectReference: {fileID: 0}
     - target: {fileID: 8125191225477324522, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33758,6 +33833,11 @@ PrefabInstance:
 --- !u!4 &2631472291429684016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8125191225477324522, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
+  m_PrefabInstance: {fileID: 6072721766101372378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4184638575055179162 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7950109918404460608, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
   m_PrefabInstance: {fileID: 6072721766101372378}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6864308503855726889
@@ -33916,6 +33996,26 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &5681532455750536708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951376781551253131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &8624204839027194944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33926,6 +34026,10 @@ PrefabInstance:
     - target: {fileID: 1426245440731515418, guid: ffdfb7851a968494f8fe76ee88f3791a, type: 3}
       propertyPath: stopAction
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426245440731515418, guid: ffdfb7851a968494f8fe76ee88f3791a, type: 3}
+      propertyPath: lengthInSec
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1426245440731515418, guid: ffdfb7851a968494f8fe76ee88f3791a, type: 3}
       propertyPath: playOnAwake
@@ -34068,6 +34172,11 @@ PrefabInstance:
 --- !u!4 &4899575853630618143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3769969031047562847, guid: ffdfb7851a968494f8fe76ee88f3791a, type: 3}
+  m_PrefabInstance: {fileID: 8624204839027194944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7234010463145113178 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1426245440731515418, guid: ffdfb7851a968494f8fe76ee88f3791a, type: 3}
   m_PrefabInstance: {fileID: 8624204839027194944}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8824464933256946940
@@ -34214,6 +34323,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198858562690846188, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.078431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 198858562690846188, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.79683065
       objectReference: {fileID: 0}
@@ -34239,11 +34352,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
---- !u!198 &8697771211013253392 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198858562690846188, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
-  m_PrefabInstance: {fileID: 8824464933256946940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8825237583450871306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299952606933750, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}

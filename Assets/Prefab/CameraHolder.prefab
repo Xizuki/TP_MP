@@ -572,7 +572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea6be352680af349869d5264d471fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  jumpingPlayer: {fileID: 0}
+  playerUI: {fileID: 0}
   yOffset: -2
   highestY: 0
   platformHeightOffset: 1
@@ -585,7 +586,10 @@ MonoBehaviour:
   jumpChargeFOVDiff: 7.5
   jumpChargeScreenVFXScaleDiff: 0
   jumpChargeArrowScaleDiff: 0
+  jumpChargeArrowPositionDiff: 0
+  jumpChargeValueStorage4Arrow: 0
   jumpChargeScreenVFX: {fileID: 0}
+  arrowsCharged: 
 --- !u!114 &1710801984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 3463168327283722738}
-  audio2: {fileID: 0}
+  audio2: {fileID: 7998494958856113217}
   scoreSfx: {fileID: 8300000, guid: 14926d4fd131fc04e82a640c62219c5a, type: 3}
   landSfx: {fileID: 8300000, guid: 801afc680ad9e4d47b9cca610cbcf866, type: 3}
   jumpSfx: {fileID: 8300000, guid: 3af25a02ec55e9941849d37dec37d6c8, type: 3}
@@ -691,7 +695,7 @@ MonoBehaviour:
   fallingVoice: {fileID: 8300000, guid: 5d02faa0f3ea69640b09d20d9e97e901, type: 3}
   chargingSound: {fileID: 8300000, guid: d5d6eab54a7565b4385573fe25e449da, type: 3}
   contiCharge: {fileID: 8300000, guid: 707c299a6890a39459d4197a6c7251b5, type: 3}
-  performance: {fileID: 0}
+  performance: {fileID: 7998494958856113219}
   sfxVolume: 50
   sfxVolume2: 0
 --- !u!82 &3463168327283722738
@@ -1532,5 +1536,15 @@ PrefabInstance:
 --- !u!4 &7998494958856113216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2137670145666200431, guid: 1bbe8ee612126ab408f13f81ae6fc44f, type: 3}
+  m_PrefabInstance: {fileID: 8262657682049810223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7998494958856113217 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2137670145666200430, guid: 1bbe8ee612126ab408f13f81ae6fc44f, type: 3}
+  m_PrefabInstance: {fileID: 8262657682049810223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7998494958856113219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2137670145666200428, guid: 1bbe8ee612126ab408f13f81ae6fc44f, type: 3}
   m_PrefabInstance: {fileID: 8262657682049810223}
   m_PrefabAsset: {fileID: 0}
