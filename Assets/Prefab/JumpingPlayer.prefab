@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b71fd5c4decb5044baa5dad79ac600b1, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -24691,7 +24691,7 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 2
 --- !u!1 &5732027882591664188
 GameObject:
   m_ObjectHideFlags: 0
@@ -32558,6 +32558,12 @@ MonoBehaviour:
   faceForward: {x: 0, y: 0, z: 270}
   normalShiba: {fileID: 0}
   stunShiba: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  arrows: []
+  enlargeArrowsScalar: 0
+  vibrationScalar: 0
+  arrowCellsChargedVFX: []
+  arrowCellsChargedSFX: {fileID: 0}
 --- !u!114 &3426643511485465010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32605,8 +32611,10 @@ MonoBehaviour:
   delay: 0
   timer: 0
   shieldPickup: {fileID: 0}
+  pickUpParticle: 0
   shieldVfx: {fileID: 0}
   shieldIconVfx: {fileID: 0}
+  shieldBGVFX: {fileID: 0}
 --- !u!114 &4878284276289323204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32666,6 +32674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipeName: MyNamedPipe
   jumpingPlayer: {fileID: 0}
+  connected: 0
 --- !u!114 &8824464932475558568
 MonoBehaviour:
   m_ObjectHideFlags: 0
