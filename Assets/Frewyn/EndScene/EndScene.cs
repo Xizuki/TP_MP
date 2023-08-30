@@ -120,7 +120,8 @@ public class EndScene : MonoBehaviour
     {
         progressBars[timesPlayed].score = Score.score;
 
-        scoreText.text = "Total Score: " + Mathf.Round(Score.score);
+        scoreText.text = Mathf.Round(Score.score).ToString();
+
     }
 
     void SetScoreForLoop()//Save the current score to progress bar
@@ -151,7 +152,7 @@ public class EndScene : MonoBehaviour
             }
         }
 
-        scoreText.text = "Total Score: " + Mathf.Round(Score.score);
+        scoreText.text = Mathf.Round(Score.score).ToString();
     }
 
 
@@ -201,7 +202,7 @@ public class EndScene : MonoBehaviour
             else if(endScreenTimer<= 0)
             {
                 Debug.Log("Close end scene");
-                //objectEndScene.SetActive(false);
+                objectEndScene.SetActive(false);
                 NextScene();
                 StopCoroutine(Countdown());
             }
