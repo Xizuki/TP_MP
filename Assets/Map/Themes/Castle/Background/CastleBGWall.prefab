@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1392287974014069725}
   - component: {fileID: 1392287974014069724}
   - component: {fileID: 1392287974014069723}
-  - component: {fileID: 1392287974014069722}
   - component: {fileID: 1392287974014069726}
   - component: {fileID: -2319510659712478229}
   m_Layer: 0
@@ -86,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1392287974014069722
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392287974014069721}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1392287974014069726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12495c1970997884588655edb69f6699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderQueue: 3002
 --- !u!114 &-2319510659712478229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896e9d5d4e781614da7f120e918c97de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis: 0
+  zAxisInclude: 0
   sourceMat: {fileID: 2100000, guid: 6a0e1dc5e954f3647be09ab493a91730, type: 2}
   matInstance: {fileID: 0}
   scale: 0

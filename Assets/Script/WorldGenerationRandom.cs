@@ -29,17 +29,14 @@ public class WorldGenerationRandom : MonoBehaviour
 
     void RoomSpawn()
     {
-        spawnTop = GameObject.Instantiate(spawnRoom[roomType], spawnTop.transform.position,
-        spawnTop.transform.rotation).GetComponentInChildren<SpawnTopScript>().gameObject;
-        roomType += 1;
+        GameObject GO = GameObject.Instantiate(spawnRoom[Random.Range(0, spawnRoom.Count)], spawnTop.transform.position,
+        spawnTop.transform.rotation);
 
-        if (roomType >= 3)
-        {        
-            Debug.Log(roomType);
+        spawnTop = GO.GetComponentInChildren<SpawnTopScript>().gameObject;
 
-            roomType = 0;
-            Debug.Log("hit");
+        if(GO.GetComponent<XI_TextureParent>()) 
+        {
+            GO.GetComponent<XI_TextureParent>().GenerateAllMaterialInstance();
         }
-        spawnedRooms = spawnedRooms + 1;
     }
 }

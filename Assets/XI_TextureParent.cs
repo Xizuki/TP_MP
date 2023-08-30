@@ -19,11 +19,14 @@ public class XI_TextureParent : MonoBehaviour
     [ContextMenu("Generate Material Instance")]
     public void GenerateAllMaterialInstance()
     {
-        Xi_TextureAutoTiling[] scripts = GameObject.FindObjectsOfType<Xi_TextureAutoTiling>();
-
-        foreach(Xi_TextureAutoTiling s in scripts)
+        
         {
-            s.GenerateMatInstance();
+             Component[] scripts = GetComponentsInChildren<Xi_TextureAutoTiling>();
+            foreach (Component s in scripts)
+            {
+                s.GetComponent<Xi_TextureAutoTiling>().GenerateMatInstance();
+            }
         }
+        
     }
 }
