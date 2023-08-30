@@ -53,9 +53,9 @@ namespace Menu
        
             dictionary.AddToButtonDictionary("EnemyProjectileSpeed", new List<Image>(enemyProjectileSpeed));
 
-            dictionary.AddToButtonDictionary("Particles", new List<Image>(enemySpawnFrequency));
+            dictionary.AddToButtonDictionary("Particles", new List<Image>(particles));
 
-            dictionary.AddToButtonDictionary("ScreenShake", new List<Image>(enemyProjectileSpeed));
+            dictionary.AddToButtonDictionary("ScreenShake", new List<Image>(screenShake));
 
 
 

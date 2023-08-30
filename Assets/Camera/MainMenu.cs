@@ -81,14 +81,14 @@ public class MainMenu : MonoBehaviour
     {
         print("Scene Loading");
         yield return new WaitForSeconds(5.75f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
 
     }
 
     IEnumerator SkipIntro()
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     public void SkipIntroMain()

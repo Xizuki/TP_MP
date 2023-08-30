@@ -46,6 +46,10 @@ namespace Menu
 
             CheckDifficulty("PowerupSpawnFrequency");
 
+            CheckOnOff("Particles");
+
+            CheckOnOff("ScreenShake");
+
             CheckOnOff("Mute");
 
         }
@@ -85,7 +89,7 @@ namespace Menu
 
             CheckDifficulty("PlayerJumpHeight");
 
-            CheckDifficulty("EnemySpawnFrequency");
+            CheckDifficulty("EnemySpawnFrequency"); 
             CheckDifficulty("EnemyMovementSpeed");
             CheckDifficulty("EnemyProjectileSpeed");
             CheckOnOff("EnemyDisappearOnAttack");
