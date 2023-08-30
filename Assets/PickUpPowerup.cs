@@ -11,7 +11,9 @@ public class PickUpPowerup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stopwatchVfx = GameObject.FindGameObjectWithTag("StopWatchVFX");
         stopwatchVfx.SetActive(false);
+        stopwatchFilter = GameObject.FindGameObjectWithTag("StopWatchFilter");
         stopwatchFilter.SetActive(false);
     }
 
