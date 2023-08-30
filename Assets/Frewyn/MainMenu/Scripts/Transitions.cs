@@ -29,6 +29,13 @@ public class Transitions : MonoBehaviour
     [SerializeField]
     private DictionaryVolumeSettings soundSettingsScript;
 
+    private void Awake()
+    {
+        gameplaySettingsScript = FindObjectOfType<Dictionary_GameplaySettings>();
+
+        soundSettingsScript = FindObjectOfType<DictionaryVolumeSettings>();
+    }
+
 
 
 

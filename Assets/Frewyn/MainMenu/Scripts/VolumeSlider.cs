@@ -25,6 +25,12 @@ namespace menu
         private float volumeMultiplier = 0.1f;
 
 
+        private void Awake()
+        {
+            dictionary = FindObjectOfType<DictionaryVolumeSettings>();
+        }
+
+
         private void Start()
         {
             volumeSlider.value = dictionary.SoundSettings["Volume"];

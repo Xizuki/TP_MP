@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //[SerializeField]
+    //private GameObject endSceneObject;
+
     [SerializeField]
-    private GameObject endSceneObject;
-  
+    private static GameManager instance;
 
-    void Start()
+
+    [SerializeField]
+    private SOScore soScore;
+
+    private void Awake()
     {
-        
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("j"))
+        if(instance!=null)
         {
-            Debug.Log("Change");
-            
-            endSceneObject.SetActive(true);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-  
+    private void OnApplicationQuit() 
+    {
+        
+        for(int i=0; i<soScore.scores.Length;i++) //Clears the scriptable object used to keep track of scores.
+        {
+            soScore.scores[i] = 0;
+        }
+          
+    }
+
+
+
+
 
 }
