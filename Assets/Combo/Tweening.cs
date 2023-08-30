@@ -19,7 +19,7 @@ public class Tweening : MonoBehaviour
     public void ScoreUp()
     {
 
-        LeanTween.scale(score, new Vector3(1f, 1f, 1f), 0.025f).setOnComplete(ScoreUp2).setEaseInCirc();
+        //LeanTween.scale(score, new Vector3(1f, 1f, 1f), 0.025f).setOnComplete(ScoreUp2).setEaseInCirc();
 
     }
 

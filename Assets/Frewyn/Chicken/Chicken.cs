@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using Nyp.Razor.Spectrum;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Chicken : MonoBehaviour
@@ -74,6 +75,7 @@ public class Chicken : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         jumpingPlayerScript = player.GetComponent<JumpingPlayerScript>();
         chickenRb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");

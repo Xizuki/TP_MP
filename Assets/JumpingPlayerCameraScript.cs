@@ -113,6 +113,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jumpChargeScreenVFX = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>().jumpChargeScreenVFX;
+
         jumpingPlayer = GameObject.FindObjectOfType<JumpingPlayerScript>();
         playerUI = jumpingPlayer.playerUI;
 

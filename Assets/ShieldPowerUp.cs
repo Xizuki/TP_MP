@@ -18,6 +18,15 @@ public class ShieldPowerUp : PowerUpScript
 
     private void Start()
     {
+        CanvasScript canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();
+        sliderFill = canvasScript.shieldSliderFill;
+
+
+        shieldVfx = canvasScript.shieldVfx;
+        shieldIconVfx = canvasScript.shieldIconVfx;
+        shieldBGVFX = canvasScript.shieldBGVFX;
+        shieldPickup = canvasScript.shieldPickup;
+
         shieldIconVfx.SetActive(false);
     }
 

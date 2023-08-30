@@ -12,9 +12,12 @@ public class PickUpPowerup : MonoBehaviour
     void Start()
     {
         stopwatchVfx = GameObject.FindGameObjectWithTag("StopWatchVFX");
-        stopwatchVfx.SetActive(false);
+        if(stopwatchVfx != null )
+            stopwatchVfx.SetActive(false);
+
         stopwatchFilter = GameObject.FindGameObjectWithTag("StopWatchFilter");
-        stopwatchFilter.SetActive(false);
+        if (stopwatchFilter != null)
+            stopwatchFilter.SetActive(false);
     }
 
     // Update is called once per frame

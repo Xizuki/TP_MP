@@ -33,6 +33,16 @@ public class StopWatchPowerUp : PowerUpScript
 
     public void Start()
     {
+        CanvasScript canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();
+        sliderFill = canvasScript.stopwatchSliderFill;
+
+
+        stopwatchFilter = canvasScript.stopwatchFilter;
+        stopwatchEndVfx = canvasScript.stopwatchEndVfx;
+        stopwatchIconVfx = canvasScript.stopwatchIconVfx;
+        stopwatchEndSfx = canvasScript.stopwatchEndSfx;
+        stopwatchEnd = canvasScript.stopwatchEnd;
+
         stopwatchHasEnd = true;
         snowWeatherVfx.speed = 0.75f;
         stopwatchIconVfx.SetActive(false);

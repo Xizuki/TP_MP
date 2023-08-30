@@ -28,6 +28,10 @@ public class PlatformManager : MonoBehaviour
     {
         XizukiMethods.GameObjects.Xi_Helper_GameObjects.MonoInitialization<PlatformManager>(ref instance, this);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+        CanvasScript canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();
+
+        scoreScript = canvasScript.scoreScript;
+        comboCountScript = canvasScript.comboScript;
     }
     // Start is called before the first frame update
     void Start()

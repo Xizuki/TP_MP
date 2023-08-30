@@ -56,6 +56,9 @@ public class JumpingPlayerUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        CanvasScript canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();   
+        normalShiba = canvasScript.normalShiba; stunShiba = canvasScript.stunShiba;
+
         player = GetComponent<JumpingPlayerScript>();
         outlineScript = GetComponentInChildren<Outline>();
         chargePulseVFX = GetComponentInChildren<ParticleSystem>();

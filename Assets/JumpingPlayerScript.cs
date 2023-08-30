@@ -545,7 +545,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
                 if (collision.gameObject.GetComponent<PlatformScript>() == true)
                 {
-                    if ((collision.impulse.magnitude / 35) <= 0) { return; }
+                    //if ((collision.impulse.magnitude / 35) <= 0) { return; }
                     PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
                     fullChargeHit.Landing(collision);
                     jumpChargePrev = 0;
