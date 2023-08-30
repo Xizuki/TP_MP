@@ -9,7 +9,7 @@ public class Tweening : MonoBehaviour
 
     public GameObject combo;
     public GameObject score;
-    public void ComboUp()
+    public void ComboUp() //Scale the combo to the indicated scale
     {
 
         LeanTween.scale(combo, new Vector3(0.75f, 0.75f, 0.75f), 0.025f).setOnComplete(ComboUp2).setEaseInCirc();
@@ -28,7 +28,7 @@ public class Tweening : MonoBehaviour
             LeanTween.scale(combo, new Vector3(1f, 1f, 1f), 0.05f).setOnComplete(ComboUp2).setEaseLinear();
         }*/
 
-    public void ComboUp2()
+    public void ComboUp2() //Scale the combo to this scale when called by SetOnComplete
     {
         LeanTween.scale(combo, new Vector3(1.2f, 1.25f, 1.25f), 0.1f).setLoopPingPong(1).setEaseOutCirc();
     }
