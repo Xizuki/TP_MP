@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndSceneButtons : MonoBehaviour
@@ -25,10 +26,10 @@ public class EndSceneButtons : MonoBehaviour
 
     [Header("Opacity")]
     [SerializeField]
-    private Color opaque = new Color(1.0f, 1.0f, 1.0f, 1f);
+    private Color chosen = new Color32(242, 165, 65, 255);
 
     [SerializeField]
-    private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+    private Color notChosen = new Color(255, 255, 255, 255);
 
 
     public enum Stage
@@ -43,15 +44,22 @@ public class EndSceneButtons : MonoBehaviour
 
 
 
+  
 
+    public void Testing()
+    {
+        SceneManager.LoadScene("Winter");
+
+
+    }
 
     public void CastleStage() //Sets chosen stage to x, changes opacity of all stage buttons
     {
         chosenStage = Stage.Castle;
 
-        castleStage.color = opaque;
-        forestStage.color = transparent;
-        winterStage.color = transparent;
+        castleStage.color = chosen;
+        forestStage.color = notChosen;
+        winterStage.color = notChosen;
 
     }
 
@@ -59,9 +67,9 @@ public class EndSceneButtons : MonoBehaviour
     {
         chosenStage = Stage.Forest;
 
-        castleStage.color = transparent;
-        forestStage.color = opaque;
-        winterStage.color = transparent;
+        castleStage.color = notChosen;
+        forestStage.color = chosen;
+        winterStage.color = notChosen;
 
     }
 
@@ -70,9 +78,9 @@ public class EndSceneButtons : MonoBehaviour
     {
         chosenStage = Stage.Winter;
 
-        castleStage.color = transparent;
-        forestStage.color = transparent;
-        winterStage.color = opaque;
+        castleStage.color = notChosen;
+        forestStage.color = notChosen;
+        winterStage.color = chosen;
     }
 
     public void NextSession()
@@ -84,6 +92,24 @@ public class EndSceneButtons : MonoBehaviour
         //endScene.ResetScene();
 
     }
+
+    public void GoForest()
+    {
+        SceneManager.LoadScene("Forest");
+
+
+    }
+
+    public void GoWinter()
+    {
+        SceneManager.LoadScene("Winter");
+
+
+    }
+
+
+
+
 
 
 }

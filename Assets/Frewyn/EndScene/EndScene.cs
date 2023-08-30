@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class EndScene : MonoBehaviour
 {
@@ -17,15 +18,16 @@ public class EndScene : MonoBehaviour
     private GameTimer gameTimerScript;
 
     [Header("Logic")]
-    public int timesPlayed; //How many scores there are, I.E how many times game has been completed
-    public Button tryAgain; 
-    public GameTimer gameTimer;
-
+    public static int timesPlayed; //How many scores there are, I.E how many times game has been completed
+ 
+ 
 
     public float highScore; //Current highestscore, the fill percentage of other bars are based on this score
 
     [Header("ProgresBars")]
     public HighscoreBar[] progressBars;
+    [Header("Scores")]
+    public SOScore soScore;
 
 
 
@@ -40,6 +42,8 @@ public class EndScene : MonoBehaviour
     private int endScreenTimerOriginal = 15;
     [SerializeField]
     private int endScreenTimer = 15;
+
+    public Button tryAgain;
 
     [Header("Text Objects")]
     [SerializeField]
@@ -63,13 +67,18 @@ public class EndScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Times Played: " + timesPlayed);
+
+        
       
 
     }
 
     private void OnEnable()
     {
-
+        scoreScript = FindObjectOfType<Score>();
+        comboCountScript = FindObjectOfType<ComboCount>();
+        gameTimerScript  = FindObjectOfType<GameTimer>();
 
         StartCoroutine(Countdown());//Countdown timer
  
@@ -79,13 +88,13 @@ public class EndScene : MonoBehaviour
 
         if (timesPlayed < 10)//If it goes beyond 10 sessions, starts overwriting score from session 1
         {
-            SetScore();
+            SetScoreForLoop();
             CheckHighscore();
         }
         else
         {
             timesPlayed = 0;
-            SetScore();
+            SetScoreForLoop();
             CheckHighscore();
         }
 
@@ -113,6 +122,38 @@ public class EndScene : MonoBehaviour
 
         scoreText.text = "Total Score: " + Mathf.Round(Score.score);
     }
+
+    void SetScoreForLoop()//Save the current score to progress bar
+    {
+
+        //scoreList[timesPlayed]=Score.score;
+
+
+        soScore.scores[timesPlayed]= Score.score;
+
+        if (timesPlayed == 0)
+        {
+            progressBars[timesPlayed].score = Score.score;
+        }
+        else 
+        {
+            for (int i = 0; i < timesPlayed+1; i++)
+            {
+                Debug.Log("For Loop running");
+   
+                progressBars[i].score = soScore.scores[i];
+
+                if (progressBars[i].score >highScore)
+                {
+                    highScore = progressBars[i].score;
+                }
+
+            }
+        }
+
+        scoreText.text = "Total Score: " + Mathf.Round(Score.score);
+    }
+
 
 
     public void ResetScene() //Sets score, combo and timer to orignal values... Resets stuff in canvas to original state
@@ -160,7 +201,8 @@ public class EndScene : MonoBehaviour
             else if(endScreenTimer<= 0)
             {
                 Debug.Log("Close end scene");
-                objectEndScene.SetActive(false);
+                //objectEndScene.SetActive(false);
+                NextScene();
                 StopCoroutine(Countdown());
             }
         }
