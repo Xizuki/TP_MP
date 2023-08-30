@@ -44,7 +44,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public Collider shibaCollider;
     public float moveSpeed;
-    public int hitStrength = 15;
+    public int hitStrength = 5;
     public int i = 0;
     public bool isGrounded;
     public bool isJumping;

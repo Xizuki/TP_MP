@@ -32387,11 +32387,9 @@ GameObject:
   - component: {fileID: 3426643511485465010}
   - component: {fileID: 683046005}
   - component: {fileID: 4878284276289323204}
-  - component: {fileID: 8824464932475558569}
   - component: {fileID: 8824464932475558560}
   - component: {fileID: 8824464932475558558}
   - component: {fileID: 8824464932475558568}
-  - component: {fileID: 8824464932475558577}
   - component: {fileID: 8824464932475558587}
   m_Layer: 0
   m_Name: JumpingPlayer
@@ -32583,6 +32581,14 @@ MonoBehaviour:
   slowMultiplyer: 2
   cactusEnemies: []
   mushroomEnemies: []
+  turtleEnemies: []
+  chestEnemies: []
+  eyeEnemies: []
+  cactusAnimator: []
+  eyeAnimator: []
+  chestAnimator: []
+  turtleAnimator: []
+  mushroomAnimator: []
   sliderFill: {fileID: 0}
   delay: 0
   timer: 0
@@ -32632,19 +32638,6 @@ MonoBehaviour:
   jumpingPlayer: {fileID: 8824464933389489938}
   controlType: 2
   option3JumpVectorLimit: 0
---- !u!135 &8824464932475558569
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.90203846
-  m_Center: {x: 0, y: 0.120470166, z: 0}
 --- !u!114 &8824464932475558560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32694,24 +32687,6 @@ MonoBehaviour:
   releasePosition: {fileID: 8824464933389489933}
   linePoints: 100
   timeBetweenPoints: 0.01
---- !u!114 &8824464932475558577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 8824464933389489938}
-  colliderInv: {fileID: 8824464932475558569}
-  explosion: {fileID: 535729279713804870}
-  outlineScript: {fileID: 1267350524}
-  outlineWidth: 0
-  chargeInitial: 1
 --- !u!114 &8824464932475558587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33721,7 +33696,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &8126881681579986344
+--- !u!114 &5231794317130295556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33741,7 +33716,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &5231794317130295556
+--- !u!114 &8126881681579986344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
