@@ -200,7 +200,8 @@ public class Chicken : MonoBehaviour
     public void TravelToPlatform()
     {
 
-        Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, startingPlatform.transform.position.z);
+        //Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, player.transform.position.z);
+        Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, player.transform.position.z);
         if (checkPointCreated == false)
         {
             if (checkPointInGame == null)

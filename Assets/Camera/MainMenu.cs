@@ -53,6 +53,15 @@ public class MainMenu : MonoBehaviour
         selectStage.SetActive(true);
     }
 
+    // QUICK CHANGE TO MAKE MENU WORKS
+    public void StartStage(string sceneName)
+    {
+        UI.SetActive(false);
+        selectStage.SetActive(true);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void CloseStage()
     {
         UI.SetActive(true);

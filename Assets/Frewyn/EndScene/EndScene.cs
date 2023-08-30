@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class EndScene : MonoBehaviour
 {

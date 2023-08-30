@@ -25,7 +25,7 @@ public class ShieldPowerUp : PowerUpScript
         shieldVfx = canvasScript.shieldVfx;
         shieldIconVfx = canvasScript.shieldIconVfx;
         shieldBGVFX = canvasScript.shieldBGVFX;
-        shieldPickup = canvasScript.shieldPickup;
+        //shieldPickup = canvasScript.shieldPickup;
 
         shieldIconVfx.SetActive(false);
     }

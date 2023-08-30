@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -43,6 +44,7 @@ namespace Menu
         {
             dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
 
+            if (!@FindObjectOfType<Dictionary_GameplaySettings>()) { SceneManager.LoadScene(0); }
 
 
 
