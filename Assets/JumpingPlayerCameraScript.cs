@@ -174,7 +174,6 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         bool arrowPulsing = false;
         float cellMaxCharge = 0.33f;
         float jumpChargeValue = jumpChargeValueStorage4ScreenVFX;
-        print("jumpChargeValue = " + jumpChargeValue);
 
 
         //playerUI.interpolatedColor = Color.Lerp(playerUI.startingColor, playerUI.endColor, jumpChargeValueStorage4ScreenVFX);

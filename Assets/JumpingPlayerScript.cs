@@ -44,7 +44,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public Collider shibaCollider;
     public float moveSpeed;
-    public int hitStrength = 15;
+    public int hitStrength = 5;
     public int i = 0;
     public bool isGrounded;
     public bool isJumping;
@@ -165,8 +165,6 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, -playerUI.jumpingVectorIndicator.transform.eulerAngles.z, 0);
 
-
-        Debug.Log(chargeCount);
         if (chargeCount < 0f)
         {
             chargeCount = 0f;
