@@ -77,7 +77,7 @@ public class Chicken : MonoBehaviour
         jumpingPlayerScript = player.GetComponent<JumpingPlayerScript>();
         chickenRb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-        playerDowned = true;
+        //playerDowned = true;
 
     }
 

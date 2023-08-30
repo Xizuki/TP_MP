@@ -79,6 +79,7 @@ public class ComboCount : MonoBehaviour
 
         if (combo <= 1)
         {
+            comboTxt.color = Color.white;
             ringLight.Play();
             ringLight.startColor = Color.gray;
             particles[particles.Count - 1].startColor = Color.gray;
@@ -88,6 +89,7 @@ public class ComboCount : MonoBehaviour
         }
         if (combo <= 9 && combo >= 2)
         {
+            comboTxt.color = Color.white;
             ringLight.startColor = Color.white;
             ringLight.maxParticles = 1;
             highCombo = false;

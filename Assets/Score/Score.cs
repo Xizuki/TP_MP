@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
         //{
         //    score = 0;
         //}
-        scoreTxt.text = "Score: " + Mathf.Round(score);
+        scoreTxt.text = Mathf.Round(score).ToString();
     }
 
     public void AddScore(float multiplyer, float platformYDistance)
@@ -30,6 +30,6 @@ public class Score : MonoBehaviour
 
         score += iterationScore;
 
-        scoreTxt.text = "Score: " + Mathf.Round(score);
+        scoreTxt.text = Mathf.Round(score).ToString();
     }
 }

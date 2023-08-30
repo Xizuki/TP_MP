@@ -71,7 +71,7 @@ public class FullChargeHit : MonoBehaviour
             {
                 if (hit.collider == null)
                 {
-                    //return;
+                    return;
                 }
                 else if(hit.collider.tag == "Enemy")
                 {

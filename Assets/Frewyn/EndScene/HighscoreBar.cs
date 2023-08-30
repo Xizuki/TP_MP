@@ -25,7 +25,7 @@ public class HighscoreBar : MonoBehaviour
     
 
 
-    void Start()
+    void Awake()
     {
         bar = GetComponent<Image>();
 
@@ -43,17 +43,18 @@ public class HighscoreBar : MonoBehaviour
 
 
         SetFill();
+       
         SetScoreText();
         //if (endScene.progressBars[EndScene.timesPlayed] == this)
         //{
            
-        //    SetScoreText();
+         SetScoreText();
           
         //}
     }
 
 
-    private void SetScoreText()
+    public void SetScoreText()
     {
         scoreTextObject.SetActive(true);
 
