@@ -22537,7 +22537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Cameras.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -29341,8 +29341,8 @@ MonoBehaviour:
   castleStage: {fileID: 1658331917}
   forestStage: {fileID: 1911730068}
   winterStage: {fileID: 1647167086}
-  opaque: {r: 1, g: 1, b: 1, a: 1}
-  transparent: {r: 1, g: 1, b: 1, a: 0.5}
+  chosen: {r: 0.9490196, g: 0.64705884, b: 0.25490198, a: 1}
+  notChosen: {r: 255, g: 255, b: 255, a: 255}
   chosenStage: 0
 --- !u!114 &1813409612
 MonoBehaviour:
@@ -29360,9 +29360,6 @@ MonoBehaviour:
   comboCountScript: {fileID: 211291428}
   endSceneButtons: {fileID: 1813409611}
   gameTimerScript: {fileID: 151649161}
-  timesPlayed: 0
-  tryAgain: {fileID: 1462180539}
-  gameTimer: {fileID: 151649161}
   highScore: 0
   progressBars:
   - {fileID: 1068899921}
@@ -29375,10 +29372,12 @@ MonoBehaviour:
   - {fileID: 1681671627}
   - {fileID: 1923729304}
   - {fileID: 1132753776}
+  soScore: {fileID: 0}
   objectEndScene: {fileID: 1813409610}
   playerUI: {fileID: 151649159}
   endScreenTimerOriginal: 5
   endScreenTimer: 5
+  tryAgain: {fileID: 1462180539}
   timerText: {fileID: 648648006}
   comboText: {fileID: 509122402}
   scoreText: {fileID: 187410681}

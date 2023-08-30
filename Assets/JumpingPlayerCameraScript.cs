@@ -167,6 +167,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         
         Camera.main.fieldOfView = jumpChargeFOVValue;
+        GameObject.FindGameObjectWithTag("OverlayCam").GetComponent<Camera>().fieldOfView = jumpChargeFOVValue;
 
 
 

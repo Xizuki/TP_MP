@@ -162,7 +162,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         //interpolateParticle[5].startColor = interpolatedColor;
         //interpolateParticle[6].startColor = interpolatedColor;
         //jumpChargeSlider.value = player.jumpCharge;
-        jumpChargeArrow.value = player.jumpCharge;
+        //jumpChargeArrow.value = player.jumpCharge;
 
 
 
