@@ -26,6 +26,8 @@ public class EndScene : MonoBehaviour
 
     [Header("ProgresBars")]
     public HighscoreBar[] progressBars;
+
+    public GameObject[] progressBarBG ;
     [Header("Scores")]
     public SOScore soScore;
 
@@ -134,6 +136,9 @@ public class EndScene : MonoBehaviour
 
         if (timesPlayed == 0)
         {
+
+            progressBarBG[timesPlayed].SetActive(true);
+            //progressBars[timesPlayed].SetScoreText();
             progressBars[timesPlayed].score = Score.score;
         }
         else 
@@ -143,6 +148,8 @@ public class EndScene : MonoBehaviour
                 Debug.Log("For Loop running");
    
                 progressBars[i].score = soScore.scores[i];
+                //progressBars[i].SetScoreText();
+                progressBarBG[i].SetActive(true);
 
                 if (progressBars[i].score >highScore)
                 {
