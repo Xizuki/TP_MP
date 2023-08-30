@@ -120,7 +120,12 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         baseArrowScale = playerUI.arrows[0].GetComponentInChildren<RectTransform>().localScale.x;
 
         arrowsCharged = new bool[playerUI.arrows.Length];
+        arrowEndPoints = new Transform[playerUI.arrows.Length];
 
+        for(int i = 0; i < playerUI.arrows.Length; i++) 
+        {
+            arrowEndPoints[i] = playerUI.arrows[i].GetComponentInChildren<ArrowEndPoint>().transform;
+        }
     }
 
     // Update is called once per frame

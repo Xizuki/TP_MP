@@ -161,7 +161,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
         //interpolateParticle[4].startColor = interpolatedColor;
         //interpolateParticle[5].startColor = interpolatedColor;
         //interpolateParticle[6].startColor = interpolatedColor;
-        jumpChargeSlider.value = player.jumpCharge;
+        //jumpChargeSlider.value = player.jumpCharge;
         jumpChargeArrow.value = player.jumpCharge;
 
 
@@ -184,8 +184,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
             //interpolatedColor = Color.Lerp(startingColor, endColor, player.jumpCharge);
 
         // Assign the interpolated color to the renderer component
-        sliderColor1.color = interpolatedColor;
-        sliderColor2.color = interpolatedColor;
+        //sliderColor1.color = interpolatedColor;
+        //sliderColor2.color = interpolatedColor;
         //player.lineRenderer.startColor = new Color(0.01f + (interpolatedColor.r) * 10, 0.01f + (interpolatedColor.g) * 10, 0.01f+(interpolatedColor.b) * 10, interpolatedColor.a);
         //player.lineRenderer.endColor = interpolatedColor;
         outlineScript.OutlineColor = interpolatedColor;
