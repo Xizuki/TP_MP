@@ -26,25 +26,29 @@ namespace Menu
         public Dictionary<string, Difficulty> GameplaySettings = new Dictionary<string, Difficulty>()
         {
 
-            {"PlayerJumpHeight", Difficulty.Easy},
+      
 
             {"EnemySpawnFrequency", Difficulty.Easy},
-            {"EnemyMovementSpeed", Difficulty.Easy},
+         
             {"EnemyProjectileSpeed", Difficulty.Easy},
-            {"EnemyDisappearOnAttack", Difficulty.On},
 
-            {"PowerupSpawnFrequency", Difficulty.Easy},
+            {"Particles", Difficulty.On},
+
+            {"ScreenShake", Difficulty.On},
+
+
+            {"MuteBGMusic", Difficulty.Off},
 
             {"Mute", Difficulty.Off},
 
         };
 
-        public Dictionary<string, int> SoundSettings = new Dictionary<string, int>()
-        {
+        //public Dictionary<string, int> SoundSettings = new Dictionary<string, int>()
+        //{
 
-            {"Volume", 0}
+        //    {"Volume", 0}
 
-        };
+        //};
 
 
         private void Awake()
@@ -60,7 +64,7 @@ namespace Menu
 
 
         }
-        private void InitalizeDictionaryWithPlayerPrefs()
+        private void InitalizeDictionaryWithPlayerPrefs() //Used to update the dictionary with values from playerprefs if there is any
         {
 
             List<string> keysToUpdate = new List<string>(); //Used to store values that should be updated
@@ -72,7 +76,7 @@ namespace Menu
                     Debug.Log("Existing key: " + pair.Key);
                     keysToUpdate.Add(pair.Key);
                 }
-                else
+                else //Dictionary value will be set to the default
                 {
                     Debug.Log("Not existing key: " + pair.Key);
                 }
@@ -105,7 +109,7 @@ namespace Menu
 
 
 
-        public void WriteToPlayerPrefsGameplay() //Writes everything in the dictionary to playerprefs
+        public void WriteToPlayerPrefsGameplay() //Writes everything in the dictionary to playerprefs, used by buttons to save to dicitonary
         {
             Debug.Log("Writing gameplay settings to player prefs");
 
