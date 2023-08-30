@@ -33,7 +33,7 @@ public class WorldGeneration : MonoBehaviour
         spawnTop.transform.rotation).GetComponentInChildren<SpawnTopScript>().gameObject;
         roomType += 1;
 
-        if (roomType >= 3)
+        if (roomType >= 9)
         {        
             Debug.Log(roomType);
 

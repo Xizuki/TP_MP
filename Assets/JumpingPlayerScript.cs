@@ -165,8 +165,6 @@ public class JumpingPlayerScript : MonoBehaviour
 
         jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, -playerUI.jumpingVectorIndicator.transform.eulerAngles.z, 0);
 
-
-        Debug.Log(chargeCount);
         if (chargeCount < 0f)
         {
             chargeCount = 0f;

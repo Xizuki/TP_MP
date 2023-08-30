@@ -9,6 +9,14 @@ public class StopWatchPowerUp : PowerUpScript
     public float slowMultiplyer;
     public CactusEnemy[] cactusEnemies;
     public MushroomEnemy[] mushroomEnemies;
+    public BottomCheck[] turtleEnemies;
+    public ChestEnemy[] chestEnemies;
+    public EyeEnemy[] eyeEnemies;
+    public Animator[] cactusAnimator;
+    public Animator[] eyeAnimator;
+    public Animator[] chestAnimator;
+    public Animator[] turtleAnimator;
+    public Animator[] mushroomAnimator;
     //public ParticleSystem auraShield;
     public Image sliderFill;
     public float delay = 0;
@@ -41,6 +49,36 @@ public class StopWatchPowerUp : PowerUpScript
 
         cactusEnemies = Xi_Helper_GameObjects.FilterOutWithScript<CactusEnemy>(ref enemies);
         mushroomEnemies = Xi_Helper_GameObjects.FilterOutWithScript<MushroomEnemy>(ref enemies);
+        chestEnemies = Xi_Helper_GameObjects.FilterOutWithScript<ChestEnemy>(ref enemies);
+        turtleEnemies = Xi_Helper_GameObjects.FilterOutWithScript<BottomCheck>(ref enemies);
+        eyeEnemies = Xi_Helper_GameObjects.FilterOutWithScript<EyeEnemy>(ref enemies);
+
+
+        cactusAnimator = new Animator[cactusEnemies.Length];
+        mushroomAnimator = new Animator[mushroomEnemies.Length];
+        chestAnimator = new Animator[chestEnemies.Length];
+        turtleAnimator = new Animator[turtleEnemies.Length];
+        eyeAnimator = new Animator[eyeEnemies.Length];
+        for (int i =0; i < cactusEnemies.Length;i++)
+        {
+            cactusAnimator[i] = cactusEnemies[i].GetComponent<Animator>();
+        }
+        for (int i = 0; i < mushroomEnemies.Length; i++)
+        {
+            mushroomAnimator[i] = mushroomEnemies[i].GetComponent<Animator>();
+        }
+        for (int i = 0; i < chestEnemies.Length; i++)
+        {
+            chestAnimator[i] = chestEnemies[i].GetComponent<Animator>();
+        }
+        for (int i = 0; i < turtleEnemies.Length; i++)
+        {
+            turtleAnimator[i] = turtleEnemies[i].GetComponent<Animator>();
+        }
+        for (int i = 0; i < eyeEnemies.Length; i++)
+        {
+            eyeAnimator[i] = eyeEnemies[i].GetComponent<Animator>();
+        }
 
 
         BulletMove[] bullets = GameObject.FindObjectsByType<BulletMove>(FindObjectsSortMode.None);
@@ -65,15 +103,27 @@ public class StopWatchPowerUp : PowerUpScript
 
         if (isActivated)
         {
+            for (int i = 0; i < cactusEnemies.Length; i++)
+            {
+                cactusAnimator[i].speed = 0.5f;
+            }
+            for (int i = 0; i < mushroomEnemies.Length; i++)
+            {
+                mushroomAnimator[i].speed = 0.5f;
+            }
+            for (int i = 0; i < chestEnemies.Length; i++)
+            {
+                chestAnimator[i].speed = 0.5f;
+            }
+            for (int i = 0; i < turtleEnemies.Length; i++)
+            {
+                turtleAnimator[i].speed = 0.5f;
+            }
+            for (int i = 0; i < eyeEnemies.Length; i++)
+            {
+                eyeAnimator[i].speed = 0.5f;
+            }
 
-            foreach (CactusEnemy cactus in cactusEnemies)
-            {
-                cactus.cactusShoot.shootDelayTimer = cactus.cactusShoot.baseShootDelayTimer * slowMultiplyer;
-            }
-            foreach (MushroomEnemy mushroom in mushroomEnemies)
-            {
-                mushroom.patrolCheck.speed = mushroom.patrolCheck.baseSpeed / slowMultiplyer;
-            }
             foreach (BulletMove bullet in bullets)
             {
                 bullet.speed = bullet.baseSpeed / slowMultiplyer;
@@ -104,6 +154,26 @@ public class StopWatchPowerUp : PowerUpScript
                 bullet.speed = bullet.baseSpeed;
             }
 
+            for (int i = 0; i < cactusEnemies.Length; i++)
+            {
+                cactusAnimator[i].speed = 1.5f;
+            }
+            for (int i = 0; i < mushroomEnemies.Length; i++)
+            {
+                mushroomAnimator[i].speed = 1.5f;
+            }
+            for (int i = 0; i < chestEnemies.Length; i++)
+            {
+                chestAnimator[i].speed = 1.5f;
+            }
+            for (int i = 0; i < turtleEnemies.Length; i++)
+            {
+                turtleAnimator[i].speed = 1.5f;
+            }
+            for (int i = 0; i < eyeEnemies.Length; i++)
+            {
+                eyeAnimator[i].speed = 1.5f;
+            }
         }
 
         IEnumerator StopwatchEnd()

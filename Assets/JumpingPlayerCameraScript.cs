@@ -163,7 +163,6 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         float cellMaxCharge = 0.33f;
         float jumpChargeValue = jumpChargeValueStorage4ScreenVFX;
-        print("jumpChargeValue = " + jumpChargeValue);
 
 
 
