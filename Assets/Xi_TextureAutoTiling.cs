@@ -12,6 +12,7 @@ public class Xi_TextureAutoTiling : MonoBehaviour
     public float scale;
     private void OnValidate()
     {
+        if (matInstance == null) { return; }
 
         if(!zAxisInclude)
             matInstance.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.y) * scale;
