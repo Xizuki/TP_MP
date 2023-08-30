@@ -7134,12 +7134,10 @@ GameObject:
   - component: {fileID: 3426643511485465010}
   - component: {fileID: 683046005}
   - component: {fileID: 4878284276289323204}
-  - component: {fileID: 8824464932475558569}
   - component: {fileID: 8824464932475558560}
   - component: {fileID: 8824464932475558568}
   - component: {fileID: 8824464932475558587}
   - component: {fileID: 757802533}
-  - component: {fileID: 757802534}
   m_Layer: 0
   m_Name: JumpingPlayer
   m_TagString: Player
@@ -7337,6 +7335,14 @@ MonoBehaviour:
   slowMultiplyer: 2
   cactusEnemies: []
   mushroomEnemies: []
+  turtleEnemies: []
+  chestEnemies: []
+  eyeEnemies: []
+  cactusAnimator: []
+  eyeAnimator: []
+  chestAnimator: []
+  turtleAnimator: []
+  mushroomAnimator: []
   sliderFill: {fileID: 0}
   delay: 0
   timer: 0
@@ -7386,19 +7392,6 @@ MonoBehaviour:
   jumpingPlayer: {fileID: 0}
   controlType: 2
   option3JumpVectorLimit: 0
---- !u!135 &8824464932475558569
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.90203846
-  m_Center: {x: 0, y: 0.120470166, z: 0}
 --- !u!114 &8824464932475558560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7461,24 +7454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopwatchVfx: {fileID: 0}
   stopwatchFilter: {fileID: 0}
---- !u!114 &757802534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824464933389489936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abc21e298dd2594b88c63f2323ad8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpingPlayer: {fileID: 0}
-  colliderInv: {fileID: 0}
-  explosion: {fileID: 0}
-  outlineScript: {fileID: 0}
-  outlineWidth: 0
-  chargeInitial: 0
 --- !u!1 &8824464933456363039
 GameObject:
   m_ObjectHideFlags: 0

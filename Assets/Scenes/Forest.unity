@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18291317, g: 0.22860667, b: 0.30689436, a: 1}
+  m_IndirectSpecularColor: {r: 0.18291491, g: 0.22860917, b: 0.30689263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2294,6 +2294,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230469844}
   m_CullTransparentMesh: 1
+--- !u!82 &230775577 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7998494958856113217, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1441620866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &241212521
 GameObject:
   m_ObjectHideFlags: 0
@@ -8032,9 +8037,6 @@ MonoBehaviour:
   comboCountScript: {fileID: 0}
   endSceneButtons: {fileID: 0}
   gameTimerScript: {fileID: 0}
-  timesPlayed: 0
-  tryAgain: {fileID: 0}
-  gameTimer: {fileID: 1769224327}
   highScore: 0
   progressBars:
   - {fileID: 0}
@@ -8047,10 +8049,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  soScore: {fileID: 0}
   objectEndScene: {fileID: 0}
   playerUI: {fileID: 0}
   endScreenTimerOriginal: 15
   endScreenTimer: 15
+  tryAgain: {fileID: 0}
   timerText: {fileID: 0}
   comboText: {fileID: 0}
   scoreText: {fileID: 0}
@@ -11762,8 +11766,8 @@ MonoBehaviour:
   castleStage: {fileID: 2064484691}
   forestStage: {fileID: 582995629}
   winterStage: {fileID: 467973082}
-  opaque: {r: 1, g: 1, b: 1, a: 1}
-  transparent: {r: 1, g: 1, b: 1, a: 0.5}
+  chosen: {r: 0.9490196, g: 0.64705884, b: 0.25490198, a: 1}
+  notChosen: {r: 255, g: 255, b: 255, a: 255}
   chosenStage: 0
 --- !u!114 &1115830044
 MonoBehaviour:
@@ -11781,9 +11785,6 @@ MonoBehaviour:
   comboCountScript: {fileID: 348705972}
   endSceneButtons: {fileID: 1115830043}
   gameTimerScript: {fileID: 1990801346}
-  timesPlayed: 0
-  tryAgain: {fileID: 1240973709}
-  gameTimer: {fileID: 1990801346}
   highScore: 0
   progressBars:
   - {fileID: 1144470397}
@@ -11796,10 +11797,12 @@ MonoBehaviour:
   - {fileID: 1230909410}
   - {fileID: 204539552}
   - {fileID: 731561948}
+  soScore: {fileID: 0}
   objectEndScene: {fileID: 1115830042}
   playerUI: {fileID: 1990801344}
   endScreenTimerOriginal: 5
   endScreenTimer: 5
+  tryAgain: {fileID: 1240973709}
   timerText: {fileID: 614137606}
   comboText: {fileID: 549896172}
   scoreText: {fileID: 1384787609}
@@ -16170,6 +16173,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.55
       objectReference: {fileID: 0}
+    - target: {fileID: 3463168327283722739, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: audio2
+      value: 
+      objectReference: {fileID: 230775577}
     - target: {fileID: 5021441825985123749, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -16280,7 +16287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Cameras.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -16301,11 +16308,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 3463168326525187547, guid: a56b90f6be26800449ae89250555594b, type: 3}
   m_PrefabInstance: {fileID: 1441620866}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1441620868 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3463168326649054207, guid: a56b90f6be26800449ae89250555594b, type: 3}
-  m_PrefabInstance: {fileID: 1441620866}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1441620869 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1441620875, guid: a56b90f6be26800449ae89250555594b, type: 3}
@@ -16315,18 +16317,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96910feab9e0b8b44ba28d4b79feaeeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1441620870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441620868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01eaa548890e8ea4ebd48755a710b71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1453674139
@@ -17988,31 +17978,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577631476}
   m_CullTransparentMesh: 1
---- !u!1 &1583351746 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442282040675875545, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1583351749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583351746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1609098167
 GameObject:
   m_ObjectHideFlags: 0
@@ -22679,31 +22644,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1999209914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7951376781551253131, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1999209917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999209914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &2009869172
 GameObject:
   m_ObjectHideFlags: 0
@@ -24421,8 +24361,7 @@ PrefabInstance:
       propertyPath: hitStrength
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8824464932475558558, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
 --- !u!114 &8824464932475558557 stripped
 MonoBehaviour:

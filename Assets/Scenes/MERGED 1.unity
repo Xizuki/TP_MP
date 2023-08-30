@@ -6929,9 +6929,6 @@ MonoBehaviour:
   comboCountScript: {fileID: 0}
   endSceneButtons: {fileID: 0}
   gameTimerScript: {fileID: 0}
-  timesPlayed: 0
-  tryAgain: {fileID: 0}
-  gameTimer: {fileID: 1769224327}
   highScore: 0
   progressBars:
   - {fileID: 0}
@@ -6944,10 +6941,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  soScore: {fileID: 0}
   objectEndScene: {fileID: 0}
   playerUI: {fileID: 0}
   endScreenTimerOriginal: 15
   endScreenTimer: 15
+  tryAgain: {fileID: 0}
   timerText: {fileID: 0}
   comboText: {fileID: 0}
   scoreText: {fileID: 0}
@@ -13832,7 +13831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Cameras.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6971515039801311623, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -22200,11 +22199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7a2aca69ff11549864dbe4d97eb799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &8824464932475558569 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 8824464932475558569, guid: 7ac353848683d324ea1644be9550573d, type: 3}
-  m_PrefabInstance: {fileID: 8824464932475558556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8824464932475558577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22218,7 +22212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingPlayer: {fileID: 8824464932475558557}
-  colliderInv: {fileID: 8824464932475558569}
+  colliderInv: {fileID: 0}
   explosion: {fileID: 1880034152}
   outlineScript: {fileID: 1267350524}
   outlineWidth: 0
