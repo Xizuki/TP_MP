@@ -14,7 +14,7 @@ public class NamedPipeServer : MonoBehaviour
     private bool isRunning = true;
     //public bool isConnected = false;
     private StreamReader reader;
-
+    public Pause pauseScript;
     public int currentSceneIndex;
 
     private void Awake()
@@ -216,12 +216,21 @@ public class NamedPipeServer : MonoBehaviour
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+        if(reader !=null)
+            lastestLine = reader.ReadLine();
+
+
         if (jumpingPlayer == null)
         {
             if (GameObject.FindGameObjectWithTag("Player"))
             {
                 jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
             }
+        }
+
+        if(GameObject.FindAnyObjectByType<Pause>() != null)
+        {
+            pauseScript = GameObject.FindAnyObjectByType<Pause>();
         }
         //print("pipeServer.IsConnected UPDATE = " + pipeServer.IsConnected);
         //print("isConnected UPDATE = " + isConnected);
@@ -253,8 +262,8 @@ public class NamedPipeServer : MonoBehaviour
         print("OnClientConnected()");
     }
 
-    string lastestLine;
-    public async void ReadMessage()
+    public string lastestLine;
+    public void ReadMessage()
     {
         print("ReadMessage()");
 
@@ -270,7 +279,7 @@ public class NamedPipeServer : MonoBehaviour
             //if (!serverStream.IsConnected) { continue; }
             //if (lastestLine == "Null") { serverStream.Close(); }
             //lastestLine =  reader.ReadLine();
-            lastestLine = await reader.ReadLineAsync();
+            //lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
 
             //if (!gameobject.findobjectoftype<pause>())
@@ -314,10 +323,15 @@ public class NamedPipeServer : MonoBehaviour
             //}
 
 
+            print("EEG1");
             if (lastestLine.Contains("Trigger:"))
             {
+                print("EEG2");
+
                 if (jumpingPlayer != null)
                 {
+                    print("EEG3");
+
                     string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
                     print(boolean);
 
@@ -329,17 +343,25 @@ public class NamedPipeServer : MonoBehaviour
                     {
                         jumpingPlayer.isCharging = false;
                     }
+                    print("EEG4");
 
                     //jumpingPlayer.isCharging();
                 }
             }
-            if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1)
+
+            print("EEG5");
+
+
+            if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript!= null)
             {
 
-                //Debug.Log("PAUSE FROM EEG");
+                print("EEG6");
+
+                Debug.Log("PAUSE FROM EEG");
                 //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                //pauseScript.PauseGame();
-                //}
+                pauseScript.PauseGame();
+
+
                 //CheckPipeStream();
 
                 //reader.Close();
@@ -349,15 +371,24 @@ public class NamedPipeServer : MonoBehaviour
                 //serverStream.Close();
                 //serverStream.Dispose();
             }
-            if (lastestLine.Contains("RESUME") && currentSceneIndex > 1)
-            {
-                //Debug.Log("RESUME FROM EEG");
+            print("EEG7");
+
+            if (lastestLine.Contains("RESUME") && currentSceneIndex > 1 && pauseScript != null)
+            {                          
+                
+                print("EE8");
+
+                Debug.Log("RESUME FROM EEG");
                 //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                //pauseScript.ResumeGame();
+                pauseScript.ResumeGame();
             }
+
+            print("EEG9");
+
         }
     }
 }
+
 
 
 

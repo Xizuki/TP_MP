@@ -895,8 +895,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 81035e664e0d5ef4b891b130d66b33e5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 0.95
+  m_Volume: 1
+  m_Pitch: 0.9
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -2690,10 +2690,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StartCutscene, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 3463168326525187544, guid: a56b90f6be26800449ae89250555594b, type: 3}
-      propertyPath: vol
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187547, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: field of view
       value: 60
@@ -2708,11 +2704,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187551, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Volume
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187551, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187551, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_audioClip
@@ -2860,7 +2856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3463168327283722739, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: sfxVolume2
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3463168327283722739, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: contiCharge
@@ -2880,7 +2876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5281566836302681612, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6212029483191078518, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Color.a
@@ -4002,46 +3998,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 100333146, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1138878387850482156, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_Color.a
-      value: 0.9019608
-      objectReference: {fileID: 0}
     - target: {fileID: 7639406862989152187, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1746759415}
-    - target: {fileID: 7639406863017430964, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406863017430964, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406863017430964, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 25.00029
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406863017430964, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -353
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406863568895865, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 50.682114
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864369495062, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864494694979, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 46
-      objectReference: {fileID: 0}
     - target: {fileID: 7639406864500379875, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
       propertyPath: m_Name
       value: Canvases (1)
@@ -4089,34 +4049,6 @@ PrefabInstance:
     - target: {fileID: 7639406864500379900, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864812695948, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864812695949, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 7.7644386
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864812695949, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 7.7644386
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864812695949, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 7.7644386
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864812695949, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1132
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864812695949, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 199
-      objectReference: {fileID: 0}
-    - target: {fileID: 7639406864886285555, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -743
       objectReference: {fileID: 0}
     - target: {fileID: 8356295370633625545, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
       propertyPath: playerControl
@@ -4226,6 +4158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipeName: MyNamedPipe
   jumpingPlayer: {fileID: 0}
+  currentSceneIndex: 0
+  lastestLine: 
 --- !u!4 &1955193180
 Transform:
   m_ObjectHideFlags: 0
