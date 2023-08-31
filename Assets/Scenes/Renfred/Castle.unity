@@ -948,7 +948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 286900440}
   - component: {fileID: 286900441}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CastleSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +985,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 008ae3fe51a3da84daa3946b4d6bb62b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0deb8b2096b751647bec7b3bffec6e14, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -5527,7 +5527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 844793598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Castle Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9440,6 +9440,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 787638510}
     m_Modifications:
+    - target: {fileID: 8842514866140158209, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12576,7 +12580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187551, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3463168326525187551, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_audioClip
@@ -12636,6 +12640,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6212029483191078512, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772182352655726880, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998494958856113217, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8793968441296675983, guid: a56b90f6be26800449ae89250555594b, type: 3}
