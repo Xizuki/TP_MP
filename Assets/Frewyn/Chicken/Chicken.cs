@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using Nyp.Razor.Spectrum;
-
+    
 [RequireComponent(typeof(Rigidbody))]
 public class Chicken : MonoBehaviour
 {

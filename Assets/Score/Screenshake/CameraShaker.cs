@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Menu;
 
 public class CameraShaker : MonoBehaviour
 {
@@ -11,7 +12,22 @@ public class CameraShaker : MonoBehaviour
     [SerializeField] private Vector3 rotationStrength;
     public static float force;
     private static event Action Shake;
-    
+
+    private Dictionary_GameplaySettings dictionary;
+
+    private void Awake()
+    {
+        dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
+    }
+
+    private void Start()
+    {
+        if(dictionary.GameplaySettings["ScreenShake"] == Difficulty.Off)
+        {
+            this.enabled = false;
+        }
+    }
+
     public static void Invoke(float _force) //Call the script
     {
         force = _force;

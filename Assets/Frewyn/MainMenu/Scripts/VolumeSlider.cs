@@ -24,6 +24,9 @@ namespace menu
         [SerializeField]
         private float volumeMultiplier = 0.1f;
 
+        [SerializeField]
+        private string setting = "Volume";
+
 
         private void Awake()
         {
@@ -33,7 +36,7 @@ namespace menu
 
         private void Start()
         {
-            volumeSlider.value = dictionary.SoundSettings["Volume"];
+            volumeSlider.value = dictionary.SoundSettings[setting];
             
         }
 
@@ -46,11 +49,11 @@ namespace menu
 
 
 
-        public void AdjustDictionaryWithSliderValue()
+        public void AdjustDictionaryWithSliderValue() //Used by the OnValueChanged attached to the slider
         {
 
           
-            dictionary.SoundSettings["Volume"] = volumeSlider.value; // Adjust dictionary value with sound slider value
+            dictionary.SoundSettings[setting] = volumeSlider.value; // Adjust dictionary value with sound slider value
 
                 
             foreach (KeyValuePair<string, float> pair in dictionary.SoundSettings)// Print out the sound setting value
@@ -67,7 +70,7 @@ namespace menu
         {
             
 
-            text.text = (dictionary.SoundSettings["Volume"]* multiplier).ToString();  
+            text.text = (dictionary.SoundSettings[setting]* multiplier).ToString();  
 
            
         }

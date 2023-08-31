@@ -191,6 +191,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (!chicken.playerDowned)
            rb.AddForce(new Vector3(0, (-fallingGravityStrength * Time.deltaTime * 100) , 0));
 

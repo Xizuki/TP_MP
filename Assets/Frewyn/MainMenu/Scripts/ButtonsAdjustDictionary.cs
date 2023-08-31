@@ -50,72 +50,72 @@ namespace Menu
 
             CheckOnOff("ScreenShake");
 
+            //CheckOnOff("BGMusic");
+
+            //CheckOnOff("ChargingSound");
+
+            //CheckOnOff("SFX");
+
+            //CheckOnOff("Crown");
+
             CheckOnOff("Mute");
 
         }
 
         public void EasyPreset()//Sets settings to easy difficulty
         {
-            gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Easy;
+        
 
             gameplaySettingsScript.GameplaySettings["EnemySpawnFrequency"] = Difficulty.Easy;
-            gameplaySettingsScript.GameplaySettings["EnemyMovementSpeed"] = Difficulty.Easy;
+      
             gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Easy;
-            gameplaySettingsScript.GameplaySettings["EnemyDisappearOnAttack"] = Difficulty.On;
+         
 
-            gameplaySettingsScript.GameplaySettings["PowerupSpawnFrequency"] = Difficulty.Easy;
+    
 
-            CheckDifficulty("PlayerJumpHeight");
+    
 
             CheckDifficulty("EnemySpawnFrequency");
-            CheckDifficulty("EnemyMovementSpeed");
+ 
             CheckDifficulty("EnemyProjectileSpeed");
-            CheckOnOff("EnemyDisappearOnAttack");
+    
 
-            CheckDifficulty("PowerupSpawnFrequency");
+      
 
         }
 
         public void MediumPreset() //Sets settings to medium difficulty
         {
-            gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Medium;
-
             gameplaySettingsScript.GameplaySettings["EnemySpawnFrequency"] = Difficulty.Medium;
-            gameplaySettingsScript.GameplaySettings["EnemyMovementSpeed"] = Difficulty.Medium;
+
             gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Medium;
-            gameplaySettingsScript.GameplaySettings["EnemyDisappearOnAttack"] = Difficulty.On;
 
-            gameplaySettingsScript.GameplaySettings["PowerupSpawnFrequency"] = Difficulty.Medium;
 
-            CheckDifficulty("PlayerJumpHeight");
 
-            CheckDifficulty("EnemySpawnFrequency"); 
-            CheckDifficulty("EnemyMovementSpeed");
+
+
+
+            CheckDifficulty("EnemySpawnFrequency");
+
             CheckDifficulty("EnemyProjectileSpeed");
-            CheckOnOff("EnemyDisappearOnAttack");
 
-            CheckDifficulty("PowerupSpawnFrequency");
         }
 
         public void HardPreset() //Sets settings to hard difficulty
         {
-            gameplaySettingsScript.GameplaySettings["PlayerJumpHeight"] = Difficulty.Hard;
-
             gameplaySettingsScript.GameplaySettings["EnemySpawnFrequency"] = Difficulty.Hard;
-            gameplaySettingsScript.GameplaySettings["EnemyMovementSpeed"] = Difficulty.Hard;
-            gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Hard;
-            gameplaySettingsScript.GameplaySettings["EnemyDisappearOnAttack"] = Difficulty.Off;
 
-            gameplaySettingsScript.GameplaySettings["PowerupSpawnFrequency"] = Difficulty.Hard;
+            gameplaySettingsScript.GameplaySettings["EnemyProjectileSpeed"] = Difficulty.Hard   ;
 
-            CheckDifficulty("PlayerJumpHeight");
+
+
+
+
 
             CheckDifficulty("EnemySpawnFrequency");
-            CheckDifficulty("EnemyMovementSpeed");
-            CheckDifficulty("EnemyProjectileSpeed");
-            CheckOnOff("EnemyDisappearOnAttack");
 
-            CheckDifficulty("PowerupSpawnFrequency");
+            CheckDifficulty("EnemyProjectileSpeed");
+
         }
 
 

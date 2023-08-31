@@ -1,3 +1,4 @@
+using Menu;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,20 +8,24 @@ public class ParticleControl : MonoBehaviour
 {
 
 
-   
+    private Dictionary_GameplaySettings dictionary;
     private void Awake()
     {
 
+        dictionary = FindObjectOfType<Dictionary_GameplaySettings>();   
     }
     void Start()
     {
-        //ParticleSystem[] particles = FindObjectsOfType<ParticleSystem>();
+        if (dictionary.GameplaySettings["Particles"] == Difficulty.Off)
+        {
+            GameObject[] objectToDisable = GameObject.FindGameObjectsWithTag("Particles");
 
-        //foreach (ParticleSystem particleSystem in particles)
-        //{
-        //      (particleSystem);
-        //}
+            foreach (GameObject objects in objectToDisable)
+            {
+                Destroy(objects);
+            }
+        }
     }
 
- 
+
 }

@@ -54,8 +54,8 @@ public class SFX : MonoBehaviour
     
     private void Update()
     {
-        audio.volume = sfxVolume / 100;
-        audio2.volume = sfxPerformanceVol / 100;
+        //audio.volume = sfxVolume / 100;
+        //audio2.volume = sfxPerformanceVol / 100;
 
         if (performanceCharge == true)
         {

@@ -37,7 +37,7 @@ namespace Menu
             {"ScreenShake", Difficulty.On},
 
 
-            {"MuteBGMusic", Difficulty.Off},
+ 
 
             {"Mute", Difficulty.Off},
 
