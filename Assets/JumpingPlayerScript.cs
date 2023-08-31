@@ -12,6 +12,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public JumpingPlayerUIScript playerUI;
     public Rigidbody rb;
     public FullChargeHit fullChargeHit;
+    public Vector3 playerTransform;
 
     public float lineLength = 10f;
     public bool checkLandSound; //Checking for sound effect when successfully landing
@@ -194,7 +195,11 @@ public class JumpingPlayerScript : MonoBehaviour
         if (!chicken.playerDowned)
            rb.AddForce(new Vector3(0, (-fallingGravityStrength * Time.deltaTime * 100) , 0));
 
+        playerTransform = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 3.0f);
 
+        gameObject.transform.position = playerTransform;
+
+        
         ////TrajectoryProjection();
         //if (isCharging == true)
         //{
