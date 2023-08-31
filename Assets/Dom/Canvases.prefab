@@ -225,7 +225,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a4e6cb22a09727547ad72a85cd3e4d2d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15311,6 +15311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 1869880382179222452, guid: 4b9630b878d78bc498882fa30311afd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9630b878d78bc498882fa30311afd7, type: 3}
 --- !u!224 &8356295370633625544 stripped
@@ -15775,6 +15779,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2628994074431331515, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628994074940032257, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
+      propertyPath: m_Color.a
+      value: 0.84313726
+      objectReference: {fileID: 0}
     - target: {fileID: 2628994075365366862, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15782,6 +15794,14 @@ PrefabInstance:
     - target: {fileID: 2628994075365366862, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628994075365366863, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628994075883517945, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2628994075883517951, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -15878,6 +15898,14 @@ PrefabInstance:
     - target: {fileID: 2628994076251392609, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628994076251392609, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628994076251392615, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
+      propertyPath: m_Color.a
+      value: 0.84313726
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e6b9fecc9dd0c448516f4e2ee1aa56, type: 3}
