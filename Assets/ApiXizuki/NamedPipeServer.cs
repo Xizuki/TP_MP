@@ -15,6 +15,7 @@ public class NamedPipeServer : MonoBehaviour
     //public bool isConnected = false;
     private StreamReader reader;
 
+    public int currentSceneIndex;
 
     private void Awake()
     {
@@ -213,6 +214,8 @@ public class NamedPipeServer : MonoBehaviour
     }
     public void Update()
     {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
         if (jumpingPlayer == null)
         {
             if (GameObject.FindGameObjectWithTag("Player"))
@@ -330,7 +333,7 @@ public class NamedPipeServer : MonoBehaviour
                     //jumpingPlayer.isCharging();
                 }
             }
-            if (lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex > 1)
+            if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1)
             {
 
                 //Debug.Log("PAUSE FROM EEG");
@@ -346,7 +349,7 @@ public class NamedPipeServer : MonoBehaviour
                 //serverStream.Close();
                 //serverStream.Dispose();
             }
-            if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex > 1)
+            if (lastestLine.Contains("RESUME") && currentSceneIndex > 1)
             {
                 //Debug.Log("RESUME FROM EEG");
                 //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
