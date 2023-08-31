@@ -17,9 +17,9 @@ public class Music : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        volume = vol;
-        vol = volume;
-        music.volume = volume/100;
+        //volume = vol;
+        //vol = volume;
+        //music.volume = volume/100;
 
     }
 }

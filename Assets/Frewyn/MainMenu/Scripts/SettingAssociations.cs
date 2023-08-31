@@ -33,7 +33,11 @@ namespace Menu
 
 
         [Header("Volume")]
-        public Image[] muteBGMusic;
+        //public Image[] BGMusic;
+
+        //public Image[] chargingSound;
+        //public Image[] sfx;
+        //public Image[] crown;   
         public Image[] mute;
 
 
@@ -61,7 +65,13 @@ namespace Menu
 
 
 
-            dictionary.AddToButtonDictionary("MuteBGMusic", new List<Image>(muteBGMusic));
+            //dictionary.AddToButtonDictionary("BGMusic", new List<Image>(BGMusic));
+
+            //dictionary.AddToButtonDictionary("ChargingSound", new List<Image>(chargingSound));
+
+            //dictionary.AddToButtonDictionary("SFX", new List<Image>(sfx));
+
+            //dictionary.AddToButtonDictionary("Crown", new List<Image>(crown));
 
             dictionary.AddToButtonDictionary("Mute", new List<Image>(mute));
 

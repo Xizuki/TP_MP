@@ -51,7 +51,7 @@ public class EnemySpawn : MonoBehaviour
             }
         }
 
-        else if (dictionary.GameplaySettings["EnemySpawnFrequency"] == Difficulty.Easy)
+        else if (   dictionary.GameplaySettings["EnemySpawnFrequency"] == Difficulty.Easy)
         {
             for (int i = 0; i < enemySpawns.Length; i++) //for loop for each item in array list spikeSpawns
             {

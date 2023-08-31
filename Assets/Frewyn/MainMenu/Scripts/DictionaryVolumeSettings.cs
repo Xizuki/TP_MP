@@ -12,7 +12,17 @@ namespace Menu
         public Dictionary<string, float> SoundSettings = new Dictionary<string, float>()
         {
 
-            {"Volume", 0}
+            {"Volume", 1},
+
+            {"BGMusic", 1},
+
+            {"ChargingSound", 1},
+
+            {"Ambient", 1},
+
+            {"SFX", 1},
+
+            {"Crown", 1},
 
         };
 
