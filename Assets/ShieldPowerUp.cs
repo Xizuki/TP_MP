@@ -16,11 +16,14 @@ public class ShieldPowerUp : PowerUpScript
     public GameObject shieldIconVfx;
     public GameObject shieldBGVFX;
 
+    public GameObject shieldGameObject;
+
     private void Start()
     {
         CanvasScript canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();
         sliderFill = canvasScript.shieldSliderFill;
 
+        shieldGameObject = GetComponentInChildren<ShieldGameObject>().gameObject;
 
         shieldVfx = canvasScript.shieldVfx;
         shieldIconVfx = canvasScript.shieldIconVfx;
@@ -32,10 +35,12 @@ public class ShieldPowerUp : PowerUpScript
 
     private void Update()
     {
-        if(isActivated == true)
+        if (isActivated == true)
         {
             sliderFill.fillAmount = 1;
             sliderFill.fillAmount = timer / 10;
+            shieldGameObject.SetActive(true);
+
             timer -= Time.deltaTime;
             if (pickUpParticle == false)
             {
@@ -57,6 +62,9 @@ public class ShieldPowerUp : PowerUpScript
                 shieldIconVfx.SetActive(false);
             }
         }
+        else
+            shieldGameObject.SetActive(false);
+
     }
 
     IEnumerator ShieldPickup()

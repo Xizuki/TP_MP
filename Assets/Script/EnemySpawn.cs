@@ -39,9 +39,12 @@ public class EnemySpawn : MonoBehaviour
                 Debug.Log("Enemy spawn frequency is easy!");
                 int coinFlip = Random.Range(0, easy); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, 2);
+
+                Vector3 allignedPosition = new Vector3( enemySpawns[i].position.x, enemySpawns[i].position.y, GameObject.FindGameObjectWithTag("Player").transform.position.z);
+
                 if (coinFlip > 7)
                 {
-                    GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], enemySpawns[i].position, enemySpawns[i].rotation));
+                    GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
 
                     //Spawn GameObject Spike at spikeSpawns position
                 }

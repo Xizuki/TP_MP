@@ -101,6 +101,10 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public void Awake()
     {
+        chicken= GameObject.FindObjectOfType(typeof(Chicken)) as Chicken;
+        chickenExit = GameObject.FindGameObjectWithTag("ExitPoint");
+
+
         inputs = new ControllerInput();
         rb = GetComponent<Rigidbody>();
         playerUI = GetComponent<JumpingPlayerUIScript>();

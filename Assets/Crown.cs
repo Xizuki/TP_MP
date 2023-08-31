@@ -8,6 +8,11 @@ public class Crown : MonoBehaviour
     public GameObject crownProfile;
     public float requirementScore;
 
+
+    private void Start()
+    {
+        crownProfile = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>().crownProfile;
+    }
     // Update is called once per frame
     void Update()
     {

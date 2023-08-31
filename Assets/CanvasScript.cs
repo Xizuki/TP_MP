@@ -37,6 +37,8 @@ public class CanvasScript : MonoBehaviour
     public Score scoreScript;
     public ComboCount comboScript;
 
+    public GameObject crownProfile;
+
     // Start is called before the first frame update
     void Start()
     {
