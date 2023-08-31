@@ -6,7 +6,7 @@ using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public  class NamedPipeServer : MonoBehaviour
+public class NamedPipeServer : MonoBehaviour
 {
     public string pipeName = "MyNamedPipe";
     public JumpingPlayerScript jumpingPlayer;
@@ -14,16 +14,21 @@ public  class NamedPipeServer : MonoBehaviour
     private bool isRunning = true;
     //public bool isConnected = false;
     private StreamReader reader;
-    public bool connected;
+
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
+        // Register the Application.quitting event to handle application exit
+        Application.quitting += HandleApplicationQuit;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
+        // Start the named pipe server asynchronously
+
+
         NamedPipeServer[] namePipeServers = GameObject.FindObjectsByType<NamedPipeServer>(FindObjectsSortMode.None);
 
         foreach (NamedPipeServer namePipeServer in namePipeServers)
@@ -35,23 +40,27 @@ public  class NamedPipeServer : MonoBehaviour
         Application.quitting += HandleApplicationQuit;
         //SceneManager.sceneLoaded += OnSceneLoaded;
         // Start the named pipe server asynchronously
-
-        if (GameObject.FindGameObjectWithTag("Player"))
+        if (jumpingPlayer == null)
         {
-            jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
+                jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+            }
         }
-        if( pipeServer == null)
+        if (pipeServer == null)
             StartNamedPipeServer();
 
+
+
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (GameObject.FindGameObjectWithTag("Player"))
-        {
-            jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
-        }
-    }
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (GameObject.FindGameObjectWithTag("Player"))
+    //    {
+    //        jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+    //    }
+    //}
 
     private void HandleApplicationQuit()
     {
@@ -204,6 +213,13 @@ public  class NamedPipeServer : MonoBehaviour
     }
     public void Update()
     {
+        if (jumpingPlayer == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
+                jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+            }
+        }
         //print("pipeServer.IsConnected UPDATE = " + pipeServer.IsConnected);
         //print("isConnected UPDATE = " + isConnected);
 
@@ -243,7 +259,10 @@ public  class NamedPipeServer : MonoBehaviour
         {
             print("ReadMessage()1");
 
-
+            //if (!GameObject.FindObjectOfType<Pause>())
+            //{
+            //    continue;
+            //}
 
             //if (!serverStream.IsConnected) { continue; }
             //if (lastestLine == "Null") { serverStream.Close(); }
@@ -251,19 +270,45 @@ public  class NamedPipeServer : MonoBehaviour
             lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
 
-            if(lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex != 0)
-            {
-                Debug.Log("PAUSE FROM EEG");
-                Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                pauseScript.PauseGame();
-            }
+            //if (!gameobject.findobjectoftype<pause>())
+            //{
+            //    continue;
+            //}
 
-            if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex != 0)
-            {
-                Debug.Log("RESUME FROM EEG");
-                Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                pauseScript.ResumeGame();
-            }
+            //if (lastestLine.Contains("PAUSE") )
+            //{
+
+            //    //Debug.Log("PAUSE FROM EEG");
+            //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+            //    //pauseScript.PauseGame();
+            //}
+
+            //if (lastestLine.Contains("RESUME"))
+            //{
+            //    //Debug.Log("RESUME FROM EEG");
+            //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+            //    //pauseScript.ResumeGame();
+            //}
+
+
+            //if (GameObject.FindObjectOfType<Pause>() != null)
+            //{
+            //    //if (lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex > 1)
+            //    //{
+
+
+            //    //    Debug.Log("PAUSE FROM EEG");
+            //    //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+            //    //    //pauseScript.PauseGame();
+            //    //}
+
+            //    //if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex > 1)
+            //    //{
+            //    //    Debug.Log("RESUME FROM EEG");
+            //    //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+            //    //    //pauseScript.ResumeGame();
+            //    //}
+            //}
 
 
             if (lastestLine.Contains("Trigger:"))
@@ -285,15 +330,28 @@ public  class NamedPipeServer : MonoBehaviour
                     //jumpingPlayer.isCharging();
                 }
             }
-        
-            //CheckPipeStream();
+            if (lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex > 1)
+            {
 
-            //reader.Close();
-            //reader.Dispose();
-            //if (serverStream.IsConnected)
-            //serverStream.Disconnect();
-            //serverStream.Close();
-            //serverStream.Dispose();
+                //Debug.Log("PAUSE FROM EEG");
+                //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                //pauseScript.PauseGame();
+                //}
+                //CheckPipeStream();
+
+                //reader.Close();
+                //reader.Dispose();
+                //if (serverStream.IsConnected)
+                //serverStream.Disconnect();
+                //serverStream.Close();
+                //serverStream.Dispose();
+            }
+            if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex > 1)
+            {
+                //Debug.Log("RESUME FROM EEG");
+                //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                //pauseScript.ResumeGame();
+            }
         }
     }
 }

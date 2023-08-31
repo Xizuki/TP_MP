@@ -19,6 +19,8 @@ public class Pause : MonoBehaviour
         playerControl.enabled = false;
         AudioListener.pause = true; 
         Time.timeScale = 0f;
+
+        print("PauseGamePauseGame");
     }
 
     public void ResumeGame()
@@ -30,14 +32,17 @@ public class Pause : MonoBehaviour
         AudioListener.pause = false;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+
+        print("ResumeGameResumeGame");
+
     }
 
-/*    IEnumerator EnableSound()
-    {
-        yield return new WaitForSeconds(0.5f);
-        AudioListener.volume = 1f;
-        AudioListener.pause = false;
-    }*/
+    /*    IEnumerator EnableSound()
+        {
+            yield return new WaitForSeconds(0.5f);
+            AudioListener.volume = 1f;
+            AudioListener.pause = false;
+        }*/
 
     public void MainMenu()
     {
