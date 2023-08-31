@@ -2157,6 +2157,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5654463119269700121, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7639406864500379875, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
       propertyPath: m_Name
       value: Canvases (1)
@@ -2242,7 +2246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipeName: MyNamedPipe
   jumpingPlayer: {fileID: 0}
-  connected: 0
+  pauseScript: {fileID: 0}
+  currentSceneIndex: 0
+  lastestLine: 
 --- !u!4 &1955193180
 Transform:
   m_ObjectHideFlags: 0
