@@ -83,7 +83,7 @@ namespace BTGame
 
         public async Task ClientStreamConnection()
         {
-            //Console.Beep();
+            Console.Beep();
 
 
             if (clientStream == null || !clientStream.IsConnected)
@@ -92,17 +92,16 @@ namespace BTGame
                 clientStream = new NamedPipeClientStream(".", "MyNamedPipe", PipeDirection.Out);
                 try
                 {
-                    await clientStream.ConnectAsync(cancellationToken);
+                    await clientStream.ConnectAsync();
                 }
                 catch (Exception ex) 
-                { 
-                   
+                {
                 }
 
                 //Create the stream writer
                 writer = new StreamWriter(clientStream);
 
-                //Console.Beep();
+                Console.Beep();
             }
 
 
@@ -159,6 +158,7 @@ namespace BTGame
                 }
                 catch (IOException ex)
                 {
+                  
                     //Exit();
                 }
             }
