@@ -17,6 +17,7 @@ public class NamedPipeServer : MonoBehaviour
     public Pause pauseScript;
     public int currentSceneIndex;
 
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -216,8 +217,7 @@ public class NamedPipeServer : MonoBehaviour
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if(reader !=null)
-            lastestLine = reader.ReadLine();
+        //lastestLine = await reader.ReadLineAsync();
 
 
         if (jumpingPlayer == null)
@@ -263,7 +263,7 @@ public class NamedPipeServer : MonoBehaviour
     }
 
     public string lastestLine;
-    public void ReadMessage()
+    public async void ReadMessage()
     {
         print("ReadMessage()");
 
@@ -279,7 +279,7 @@ public class NamedPipeServer : MonoBehaviour
             //if (!serverStream.IsConnected) { continue; }
             //if (lastestLine == "Null") { serverStream.Close(); }
             //lastestLine =  reader.ReadLine();
-            //lastestLine = await reader.ReadLineAsync();
+            lastestLine = await reader.ReadLineAsync();
             print(lastestLine);
 
             //if (!gameobject.findobjectoftype<pause>())
@@ -287,10 +287,10 @@ public class NamedPipeServer : MonoBehaviour
             //    continue;
             //}
 
-            //if (lastestLine.Contains("PAUSE") )
+            //if (lastestLine.Contains("PAUSE"))
             //{
 
-            //    //Debug.Log("PAUSE FROM EEG");
+            //    Debug.Log("PAUSE FROM EEG");
             //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
             //    //pauseScript.PauseGame();
             //}
@@ -352,15 +352,15 @@ public class NamedPipeServer : MonoBehaviour
             print("EEG5");
 
 
-            if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript!= null)
+            if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript != null)
             {
 
                 print("EEG6");
 
                 Debug.Log("PAUSE FROM EEG");
                 //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                pauseScript.PauseGame();
-
+                //pauseScript.PauseGame();
+                pauseScript.asyncForcePause = true;
 
                 //CheckPipeStream();
 
@@ -374,13 +374,15 @@ public class NamedPipeServer : MonoBehaviour
             print("EEG7");
 
             if (lastestLine.Contains("RESUME") && currentSceneIndex > 1 && pauseScript != null)
-            {                          
-                
-                print("EE8");
+            {
+                pauseScript.asyncForceResume = true;
 
-                Debug.Log("RESUME FROM EEG");
-                //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                pauseScript.ResumeGame();
+
+                //print("EE8");
+
+                //Debug.Log("RESUME FROM EEG");
+                ////Pause pauseScript = GameObject.FindObjectOfType<Pause>();
+                //pauseScript.ResumeGame();
             }
 
             print("EEG9");

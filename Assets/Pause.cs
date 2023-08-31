@@ -11,6 +11,12 @@ public class Pause : MonoBehaviour
     public AudioSource pauseSound;
     public bool gamePause;
 
+    
+    
+    public bool asyncForcePause;
+    public bool asyncForceResume;
+
+
     public void PauseGame()
     {
         pauseSound.ignoreListenerPause = true;
@@ -54,12 +60,26 @@ public class Pause : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+            playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
         gamePause = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(asyncForcePause)
+        {
+            PauseGame();
+            asyncForcePause = false;
+        }
+        if (asyncForceResume)
+        {
+            ResumeGame();
+            asyncForceResume = false;
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Escape) && gamePause == false)
         {
             Debug.Log("pause");
