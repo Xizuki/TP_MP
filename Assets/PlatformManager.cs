@@ -34,7 +34,7 @@ public class PlatformManager : MonoBehaviour
         comboCountScript = canvasScript.comboScript;
     }
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
 
     }
@@ -94,7 +94,7 @@ public class PlatformManager : MonoBehaviour
 
             if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
 
-            if (platform.transform.position.y < platformDissappearingPoint.transform.position.y)
+            if (!platform.GetComponent<Renderer>().isVisible)
             {
                 Destroy(platform.gameObject);
             }
