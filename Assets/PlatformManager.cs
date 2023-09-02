@@ -82,6 +82,27 @@ public class PlatformManager : MonoBehaviour
     void Update()
     {
         //RemovePastPlatforms();
+
+        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
+        {
+
+            player.playerUI.normalShiba.gameObject.SetActive(false);
+            player.playerUI.stunShiba.gameObject.SetActive(true);
+
+            player.shibaCollider.enabled = true;
+            chicken.playerDowned = true;
+            if (playedFallingSound == false)
+            {
+                SFX.fallingVoiceCheck = true;
+                playedFallingSound = true;
+            }
+            chicken.AbovePlatformCheck();
+        }
+        else if ((player.transform.position.y > PlayerStatisFallPoint.transform.position.y - 1f))
+        {
+            playedFallingSound = false;
+            SFX.fallingVoiceCheck = false;
+        }
     }
 
     public void RemovePastPlatforms()
@@ -122,25 +143,5 @@ public class PlatformManager : MonoBehaviour
         //very inefficient, the fix in this should be done with the one on top
         platforms.Clear();
 
-        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
-        {
-
-            player.playerUI.normalShiba.gameObject.SetActive(false);
-            player.playerUI.stunShiba.gameObject.SetActive(true);
-
-            player.shibaCollider.enabled = true;
-            chicken.playerDowned = true;
-            if (playedFallingSound == false)
-            {
-                SFX.fallingVoiceCheck = true;
-                playedFallingSound = true;
-            }
-            chicken.AbovePlatformCheck();
-        }
-        else if ((player.transform.position.y > PlayerStatisFallPoint.transform.position.y - 1f))
-        {
-            playedFallingSound = false;
-            SFX.fallingVoiceCheck = false;
-        }
     }
 }

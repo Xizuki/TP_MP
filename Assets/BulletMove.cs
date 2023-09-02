@@ -49,6 +49,7 @@ public class BulletMove : MonoBehaviour
         if (!FindObjectOfType<Dictionary_GameplaySettings>())
         {
             currentMultiplier = easyMultiplier;
+            return;
         }
 
         if (dictionary.GameplaySettings["EnemyProjectileSpeed"] == Difficulty.Easy)
