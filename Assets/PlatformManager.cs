@@ -82,10 +82,13 @@ public class PlatformManager : MonoBehaviour
     void Update()
     {
         //RemovePastPlatforms();
+        if(player.transform.position.y < lastLandedPlatform.transform.position.y)
+        {
+            player.shibaCollider.enabled = false;
+        }
 
         if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
         {
-
             player.playerUI.normalShiba.gameObject.SetActive(false);
             player.playerUI.stunShiba.gameObject.SetActive(true);
 
