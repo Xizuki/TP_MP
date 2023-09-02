@@ -79,6 +79,7 @@ public class PlatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.transform.position.y < lastLandedPlatform.transform.position.y) { player.shibaCollider.enabled = false; }
         // Only Run this Script when new platforms are generated for optimization
         GameObject[] GOs = GameObject.FindGameObjectsWithTag("Platform");
         foreach (GameObject GO in GOs)
@@ -94,7 +95,8 @@ public class PlatformManager : MonoBehaviour
 
             if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
 
-            if (!platform.GetComponent<Renderer>().isVisible)
+            //if (!platform.GetComponent<Renderer>().isVisible)
+            if (platform.transform.position.y < platformDissappearingPoint.transform.position.y)
             {
                 Destroy(platform.gameObject);
             }
