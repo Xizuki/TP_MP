@@ -41,7 +41,7 @@ public class EnemySpawn : MonoBehaviour
                 int enemyno = Random.Range(0, 2);
 
                 //Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, enemySpawns[i].position.z);
-                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 0.25f, GameObject.FindGameObjectWithTag("Player").transform.position.z) ;
+                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 0.4f, GameObject.FindGameObjectWithTag("Player").transform.position.z) ;
 
                 if (coinFlip > 7)
                 {

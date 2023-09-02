@@ -76,7 +76,7 @@ public class BulletMove : MonoBehaviour
 
     public void FlyBullet()
     {
-        Debug.Log("Current Multiplier: " + currentMultiplier);
+        //Debug.Log("Current Multiplier: " + currentMultiplier);
         transform.position += (transform.forward* speed* currentMultiplier * Time.deltaTime);
         if (bulletCollider.enabled == false)
         {

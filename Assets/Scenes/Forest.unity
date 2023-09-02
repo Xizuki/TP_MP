@@ -1340,6 +1340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+--- !u!1 &793748854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4760723148244412545, guid: 1e2e1685ec34af14497b44435e0ffa3d, type: 3}
+  m_PrefabInstance: {fileID: 1554480002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &798645884 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7639406863386474104, guid: 19de9418982de2c4fa757dd697582a39, type: 3}
@@ -2307,6 +2312,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1224412122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9077035877413150263, guid: e3d6580a8c053ae48851146cc4b8ee3a, type: 3}
+  m_PrefabInstance: {fileID: 1181100892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237707149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,6 +3086,10 @@ MonoBehaviour:
   - {fileID: 4760723148244412545, guid: 8533ff0cc56b02a44ad7b7e94dc807d4, type: 3}
   spawnBottom: 80
   spawnedRooms: 0
+  Rooms:
+  - {fileID: 1224412122}
+  - {fileID: 793748854}
+  - {fileID: 1763589294}
 --- !u!4 &1454552393
 Transform:
   m_ObjectHideFlags: 0
@@ -3720,6 +3734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085017efda2adcc489182dd3fe474104, type: 3}
+--- !u!1 &1763589294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4374016794200696253, guid: 777af0899a6626142840831cd4c20cc1, type: 3}
+  m_PrefabInstance: {fileID: 1346297673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797976224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,7 +3754,7 @@ GameObject:
   - component: {fileID: 1797976225}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: ExitPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

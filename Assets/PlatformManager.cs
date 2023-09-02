@@ -65,6 +65,8 @@ public class PlatformManager : MonoBehaviour
 
 
         AddCombo();
+
+
     }
 
     public void AddCombo()
@@ -79,6 +81,12 @@ public class PlatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //RemovePastPlatforms();
+    }
+
+    public void RemovePastPlatforms()
+    {
+
         if (player.transform.position.y < lastLandedPlatform.transform.position.y) { player.shibaCollider.enabled = false; }
         // Only Run this Script when new platforms are generated for optimization
         GameObject[] GOs = GameObject.FindGameObjectsWithTag("Platform");
