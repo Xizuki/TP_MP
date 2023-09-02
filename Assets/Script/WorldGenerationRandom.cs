@@ -11,6 +11,7 @@ public class WorldGenerationRandom : MonoBehaviour
     public List<GameObject> spawnRoom;
     public float spawnBottom = 80f;
     public int spawnedRooms = 0;
+    public List<GameObject> Rooms = new List<GameObject>();
 
     void Start()
     {
@@ -29,14 +30,19 @@ public class WorldGenerationRandom : MonoBehaviour
 
     void RoomSpawn()
     {
-        GameObject GO = GameObject.Instantiate(spawnRoom[Random.Range(0, spawnRoom.Count)], spawnTop.transform.position,
-        spawnTop.transform.rotation);
+        Rooms.Add(GameObject.Instantiate(spawnRoom[Random.Range(0, spawnRoom.Count - 1)], spawnTop.transform.position, spawnTop.transform.rotation));
 
-        spawnTop = GO.GetComponentInChildren<SpawnTopScript>().gameObject;
+        spawnTop = Rooms[Rooms.Count-1].GetComponentInChildren<SpawnTopScript>().gameObject;
 
-        if(GO.GetComponent<XI_TextureParent>()) 
+        if (Rooms[Rooms.Count - 1].GetComponent<XI_TextureParent>()) 
         {
-            GO.GetComponent<XI_TextureParent>().GenerateAllMaterialInstance();
+            Rooms[Rooms.Count - 1].GetComponent<XI_TextureParent>().GenerateAllMaterialInstance();
+        }
+
+        if (Rooms.Count > 3)
+        {
+            Destroy(Rooms[0]);
+            Rooms.RemoveAt(0);
         }
     }
 }
