@@ -136,7 +136,7 @@ public class SFX : MonoBehaviour
             audio.clip = gettingHit;
             sfxVolume = sfxVol;
             audio.PlayOneShot(gettingHit);
-            audio.PlayOneShot(fallingVoice);
+            //audio.PlayOneShot(fallingVoice);
             hit = false;
         }
         if (fallingVoiceCheck == true)
