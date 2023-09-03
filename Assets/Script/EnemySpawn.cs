@@ -18,6 +18,7 @@ public class EnemySpawn : MonoBehaviour
     int hard = 8;
 
     public bool rotationalOverride;
+    public bool spawned;
     private void Awake()
     {
         dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
@@ -31,7 +32,7 @@ public class EnemySpawn : MonoBehaviour
 
     void Spawn()
     {
-
+        
         if (FindObjectOfType<Dictionary_GameplaySettings>() == null)
         {
 

@@ -87,7 +87,7 @@ public class PlatformManager : MonoBehaviour
             player.shibaCollider.enabled = false;
         }
 
-        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
+        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y)
         {
             player.playerUI.normalShiba.gameObject.SetActive(false);
             player.playerUI.stunShiba.gameObject.SetActive(true);
@@ -127,15 +127,16 @@ public class PlatformManager : MonoBehaviour
 
             if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
 
-            //if (!platform.GetComponent<Renderer>().isVisible)
-            if (platform.transform.position.y < platformDissappearingPoint.transform.position.y)
-            {
-                Destroy(platform.gameObject);
-            }
-            //else if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y)
+            ////if (!platform.getcomponent<renderer>().isvisible)
+            //if (platform.transform.position.y < platformdissappearingpoint.transform.position.y)
             //{
-            //    platform.GetComponent<BoxCollider>().enabled = false;
+            //    destroy(platform.gameobject.getcomponent<>);
             //}
+            //else
+            if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y)
+            {
+                platform.GetComponent<BoxCollider>().enabled = false;
+            }
         }
 
         foreach (PlatformScript platform in platformsToRemove)
