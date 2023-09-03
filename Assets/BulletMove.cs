@@ -49,6 +49,7 @@ public class BulletMove : MonoBehaviour
         if (!FindObjectOfType<Dictionary_GameplaySettings>())
         {
             currentMultiplier = easyMultiplier;
+            return;
         }
 
         if (dictionary.GameplaySettings["EnemyProjectileSpeed"] == Difficulty.Easy)
@@ -76,7 +77,7 @@ public class BulletMove : MonoBehaviour
 
     public void FlyBullet()
     {
-        Debug.Log("Current Multiplier: " + currentMultiplier);
+        //Debug.Log("Current Multiplier: " + currentMultiplier);
         transform.position += (transform.forward* speed* currentMultiplier * Time.deltaTime);
         if (bulletCollider.enabled == false)
         {

@@ -15,6 +15,8 @@ public class CameraShaker : MonoBehaviour
 
     private Dictionary_GameplaySettings dictionary;
 
+
+
     private void Awake()
     {
         dictionary = FindObjectOfType<Dictionary_GameplaySettings>();

@@ -34,7 +34,7 @@ public class PlatformManager : MonoBehaviour
         comboCountScript = canvasScript.comboScript;
     }
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
 
     }
@@ -65,6 +65,8 @@ public class PlatformManager : MonoBehaviour
 
 
         AddCombo();
+
+
     }
 
     public void AddCombo()
@@ -79,6 +81,37 @@ public class PlatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //RemovePastPlatforms();
+        if(player.transform.position.y < lastLandedPlatform.transform.position.y)
+        {
+            player.shibaCollider.enabled = false;
+        }
+
+        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
+        {
+            player.playerUI.normalShiba.gameObject.SetActive(false);
+            player.playerUI.stunShiba.gameObject.SetActive(true);
+
+            player.shibaCollider.enabled = true;
+            chicken.playerDowned = true;
+            if (playedFallingSound == false)
+            {
+                SFX.fallingVoiceCheck = true;
+                playedFallingSound = true;
+            }
+            chicken.AbovePlatformCheck();
+        }
+        else if ((player.transform.position.y > PlayerStatisFallPoint.transform.position.y - 1f))
+        {
+            playedFallingSound = false;
+            SFX.fallingVoiceCheck = false;
+        }
+    }
+
+    public void RemovePastPlatforms()
+    {
+
+        if (player.transform.position.y < lastLandedPlatform.transform.position.y) { player.shibaCollider.enabled = false; }
         // Only Run this Script when new platforms are generated for optimization
         GameObject[] GOs = GameObject.FindGameObjectsWithTag("Platform");
         foreach (GameObject GO in GOs)
@@ -94,6 +127,7 @@ public class PlatformManager : MonoBehaviour
 
             if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
 
+            //if (!platform.GetComponent<Renderer>().isVisible)
             if (platform.transform.position.y < platformDissappearingPoint.transform.position.y)
             {
                 Destroy(platform.gameObject);
@@ -112,25 +146,5 @@ public class PlatformManager : MonoBehaviour
         //very inefficient, the fix in this should be done with the one on top
         platforms.Clear();
 
-        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
-        {
-
-            player.playerUI.normalShiba.gameObject.SetActive(false);
-            player.playerUI.stunShiba.gameObject.SetActive(true);
-
-            player.shibaCollider.enabled = true;
-            chicken.playerDowned = true;
-            if (playedFallingSound == false)
-            {
-                SFX.fallingVoiceCheck = true;
-                playedFallingSound = true;
-            }
-            chicken.AbovePlatformCheck();
-        }
-        else if ((player.transform.position.y > PlayerStatisFallPoint.transform.position.y - 1f))
-        {
-            playedFallingSound = false;
-            SFX.fallingVoiceCheck = false;
-        }
     }
 }
