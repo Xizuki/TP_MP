@@ -125,7 +125,7 @@ public class ComboCount : MonoBehaviour
             comboTxt.color = Color.cyan;
             ringLight.startColor = Color.cyan;
             ringLight.maxParticles = 5;
-            comboTxt.fontSize = combo;
+            //comboTxt.fontSize = combo;
             highCombo = true;
         }
         if (combo >= 40)
@@ -133,7 +133,7 @@ public class ComboCount : MonoBehaviour
             comboTxt.color = Color.cyan;
             ringLight.startColor = Color.cyan;
             ringLight.maxParticles = 7;
-            comboTxt.fontSize = combo;
+            //comboTxt.fontSize = combo;
             preLightning.Play();
 
             if (comboTxt.fontSize >= 50)
