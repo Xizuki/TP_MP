@@ -155,9 +155,12 @@ public class SoundControl : MonoBehaviour
 
         GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("SFX");
 
+        
+
 
         foreach (GameObject gameObject in ambientObjects)
         {
+            Debug.Log("GameObject: " +gameObject.name);
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
             audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["SFX"] * 0.1f;
