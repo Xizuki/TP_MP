@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SoundControl : MonoBehaviour
 {
@@ -20,6 +21,13 @@ public class SoundControl : MonoBehaviour
 
     void Start()
     {
+    
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         MuteAll();
 
         AdjustWithMasterVolume();
@@ -33,13 +41,6 @@ public class SoundControl : MonoBehaviour
         AdjustCrownVolume();
 
         AdjustAmbient();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void AdjustWithMasterVolume()
@@ -73,7 +74,7 @@ public class SoundControl : MonoBehaviour
         Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
 
         //Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary
-        audioSourceToAdjust.music.volume *= soundDictionary.SoundSettings["BGMusic"] * 0.1f;
+        audioSourceToAdjust.music.volume *= soundDictionary.SoundSettings["Volume"] *soundDictionary.SoundSettings["BGMusic"] * 0.1f;
            
         
     }
@@ -81,37 +82,77 @@ public class SoundControl : MonoBehaviour
     void AdjustChargingVolume()
     {
 
-        AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("ChargingSound").GetComponent<AudioSource>();
+        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("ChargingSound").GetComponent<AudioSource>();
 
-        audioSourceToAdjust.volume *= soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
+        //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
 
+
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("ChargingSound");
+
+        AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
+
+        foreach (AudioSource audioSource in ambientAudioSources)
+        {
+            audioSource.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
+        }
 
     }
 
 
     void AdjustSFXVolume()
     {
-        AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
-        Debug.Log("Original Volume: " + audioSourceToAdjust.volume);
+        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        //Debug.Log("Original Volume: " + audioSourceToAdjust.volume);
 
-        Debug.Log("Volume Multiplier: " + soundDictionary.SoundSettings["SFX"]);
+        //Debug.Log("Volume Multiplier: " + soundDictionary.SoundSettings["SFX"]);
 
-        audioSourceToAdjust.volume *= soundDictionary.SoundSettings["SFX"]*0.1f;
-        Debug.Log("New Volume: " + audioSourceToAdjust.volume);
+        //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["SFX"]*0.1f;
+        //Debug.Log("New Volume: " + audioSourceToAdjust.volume);
+
+
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("SFX");
+
+        AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
+
+        foreach (AudioSource audioSource in ambientAudioSources)
+        {
+            audioSource.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["SFX"] * 0.1f;
+        }
+
     }
 
 
     void AdjustCrownVolume()
     {
-        AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("Crown").GetComponent<AudioSource>();
+        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("Crown").GetComponent<AudioSource>();
 
-        audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Crown"] * 0.1f;
+        //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["Crown"] * 0.1f;
+
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Crown");
+
+        AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
+
+        foreach (AudioSource audioSource in ambientAudioSources)
+        {
+            audioSource.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["Crown"] * 0.1f;
+        }
     }
 
     void AdjustAmbient()
     {
-        AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("Ambient").GetComponent<AudioSource>();
 
-        audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Ambient"] * 0.1f;
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");
+
+        AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
+
+        foreach (AudioSource audioSource in ambientAudioSources)
+        {
+            audioSource.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["Ambient"] * 0.1f;
+        }    
+
+
+        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("Ambient").GetComponent<AudioSource>();
+
+       
     }
 }
