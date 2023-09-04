@@ -264,7 +264,7 @@ public class NamedPipeServer : MonoBehaviour
 
     public string lastestLine;
 
-    // DO NOT FKING CALL METHODS IN THIS, CHANGE A VARIABLE THEN RUN A METHOD BY CHECJKING THAT VARIABLE INSTEAD ,
+    // DO NOT FKING CALL METHODS IN THIS, CHANGE A VARIABLE THEN RUN A METHOD BY CHECKING THAT VARIABLE INSTEAD ,
     public async void ReadMessage()
     {
         print("ReadMessage()");

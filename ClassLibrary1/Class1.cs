@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Nyp.Razor.Spectrum;
-using System.Drawing;
 using System.Collections;
 using System.Threading;
 using System.IO.Pipes;
@@ -45,9 +41,7 @@ namespace BTGame
 
         }
         public override void Start_Game()
-        {
-           
-
+        {   
             base.Start_Game();
         }
         public override void Initialize()
