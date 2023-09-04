@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 100333145}
   - component: {fileID: 100333144}
   - component: {fileID: 100333146}
+  - component: {fileID: 382550987}
   m_Layer: 5
   m_Name: Crown Profile
   m_TagString: Untagged
@@ -164,7 +165,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.070012115, y: 0.070012115, z: 0.070012115}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 890440684}
   m_Father: {fileID: 7639406864568397005}
@@ -309,6 +310,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &382550987
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100333142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0108f42973e3274a820fc07cf04bf8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &191888231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,8 +4063,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2138913373
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &7639406862989152186
 MonoBehaviour:
@@ -14803,7 +14825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7400043471724790587, guid: 9a098c2fdbd416148b075f6f7ebcdc86, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a098c2fdbd416148b075f6f7ebcdc86, type: 3}
@@ -14830,7 +14852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4607946937320026380, guid: 1591abe8b1acdc3459f4dbe702673b76, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4607946937320026381, guid: 1591abe8b1acdc3459f4dbe702673b76, type: 3}
       propertyPath: m_Pivot.x
@@ -15411,6 +15433,22 @@ PrefabInstance:
     - target: {fileID: 198578896622907030, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.9616579
+      objectReference: {fileID: 0}
+    - target: {fileID: 199114718874567490, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199114718874567490, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2138913373
+      objectReference: {fileID: 0}
+    - target: {fileID: 199221559248935504, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199221559248935504, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2138913373
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
