@@ -39,11 +39,7 @@ public class FullChargeHit : MonoBehaviour
 
             foreach(RaycastHit hit in allHit)
             {
-                if (hit.collider == null)
-                {
-                    //return;
-                }
-                else if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -54,11 +50,7 @@ public class FullChargeHit : MonoBehaviour
             }
             foreach (RaycastHit hit in allHit2)
             {
-                if (hit.collider == null)
-                {
-                    //return;
-                }
-                else if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -71,11 +63,7 @@ public class FullChargeHit : MonoBehaviour
 
             if (Physics.Raycast(raycastLine.transform.position, raycastLine.transform.right, out hit, distanceSet))
             {
-                if (hit.collider == null)
-                {
-                    //return;
-                }
-                else if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -86,11 +74,7 @@ public class FullChargeHit : MonoBehaviour
             }
             if (Physics.Raycast(raycastLine.transform.position, -raycastLine.transform.right, out hit, distanceSet))
             {
-                if (hit2.collider == null)
-                {
-                    //return;
-                }
-                else if (hit2.collider.tag == "Enemy")
+                if (hit2.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -111,11 +95,7 @@ public class FullChargeHit : MonoBehaviour
 
             foreach (RaycastHit hit in allHit)
             { 
-                if (hit.collider == null)
-                {
-                    //return;
-                }
-                else if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -126,11 +106,7 @@ public class FullChargeHit : MonoBehaviour
             }
             foreach (RaycastHit hit in allHit2)
             {
-                if (hit.collider == null)
-                {
-                    //return;
-                }
-                else if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -144,11 +120,7 @@ public class FullChargeHit : MonoBehaviour
 
             if (Physics.Raycast(raycastLine2.transform.position, raycastLine2.transform.right, out hit, distanceSet))
             {
-                if (hit.collider == null)
-                {
-                    return;
-                }
-                else if(hit.collider.tag == "Enemy")
+                if(hit.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
@@ -159,11 +131,7 @@ public class FullChargeHit : MonoBehaviour
             }
             if (Physics.Raycast(raycastLine2.transform.position, -raycastLine2.transform.right, out hit2, distanceSet))
             {
-                if (hit2.collider == null)
-                {
-                    //return;
-                }
-                else if (hit2.collider.tag == "Enemy")
+                if (hit2.collider.tag == "Enemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
                     flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
