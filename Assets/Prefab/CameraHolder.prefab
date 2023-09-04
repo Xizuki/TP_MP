@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &394078631866392395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3405125096638661003}
+  m_Layer: 5
+  m_Name: ForestWeather
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3405125096638661003
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394078631866392395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.4313097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6212029483191078519}
+  - {fileID: 7728587619126118513}
+  m_Father: {fileID: 787603330678362283}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -11, y: -13.000008}
+  m_SizeDelta: {x: 1526.7756, y: 521.92926}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &956891218820136676
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +286,139 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.35
   m_Pitch: 0.15
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &3329526618083533194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7728587619126118513}
+  - component: {fileID: 8143539401783393396}
+  m_Layer: 0
+  m_Name: ForestSound
+  m_TagString: Ambient
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7728587619126118513
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329526618083533194}
+  m_LocalRotation: {x: 0.12773705, y: -0.99180806, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6213443, y: 0.62134445, z: 0.6213443}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3405125096638661003}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &8143539401783393396
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329526618083533194}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d616f6b48ab298a4d9cde26094ea0a4a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -1004,7 +1175,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6212029483191078519}
+  - {fileID: 3405125096638661003}
   - {fileID: 8402462626450840195}
   - {fileID: 5724472710399877593}
   - {fileID: 1122029598814319735}
@@ -1238,7 +1409,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c4bff53e7665fb147b573075bea23848, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6326366945964a343855d577eab49fdc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.35
   m_Pitch: 0.15
@@ -1944,7 +2115,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 787603330678362283}
+    m_TransformParent: {fileID: 3405125096638661003}
     m_Modifications:
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_Pivot.x
@@ -1976,11 +2147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 2457.2134
+      value: 1881.4377
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 840
+      value: 853.0708
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_LocalScale.x
@@ -1988,7 +2159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6213443
+      value: 0.6213444
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_LocalScale.z
@@ -2004,7 +2175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.4313097
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2024,11 +2195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158210, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2048,7 +2219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842514866140158213, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
       propertyPath: m_Name
-      value: ForestWeather
+      value: ForestEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842514866140158213, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
+      propertyPath: m_TagString
+      value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430be3a6916ad444b9121979c6332ffa, type: 3}
