@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     public TMP_Text loadingTxt;
     public bool camUp;
 
+    public string selectedStage = "";
+
     string[] lore = {"Shiba is sneaking into the castle to save the princess.","The Shiba is able to jump high with it's Power Crystal!"
             ,"The Shiba is a dog of justice, with the goal of saving the princess!","The Shiba is able to defend itself with it's Mighty Shield."
             ,"The Shiba has squishy cheeks that everyone loves.","Use your focus to charge up your jump to jump higher!","The Stopwatch is able to slow down time for you to get past enemies more easily."
@@ -38,7 +40,6 @@ public class MainMenu : MonoBehaviour
     {
         cam.SetActive(true);
         UI.SetActive(false);
-        StartCoroutine(WaitTime());
     }
 
     public void CamOff()
@@ -56,10 +57,12 @@ public class MainMenu : MonoBehaviour
     // QUICK CHANGE TO MAKE MENU WORKS
     public void StartStage(string sceneName)
     {
+        OnClickStart();
         UI.SetActive(false);
         selectStage.SetActive(true);
-
-        SceneManager.LoadScene(sceneName);
+        selectedStage = sceneName;
+        StartCoroutine(WaitTime(sceneName));
+      
     }
 
     public void CloseStage()
@@ -86,27 +89,28 @@ public class MainMenu : MonoBehaviour
         options.SetActive(true);
     }
 
-    IEnumerator WaitTime()
+    IEnumerator WaitTime(string sceneName)
     {
         print("Scene Loading");
         yield return new WaitForSeconds(5.75f);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(sceneName);
 
     }
 
-    IEnumerator SkipIntro()
+    IEnumerator SkipIntro(string sceneName)
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void SkipIntroMain()
-    {
-        StartCoroutine(SkipIntro());
+    { 
+        StartCoroutine(SkipIntro(selectedStage));
     }
 
     private void Update()
     {
+        Debug.Log("Selected Stage: " + selectedStage);  
         if (camUp == true)
         {
             CamTwo();

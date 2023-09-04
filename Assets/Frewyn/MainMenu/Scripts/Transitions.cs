@@ -15,7 +15,13 @@ public class Transitions : MonoBehaviour
     private GameObject gameplaySettings;
 
     [SerializeField]
+    private GameObject gameplaySettingsClose;
+
+    [SerializeField]
     private GameObject soundSettings;
+
+    [SerializeField]
+    private GameObject soundSettingsClose;
 
     [SerializeField]
     private GameObject mainMenu;
@@ -28,6 +34,9 @@ public class Transitions : MonoBehaviour
 
     [SerializeField]
     private DictionaryVolumeSettings soundSettingsScript;
+
+    
+
 
     private void Awake()
     {
@@ -42,6 +51,7 @@ public class Transitions : MonoBehaviour
 
     public void OpenGameplaySettings()
     {
+        gameplaySettingsClose.SetActive(true);
         gameplaySettings.SetActive(true);
         settingTransition.SetActive(false);
 
@@ -52,12 +62,14 @@ public class Transitions : MonoBehaviour
         Debug.Log("Click");
         gameplaySettings.SetActive(false);
         settingTransition.SetActive(true);
+        gameplaySettingsClose.SetActive(false);
         gameplaySettingsScript.WriteToPlayerPrefsGameplay();
 
     }
 
     public void OpenSoundSettings()
     {
+        soundSettingsClose.SetActive(true);
         soundSettings.SetActive(true);
         settingTransition.SetActive(false);
 
@@ -67,6 +79,7 @@ public class Transitions : MonoBehaviour
     {
         soundSettings.SetActive(false);
         settingTransition.SetActive(true);
+        soundSettingsClose.SetActive(false);
         soundSettingsScript.WriteToPlayerPrefsSound();
     }
 

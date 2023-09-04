@@ -18,12 +18,12 @@ public class StartCutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UI.enabled = false;
+        /*UI.enabled = false;
         UI2.enabled = false;
         gameHasStart.SetActive(false);
         gameHasStarted = false;
         gameHasSkip = false;
-        StartCoroutine(TimeWait());
+        StartCoroutine(TimeWait());*/
     }
 
     IEnumerator TimeWait()
@@ -38,10 +38,10 @@ public class StartCutscene : MonoBehaviour
         UI.enabled = true;
         UI2.enabled = true;
         gameHasStarted = true;
-        if (gameHasSkip == false)
+/*        if (gameHasSkip == false)
         {
             StartCoroutine(GameStart());
-        }
+        }*/
         blackBars.SetTrigger("Hide");
         camAnim.SetTrigger("EndCutscene");
         yield return new WaitForSeconds(1f);
@@ -61,22 +61,27 @@ public class StartCutscene : MonoBehaviour
         UI2.enabled = true;
     }
 
+    public void StartCutscenes()
+    {
+        StartCoroutine(TimeWait());
+    }
+
     public void SkipCutscene()
     {
         StartCoroutine(CutsceneSkip());
     }
 
-    IEnumerator GameStart()
+    /*IEnumerator GameStart()
     {
-        if (gameHasStarted == true)
+        *//*if (gameHasStarted == true)
         {
             gameHasStart.SetActive(true);
             yield return new WaitForSeconds(2.5f);
             gameHasStart.SetActive(false);
             gameHasStarted = false;
-        }
+        }*//*
 
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
