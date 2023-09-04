@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class EndScene : MonoBehaviour
 {
@@ -136,19 +137,31 @@ public class EndScene : MonoBehaviour
         if (timesPlayed == 0)
         {
 
+            //Debug.Log("Object name " + progressBars[timesPlayed].GetComponent<GameObject>().name);
             progressBarBG[timesPlayed].SetActive(true);
+
+            progressBars[timesPlayed].gameObject.SetActive(true);
+       
+
+
             //progressBars[timesPlayed].SetScoreText();
             progressBars[timesPlayed].score = Score.score;
+
         }
         else 
         {
             for (int i = 0; i < timesPlayed+1; i++)
             {
                 Debug.Log("For Loop running");
-   
-                progressBars[i].score = soScore.scores[i];
+
                 //progressBars[i].SetScoreText();
                 progressBarBG[i].SetActive(true);
+            
+
+                progressBars[i].gameObject.SetActive(true);
+
+                progressBars[i].score = soScore.scores[i];
+
 
                 if (progressBars[i].score >highScore)
                 {
