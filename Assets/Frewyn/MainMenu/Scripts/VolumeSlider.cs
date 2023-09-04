@@ -22,6 +22,9 @@ namespace menu
         private TextMeshProUGUI text;
 
         [SerializeField]
+        private SoundControl soundControl;
+
+        [SerializeField]
         private float volumeMultiplier = 0.1f;
 
         [SerializeField]
@@ -31,6 +34,8 @@ namespace menu
         private void Awake()
         {
             dictionary = FindObjectOfType<DictionaryVolumeSettings>();
+
+            soundControl = FindObjectOfType<SoundControl>();
         }
 
 
@@ -64,6 +69,8 @@ namespace menu
             TextUpdate(volumeMultiplier);  
 
             dictionary.WriteToPlayerPrefsSound();
+
+            soundControl.AdjustAll();
         }
 
         void TextUpdate(float multiplier)
