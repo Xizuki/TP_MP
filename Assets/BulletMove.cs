@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
+    public GameObject owner;
 
     [Header("Speed")]
     public float baseSpeed;

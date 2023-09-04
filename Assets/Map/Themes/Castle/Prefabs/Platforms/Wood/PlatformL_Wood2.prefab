@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 1185989275370644839}
   - component: {fileID: 1558568235112057728}
   - component: {fileID: -2550577397910766704}
+  - component: {fileID: 278349117826050218}
   m_Layer: 0
   m_Name: PlatformL_Wood2
   m_TagString: Platform
@@ -154,6 +155,25 @@ MonoBehaviour:
   - {fileID: 6018874499357953600, guid: 11ce5e30a3e573044b052bbf3371b2a1, type: 3}
   - {fileID: 4245915190017150719, guid: 7056a3e807744f946b85855b0ac1a024, type: 3}
   dictionary: {fileID: 0}
+  rotationalOverride: 0
+  spawned: 0
+--- !u!114 &278349117826050218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099325909621309227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd2668d0ca333f47b2d447be61499be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpSpawns:
+  - {fileID: 6577534182284656613}
+  powerUp:
+  - {fileID: 4224860788542850370, guid: c4f18fe3dfc150c4cb40465432e8d586, type: 3}
+  - {fileID: 4695514709622592754, guid: e0512427b423dd641bf4a80403d35f47, type: 3}
 --- !u!1 &3841082010089813041
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 3925817397875142859}
   - component: {fileID: -1734398542745526865}
   - component: {fileID: -6488532884037656772}
+  - component: {fileID: 7856513197639376966}
   m_Layer: 0
   m_Name: PlatformS_Wood3
   m_TagString: Platform
@@ -113,6 +114,24 @@ MonoBehaviour:
   enemy: []
   dictionary: {fileID: 0}
   rotationalOverride: 0
+  spawned: 0
+--- !u!114 &7856513197639376966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444439163873701654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd2668d0ca333f47b2d447be61499be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpSpawns:
+  - {fileID: 7444439163873701653}
+  powerUp:
+  - {fileID: 4224860788542850370, guid: c4f18fe3dfc150c4cb40465432e8d586, type: 3}
+  - {fileID: 4695514709622592754, guid: e0512427b423dd641bf4a80403d35f47, type: 3}
 --- !u!1001 &7444439163185915286
 PrefabInstance:
   m_ObjectHideFlags: 0
