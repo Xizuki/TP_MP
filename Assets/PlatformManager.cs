@@ -67,6 +67,17 @@ public class PlatformManager : MonoBehaviour
         AddCombo();
 
 
+
+
+
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+        foreach(GameObject platform in platforms)
+        {
+            if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y +3.2f)
+            {
+                Destroy(platform.GetComponent<BoxCollider>());
+            }
+        }
     }
 
     public void AddCombo()
