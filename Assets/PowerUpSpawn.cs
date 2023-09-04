@@ -22,7 +22,7 @@ public class PowerUpSpawn : MonoBehaviour
             int enemyno = Random.Range(0, 2);
             if (coinFlip > 7)
             {
-                Vector3 allignedPosition = new Vector3(powerUpSpawns[i].position.x, transform.position.y + 0.75f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
+                Vector3 allignedPosition = new Vector3(powerUpSpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
                 GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(powerUp[enemyno], allignedPosition, powerUpSpawns[i].rotation));
 
