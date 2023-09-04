@@ -572,7 +572,15 @@ public class JumpingPlayerScript : MonoBehaviour
                 hitParticle.Play();
                 HitPhase();
 
+                GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, collision.transform.position, collision.transform.rotation);
                 Destroy(collision.gameObject);
+
+                if(collision.collider.tag == "EnemyBullet")
+                {
+                    Destroy(collision.collider.GetComponent<BulletMove>().owner);
+                    GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, collision.collider.GetComponent<BulletMove>().owner.transform.position, collision.transform.rotation);
+
+                }
             }
 
         }

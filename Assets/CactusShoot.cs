@@ -28,7 +28,8 @@ public class CactusShoot : MonoBehaviour
         {
             shootingSfx.PlayOneShot(shootingClip);
             animator.SetTrigger("Attack");
-            GameObject.Instantiate(bullet, transform.position, cactus.transform.rotation);
+           GameObject GO =  GameObject.Instantiate(bullet, transform.position, cactus.transform.rotation);
+            GO.GetComponent<BulletMove>().owner = gameObject;
             yield return waitTime;
         }
     }
