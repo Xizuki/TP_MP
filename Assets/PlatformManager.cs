@@ -84,7 +84,7 @@ public class PlatformManager : MonoBehaviour
         //RemovePastPlatforms();
         if(player.transform.position.y < lastLandedPlatform.transform.position.y)
         {
-            player.shibaCollider.enabled = false;
+            //player.shibaCollider.enabled = false;
         }
 
         if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y)
