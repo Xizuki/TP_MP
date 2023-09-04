@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 60070724}
   m_Layer: 5
   m_Name: Main Theme
-  m_TagString: Ambient
+  m_TagString: BGMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1489,7 +1489,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9aa1d9ed147af9248a9682265772845e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.501
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6736,7 +6736,7 @@ GameObject:
   - component: {fileID: 334428733}
   m_Layer: 5
   m_Name: AudioSource2
-  m_TagString: Ambient
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9071,8 +9071,8 @@ GameObject:
   - component: {fileID: 455978880}
   - component: {fileID: 455978879}
   m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_Name: Torch 2
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12132,8 +12132,8 @@ GameObject:
   - component: {fileID: 674700119}
   - component: {fileID: 674700118}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: 'Torch '
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24788,6 +24788,7 @@ MonoBehaviour:
   gameplaySettingsScript: {fileID: 0}
   volumeSettingsScript: {fileID: 0}
   settingAssociations: {fileID: 1594965359}
+  soundControl: {fileID: 0}
   opaque: {r: 0.9490196, g: 0.64705884, b: 0.25490198, a: 1}
   transparent: {r: 0.9490196, g: 0.64705884, b: 0.25490198, a: 0.48235294}
 --- !u!114 &1594965363
@@ -27862,7 +27863,7 @@ GameObject:
   - component: {fileID: 1811371614}
   m_Layer: 0
   m_Name: Ambient
-  m_TagString: Untagged
+  m_TagString: Ambient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
