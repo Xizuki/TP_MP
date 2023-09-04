@@ -7,8 +7,9 @@ using UnityEngine.Rendering;
 
 public class SoundControl : MonoBehaviour
 {
+    [SerializeField]
     private Dictionary_GameplaySettings dictionary;
-
+    [SerializeField]
     private DictionaryVolumeSettings soundDictionary;
 
     private void Awake()
@@ -32,7 +33,7 @@ public class SoundControl : MonoBehaviour
 
         AdjustWithMasterVolume();
 
-        AdjustBGVolume();
+       // AdjustBGVolume();
 
         AdjustChargingVolume();
 
@@ -74,7 +75,7 @@ public class SoundControl : MonoBehaviour
         Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
 
         //Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary
-        audioSourceToAdjust.music.volume *= soundDictionary.SoundSettings["Volume"] *soundDictionary.SoundSettings["BGMusic"] * 0.1f;
+        audioSourceToAdjust.music.volume *= soundDictionary.SoundSettings["Volume"] *soundDictionary.SoundSettings["BGMusic"] * 0.1f; 
            
         
     }
