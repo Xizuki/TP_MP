@@ -15,7 +15,10 @@ namespace Menu
         private DictionaryVolumeSettings volumeSettingsScript;
         [SerializeField]
         private SettingAssociations settingAssociations;
-    
+
+        [SerializeField]
+        private SoundControl soundControl;
+
 
         [SerializeField]
         private Color opaque = new Color(1.0f, 1.0f, 1.0f, 1f);
@@ -32,6 +35,9 @@ namespace Menu
             volumeSettingsScript = FindObjectOfType<DictionaryVolumeSettings>();
 
             settingAssociations = FindObjectOfType<SettingAssociations>();
+
+
+            soundControl = FindObjectOfType<SoundControl>();
         }
 
 
@@ -285,6 +291,11 @@ namespace Menu
                 }
             }
 
+            if(setting == "Mute")
+            {
+                soundControl.AdjustAll();
+            }
+
         }
 
         public void SettingOff(string setting)
@@ -306,6 +317,10 @@ namespace Menu
                     offButton.color = opaque;
 
                 }
+            }
+            if (setting == "Mute")
+            {
+                soundControl.AdjustAll();
             }
 
         }
