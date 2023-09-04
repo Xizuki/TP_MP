@@ -31,8 +31,8 @@ public class FullChargeHit : MonoBehaviour
 
         if (collision.collider.tag == "Platform" && jumpingPlayer.jumpChargePrev >= 0.9)
         {
-            //Debug.DrawRay(raycastLine.transform.position, raycastLine.transform.right * distanceSet, Color.red, 1000f);
-            //Debug.DrawRay(raycastLine2.transform.position, raycastLine2.transform.right * distanceSet, Color.blue, 1000f);
+            Debug.DrawRay(raycastLine.transform.position, raycastLine.transform.right * distanceSet, Color.red, 1000f);
+            Debug.DrawRay(raycastLine2.transform.position, raycastLine2.transform.right * distanceSet, Color.blue, 1000f);
 
             allHit = Physics.RaycastAll(raycastLine.transform.position, raycastLine.transform.right, distanceSet);
             allHit2 = Physics.RaycastAll(raycastLine.transform.position, -raycastLine.transform.right, distanceSet);
@@ -110,7 +110,7 @@ public class FullChargeHit : MonoBehaviour
             allHit2 = Physics.RaycastAll(raycastLine.transform.position, -raycastLine.transform.right, distanceSet);
 
             foreach (RaycastHit hit in allHit)
-            {
+            { 
                 if (hit.collider == null)
                 {
                     //return;

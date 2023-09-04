@@ -18,12 +18,12 @@ public class StartCutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*UI.enabled = false;
+        UI.enabled = false;
         UI2.enabled = false;
         gameHasStart.SetActive(false);
         gameHasStarted = false;
         gameHasSkip = false;
-        StartCoroutine(TimeWait());*/
+        StartCoroutine(TimeWait());
     }
 
     IEnumerator TimeWait()
