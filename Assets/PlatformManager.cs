@@ -34,7 +34,7 @@ public class PlatformManager : MonoBehaviour
         comboCountScript = canvasScript.comboScript;
     }
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
 
     }
@@ -65,6 +65,8 @@ public class PlatformManager : MonoBehaviour
 
 
         AddCombo();
+
+
     }
 
     public void AddCombo()
@@ -79,42 +81,14 @@ public class PlatformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Only Run this Script when new platforms are generated for optimization
-        GameObject[] GOs = GameObject.FindGameObjectsWithTag("Platform");
-        foreach (GameObject GO in GOs)
+        //RemovePastPlatforms();
+        if(player.transform.position.y < lastLandedPlatform.transform.position.y)
         {
-            platforms.Add(GO.GetComponent<PlatformScript>());
+            player.shibaCollider.enabled = false;
         }
 
-        List<PlatformScript> platformsToRemove = new List<PlatformScript>();
-
-        foreach (PlatformScript platform in platforms)
+        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y)
         {
-            if (platform == lastLandedPlatform) { continue; }
-
-            if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
-
-            if (platform.transform.position.y < platformDissappearingPoint.transform.position.y)
-            {
-                Destroy(platform.gameObject);
-            }
-            //else if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y)
-            //{
-            //    platform.GetComponent<BoxCollider>().enabled = false;
-            //}
-        }
-
-        foreach (PlatformScript platform in platformsToRemove)
-        {
-            platforms.Remove(platform);
-        }
-
-        //very inefficient, the fix in this should be done with the one on top
-        platforms.Clear();
-
-        if (player.transform.position.y < PlayerStatisFallPoint.transform.position.y - 1f)
-        {
-
             player.playerUI.normalShiba.gameObject.SetActive(false);
             player.playerUI.stunShiba.gameObject.SetActive(true);
 
@@ -132,5 +106,46 @@ public class PlatformManager : MonoBehaviour
             playedFallingSound = false;
             SFX.fallingVoiceCheck = false;
         }
+    }
+
+    public void RemovePastPlatforms()
+    {
+
+        if (player.transform.position.y < lastLandedPlatform.transform.position.y) { player.shibaCollider.enabled = false; }
+        // Only Run this Script when new platforms are generated for optimization
+        GameObject[] GOs = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (GameObject GO in GOs)
+        {
+            platforms.Add(GO.GetComponent<PlatformScript>());
+        }
+
+        List<PlatformScript> platformsToRemove = new List<PlatformScript>();
+
+        foreach (PlatformScript platform in platforms)
+        {
+            if (platform == lastLandedPlatform) { continue; }
+
+            if (platform.transform.position.y >= lastLandedPlatform.transform.position.y) { continue; }
+
+            ////if (!platform.getcomponent<renderer>().isvisible)
+            //if (platform.transform.position.y < platformdissappearingpoint.transform.position.y)
+            //{
+            //    destroy(platform.gameobject.getcomponent<>);
+            //}
+            //else
+            if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y)
+            {
+                platform.GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+
+        foreach (PlatformScript platform in platformsToRemove)
+        {
+            platforms.Remove(platform);
+        }
+
+        //very inefficient, the fix in this should be done with the one on top
+        platforms.Clear();
+
     }
 }

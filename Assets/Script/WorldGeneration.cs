@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class WorldGeneration : MonoBehaviour
@@ -11,6 +12,7 @@ public class WorldGeneration : MonoBehaviour
     public List<GameObject> spawnRoom;
     public float spawnBottom = 80f;
     public int spawnedRooms = 0;
+    public List<GameObject> Rooms = new List<GameObject>();
 
     void Start()
     {
@@ -29,8 +31,8 @@ public class WorldGeneration : MonoBehaviour
 
     void RoomSpawn()
     {
-        spawnTop = GameObject.Instantiate(spawnRoom[roomType], spawnTop.transform.position,
-        spawnTop.transform.rotation).GetComponentInChildren<SpawnTopScript>().gameObject;
+        Rooms.Add(GameObject.Instantiate(spawnRoom[roomType], spawnTop.transform.position, spawnTop.transform.rotation));
+        spawnTop = Rooms[Rooms.Count-1].GetComponentInChildren<SpawnTopScript>().gameObject;
         roomType += 1;
 
         if (roomType >= 9)
@@ -41,5 +43,11 @@ public class WorldGeneration : MonoBehaviour
             Debug.Log("hit");
         }
         spawnedRooms = spawnedRooms + 1;
+
+        if(Rooms.Count > 3)
+        {
+            Destroy(Rooms[0]);
+            Rooms.RemoveAt(0);
+        }
     }
 }
