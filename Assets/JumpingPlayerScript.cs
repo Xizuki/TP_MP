@@ -571,6 +571,8 @@ public class JumpingPlayerScript : MonoBehaviour
                 animator.SetTrigger("Hit");
                 hitParticle.Play();
                 HitPhase();
+
+                Destroy(collision.gameObject);
             }
 
         }
