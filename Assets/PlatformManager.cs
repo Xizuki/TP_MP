@@ -71,11 +71,19 @@ public class PlatformManager : MonoBehaviour
 
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
-        foreach(GameObject platform in platforms)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject platform in platforms)
         {
             if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y +4f)
             {
                 Destroy(platform.GetComponent<BoxCollider>());
+            }
+        }
+        foreach(GameObject enemy in enemies)
+        {
+            if(enemy.transform.position.y < platformDissappearingPoint.transform.position.y)
+            {
+                Destroy(enemy.gameObject);
             }
         }
     }
