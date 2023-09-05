@@ -24,7 +24,11 @@ public class CameraShaker : MonoBehaviour
 
     private void Start()
     {
-        if(dictionary.GameplaySettings["ScreenShake"] == Difficulty.Off)
+        if (dictionary is null)
+        {
+            this.enabled = true;
+        }
+        else if(dictionary.GameplaySettings["ScreenShake"] == Difficulty.Off)
         {
             this.enabled = false;
         }
