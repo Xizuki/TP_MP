@@ -57,10 +57,11 @@ public class PlatformManager : MonoBehaviour
 
 
         float scoreMultiplied = player.jumpChargePrev * chargeBarScoreMultiplyer;
-        if (player.jumpChargePrev >= 1) { scoreMultiplied *= chargeBarFullScoreMultiplyer; }
+        bool fullyCharge = false;
+        if (player.jumpChargePrev >= 0.995) { scoreMultiplied *= chargeBarFullScoreMultiplyer; fullyCharge = true; }
 
         // ADD VISUAL EFFECT TO ADD SCORE in FUTURE
-        scoreScript.AddScore(scoreMultiplied, platformYDistance);
+        scoreScript.AddScore(scoreMultiplied, platformYDistance, fullyCharge);
 
 
 
