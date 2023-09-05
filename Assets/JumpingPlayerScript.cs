@@ -570,8 +570,11 @@ public class JumpingPlayerScript : MonoBehaviour
             {
                 animator.SetTrigger("Hit");
                 hitParticle.Play();
-                HitPhase();
 
+                if (!GetComponent<ShieldPowerUp>().isActivated)
+                {
+                    HitPhase();
+                }
                 GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, collision.transform.position, collision.transform.rotation);
                 Destroy(collision.gameObject);
 
