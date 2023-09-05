@@ -79,6 +79,19 @@ public class ShieldPowerUp : PowerUpScript
         base.Effect();
     }
 
+    public bool CollisionCheck(Collision collision)
+    {
+        if (collision.collider.gameObject.tag != "EnemyBullet") { return false; }
+
+        if (!isActivated) { return false; }
+        collision.collider.gameObject.tag = "PlayerBullet";
+
+        collision.collider.gameObject.transform.forward = -collision.collider.gameObject.transform.forward;
+        collision.collider.gameObject.layer = 0;
+
+        return true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "EnemyBullet") { return; }
