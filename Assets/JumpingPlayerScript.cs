@@ -577,7 +577,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
                 if(collision.collider.tag == "EnemyBullet")
                 {
-                    Destroy(collision.collider.GetComponent<BulletMove>().owner);
+                    Destroy(collision.collider.GetComponent<BulletMove>().owner.GetComponentInParent<EnemyScript>().gameObject);
                     GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, collision.collider.GetComponent<BulletMove>().owner.transform.position, collision.transform.rotation);
 
                 }
