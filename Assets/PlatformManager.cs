@@ -57,10 +57,11 @@ public class PlatformManager : MonoBehaviour
 
 
         float scoreMultiplied = player.jumpChargePrev * chargeBarScoreMultiplyer;
-        if (player.jumpChargePrev >= 1) { scoreMultiplied *= chargeBarFullScoreMultiplyer; }
+        bool fullyCharge = false;
+        if (player.jumpChargePrev >= 0.995) { scoreMultiplied *= chargeBarFullScoreMultiplyer; fullyCharge = true; }
 
         // ADD VISUAL EFFECT TO ADD SCORE in FUTURE
-        scoreScript.AddScore(scoreMultiplied, platformYDistance);
+        scoreScript.AddScore(scoreMultiplied, platformYDistance, fullyCharge);
 
 
 
@@ -71,11 +72,19 @@ public class PlatformManager : MonoBehaviour
 
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
-        foreach(GameObject platform in platforms)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject platform in platforms)
         {
             if (platform.transform.position.y < PlayerStatisFallPoint.transform.position.y +4f)
             {
                 Destroy(platform.GetComponent<BoxCollider>());
+            }
+        }
+        foreach(GameObject enemy in enemies)
+        {
+            if(enemy.transform.position.y < platformDissappearingPoint.transform.position.y)
+            {
+                Destroy(enemy.gameObject);
             }
         }
     }
