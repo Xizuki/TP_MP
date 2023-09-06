@@ -24861,6 +24861,7 @@ MonoBehaviour:
   loadingTxtObject: {fileID: 1031247532}
   loadingTxt: {fileID: 1031247534}
   camUp: 0
+  selectedStage: 
 --- !u!114 &1594965359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24906,6 +24907,7 @@ MonoBehaviour:
   gameplaySettingsScript: {fileID: 0}
   volumeSettingsScript: {fileID: 0}
   settingAssociations: {fileID: 1594965359}
+  soundControl: {fileID: 0}
   opaque: {r: 0.9490196, g: 0.64705884, b: 0.25490198, a: 1}
   transparent: {r: 0.9490196, g: 0.64705884, b: 0.25490198, a: 0.48235294}
 --- !u!114 &1594965363
@@ -24922,7 +24924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingTransition: {fileID: 200790644}
   gameplaySettings: {fileID: 1525134541}
+  gameplaySettingsClose: {fileID: 0}
   soundSettings: {fileID: 1007988323}
+  soundSettingsClose: {fileID: 0}
   mainMenu: {fileID: 482891005}
   optionsBackground: {fileID: 1172248430}
   gameplaySettingsScript: {fileID: 0}
@@ -25505,7 +25509,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Icelands
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1633974890
