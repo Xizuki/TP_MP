@@ -81,6 +81,7 @@ public class Transitions : MonoBehaviour
         settingTransition.SetActive(true);
         soundSettingsClose.SetActive(false);
         soundSettingsScript.WriteToPlayerPrefsSound();
+        gameplaySettingsScript.WriteToPlayerPrefsGameplay();
     }
 
     public void CloseOptions()

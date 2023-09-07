@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartCutscene : MonoBehaviour
@@ -18,6 +19,7 @@ public class StartCutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex <= 1) { return; }
         UI.enabled = false;
         UI2.enabled = false;
         gameHasStart.SetActive(false);
@@ -35,8 +37,11 @@ public class StartCutscene : MonoBehaviour
         blackBars.SetTrigger("Show");
         gameHasStart.SetActive(false);
         yield return new WaitForSeconds(4.5f);
-        UI.enabled = true;
-        UI2.enabled = true;
+        if (SceneManager.GetActiveScene().buildIndex > 1)
+        {
+            UI.enabled = true;
+            UI2.enabled = true;
+        }
         gameHasStarted = true;
 /*        if (gameHasSkip == false)
         {

@@ -116,7 +116,7 @@ namespace Menu
             foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)
             {
 
-                //Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
+                Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
                 PlayerPrefs.SetString(pair.Key, pair.Value.ToString());
             }
 

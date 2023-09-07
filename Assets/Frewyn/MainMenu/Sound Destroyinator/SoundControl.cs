@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class SoundControl : MonoBehaviour
 {
@@ -67,8 +68,11 @@ public class SoundControl : MonoBehaviour
         {
             AudioSource[] objectToDisable = FindObjectsOfType<AudioSource>(); //Finds all objects with audio source
 
+            
+
             foreach (AudioSource objects in objectToDisable)
             {
+                Debug.Log("To mute: " + objects);
                 objects.mute = true; //Mute them
             }
         }
@@ -86,11 +90,15 @@ public class SoundControl : MonoBehaviour
 
     void AdjustBGVolume()
     {
+        
+       Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
 
-        //Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
-
-        ////Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary
-        //audioSourceToAdjust.music.volume *= soundDictionary.SoundSettings["Volume"] *soundDictionary.SoundSettings["BGMusic"] * 0.1f;
+        //Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary
+        if (audioSourceToAdjust != null)
+        {
+            audioSourceToAdjust.music.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["BGMusic"] * 0.1f;
+        }
+    
 
 
         GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("BGMusic");
@@ -101,7 +109,7 @@ public class SoundControl : MonoBehaviour
         {
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
-            audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["BGMusic"]*0.1f ;
+            audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["BGMusic"] * 0.1f;
 
 
 

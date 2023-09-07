@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
     public GameObject player;
     public TMP_Text scoreTxt;
     public static float score;
+    
 
     // Score = how high they manage to go up
 
@@ -23,10 +24,13 @@ public class Score : MonoBehaviour
         scoreTxt.text = Mathf.Round(score).ToString();
     }
 
-    public void AddScore(float multiplyer, float platformYDistance)
+    public void AddScore(float multiplyer, float platformYDistance, bool fullyCharge)
     {
         float iterationScore = 0;
-        iterationScore = platformYDistance * multiplyer;
+        if (fullyCharge)
+            iterationScore = 5;
+
+        iterationScore += (platformYDistance * multiplyer);
 
         score += iterationScore;
 
