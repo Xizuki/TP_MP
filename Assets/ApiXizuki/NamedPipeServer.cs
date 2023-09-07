@@ -213,7 +213,7 @@ public class NamedPipeServer : MonoBehaviour
         var errorCode = ex.HResult & 0xFFFF;
         return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
     }
-    public void Update()
+    public void FixedUpdate()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -339,11 +339,17 @@ public class NamedPipeServer : MonoBehaviour
 
                     if (boolean == "True")
                     {
-                        jumpingPlayer.isCharging = true;
+                        if (jumpingPlayer.isGrounded)
+                        {
+                            jumpingPlayer.isCharging = true;
+                        }
                     }
                     else if (boolean == "False")
                     {
-                        jumpingPlayer.isCharging = false;
+                        if (jumpingPlayer.isGrounded)
+                        {
+                            jumpingPlayer.isCharging = false;
+                        }
                     }
                     print("EEG4");
 

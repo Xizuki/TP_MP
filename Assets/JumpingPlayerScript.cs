@@ -226,25 +226,31 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void Inputs()
     {
+
         // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            animator.SetBool("Charge", true);
-            SFX.charging = true; //Added charging SFX
             isCharging = true;
-            canRotate = false;//Logic for rotation when charging
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
             isCharging = false;
-            canRotate = true;//Logic for rotation when charging
-            animator.SetBool("Charge", false);
-
         }
-        if (isGrounded && !isMoving)
+
+
+        if (!isCharging)
+        {
+            SFX.performanceCharge = false;
+        }
+
+        if (isGrounded)
         {
             if (isCharging)
             {
+                animator.SetBool("Charge", true);
+                SFX.charging = true; //Added charging SFX
+                canRotate = false;//Logic for rotation when charging
+
                 chargeParticle.Play();
                 chargeCount += 3f * Time.deltaTime;
                 jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
@@ -256,6 +262,9 @@ public class JumpingPlayerScript : MonoBehaviour
             }
             if (!isCharging)
             {
+                canRotate = true;//Logic for rotation when charging
+                animator.SetBool("Charge", false);
+
                 SFX.performanceCharge = false;
                 chargeCount -= 0.55f * Time.deltaTime; //chargecount 
                 chargeParticle.Stop();

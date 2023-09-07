@@ -83,6 +83,17 @@ public class EndSceneButtons : MonoBehaviour
         winterStage.color = chosen;
     }
 
+    public void MainMenu() //Sets chosen stage to x, changes opacity of all stage buttons
+    {
+        SceneManager.LoadScene(1);
+
+        castleStage.color = notChosen;
+        forestStage.color = notChosen;
+        winterStage.color = notChosen;
+
+    }
+
+
     public void NextSession()
 
     {
