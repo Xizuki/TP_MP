@@ -191,8 +191,8 @@ namespace BTGame
 
 
             textBox14.Text = "Client.EegChannel.D_Threshold =  " + Client.EegChannel.D_Threshold;
-            textBox15.Text = "Client.EegChannel.R_Threshold =  " + Client.EegChannel.R_Threshold;
-
+            //textBox15.Text = "Client.EegChannel.R_Threshold =  " + Client.EegChannel.R_Threshold;
+            textBox15.Text = "LEVEL_GAME_INTERVAL =  " + LEVEL_GAME_INTERVAL;
         }
 
         #region Form Creation
