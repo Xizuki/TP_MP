@@ -21,6 +21,7 @@ public class NamedPipeServer : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
+
     }
 
     private void Start()

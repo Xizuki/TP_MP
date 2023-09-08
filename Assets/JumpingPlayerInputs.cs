@@ -18,41 +18,7 @@ public class JumpingPlayerInputs : MonoBehaviour
         jumpingPlayer = GetComponent<JumpingPlayerScript>();
 
         inputs.GameActions.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions.Input.performed += a => jumpingPlayer.SetJoyStickVector2(a.ReadValue<Vector2>());
-
-
-        //inputs.GameActions1.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions1.Input.performed += a => jumpingPlayer.SetJoyStickVector2(a.ReadValue<Vector2>());
-
-
-        //inputs.GameActions2.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions2.MoveJumpVector.performed += a => jumpingPlayer.SetJoyStickVector2(a.ReadValue<Vector2>());
-        //inputs.GameActions2.MovePlayerRight.canceled += a => jumpingPlayer.isMoving = false;
-        //inputs.GameActions2.MovePlayerLeft.canceled += a => jumpingPlayer.isMoving = false;
-
-
-        //inputs.GameActions3.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions3.MoveJumpVector.performed += a => jumpingPlayer.SetJoyStickVector2(a.ReadValue<Vector2>());
-        //inputs.GameActions3.MovePlayerRight.canceled += a => jumpingPlayer.isMoving = false;
-        //inputs.GameActions3.MovePlayerLeft.canceled += a => jumpingPlayer.isMoving = false;
-
-
-        //inputs.GameActions4.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions4.MovePlayerRight.canceled += a => jumpingPlayer.isMoving = false;
-        //inputs.GameActions4.MovePlayerLeft.canceled += a => jumpingPlayer.isMoving = false;
-
-
-        //inputs.GameActions5.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions5.MovePlayerRight.canceled += a => jumpingPlayer.isMoving = false;
-        //inputs.GameActions5.MovePlayerLeft.canceled += a => jumpingPlayer.isMoving = false;
-
-
-        //inputs.GameActions6.Jump.performed += a => jumpingPlayer.Jump();
-        //inputs.GameActions6.Input.performed += a => jumpingPlayer.SetJoyStickVector2(a.ReadValue<Vector2>());
-        //inputs.GameActions6.MoveState.canceled += a => jumpingPlayer.isMoving=false;
-
-
-
+        
 
 
         inputs.Rework1.Jump.performed += a => jumpingPlayer.Jump();
@@ -61,12 +27,6 @@ public class JumpingPlayerInputs : MonoBehaviour
 
 
 
-        //inputs.GameActions1.DebugIsgrounded.performed += a => DebugIsGrounded();
-
-        //inputs.GameActions3.DebugIsgrounded.performed += a => DebugIsGrounded();
-        //inputs.GameActions4.DebugIsgrounded.performed += a => DebugIsGrounded();
-        //inputs.GameActions5.DebugIsgrounded.performed += a => DebugIsGrounded();
-        //inputs.GameActions6.DebugIsgrounded.performed += a => DebugIsGrounded();
         inputs.Rework1.DebugIsgrounded.performed -= a => DebugIsGrounded();
 
 
