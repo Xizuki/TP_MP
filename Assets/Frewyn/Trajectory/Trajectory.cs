@@ -134,6 +134,11 @@ public class Trajectory : MonoBehaviour
 
                     return;
                 }
+
+                if(i>300) //Stops the line if it get too long, prevents lag
+                {
+                    return;
+                }
             }
 
 
@@ -148,6 +153,7 @@ public class Trajectory : MonoBehaviour
                 return;
 
             }
+
         }
 
     }
