@@ -15,6 +15,8 @@ public class NamedPipeServer : MonoBehaviour
     //public bool isConnected = false;
     private StreamReader reader;
     public Pause pauseScript;
+    public GameTimer gameTimerScript;
+    public EndSceneRef endSceneRefScript;
     public int currentSceneIndex;
 
 
@@ -129,83 +131,9 @@ public class NamedPipeServer : MonoBehaviour
         }
 
     }
-    //private IEnumerator NamedPipeServerCoroutine()
-    //{
-    //    //print("NamedPipeServerCoroutine  1");
-    //    while (isRunning)
-    //    {
-    //        //print("isConnected 1 = " + isConnected);
 
 
-    //        //if (pipeServer!=null)
-
-    //        //if (!isConnected)
-    //        //{ 
-    //        // print("pipeServer.IsConnected 1 = " + pipeServer.IsConnected);
-    //        // Replace the named pipe server creation with async version for Unity
-    //        pipeServer = new NamedPipeServerStream(pipeName);
-
-
-    //        //print("NamedPipeServerCoroutine  3");
-    //        //print("pipeServer.IsConnected 1.5 = " + pipeServer.IsConnected);
-
-    //        // Start the asynchronous operation to wait for the client connection\
-    //        IAsyncResult result = pipeServer.BeginWaitForConnection(OnClientConnected, null);
-    //        //print("NamedPipeServerCoroutine  4");
-
-    //        //print("pipeServer.IsConnected 2 = " + pipeServer.IsConnected);
-    //        //print("isConnected 2 = " + isConnected);
-
-    //        while (!result.IsCompleted)
-    //        {
-    //            print("1result.IsCompleted");
-    //            yield return null; // Yield until the next frame
-
-    //        }
-
-    //        //print("isConnected 3 = " + isConnected);
-
-    //        //print("pipeServer.IsConnected 3 = " + pipeServer.IsConnected);
-
-    //        //pipeServer.EndWaitForConnection(result);
-    //        //}
-    //        //print("NamedPipeServerCoroutine  5");
-
-    //        //print("NamedPipeServerCoroutine  6");
-    //        //print("pipeServer.IsConnected 4 = " + pipeServer.IsConnected);
-
-    //        //Complete the connection process
-    //        pipeServer.EndWaitForConnection(result);
-    //        //print("NamedPipeServerCoroutine  5");
-
-    //        // Handle communication with the connected client here...
-    //        // For example, you can use StreamReader and StreamWriter to read and write data on the pipe.
-
-    //        // After communication, close the pipe
-    //        //if(!isConnected)
-    //        pipeServer.Close();
-    //        //try
-    //        //{
-    //        //    // Attempt to read or write to the pipe
-    //        //    pipeServer.ReadByte();
-    //        //    Debug.Log("The pipe stream is not broken.");
-    //        //}
-    //        //catch (IOException ex) when (IsPipeBrokenException(ex))
-    //        //{
-
-    //        //    Debug.Log("The pipe stream is broken.");
-    //        //}
-
-    //        //isRunning = false;
-
-    //    }
-
-    //    //pipeServer.EndWaitForConnection(result);
-    //    //pipeServer.Close();
-
-    //}
-
-
+    bool endSceneStart = false;
     static bool IsPipeBrokenException(IOException ex)
     {
         const int ERROR_PIPE_NOT_CONNECTED = 233;
@@ -229,10 +157,14 @@ public class NamedPipeServer : MonoBehaviour
             }
         }
 
-        if(GameObject.FindAnyObjectByType<Pause>() != null)
-        {
-            pauseScript = GameObject.FindAnyObjectByType<Pause>();
-        }
+
+        pauseScript = GameObject.FindAnyObjectByType<Pause>();
+
+        gameTimerScript = GameObject.FindAnyObjectByType<GameTimer>();
+
+        endSceneRefScript = GameObject.FindAnyObjectByType<EndSceneRef>();
+
+
         //print("pipeServer.IsConnected UPDATE = " + pipeServer.IsConnected);
         //print("isConnected UPDATE = " + isConnected);
 
@@ -265,7 +197,7 @@ public class NamedPipeServer : MonoBehaviour
 
     public string lastestLine;
 
-    // DO NOT FKING CALL METHODS IN THIS, CHANGE A VARIABLE THEN RUN A METHOD BY CHECKING THAT VARIABLE INSTEAD ,
+    // DO NOT CALL METHODS IN THIS, CHANGE A VARIABLE THEN RUN A METHOD BY CHECKING THAT VARIABLE INSTEAD ,
     public async void ReadMessage()
     {
         print("ReadMessage()");
@@ -274,66 +206,17 @@ public class NamedPipeServer : MonoBehaviour
         {
             print("ReadMessage()1");
 
-            //if (!GameObject.FindObjectOfType<Pause>())
-            //{
-            //    continue;
-            //}
-
-            //if (!serverStream.IsConnected) { continue; }
-            //if (lastestLine == "Null") { serverStream.Close(); }
-            //lastestLine =  reader.ReadLine();
+           
             lastestLine = await reader.ReadLineAsync();
-            print(lastestLine);
-
-            //if (!gameobject.findobjectoftype<pause>())
-            //{
-            //    continue;
-            //}
-
-            //if (lastestLine.Contains("PAUSE"))
-            //{
-
-            //    Debug.Log("PAUSE FROM EEG");
-            //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-            //    //pauseScript.PauseGame();
-            //}
-
-            //if (lastestLine.Contains("RESUME"))
-            //{
-            //    //Debug.Log("RESUME FROM EEG");
-            //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-            //    //pauseScript.ResumeGame();
-            //}
+            print("lastestLine = " + lastestLine);
 
 
-            //if (GameObject.FindObjectOfType<Pause>() != null)
-            //{
-            //    //if (lastestLine.Contains("PAUSE") && SceneManager.GetActiveScene().buildIndex > 1)
-            //    //{
 
-
-            //    //    Debug.Log("PAUSE FROM EEG");
-            //    //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-            //    //    //pauseScript.PauseGame();
-            //    //}
-
-            //    //if (lastestLine.Contains("RESUME") && SceneManager.GetActiveScene().buildIndex > 1)
-            //    //{
-            //    //    Debug.Log("RESUME FROM EEG");
-            //    //    //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-            //    //    //pauseScript.ResumeGame();
-            //    //}
-            //}
-
-
-            print("EEG1");
             if (lastestLine.Contains("Trigger:"))
             {
-                print("EEG2");
 
                 if (jumpingPlayer != null)
                 {
-                    print("EEG3");
 
                     string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
                     print(boolean);
@@ -352,13 +235,11 @@ public class NamedPipeServer : MonoBehaviour
                             jumpingPlayer.isCharging = false;
                         }
                     }
-                    print("EEG4");
 
                     //jumpingPlayer.isCharging();
                 }
             }
 
-            print("EEG5");
 
 
             if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript != null)
@@ -367,37 +248,32 @@ public class NamedPipeServer : MonoBehaviour
                 print("EEG6");
 
                 Debug.Log("PAUSE FROM EEG");
-                //Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                //pauseScript.PauseGame();
+
                 pauseScript.asyncForcePause = true;
 
-                //CheckPipeStream();
-
-                //reader.Close();
-                //reader.Dispose();
-                //if (serverStream.IsConnected)
-                //serverStream.Disconnect();
-                //serverStream.Close();
-                //serverStream.Dispose();
             }
-            print("EEG7");
 
             if (lastestLine.Contains("RESUME") && currentSceneIndex > 1 && pauseScript != null)
             {
                 pauseScript.asyncForceResume = true;
 
-
-                //print("EE8");
-
-                //Debug.Log("RESUME FROM EEG");
-                ////Pause pauseScript = GameObject.FindObjectOfType<Pause>();
-                //pauseScript.ResumeGame();
             }
 
-            print("EEG9");
 
-        }
+            if (lastestLine.Contains("INTERVAL START") && currentSceneIndex > 1 & gameTimerScript != null)
+            {
+                if(!gameTimerScript.gameEnded)
+                    gameTimerScript.gameEnded = true;
+
+            }
+            else if (lastestLine.Contains("INTERVAL END") && currentSceneIndex > 1 & endSceneRefScript != null)
+            
+                if(!endSceneRefScript.endScene.asyncForceEndInterval)
+                    endSceneRefScript.endScene.asyncForceEndInterval = true;
+            }
+
     }
+    
 }
 
 

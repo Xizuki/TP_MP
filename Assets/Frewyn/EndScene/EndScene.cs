@@ -57,6 +57,7 @@ public class EndScene : MonoBehaviour
 
 
 
+    public bool asyncForceEndInterval;
 
     // Start is called before the first frame update
     void Start()
@@ -71,9 +72,18 @@ public class EndScene : MonoBehaviour
     {
         Debug.Log("Times Played: " + timesPlayed);
 
-        
-      
 
+
+        if (asyncForceEndInterval)
+        { 
+            gameTimerScript.gameEnded = false;
+            Debug.Log("Close end scene");
+            objectEndScene.SetActive(false);
+            NextScene();
+            endScreenTimer = 15;
+            //StopCoroutine(Countdown());
+            asyncForceEndInterval = false;
+        }
     }
 
     private void OnEnable()
@@ -82,7 +92,7 @@ public class EndScene : MonoBehaviour
         comboCountScript = FindObjectOfType<ComboCount>();
         gameTimerScript  = FindObjectOfType<GameTimer>();
 
-        StartCoroutine(Countdown());//Countdown timer
+        //StartCoroutine(Countdown());//Countdown timer
  
         comboText.text = ComboCount.combo.ToString();//Sets combo text
 

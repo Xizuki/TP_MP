@@ -145,7 +145,7 @@ public class JumpingPlayerScript : MonoBehaviour
     
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 
         //Debug.Log("Collided: " + playerSizeCheck.collided);
@@ -228,7 +228,7 @@ public class JumpingPlayerScript : MonoBehaviour
     {
 
         // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
             isCharging = true;
         }

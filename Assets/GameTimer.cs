@@ -24,14 +24,20 @@ public class GameTimer : MonoBehaviour
     {
         if (timerEnabled==true)
         {
-            timer -= Time.deltaTime;
-            timetTest.text = "Timer:" + Mathf.Round(timer);
-            if (timer <= 0)
+            if (gameEnded)
             {
-                Time.timeScale = 0;
                 endScene.gameObject.SetActive(true);
-                gameEnded = true;
+                Time.timeScale = 0;
             }
+
+            //timer -= Time.deltaTime;
+            //timetTest.text = "Timer:" + Mathf.Round(timer);
+            //if (timer <= 0)
+            //{
+            //    Time.timeScale = 0;
+            //    endScene.gameObject.SetActive(true);
+            //    gameEnded = true;
+            //}
         }
        
         

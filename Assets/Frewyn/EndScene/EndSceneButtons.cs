@@ -95,7 +95,6 @@ public class EndSceneButtons : MonoBehaviour
 
 
     public void NextSession()
-
     {
         Debug.Log("Next session clicked! ");
         objectEndScene.SetActive(false);

@@ -34,8 +34,12 @@ namespace BTGame
         TextBox textBox14;
         TextBox textBox15;
 
+        bool connected = false;
+        
         public static Player Client => Game.m_Clients.Count > 0 ? (Player)Game.m_Clients[0] : (Player)null;
 
+
+  
         public ShibaToTheTop()
         {
 
@@ -70,9 +74,23 @@ namespace BTGame
 
                 Process.Start(exePath);
                 exeStarted = true;
-            }
 
-            await ClientStreamConnection();
+                await ClientStreamConnection();
+            }
+            if (IsInSession && exeStarted && Level != -1)
+            {
+                writer.WriteLine("INTERVAL END");
+                // Flush the writer and check for IOException (pipe broken)
+                try
+                {
+                    writer.Flush();
+                }
+                catch (IOException ex)
+                {
+
+                    //Exit();
+                }
+            }
         }
 
         public async Task ClientStreamConnection()
@@ -96,6 +114,7 @@ namespace BTGame
                 writer = new StreamWriter(clientStream);
 
                 Console.Beep();
+                connected = true;
             }
 
 
@@ -119,6 +138,21 @@ namespace BTGame
             }
         }
 
+        public override void Stop_Game()
+        {
+
+
+            base.Stop_Game();
+                
+            
+        }
+
+        public override void Interval()
+        {
+
+           base.Interval();
+        }
+
         public override void Resume_Game()
         {
             base.Resume_Game();
@@ -139,24 +173,43 @@ namespace BTGame
         public override void Update(double elapsed)
         {
             base.Update(elapsed);
-           
 
-            if (writer != null || !(clientStream == null || !clientStream.IsConnected))
+            if (connected)
             {
+                if (writer != null || !(clientStream == null || !clientStream.IsConnected))
+                {
 
-                writer.WriteLine("Trigger:" + Client.EegChannel.A_Trigger);
-                // Flush the writer and check for IOException (pipe broken)
-                try
-                {
-                    writer.Flush();
-                }
-                catch (IOException ex)
-                {
-                  
-                    //Exit();
+                    writer.WriteLine("Trigger:" + Client.EegChannel.A_Trigger);
+                    // Flush the writer and check for IOException (pipe broken)
+                    try
+                    {
+                        writer.Flush();
+                    }
+                    catch (IOException ex)
+                    {
+
+                        //Exit();
+                    }
+
+
+
+                    if (!IsInSession && exeStarted && Level == -1)
+                    {
+                        writer.WriteLine("INTERVAL START");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+
                 }
             }
-
             ///* Send Values and Thresholds to get variable jump charge speed in the futre
 
             //writer.WriteLine("A Value : " + Client.EegChannel.A_Value);
@@ -192,7 +245,7 @@ namespace BTGame
 
             textBox14.Text = "Client.EegChannel.D_Threshold =  " + Client.EegChannel.D_Threshold;
             //textBox15.Text = "Client.EegChannel.R_Threshold =  " + Client.EegChannel.R_Threshold;
-            textBox15.Text = "LEVEL_GAME_INTERVAL =  " + LEVEL_GAME_INTERVAL;
+            textBox15.Text = "IsInSession =  " + IsInSession;
         }
 
         #region Form Creation
@@ -876,10 +929,10 @@ namespace BTGame
         {
             this.SuspendLayout();
             // 
-            // TestGame
+            // ShibaToTheTop
             // 
-            this.Name = "TestGame";
-            this.Size = new System.Drawing.Size(963, 837);
+            this.Name = "ShibaToTheTop";
+            this.Size = new System.Drawing.Size(1101, 709);
             this.ResumeLayout(false);
 
         }
