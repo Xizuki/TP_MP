@@ -63,6 +63,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public bool recentInput;// Used to check if there has been input recently
     [SerializeField]
     private float checkInputDelay = 1f; //How long before 'isInput' is reset
+    [SerializeField]
     private float checkInputDelayCountdown = 1f;
     public bool canRotate = true; //Used to lock rotations
 
