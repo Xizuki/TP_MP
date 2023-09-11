@@ -491,6 +491,7 @@ public class JumpingPlayerScript : MonoBehaviour
             faceFront = true;
             checkInputDelayCountdown = checkInputDelay;
         }
+        else faceFront = false;
 
     }
 
