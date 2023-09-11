@@ -6,7 +6,6 @@ public class ShieldPickup : MonoBehaviour
 {
     private GameObject shiba;
     public Animator anim;
-    public GameObject shield;
     public ParticleSystem equipParticle;
     public ParticleSystem auraShield;
     public ShieldPowerUp shieldPowerUp;
