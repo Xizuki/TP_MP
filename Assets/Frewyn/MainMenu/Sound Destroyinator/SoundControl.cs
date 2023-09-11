@@ -12,6 +12,12 @@ public class SoundControl : MonoBehaviour
 
     private DictionaryVolumeSettings soundDictionary;
 
+    [SerializeField]
+    private AudioSource chargingSFX;
+
+    [SerializeField]
+    private AudioSource[] menuButtonSFX;
+
     private void Awake()
     {
         dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
@@ -123,21 +129,26 @@ public class SoundControl : MonoBehaviour
 
         //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
 
+        if(chargingSFX!=null)
+        chargingSFX.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
+
+        Debug.Log("Charging adjusted " + soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f);
 
 
 
-        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("ChargingSound");
+
+        //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("ChargingSound");
 
 
-        foreach (GameObject gameObject in ambientObjects)
-        {
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        //foreach (GameObject gameObject in ambientObjects)
+        //{
+        //    AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
-            audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
+        //    audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
 
 
 
-        }
+        //}
     }
 
 
@@ -175,6 +186,19 @@ public class SoundControl : MonoBehaviour
 
 
 
+        }
+
+        if (menuButtonSFX!=null) //Used specifcally for menu SFX, != checks for if this is being called in menu, if not ignore this
+        {
+            foreach (AudioSource audioSource in menuButtonSFX)
+            {
+         
+
+                audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["SFX"] * 0.1f;
+
+
+
+            }
         }
 
     }

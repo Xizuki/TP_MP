@@ -47,6 +47,8 @@ namespace menu
 
         private void Update()
         {
+
+            Debug.Log("Charging value: " + dictionary.SoundSettings["ChargingSound"]);
             
         }
 

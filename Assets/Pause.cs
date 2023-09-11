@@ -16,11 +16,39 @@ public class Pause : MonoBehaviour
     public bool asyncForcePause;
     public bool asyncForceResume;
 
+    public GameObject soundSettings;
+
+    public GameObject settingsButton;
+
+    public GameObject mainMenuButton;
+
+    public void OpenSoundSettings() //Done by frewyn, disables the sound settings
+    {
+        settingsButton.SetActive(false);
+        mainMenuButton.SetActive(false);
+
+        soundSettings.SetActive(true);
+
+    }
+
+    public void CloseSoundSettings() //Done by frewyn, enables the sound settings
+    {
+        settingsButton.SetActive(true);
+        mainMenuButton.SetActive(true);
+
+        soundSettings.SetActive(false);
+
+    }
+
 
     public void PauseGame()
     {
         pauseSound.ignoreListenerPause = true;
         pauseMenu.SetActive(true);
+
+        settingsButton.SetActive(true); //Done by frewyn, sets buttons to activee
+        mainMenuButton.SetActive(true); //Done by frewyn, sets buttons to activee
+
         gamePause = true;
         playerControl.enabled = false;
         AudioListener.pause = true; 
@@ -34,6 +62,7 @@ public class Pause : MonoBehaviour
         pauseSound.Play();
         gamePause = false;
         playerControl.enabled = true;
+        soundSettings.SetActive(false);
         //StartCoroutine(EnableSound());
         AudioListener.pause = false;
         Time.timeScale = 1f;
