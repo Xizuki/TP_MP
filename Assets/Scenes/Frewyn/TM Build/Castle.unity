@@ -7040,6 +7040,11 @@ Material:
     - _ViewShift: {r: 0, g: 0, b: 0, a: 1}
     - emissive: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
+--- !u!82 &127445341 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 63263616, guid: a56b90f6be26800449ae89250555594b, type: 3}
+  m_PrefabInstance: {fileID: 1819848101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &129746772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 784931212408883416, guid: 3d132d4c4284c23408056299ee11ac9a, type: 3}
@@ -19810,7 +19815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1277811915231323936, guid: 8fca6d4d0642e294dbdef256ebbdf665, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1277811915231323936, guid: 8fca6d4d0642e294dbdef256ebbdf665, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19856,6 +19861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound Destroyinator
       objectReference: {fileID: 0}
+    - target: {fileID: 3702873098423246045, guid: 8fca6d4d0642e294dbdef256ebbdf665, type: 3}
+      propertyPath: chargingSFX
+      value: 
+      objectReference: {fileID: 127445341}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fca6d4d0642e294dbdef256ebbdf665, type: 3}
 --- !u!114 &398207752
@@ -60637,7 +60646,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1545321891
 PrefabInstance:
@@ -156006,7 +156015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8083848009874636875
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -132,6 +132,8 @@ public class SoundControl : MonoBehaviour
         if(chargingSFX!=null)
         chargingSFX.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
 
+        Debug.Log("Charging adjusted " + soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f);
+
 
 
 
