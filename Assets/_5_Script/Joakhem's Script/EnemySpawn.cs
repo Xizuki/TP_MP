@@ -32,7 +32,8 @@ public class EnemySpawn : MonoBehaviour
 
     void Spawn()
     {
-        
+
+        print("Spawn");
         if (FindObjectOfType<Dictionary_GameplaySettings>() == null)
         {
 

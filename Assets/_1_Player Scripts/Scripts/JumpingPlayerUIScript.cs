@@ -24,10 +24,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     private Outline outlineScript;
 
     public ParticleSystem[] interpolateParticle;
-    //private ParticleSystem.MainModule interpolateps;
-    //private ParticleSystem.MainModule interpolateps2;
 
-    //public SpriteRenderer arrowSprite;
     public Color arrowStartingColor;
     public Color arrowEndColor;  
 
