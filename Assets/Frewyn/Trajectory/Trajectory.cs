@@ -39,6 +39,7 @@ public class Trajectory : MonoBehaviour
         playerCollider = GetComponent<BoxCollider>();
         m_Started = true;
 
+        lineRenderer = GetComponentInChildren<LineRenderer>();
     }
 
 
