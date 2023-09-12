@@ -58,7 +58,6 @@ public class PatrolCheck : MonoBehaviour
         hit = true;
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Attack");
             animator.SetTrigger("Attack");
             speed = 0f;
         }
