@@ -47,7 +47,7 @@ public class EnemySpawn : MonoBehaviour
                 int enemyno = Random.Range(0, 2);
 
                 //Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, enemySpawns[i].position.z);
-                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 0.75f, GameObject.FindGameObjectWithTag("Player").transform.position.z) ;
+                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z) ;
 
 
                 if (coinFlip > 7)
@@ -69,7 +69,7 @@ public class EnemySpawn : MonoBehaviour
                 int coinFlip = Random.Range(0, easy); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, 2);
 
-                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 0.75f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
+                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
                 if (coinFlip > 7)
                 {
@@ -91,7 +91,7 @@ public class EnemySpawn : MonoBehaviour
                 int coinFlip = Random.Range(0, medium); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, 2);
 
-                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 0.75f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
+                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y +1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
                 if (coinFlip > 7)
                 {
@@ -113,7 +113,7 @@ public class EnemySpawn : MonoBehaviour
                 int coinFlip = Random.Range(0, hard); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, 2);
 
-                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 0.75f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
+                Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
                 if (coinFlip > 7)
                 {

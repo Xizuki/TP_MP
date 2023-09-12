@@ -20240,7 +20240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  shield: {fileID: 427544716}
   equipParticle: {fileID: 7950109918404460608, guid: 700449c1f38cca549b78e30e1e7013e0, type: 3}
   auraShield: {fileID: 0}
   shieldPowerUp: {fileID: 0}
@@ -50994,7 +50993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  shield: {fileID: 1264820709}
   equipParticle: {fileID: 215744325}
   auraShield: {fileID: 0}
   shieldPowerUp: {fileID: 0}
@@ -63879,6 +63877,7 @@ MonoBehaviour:
   timerText: {fileID: 0}
   comboText: {fileID: 0}
   scoreText: {fileID: 0}
+  asyncForceEndInterval: 0
 --- !u!114 &1595596166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73929,6 +73928,10 @@ PrefabInstance:
     - target: {fileID: 8804181651911078946, guid: a56b90f6be26800449ae89250555594b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842514866811393263, guid: a56b90f6be26800449ae89250555594b, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a56b90f6be26800449ae89250555594b, type: 3}

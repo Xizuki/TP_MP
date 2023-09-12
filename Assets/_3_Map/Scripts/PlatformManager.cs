@@ -80,13 +80,13 @@ public class PlatformManager : MonoBehaviour
                 Destroy(platform.GetComponent<BoxCollider>());
             }
         }
-        foreach(GameObject enemy in enemies)
-        {
-            if(enemy.transform.position.y < platformDissappearingPoint.transform.position.y)
-            {
-                Destroy(enemy.gameObject);
-            }
-        }
+        //foreach(GameObject enemy in enemies)
+        //{
+        //    if(enemy.transform.position.y < platformDissappearingPoint.transform.position.y)
+        //    {
+        //        Destroy(enemy.gameObject);
+        //    }
+        //}
     }
 
     public void AddCombo()

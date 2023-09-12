@@ -356,30 +356,7 @@ public class JumpingPlayerScript : MonoBehaviour
         isMoving = true;
     }
 
-    public void MovementAndJumpVector(Vector2 v2)
-    {
-        //recentInput = true;
-        faceFront = false;
-        checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-        //recentInput = false;
-
-        // Can make this less hard coded but idk how rn and abit laze 
-        playerUI.jumpingVectorIndicator.transform.up = new Vector3(-v2.x, v2.y, 0);
-        playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(playerUI.jumpingVectorIndicator.transform.eulerAngles.x, 0, playerUI.jumpingVectorIndicator.transform.eulerAngles.z);
-
-        if (LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.playerJumpVectorIndicatorHardAngleLimit) && isGrounded)
-        {
-            transform.position += new Vector3(v2.x, 0, 0) * Time.deltaTime * moveSpeed;
-
-            if (resetChargeOnMove)
-                jumpCharge = 0;
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-    }
+  
     public void MoveJumpVectorV3(Vector2 v2)
     {
         //recentInput = true;
