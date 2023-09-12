@@ -18,6 +18,10 @@ namespace BTGame
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         CancellationToken cancellationToken;
 
+
+        TextBox textBoxInstructions;
+
+
         TextBox textBox;
         TextBox textBox2;
         TextBox textBox3;
@@ -222,7 +226,9 @@ namespace BTGame
             //{
             //    Exit();
             //}
-
+            
+                        textBoxInstructions.Text = "Start EEG Channel first if using, then select level without tabbing out";
+            textBoxInstructions.Text = "Start EEG Channel first if using, then select level without tabbing out";
 
             textBox.Text = "Client.EegChannel.A_Value =  " + Client.EegChannel.A_Value;
             textBox2.Text = "Client.EegChannel.B_Value =  " + Client.EegChannel.B_Value;
@@ -251,11 +257,20 @@ namespace BTGame
         #region Form Creation
         public void DebugForm()
         {
+            textBoxInstructions = new TextBox();
+            textBoxInstructions.Name = "instructionTextBox";
+            textBoxInstructions.Text = "Start dual channel first if using, then select level without tabbing out, selecting level first will force you to tab out and therefore not allow you to enable dual channel";
+
+            textBoxInstructions.Location = new System.Drawing.Point(50, 50);
+            textBoxInstructions.Size = new System.Drawing.Size(500, 35);
+            textBoxInstructions.Font = new System.Drawing.Font(textBoxInstructions.Font.FontFamily, textBoxInstructions.Font.Size * 1.3f);
+            this.Controls.Add(textBoxInstructions);
+
             textBox = new TextBox();
             // Set properties for the textbox (optional)
             textBox.Name = "dynamicTextBox";
             textBox.Text = "This is a dynamically created textbox.";
-            textBox.Location = new System.Drawing.Point(50, 50);
+            textBox.Location = new System.Drawing.Point(50, 100);
             textBox.Size = new System.Drawing.Size(500, 20);
             // Add the textbox to the form's Controls collection
             this.Controls.Add(textBox);
@@ -265,7 +280,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox2.Name = "dynamictextBox2";
             textBox2.Text = "This is a dynamically created textBox2.";
-            textBox2.Location = new System.Drawing.Point(50, 75);
+            textBox2.Location = new System.Drawing.Point(50, 125);
             textBox2.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox2);
@@ -275,7 +290,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox3.Name = "dynamictextBox3";
             textBox3.Text = "This is a dynamically created textBox2.";
-            textBox3.Location = new System.Drawing.Point(50, 100);
+            textBox3.Location = new System.Drawing.Point(50, 150);
             textBox3.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox3);
@@ -284,7 +299,7 @@ namespace BTGame
             // Set properties for the textbox (optional)
             textBox4.Name = "dynamicTextBox";
             textBox4.Text = "This is a dynamically created textbox.";
-            textBox4.Location = new System.Drawing.Point(50, 125);
+            textBox4.Location = new System.Drawing.Point(50, 175);
             textBox4.Size = new System.Drawing.Size(500, 20);
             // Add the textbox to the form's Controls collection
             this.Controls.Add(textBox4);
@@ -294,7 +309,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox5.Name = "dynamictextBox2";
             textBox5.Text = "This is a dynamically created textBox2.";
-            textBox5.Location = new System.Drawing.Point(50, 150);
+            textBox5.Location = new System.Drawing.Point(50, 200);
             textBox5.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox5);
@@ -304,7 +319,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox6.Name = "dynamictextBox3";
             textBox6.Text = "This is a dynamically created textBox2.";
-            textBox6.Location = new System.Drawing.Point(50, 175);
+            textBox6.Location = new System.Drawing.Point(50, 225);
             textBox6.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox6);
@@ -313,7 +328,7 @@ namespace BTGame
             // Set properties for the textbox (optional)
             textBox7.Name = "dynamicTextBox";
             textBox7.Text = "This is a dynamically created textbox.";
-            textBox7.Location = new System.Drawing.Point(50, 200);
+            textBox7.Location = new System.Drawing.Point(50, 250);
             textBox7.Size = new System.Drawing.Size(500, 20);
             // Add the textbox to the form's Controls collection
             this.Controls.Add(textBox7);
@@ -323,7 +338,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox8.Name = "dynamictextBox2";
             textBox8.Text = "This is a dynamically created textBox2.";
-            textBox8.Location = new System.Drawing.Point(50, 225);
+            textBox8.Location = new System.Drawing.Point(50, 275);
             textBox8.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox8);
@@ -333,7 +348,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox9.Name = "dynamictextBox3";
             textBox9.Text = "This is a dynamically created textBox2.";
-            textBox9.Location = new System.Drawing.Point(50, 250);
+            textBox9.Location = new System.Drawing.Point(50, 300);
             textBox9.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox3);
@@ -342,7 +357,7 @@ namespace BTGame
             // Set properties for the textbox (optional)
             textBox10.Name = "dynamicTextBox";
             textBox10.Text = "This is a dynamically created textbox.";
-            textBox10.Location = new System.Drawing.Point(50, 275);
+            textBox10.Location = new System.Drawing.Point(50, 325);
             textBox10.Size = new System.Drawing.Size(500, 20);
             // Add the textbox to the form's Controls collection
             this.Controls.Add(textBox10);
@@ -352,7 +367,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox11.Name = "dynamictextBox2";
             textBox11.Text = "This is a dynamically created textBox2.";
-            textBox11.Location = new System.Drawing.Point(50, 300);
+            textBox11.Location = new System.Drawing.Point(50, 350);
             textBox11.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox11);
@@ -362,7 +377,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox12.Name = "dynamictextBox3";
             textBox12.Text = "This is a dynamically created textBox2.";
-            textBox12.Location = new System.Drawing.Point(50, 325);
+            textBox12.Location = new System.Drawing.Point(50, 400);
             textBox12.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox12);
@@ -371,7 +386,7 @@ namespace BTGame
             // Set properties for the textbox (optional)
             textBox13.Name = "dynamicTextBox";
             textBox13.Text = "This is a dynamically created textbox.";
-            textBox13.Location = new System.Drawing.Point(50, 350);
+            textBox13.Location = new System.Drawing.Point(50, 425);
             textBox13.Size = new System.Drawing.Size(500, 20);
             // Add the textbox to the form's Controls collection
             this.Controls.Add(textBox13);
@@ -381,7 +396,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox14.Name = "dynamictextBox2";
             textBox14.Text = "This is a dynamically created textBox2.";
-            textBox14.Location = new System.Drawing.Point(50, 375);
+            textBox14.Location = new System.Drawing.Point(50, 450);
             textBox14.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox14);
@@ -391,7 +406,7 @@ namespace BTGame
             // Set properties for the textBox2 (optional)
             textBox15.Name = "dynamictextBox3";
             textBox15.Text = "This is a dynamically created textBox2.";
-            textBox15.Location = new System.Drawing.Point(50, 400);
+            textBox15.Location = new System.Drawing.Point(50, 475);
             textBox15.Size = new System.Drawing.Size(500, 20);
             // Add the textBox2 to the form's Controls collection
             this.Controls.Add(textBox15);
