@@ -43,7 +43,7 @@ public class SoundControl : MonoBehaviour
     {
         MuteAll();
 
-       // AdjustWithMasterVolume();
+
 
         AdjustBGVolume();
 
@@ -56,17 +56,7 @@ public class SoundControl : MonoBehaviour
         AdjustAmbient();
     }
 
-    void AdjustWithMasterVolume()
-    {
-        AudioSource[] objectsToAdjust = FindObjectsOfType<AudioSource>();
 
-        foreach (AudioSource objects in objectsToAdjust)
-        {
-            objects.volume = soundDictionary.SoundSettings["Volume"] * 0.1f;
-        }
-
-
-    }
 
     void MuteAll()
     {
@@ -99,19 +89,20 @@ public class SoundControl : MonoBehaviour
         
        Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
 
-        //Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary
+        //Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary, 
+        //This line is necessary as menu doesn't contain this script and everything breaks if audioSourceToAdjust is empty
         if (audioSourceToAdjust != null)
         {
             audioSourceToAdjust.music.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["BGMusic"] * 0.1f;
         }
-    
 
 
-        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("BGMusic");
+        //Below implementation is meant spefically for menu as menu's BG music isn't handle through Music Script
+        GameObject[] bgSound = GameObject.FindGameObjectsWithTag("BGMusic");
 
         //AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
 
-        foreach (GameObject gameObject in ambientObjects)
+        foreach (GameObject gameObject in bgSound)
         {
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
@@ -125,59 +116,27 @@ public class SoundControl : MonoBehaviour
         void AdjustChargingVolume()
     {
 
-        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("ChargingSound").GetComponent<AudioSource>();
 
-        //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
-
+        //If there is a chargingsfx then do this, this is necessary as menu doesn't contain chargingSFX which will  cause error if it is null.
         if(chargingSFX!=null)
         chargingSFX.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
 
         Debug.Log("Charging adjusted " + soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f);
 
 
-
-
-        //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("ChargingSound");
-
-
-        //foreach (GameObject gameObject in ambientObjects)
-        //{
-        //    AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-
-        //    audioSource.volume = soundDictionary.SoundSettings["Volume"] * 0.1f * soundDictionary.SoundSettings["ChargingSound"] * 0.1f;
-
-
-
-        //}
     }
 
 
     void AdjustSFXVolume()
     {
-        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
-        //Debug.Log("Original Volume: " + audioSourceToAdjust.volume);
+      
 
-        //Debug.Log("Volume Multiplier: " + soundDictionary.SoundSettings["SFX"]);
-
-        //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["SFX"]*0.1f;
-        //Debug.Log("New Volume: " + audioSourceToAdjust.volume);
-
-
-        //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("SFX");
-
-        //AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
-
-        //foreach (AudioSource audioSource in ambientAudioSources)
-        //{
-        //    audioSource.volume *=soundDictionary.SoundSettings["SFX"] * 0.1f;
-        //}
-
-        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("SFX");
+        GameObject[] sfx = GameObject.FindGameObjectsWithTag("SFX");
 
         
 
 
-        foreach (GameObject gameObject in ambientObjects)
+        foreach (GameObject gameObject in sfx)
         {
             Debug.Log("GameObject: " +gameObject.name);
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
@@ -206,23 +165,11 @@ public class SoundControl : MonoBehaviour
 
     void AdjustCrownVolume()
     {
-        //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("Crown").GetComponent<AudioSource>();
 
-        //audioSourceToAdjust.volume *= soundDictionary.SoundSettings["Volume"] * soundDictionary.SoundSettings["Crown"] * 0.1f;
-
-        //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Crown");
-
-        //AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
-
-        //foreach (AudioSource audioSource in ambientAudioSources)
-        //{
-        //    audioSource.volume *=soundDictionary.SoundSettings["Crown"] * 0.1f;
-        //}
-
-        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Crown");
+        GameObject[] crown = GameObject.FindGameObjectsWithTag("Crown"); //Finds object with tag 
 
 
-        foreach (GameObject gameObject in ambientObjects)
+        foreach (GameObject gameObject in crown)//For every object found, adjust its volume according to sound settings
         {
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
@@ -236,22 +183,11 @@ public class SoundControl : MonoBehaviour
     void AdjustAmbient()
     {
 
-        //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");
-
-        //AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
-
-        //foreach (AudioSource audioSource in ambientAudioSources)
-        //{
-        //    audioSource.volume *= soundDictionary.SoundSettings["Ambient"] * 0.1f;
-        //}
-
-        //Debug.Log("Ambient value " + soundDictionary.SoundSettings["Ambient"]);
-        //Debug.Log("BG value " + soundDictionary.SoundSettings["BGMusic"]);
-
-        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient"); //Finds object with tag 
 
 
-        foreach (GameObject gameObject in ambientObjects)
+
+        foreach (GameObject gameObject in ambientObjects)//For every object found, adjust its volume according to sound settings
         {
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 

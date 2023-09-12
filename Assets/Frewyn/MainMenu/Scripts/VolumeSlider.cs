@@ -1,4 +1,4 @@
-using Menu;
+    using Menu;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -63,10 +63,10 @@ namespace menu
             dictionary.SoundSettings[setting] = volumeSlider.value; // Adjust dictionary value with sound slider value
 
                 
-            foreach (KeyValuePair<string, float> pair in dictionary.SoundSettings)// Print out the sound setting value
-            {
-                Debug.Log("Sound settings: " + pair.Key + ": " + pair.Value); 
-            }
+            //foreach (KeyValuePair<string, float> pair in dictionary.SoundSettings)// Print out the sound setting value
+            //{
+            //    Debug.Log("Sound settings: " + pair.Key + ": " + pair.Value); 
+            //}
 
             TextUpdate(volumeMultiplier);  
 

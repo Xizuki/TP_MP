@@ -57,10 +57,10 @@ namespace Menu
             InitalizeDictionaryWithPlayerPrefs();
 
 
-            foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)//Writes out each settings with its key and value
-            {
-                Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
-            }
+            //foreach (KeyValuePair<string, Difficulty> pair in GameplaySettings)//Writes out each settings with its key and value
+            //{
+            //    Debug.Log("Gameplay settings: " + pair.Key + ": " + pair.Value);
+            //}
 
 
         }
@@ -103,8 +103,8 @@ namespace Menu
         }
         private Difficulty GetPlayerPrefValue(string key) //Get the difficulty in player prefs as a enum
         {
-            Difficulty something = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(key));
-            return something;
+            Difficulty difficulty = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(key));
+            return difficulty;
         }
 
 
@@ -128,7 +128,7 @@ namespace Menu
 
 
 
-        //Add a list of buttons to ButtonDictionary
+        //Add a list of buttons to ButtonDictionary, used by other scripts
         public void AddToButtonDictionary(string settingName, List<Image> settingList)
         {
             // Check if the settingName already exists in the dictionary.
@@ -143,7 +143,7 @@ namespace Menu
         }
 
 
-        //Edit list in ButtonDictionary
+        //Edit list in ButtonDictionary, used by other script
         public void EditSettingList(string settingName, List<Image> settingList)
 
         {

@@ -13,9 +13,9 @@ public class Trajectory : MonoBehaviour
     private JumpingPlayerScript jumpingPlayerScript;
 
     [Header("Trajectory")]
-    [SerializeField]
+ 
     public LineRenderer lineRenderer;
-    [SerializeField]
+
     public Transform releasePosition;
     //public Vector3 startPosition;
     //public Vector3 endPosition;

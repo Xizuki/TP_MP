@@ -120,9 +120,7 @@ public class EndScene : MonoBehaviour
 
         TryAgain();
         ResetScene();
-    
-
-
+   
     }
 
  

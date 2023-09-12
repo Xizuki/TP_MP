@@ -33,11 +33,6 @@ namespace Menu
 
 
         [Header("Volume")]
-        //public Image[] BGMusic;
-
-        //public Image[] chargingSound;
-        //public Image[] sfx;
-        //public Image[] crown;   
         public Image[] mute;
 
 
@@ -47,7 +42,7 @@ namespace Menu
         private void Awake()
         {
             dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
-
+            //If can't find the dictionary, rerun the preload
             if (!@FindObjectOfType<Dictionary_GameplaySettings>()) { SceneManager.LoadScene(0); }
 
 
@@ -63,15 +58,6 @@ namespace Menu
 
             dictionary.AddToButtonDictionary("ScreenShake", new List<Image>(screenShake));
 
-
-
-            //dictionary.AddToButtonDictionary("BGMusic", new List<Image>(BGMusic));
-
-            //dictionary.AddToButtonDictionary("ChargingSound", new List<Image>(chargingSound));
-
-            //dictionary.AddToButtonDictionary("SFX", new List<Image>(sfx));
-
-            //dictionary.AddToButtonDictionary("Crown", new List<Image>(crown));
 
             dictionary.AddToButtonDictionary("Mute", new List<Image>(mute));
 

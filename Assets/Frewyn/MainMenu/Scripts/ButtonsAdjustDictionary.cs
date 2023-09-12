@@ -126,77 +126,77 @@ namespace Menu
 
 
 
-        public void CheckOnOff(string setting)//Used to change the opacity of buttons depending on which was chosen
-        {
-
-            if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
+            public void CheckOnOff(string setting)//Used to change the opacity of buttons depending on which was chosen
             {
-                // Now you have the list, you can access its elements using indices.
-                if (settingList.Count > 0)
-                {
-                    Debug.Log(setting);
-                    Difficulty difficulty = gameplaySettingsScript.GameplaySettings[setting];
 
-                    Image onButton = settingList[0];
-                    Image offButton = settingList[1];
+                if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
+                {
+                    // Now you have the list, you can access its elements using indices.
+                    if (settingList.Count > 0)
+                    {
+                        Debug.Log(setting);
+                        Difficulty difficulty = gameplaySettingsScript.GameplaySettings[setting];
+
+                        Image onButton = settingList[0];
+                        Image offButton = settingList[1];
  
-                    if (difficulty == Difficulty.On)
-                    {
-                        onButton.color = opaque;
-                        offButton.color = transparent;
+                        if (difficulty == Difficulty.On)
+                        {
+                            onButton.color = opaque;
+                            offButton.color = transparent;
                  
-                    }
-                    else if (difficulty == Difficulty.Off)
-                    {
-                        onButton.color = transparent;
-                        offButton.color = opaque;
+                        }
+                        else if (difficulty == Difficulty.Off)
+                        {
+                            onButton.color = transparent;
+                            offButton.color = opaque;
                    
-                    }
+                        }
               
 
+                    }
+
                 }
-
             }
-        }
 
-        public void CheckDifficulty(string setting) //Used to change the opacity of buttons depending on which was chosen
-        {
-
-            if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
+            public void CheckDifficulty(string setting) //Used to change the opacity of buttons depending on which was chosen
             {
-                //  access list elements using indices.
-                if (settingList.Count > 0)
+
+                if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
                 {
-                    //Difficulty difficulty = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(setting));
-
-                    Difficulty difficulty = gameplaySettingsScript.GameplaySettings[setting];
-
-                    Image easyButton = settingList[0];
-                    Image mediumButton = settingList[1];
-                    Image hardButton = settingList[2];
-
-                    if (difficulty == Difficulty.Easy)
+                    //  access list elements using indices.
+                    if (settingList.Count > 0)
                     {
-                        easyButton.color = opaque;
-                        mediumButton.color = transparent;
-                        hardButton.color = transparent;
-                    }
-                    else if (difficulty == Difficulty.Medium)
-                    {
-                        easyButton.color = transparent;
-                        mediumButton.color = opaque;
-                        hardButton.color = transparent;
-                    }
-                    else if (difficulty == Difficulty.Hard)
-                    {
-                        easyButton.color = transparent;
-                        mediumButton.color = transparent;
-                        hardButton.color = opaque;
-                    }
+                        //Difficulty difficulty = (Difficulty)System.Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString(setting));
+
+                        Difficulty difficulty = gameplaySettingsScript.GameplaySettings[setting];
+
+                        Image easyButton = settingList[0];
+                        Image mediumButton = settingList[1];
+                        Image hardButton = settingList[2];
+
+                        if (difficulty == Difficulty.Easy)
+                        {
+                            easyButton.color = opaque;
+                            mediumButton.color = transparent;
+                            hardButton.color = transparent;
+                        }
+                        else if (difficulty == Difficulty.Medium)
+                        {
+                            easyButton.color = transparent;
+                            mediumButton.color = opaque;
+                            hardButton.color = transparent;
+                        }
+                        else if (difficulty == Difficulty.Hard)
+                        {
+                            easyButton.color = transparent;
+                            mediumButton.color = transparent;
+                            hardButton.color = opaque;
+                        }
 
 
+                    }
                 }
-            }
         }
 
         public void EasyDifficulty(string setting) //Pass in a string with the setting name, sets that setting to string passed in, change opacity of buttons
@@ -237,7 +237,8 @@ namespace Menu
                     Image mediumButton = settingList[1];
                     Image hardButton = settingList[2];
 
-                    // Do something with the firstImage object, for example:
+
+                    //Change transperancy based on selected
                     easyButton.color = transparent;
                     mediumButton.color = opaque;
                     hardButton.color = transparent;
@@ -260,7 +261,7 @@ namespace Menu
                     Image mediumButton = settingList[1];
                     Image hardButton = settingList[2];
 
-                    // Do something with the firstImage object, for example:
+                    //Change transperancy based on selected
                     easyButton.color = transparent;
                     mediumButton.color = transparent;
                     hardButton.color = opaque;
@@ -284,7 +285,8 @@ namespace Menu
                     Image offButton = settingList[1];
 
 
-                    // Do something with the firstImage object, for example:
+
+                    //Change transperancy based on selected
                     onButton.color = opaque;
                     offButton.color = transparent;
                   
@@ -312,7 +314,7 @@ namespace Menu
                     Image onButton = settingList[0];
                     Image offButton = settingList[1];
 
-                    // Do something with the firstImage object, for example:
+                    //Change transperancy based on selected
                     onButton.color = transparent;
                     offButton.color = opaque;
 

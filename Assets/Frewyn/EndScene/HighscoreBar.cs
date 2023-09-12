@@ -58,23 +58,23 @@ public class HighscoreBar : MonoBehaviour
     {
         scoreTextObject.SetActive(true);
 
-
-        if (score < 10)
-        {
-            scoreText.text = "" + Mathf.Round(score);
-        }
-        else if (score<100)
-        {
-            scoreText.text = "" + Mathf.Round(score);
-        }
-        else if (score < 1000)
-        {
-            scoreText.text = "" + Mathf.Round(score);
-        }
-        else if (score < 10000)
-        {
-            scoreText.text = Mathf.Round(score).ToString();
-        }
+        scoreText.text = Mathf.Round(score).ToString();
+        //if (score < 10)
+        //{
+        //    scoreText.text = "" + Mathf.Round(score);
+        //}
+        //else if (score<100)
+        //{
+        //    scoreText.text = "" + Mathf.Round(score);
+        //}
+        //else if (score < 1000)
+        //{
+        //    scoreText.text = "" + Mathf.Round(score);
+        //}
+        //else if (score < 10000)
+        //{
+        //    scoreText.text = Mathf.Round(score).ToString();
+        //}
     }
 
 

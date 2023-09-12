@@ -16,13 +16,13 @@ public class ParticleControl : MonoBehaviour
     }
     void Start()
     {
-        if (dictionary.GameplaySettings["Particles"] == Difficulty.Off)
+        if (dictionary.GameplaySettings["Particles"] == Difficulty.Off) //Only calls if particles are off
         {
-            GameObject[] objectToDisable = GameObject.FindGameObjectsWithTag("Particles");
+            GameObject[] objectToDisable = GameObject.FindGameObjectsWithTag("Particles");//Find objects with the particle tag
 
             foreach (GameObject objects in objectToDisable)
             {
-                Destroy(objects);
+                Destroy(objects); //Destroy all objects in objectToDisable
             }
         }
     }

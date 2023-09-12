@@ -9,25 +9,25 @@ public class Transitions : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject settingTransition;
+    private GameObject settingTransition; //The transition screen that contains Gameplay/Sound setting transition buttons
 
     [SerializeField]
-    private GameObject gameplaySettings;
+    private GameObject gameplaySettings; //Actual settings page
 
     [SerializeField]
-    private GameObject gameplaySettingsClose;
+    private GameObject gameplaySettingsClose; //Gameplay settings close button
 
     [SerializeField]
-    private GameObject soundSettings;
+    private GameObject soundSettings; //Actual settings page
 
     [SerializeField]
-    private GameObject soundSettingsClose;
+    private GameObject soundSettingsClose; //Sound settings close button
 
     [SerializeField]
-    private GameObject mainMenu;
+    private GameObject mainMenu; //Main menu object .Play,Options screen
 
     [SerializeField]
-    private GameObject optionsBackground;
+    private GameObject optionsBackground; //Background of options
 
     [SerializeField]
     private Dictionary_GameplaySettings gameplaySettingsScript;
@@ -59,7 +59,7 @@ public class Transitions : MonoBehaviour
 
     public void CloseGameplaySettings()
     {
-        Debug.Log("Click");
+        
         gameplaySettings.SetActive(false);
         settingTransition.SetActive(true);
         gameplaySettingsClose.SetActive(false);

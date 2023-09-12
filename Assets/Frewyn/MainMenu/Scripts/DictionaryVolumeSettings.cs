@@ -33,10 +33,10 @@ namespace Menu
             InitalizeDictionaryWithPlayerPrefs();
 
 
-            foreach (KeyValuePair<string, float> pair in SoundSettings)//Writes out each settings with its key and value
-            {
-                Debug.Log("Soundsettings " + pair.Key + ": " + pair.Value);
-            }
+            //foreach (KeyValuePair<string, float> pair in SoundSettings)//Writes out each settings with its key and value
+            //{
+            //    Debug.Log("Soundsettings " + pair.Key + ": " + pair.Value);
+            //}
 
 
         }

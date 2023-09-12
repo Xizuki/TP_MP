@@ -24,7 +24,7 @@ public class EndSceneButtons : MonoBehaviour
     [SerializeField]
     Image winterStage;
 
-    [Header("Opacity")]
+    [Header("Color")]
     [SerializeField]
     private Color chosen = new Color32(242, 165, 65, 255);
 
