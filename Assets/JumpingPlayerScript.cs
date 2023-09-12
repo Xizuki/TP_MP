@@ -258,6 +258,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 SFX.performanceCharge = true;
                 chargeCountSoundSFXCooldown = 1f;
 
+                recentInput = true;
                 //chargeTapParticle.Play();
                 //chargeTapParticle2.Play();
             }
