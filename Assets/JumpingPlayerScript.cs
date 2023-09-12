@@ -360,7 +360,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //recentInput = true;
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-        recentInput = false;
+        //recentInput = false;
 
         // Can make this less hard coded but idk how rn and abit laze 
         playerUI.jumpingVectorIndicator.transform.up = new Vector3(-v2.x, v2.y, 0);
@@ -384,7 +384,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //recentInput = true;
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-        recentInput = false;
+        //recentInput = false;
         
         
         // Can make this less hard coded but idk how rn and abit laze 
@@ -400,7 +400,7 @@ public class JumpingPlayerScript : MonoBehaviour
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
         MoveJumpVector(-1);
-        recentInput = false;
+        //recentInput = false;
 
 
         LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
@@ -412,7 +412,7 @@ public class JumpingPlayerScript : MonoBehaviour
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
         MoveJumpVector(1); 
-        recentInput = false;
+        //recentInput = false;
 
 
         LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
@@ -423,7 +423,7 @@ public class JumpingPlayerScript : MonoBehaviour
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
         MoveJumpVector(value);
-        recentInput = false;
+        //recentInput = false;
 
 
 
@@ -433,11 +433,11 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public void IncrementalMoveJumpVectorAndMovement(float value)
     {
-        //recentInput = true;
-        faceFront = false;
+        recentInput = true;
+        //faceFront = false;
         checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
         MoveJumpVector(value);
-        recentInput = false;
+        //recentInput = false;
 
 
         if (LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit))
@@ -480,19 +480,20 @@ public class JumpingPlayerScript : MonoBehaviour
         //    Debug.Log("Have Input!");
         //    checkInputDelayCountdown = checkInputDelay;
         //}
-        if (checkInputDelayCountdown > 0 && recentInput == false)
+        if (checkInputDelayCountdown > 0 && recentInput)
         {
             checkInputDelayCountdown -= Time.deltaTime;
+            faceFront = false;
         }
     }
     private void ResetInputCountdown()// Timer resets and makes character face front
     {
-        if (checkInputDelayCountdown <= 0)
+        if (checkInputDelayCountdown <= 0 && recentInput)
         {
             faceFront = true;
             checkInputDelayCountdown = checkInputDelay;
+            recentInput = false;
         }
-        else faceFront = false;
 
     }
 

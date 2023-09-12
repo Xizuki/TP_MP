@@ -40,7 +40,7 @@ public class JumpingPlayerUIScript : MonoBehaviour
     public Image sliderColor2;
     public ParticleSystem chargePulseVFX;
 
-    public Vector3 faceForward = new Vector3(0, 0, 270);
+    public Vector3 faceForward;
 
     public Image normalShiba;
     public Image stunShiba;
@@ -63,6 +63,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
         outlineScript = GetComponentInChildren<Outline>();
         chargePulseVFX = GetComponentInChildren<ParticleSystem>();
         lineRenderer = GetComponentInChildren<LineRenderer>();
+
+        faceForward = playerHeadTransform.transform.eulerAngles;
     }
     public void Start()
     {
@@ -195,40 +197,41 @@ public class JumpingPlayerUIScript : MonoBehaviour
 
         //arrowSprite.color = Color.Lerp(arrowStartingColor, arrowEndColor, player.jumpCharge);
 
+
+
+        if (player.faceFront)
+        {
+            //Debug.Log("Testing Code");
+            playerHeadTransform.eulerAngles = faceForward;
+            //player.playerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+
+        //Make player face camera
+        //If want to make player facefront, determined by timer
+        //If player is grounded
+        //If player can rotate, this is meant to stop player from resetting when charging
+        //else if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
+        //{
+
+        //    playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);
+        //    player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
+        //}
+
+        //Make player look at jump direction
+        else if (!player.faceFront && player.isGrounded)
+        {
+
+            float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
+            playerHeadTransform.localEulerAngles = new Vector3(0, playerHeadTransform.localEulerAngles.y, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
+        }
+
         if (player.isCharging == true)
         {
-            playerHeadTransform.localEulerAngles = faceForward;
+            //playerHeadTransform.localEulerAngles = faceForward;
             //player.playerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
 
 
 
-            if (player.isCharging == true)
-            {
-                //Debug.Log("Testing Code");
-                playerHeadTransform.localEulerAngles = faceForward;
-                //player.playerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
-
-
-            }
-
-            //Make player face camera
-            //If want to make player facefront, determined by timer
-            //If player is grounded
-            //If player can rotate, this is meant to stop player from resetting when charging
-            else if (player.faceFront == true && player.isGrounded == true && player.canRotate == true)
-            {
-
-                playerHeadTransform.localEulerAngles = new Vector3(0, 0, 0);
-                player.jumpingPlayerChildrenModel.transform.localEulerAngles = new Vector3(0, 0, 0);
-            }
-
-            //Make player look at jump direction
-            else if (player.faceFront == false && player.canRotate == true && player.isGrounded)
-            {
-
-                float currentEndPointYDistanceRatio = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) / jumpingVectorEndPointYMaxDistance;
-                playerHeadTransform.localEulerAngles = new Vector3(0, playerHeadTransform.localEulerAngles.y, -playerHeadLookUpAngleLimit * currentEndPointYDistanceRatio);
-            }
 
 
 
