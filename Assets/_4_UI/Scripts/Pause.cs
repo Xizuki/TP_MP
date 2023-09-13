@@ -83,6 +83,7 @@ public class Pause : MonoBehaviour
     {
         pauseSound.Play();
         playerControl.enabled = true;
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
 

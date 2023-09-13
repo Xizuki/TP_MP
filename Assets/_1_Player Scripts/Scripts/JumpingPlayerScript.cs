@@ -162,7 +162,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
         Timer();
         ResetInputCountdown();
-
+            
       
 
         chickenExit.transform.position = new Vector3(chickenExit.transform.position.x, transform.position.y +15f, chickenExit.transform.position.z);
