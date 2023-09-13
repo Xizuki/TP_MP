@@ -115,6 +115,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         }
         #endregion
 
+        
 
         #region Arrow Cells
         // Changes color of all arrows based on interpolated color from jumpCharge value
@@ -156,7 +157,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             jumpChargeValue -= cellMaxCharge;
 
 
-            
+            #region edge case handling to reset arrowsCharge to false after jumping
             if (jumpChargeValue <= 0)
             {
                 dividedJumpCharge += jumpChargeValue;
@@ -164,6 +165,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
                 if (arrowsCharged[i])
                     arrowsCharged[i] = false;
             }
+            #endregion
 
             dividedJumpCharge *= playerUI.arrows.Length;
 
