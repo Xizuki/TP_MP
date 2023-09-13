@@ -49,6 +49,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
         chargePulseVFX = GetComponentInChildren<ParticleSystem>();
         lineRenderer = GetComponentInChildren<LineRenderer>();
 
+
+        // Assign faceForward as the starting head angle
         faceForward = playerHeadTransform.transform.eulerAngles;
     }
     public void Start()
@@ -56,6 +58,8 @@ public class JumpingPlayerUIScript : MonoBehaviour
         jumpingVectorEndPointYMaxDistance = (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y);
     }
 
+
+    // Interpolate Colors from 0 to 1 based on 2 colors
     public Color SetColor(float jumpCharge)
     {
         Gradient colorGradient = new Gradient();
@@ -82,16 +86,18 @@ public class JumpingPlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (player.jumpCharge > 0)
-
-
+        // Check if player has recently inputed in the last few seconds
         if (player.faceFront)
         {
+            // if true, player looks head on at the camera
             playerHeadTransform.eulerAngles = faceForward;
         }
         else if (!player.faceFront && player.isGrounded)
         {
+            // else, player looks up at where the arrow is
 
+            // Take the percentage ratio between the difference of the empty position on
+            // the end of the arrow and the players head and the max magnitude distance 
             float currentEndPointYDistanceRatio = 
                     (jumpingVectorIndicatorEndPoint.position.y - playerHeadTransform.position.y) 
                     / jumpingVectorEndPointYMaxDistance;
