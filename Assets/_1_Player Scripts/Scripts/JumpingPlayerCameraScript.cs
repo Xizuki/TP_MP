@@ -97,7 +97,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         #region Arrow White Outline Pulsing VFX
         bool arrowPulsing = false;
         // Get the max jump charge of each arrow cell
-        float cellMaxCharge = 1 / arrowsCharged.Length;
+        float cellMaxCharge = 0.33f;
 
         // Copies JumpChargeStorage For Arrow VFX and for reducing to check amount of arrows that are filled
         float jumpChargeValue = jumpChargeValueStorage4ScreenVFX;
@@ -115,16 +115,16 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         }
         #endregion
 
-        
+
 
         #region Arrow Cells
         // Changes color of all arrows based on interpolated color from jumpCharge value
         for (int i = 0; i < playerUI.arrows.Length; i++)
         {
             playerUI.arrows[i].fillImage.color = playerUI.interpolatedColor;
-            
+
             // Moves the arrows to each others respective endpoints to keep distance between them the same even after scaling them
-            if(i > 0)
+            if (i > 0)
                 playerUI.arrows[i].transform.position = arrowEndPoints[i - 1].position;
 
             if (jumpChargeValue <= 0)
@@ -152,6 +152,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             }
             #endregion
 
+
             // Reduce totalJumpCharge by a cells amount to help check if the next arrow cell is filled
             float dividedJumpCharge = cellMaxCharge;
             jumpChargeValue -= cellMaxCharge;
@@ -173,7 +174,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
             float jumpChargeArrowScaleValue = (1 + ((dividedJumpCharge) * jumpChargeArrowScaleDiff)) * baseArrowScale;
 
-            playerUI.arrows[i].GetComponent<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, 
+            playerUI.arrows[i].GetComponent<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue,
                 jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
 
 
@@ -184,7 +185,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
         #region Arrow scale Pulsing 
 
-        float arrowScale = (1 + jumpChargeArrowScaleDiff)*(baseArrowScale);
+        float arrowScale = (1 + jumpChargeArrowScaleDiff) * (baseArrowScale);
 
         // Checks if all arrow cells are roughly filled up and fully charged
         if (arrowPulsing)
@@ -196,7 +197,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
                 {
                     arrow.GetComponent<PulsingScaleScript>().timeElapsed = 0;
                 }
-                    
+
                 arrowScalingStarted = true;
             }
             #endregion
@@ -205,7 +206,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             foreach (ImageProgressBar arrow in playerUI.arrows)
             {
                 arrow.GetComponent<PulsingScaleScript>().initialScale = new Vector3(arrowScale, arrowScale, arrowScale);
-                
+
                 arrow.GetComponent<PulsingScaleScript>().hasStarted = true;
                 arrow.GetComponent<PulsingScaleScript>().stoppingStarted = false;
             }
@@ -233,14 +234,14 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         }
 
 
-        #endregion
-    }
-
-    
+            #endregion
+        }
 
 
 
-    public void CameraPositioning()
+
+
+        public void CameraPositioning()
     {
         float currentY = jumpingPlayer.transform.position.y;
 
