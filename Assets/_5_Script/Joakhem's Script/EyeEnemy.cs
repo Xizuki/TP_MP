@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeEnemy : MonoBehaviour
+public class EyeEnemy : EnemyScript
 {
     public Animator bAnimator;
     public RaycastHit hit;
@@ -48,7 +48,9 @@ public class EyeEnemy : MonoBehaviour
             {
                 bAnimator.SetTrigger("Attack");
                 yield return new WaitForSeconds(1.2f);
-                Instantiate(bullet, eye.transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
+                GameObject GO = Instantiate(bullet, eye.transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
+                GO.transform.forward = transform.forward;
+                GO.GetComponent<BulletMove>().owner = gameObject;
             }
             yield return null;
         }

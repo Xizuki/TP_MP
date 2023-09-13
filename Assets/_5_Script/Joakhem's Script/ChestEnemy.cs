@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestEnemy : MonoBehaviour
+public class ChestEnemy : EnemyScript
 {
     public Animator chestAnimator;
     public GameObject raycastLine;

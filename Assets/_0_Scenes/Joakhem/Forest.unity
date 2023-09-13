@@ -4110,6 +4110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d92558c8c3e3147bb2c612352abee3, type: 3}
+--- !u!1 &615371092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8373068685730720852, guid: b0d92558c8c3e3147bb2c612352abee3, type: 3}
+  m_PrefabInstance: {fileID: 615371091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &616877289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8214,7 +8219,7 @@ PrefabInstance:
     - target: {fileID: 3958870913568760677, guid: 19bf30c444ceac14e95da9e88bc9e274, type: 3}
       propertyPath: exitPoint
       value: 
-      objectReference: {fileID: 1797976224}
+      objectReference: {fileID: 615371092}
     - target: {fileID: 3958870913568760677, guid: 19bf30c444ceac14e95da9e88bc9e274, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -16569,7 +16574,7 @@ GameObject:
   - component: {fileID: 1797976225}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: ExitPoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16581,7 +16586,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797976224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
   m_Name: 
@@ -16596,7 +16601,7 @@ BoxCollider:
   m_GameObject: {fileID: 1797976224}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -16607,7 +16612,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797976224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -76070,6 +76075,10 @@ PrefabInstance:
       propertyPath: arrowCellsChargedVFX.Array.data[2]
       value: 
       objectReference: {fileID: 8824464932475558558}
+    - target: {fileID: 8824464933389489938, guid: 7ac353848683d324ea1644be9550573d, type: 3}
+      propertyPath: chickenExit
+      value: 
+      objectReference: {fileID: 615371092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac353848683d324ea1644be9550573d, type: 3}
 --- !u!114 &8824464932475558557 stripped
