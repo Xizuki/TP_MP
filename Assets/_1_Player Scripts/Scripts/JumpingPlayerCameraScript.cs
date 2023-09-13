@@ -94,7 +94,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
 
 
-        #region Arrow Pulsing VFX
+        #region Arrow White Outline Pulsing VFX
         bool arrowPulsing = false;
         // Get the max jump charge of each arrow cell
         float cellMaxCharge = 1 / arrowsCharged.Length;
@@ -173,17 +173,23 @@ public class JumpingPlayerCameraScript : MonoBehaviour
 
             float jumpChargeArrowScaleValue = (1 + ((dividedJumpCharge) * jumpChargeArrowScaleDiff)) * baseArrowScale;
 
-            playerUI.arrows[i].GetComponent<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
+            playerUI.arrows[i].GetComponent<RectTransform>().localScale = new Vector3(jumpChargeArrowScaleValue, 
+                jumpChargeArrowScaleValue, jumpChargeArrowScaleValue);
 
 
         }
+        #endregion
 
 
+
+        #region Arrow scale Pulsing 
 
         float arrowScale = (1 + jumpChargeArrowScaleDiff)*(baseArrowScale);
 
+        // Checks if all arrow cells are roughly filled up and fully charged
         if (arrowPulsing)
         {
+            #region Resets and Initialise Variables and first run
             if (!arrowScalingStarted)
             {
                 foreach (ImageProgressBar arrow in playerUI.arrows)
@@ -193,27 +199,30 @@ public class JumpingPlayerCameraScript : MonoBehaviour
                     
                 arrowScalingStarted = true;
             }
+            #endregion
+
+            #region Inilialize the actual scripts
             foreach (ImageProgressBar arrow in playerUI.arrows)
             {
                 arrow.GetComponent<PulsingScaleScript>().initialScale = new Vector3(arrowScale, arrowScale, arrowScale);
                 
-               
-
                 arrow.GetComponent<PulsingScaleScript>().hasStarted = true;
                 arrow.GetComponent<PulsingScaleScript>().stoppingStarted = false;
-
             }
+            #endregion
 
         }
         else
         {
             foreach (ImageProgressBar arrow in playerUI.arrows)
             {
+                // Reset Scale to current arrows Scale if jump charge is more than 0 but not full charge
                 if (jumpingPlayer.jumpCharge > 0)
                 {
                     arrow.GetComponent<PulsingScaleScript>().initialScale = new Vector3(arrowScale, arrowScale, arrowScale); ;
                     arrow.GetComponent<PulsingScaleScript>().stoppingStarted = true;
                 }
+                // Resets Scale of arrows to its starting scale if jumpCharge is <= 0, as well as force stopping the pulsing script
                 else
                 {
                     arrow.GetComponent<PulsingScaleScript>().forceStop = true;
@@ -222,6 +231,8 @@ public class JumpingPlayerCameraScript : MonoBehaviour
                 arrowScalingStarted = false;
             }
         }
+
+
         #endregion
     }
 

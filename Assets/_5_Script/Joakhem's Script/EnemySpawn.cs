@@ -11,11 +11,11 @@ public class EnemySpawn : MonoBehaviour
 
     [SerializeField]
     private Dictionary_GameplaySettings dictionary;
-    int easy = 12;
+    int easy = 10;
 
-    int medium = 10;
+    int medium = 12;
 
-    int hard = 8;
+    int hard = 15;
 
     public bool rotationalOverride;
     public bool spawned;
@@ -27,7 +27,6 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         Spawn();
-
     }
 
     void Spawn()
