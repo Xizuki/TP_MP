@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
             soScore.scores[i] = 0;
            //EndScene.timesPlayed = 0;
         }
+        Score.score = 0;
           
     }
 
