@@ -9,7 +9,9 @@ public enum ControlType { PC ,option1, option2, option3, option4, option5, optio
 public class JumpingPlayerInputs : MonoBehaviour
 {
     public JumpingPlayerScript jumpingPlayer;
+
     public ControlType controlType;
+
     public ControllerInput inputs;
     private void Awake()
     {
@@ -19,25 +21,16 @@ public class JumpingPlayerInputs : MonoBehaviour
 
         inputs.GameActions.Jump.performed += a => jumpingPlayer.Jump();
         
-
-
         inputs.Rework1.Jump.performed += a => jumpingPlayer.Jump();
         inputs.Rework1.Left.canceled += a => jumpingPlayer.isMoving = false;
         inputs.Rework1.Right.canceled += a => jumpingPlayer.isMoving = false;
 
-
-
         inputs.Rework1.DebugIsgrounded.performed -= a => DebugIsGrounded();
-
 
         baseSpeed = jumpingPlayer.moveSpeed;
         option2Speed = baseSpeed * 2;
         baseJumpVectorLimit = jumpingPlayer.playerUI.jumpingVectorAngleLimit;
         option3JumpVectorLimit = baseJumpVectorLimit - 15f;
-
-
-        CheckOptions();
-
     }
 
     public void DebugIsGrounded()

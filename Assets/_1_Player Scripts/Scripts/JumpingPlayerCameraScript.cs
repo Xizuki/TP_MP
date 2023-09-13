@@ -236,6 +236,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
         #endregion
     }
 
+    
 
 
 
@@ -243,6 +244,7 @@ public class JumpingPlayerCameraScript : MonoBehaviour
     {
         float currentY = jumpingPlayer.transform.position.y;
 
+        // If player is below current platforms y position, if it isn't then move the player camera up to follow the player
         if (currentY < PlatformManager.instance.lastLandedPlatform.transform.position.y + platformHeightOffset) { return; }
 
         highestY = currentY;
