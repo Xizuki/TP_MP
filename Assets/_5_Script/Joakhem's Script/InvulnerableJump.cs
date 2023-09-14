@@ -80,8 +80,10 @@ public class InvulnerableJump : MonoBehaviour
             if (other.gameObject.tag == "ChestEnemy")
             {
                 Destroy(other.gameObject);
-                Destroy(other.gameObject.transform.parent.gameObject);
-
+                if (other.gameObject.transform.parent !=null)
+                {
+                    Destroy(other.gameObject.transform.parent.gameObject);
+                }
             }
             else
             {

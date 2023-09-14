@@ -57,13 +57,14 @@ public class StopWatchPowerUp : PowerUpScript
         // should make it so it only runs once on activation for optimization but im lazy rn
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        // FilterOutWithScripts returns an array with the defined class while removing it from the referenced array
         cactusEnemies = Xi_Helper_GameObjects.FilterOutWithScript<CactusEnemy>(ref enemies);
         mushroomEnemies = Xi_Helper_GameObjects.FilterOutWithScript<MushroomEnemy>(ref enemies);
         chestEnemies = Xi_Helper_GameObjects.FilterOutWithScript<ChestEnemy>(ref enemies);
         turtleEnemies = Xi_Helper_GameObjects.FilterOutWithScript<BottomCheck>(ref enemies);
         eyeEnemies = Xi_Helper_GameObjects.FilterOutWithScript<EyeEnemy>(ref enemies);
 
-
+        // Get Animator of different enemies
         cactusAnimator = new Animator[cactusEnemies.Length];
         mushroomAnimator = new Animator[mushroomEnemies.Length];
         chestAnimator = new Animator[chestEnemies.Length];

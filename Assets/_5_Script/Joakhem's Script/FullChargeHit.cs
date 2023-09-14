@@ -40,10 +40,10 @@ public class FullChargeHit : MonoBehaviour
 
             foreach(RaycastHit hit in allHit)
             {
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy" || hit.collider.tag == "ChestEnemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z);
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z) * 2.5f;
                     hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
@@ -52,11 +52,11 @@ public class FullChargeHit : MonoBehaviour
             }
             foreach (RaycastHit hit in allHit2)
             {
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy" || hit.collider.tag == "ChestEnemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
-
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z) * 2.5f;
+                    hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
                     print("ASDASDASFASFASF");
@@ -66,7 +66,7 @@ public class FullChargeHit : MonoBehaviour
 
             //if (Physics.Raycast(raycastLine.transform.position, raycastLine.transform.right, out hit, distanceSet))
             //{
-            //    if (hit.collider.tag == "Enemy")
+            //    if (hit.collider.tag == "Enemy" || hit.collider.tag == "ChestEnemy")
             //    {
             //        Vector3 camDir = mainCamera.transform.position - hit.transform.position;
             //        flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
@@ -100,11 +100,12 @@ public class FullChargeHit : MonoBehaviour
 
             foreach (RaycastHit hit in allHit)
             { 
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy" || hit.collider.tag == "ChestEnemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
-
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z) * 2.5f;
+                    
+                    hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
                     print("ASDASDASFASFASF");
@@ -112,11 +113,11 @@ public class FullChargeHit : MonoBehaviour
             }
             foreach (RaycastHit hit in allHit2)
             {
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == "Enemy" || hit.collider.tag == "ChestEnemy")
                 {
                     Vector3 camDir = mainCamera.transform.position - hit.transform.position;
-                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
-
+                    flyDir = new Vector3(camDir.x, camDir.y, camDir.z) * 2.5f;
+                    hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
                     print("ASDASDASFASFASF");
@@ -127,7 +128,7 @@ public class FullChargeHit : MonoBehaviour
 
             //if (Physics.Raycast(raycastLine2.transform.position, raycastLine2.transform.right, out hit, distanceSet))
             //{
-            //    if(hit.collider.tag == "Enemy")
+            //    if(hit.collider.tag == "Enemy" || hit.collider.tag == "ChestEnemy")
             //    {
             //        Vector3 camDir = mainCamera.transform.position - hit.transform.position;
             //        flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;

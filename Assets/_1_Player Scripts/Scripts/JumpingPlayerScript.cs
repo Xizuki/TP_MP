@@ -56,7 +56,6 @@ public class JumpingPlayerScript : MonoBehaviour
     public float fallingGravityStrength;
     public float jumpChargeScalar;
 
-    //public Outline outlineScript;
     public static bool fullyCharge;
 
     public bool faceFront = false;//Used to determine if should face front
@@ -74,33 +73,6 @@ public class JumpingPlayerScript : MonoBehaviour
     public float chargeCountSoundSFXCooldown = 1f;
 
 
-    //[Header("Trajectory")]
-    //[SerializeField]
-    //public LineRenderer lineRenderer;
-    //[SerializeField]
-    //public Transform releasePosition;
-    ////public Vector3 startPosition;
-    ////public Vector3 endPosition;
-    //private LayerMask collisionMask;
-
-    //BoxCollider playerCollider;
-
-    ////[SerializeField]
-    ////GameObject playerSize;
-    ////GameObject instantiatedPlayerSize;
-    ////PlayerSizeCheck playerSizeCheck;
-
-
-    //[Header("Display Controls")]
-    //[SerializeField]
-    //[Range(10, 100)]
-    //private int linePoints = 25;
-    //[SerializeField]
-    //[Range(0.01f, 0.25f)]
-    //private float timeBetweenPoints = 0.1f;
-
-    
-
     public void Awake()
     {
         chicken= GameObject.FindObjectOfType(typeof(Chicken)) as Chicken;
@@ -112,20 +84,7 @@ public class JumpingPlayerScript : MonoBehaviour
         playerUI = GetComponent<JumpingPlayerUIScript>();
         fullChargeHit = GetComponent<FullChargeHit>();
         int playerLayer = rb.gameObject.layer;
-        //for (int i =0; i < 32;i++)
-        //{
-        //    if(!Physics.GetIgnoreLayerCollision(playerLayer, i))
-        //    {
-        //        collisionMask |= 1 << i;
-        //    }
-
-        //}
-        //playerCollider = GetComponent<BoxCollider>();
-
-        //inputs.GameActions.Enable();
-
-        //inputs.GameActions.Jump.performed += a => Jump();
-        //inputs.GameActions.Input.performed += a => SetJoyStickVector2(a.ReadValue<Vector2>());
+      
     }
 
 
@@ -134,23 +93,12 @@ public class JumpingPlayerScript : MonoBehaviour
     void Start()
     {
         shibaCollider = gameObject.GetComponent<BoxCollider>();
-
-        //instantiatedPlayerSize= Instantiate(playerSize, this.transform.position,Quaternion.identity);
-
-    
-
-        //playerSizeCheck = instantiatedPlayerSize.GetComponent<PlayerSizeCheck>();
-
-
     }
     
 
     // Update is called once per frame
     void LateUpdate()
     {
-
-        //Debug.Log("Collided: " + playerSizeCheck.collided);
-
         if(isMoving == true)
         {
             animator.SetBool("Walk", true);
@@ -200,21 +148,6 @@ public class JumpingPlayerScript : MonoBehaviour
         playerTransform = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 3.0f);
 
         gameObject.transform.position = playerTransform;
-
-        
-        ////TrajectoryProjection();
-        //if (isCharging == true)
-        //{
-
-        //    // instantiatedPlayerSize.SetActive(true);
-        //    TrajectoryProjection();
-        //}
-        //else
-        //{
-        //    //  instantiatedPlayerSize.SetActive(false);
-        //    lineRenderer.enabled = false;
-        //}
-
     }
 
 
@@ -258,9 +191,7 @@ public class JumpingPlayerScript : MonoBehaviour
                 SFX.performanceCharge = true;
                 chargeCountSoundSFXCooldown = 1f;
 
-                recentInput = true;
-                //chargeTapParticle.Play();
-                //chargeTapParticle2.Play();
+                recentInput = true;;
             }
             if (!isCharging)
             {
@@ -302,45 +233,20 @@ public class JumpingPlayerScript : MonoBehaviour
 
             PulseVfx.playerPulse = true;
             jumpCharge = 1;
-            //maxParticle.Play();
             maxChargeParticleIn.Play();
             maxChargeParticleOut.Play();
-/*            StartCoroutine(ChargeCount());*/
             }
-/*
-        IEnumerator ChargeCount()
-        {
-            bool chargeSound = false;
-
-            if (chargeCount >= 5f)
-            {
-                if (chargeSound == false)
-                {
-                    chargeSound = true;
-                    yield return new WaitForSeconds(1f);
-                    SFX.performanceCharge = true;
-                    chargeCountSoundSFXCooldown = 1f;
-                }
-            }
-        }*/
 
         IEnumerator maxChargeSfx()
         {
             yield return new WaitForSeconds(0.25f);
             checkMaxChargeSoundSfx = false;
         }
-
-
-
      
     }
 
 
 
-    public void SetJoyStickVector2(Vector2 vector)
-    {
-        joystickVector = vector;
-    }
     public void MovePlayer(int value)
     {
         if (!isGrounded || chicken.playerDowned) return;
@@ -356,7 +262,6 @@ public class JumpingPlayerScript : MonoBehaviour
         isMoving = true;
     }
 
-  
     public void MoveJumpVectorV3(Vector2 v2)
     {
         //recentInput = true;
@@ -367,7 +272,9 @@ public class JumpingPlayerScript : MonoBehaviour
         
         // Can make this less hard coded but idk how rn and abit laze 
         playerUI.jumpingVectorIndicator.transform.up = new Vector3(-v2.x, v2.y, 0);
-        playerUI.jumpingVectorIndicator.transform.localEulerAngles = new Vector3(playerUI.jumpingVectorIndicator.transform.eulerAngles.x,0, playerUI.jumpingVectorIndicator.transform.eulerAngles.z);
+        playerUI.jumpingVectorIndicator.transform.localEulerAngles = 
+            new Vector3(playerUI.jumpingVectorIndicator.transform.eulerAngles.x,0, 
+            playerUI.jumpingVectorIndicator.transform.eulerAngles.z);
 
 
         LimitJumpVectorAngle(true, playerUI.jumpingVectorAngleLimit, playerUI.jumpingVectorAngleLimit);
@@ -453,11 +360,6 @@ public class JumpingPlayerScript : MonoBehaviour
 
     private void Timer() //Timer goes down when no input
     {
-        //if(recentInput==true)
-        //{
-        //    Debug.Log("Have Input!");
-        //    checkInputDelayCountdown = checkInputDelay;
-        //}
         if (checkInputDelayCountdown > 0 && recentInput)
         {
             checkInputDelayCountdown -= Time.deltaTime;
@@ -485,11 +387,9 @@ public class JumpingPlayerScript : MonoBehaviour
     public void Jump()
     {
         if (!isGrounded || chicken.playerDowned || jumpCharge <= 0) { return; }
-        //float forceCalcs = TransformValue(rbJumpStrength * jumpCharge, scalar);
-        //transform.position += new Vector3(0, 0.4f, 0);
-        //rb.AddForce(playerUI.jumpingVectorIndicator.transform.up * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
 
-        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
+        rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized 
+            * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);
        
         jumpChargePrev = jumpCharge;
         jumpCharge = 0;
@@ -535,17 +435,10 @@ public class JumpingPlayerScript : MonoBehaviour
                     checkLandSound = true;
                 }
 
-                ///* Moved to PlatformManager 
                 CameraShaker.Invoke(collision.impulse.magnitude / 35); //To set if screenshake is turned
-                                                                       //ComboCount.combo += 1;
-                //ComboCount.hit = true;
-                //SFX.scoreSound = true;
-                //SFX.landSound = true;
-                //Tweening.comboUp = true;
-
+           
                 if (collision.gameObject.GetComponent<PlatformScript>() == true)
                 {
-                    //if ((collision.impulse.magnitude / 35) <= 0) { return; }
                     PlatformManager.instance.SetLastLandedPlatform(collision.gameObject.GetComponent<PlatformScript>());
                     fullChargeHit.Landing(collision);
                     jumpChargePrev = 0;
@@ -553,8 +446,7 @@ public class JumpingPlayerScript : MonoBehaviour
             }
             else if (collision.contacts[0].point.y > feetPos.position.y)
             {
-                //ComboCount.hit = false;
-                checkLandSound = false;
+                    checkLandSound = false;
             }
             if (collision.collider.tag == "Enemy" || collision.collider.tag == "EnemyBullet" || collision.collider.tag == "ChestEnemy")
             {
@@ -565,7 +457,9 @@ public class JumpingPlayerScript : MonoBehaviour
                 {
                     HitPhase();
                 }
-                GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, collision.transform.position, collision.transform.rotation);
+                GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, 
+                    collision.transform.position, 
+                    collision.transform.rotation);
 
                 if(collision.collider.tag == "EnemyBullet")
                 {
