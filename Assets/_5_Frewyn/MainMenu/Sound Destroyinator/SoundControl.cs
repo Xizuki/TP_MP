@@ -66,6 +66,7 @@ public class SoundControl : MonoBehaviour
         }
 
 
+
     }
 
     void MuteAll()
@@ -81,6 +82,8 @@ public class SoundControl : MonoBehaviour
                 Debug.Log("To mute: " + objects);
                 objects.mute = true; //Mute them
             }
+
+            chargingSFX.mute = true;
         }
 
         else if (dictionary.GameplaySettings["Mute"] == Difficulty.Off)
@@ -91,6 +94,8 @@ public class SoundControl : MonoBehaviour
             {
                 objects.mute = false; //Unmute them
             }
+
+            chargingSFX.mute = false;
         }
     }
 
