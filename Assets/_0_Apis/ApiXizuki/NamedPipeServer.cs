@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class NamedPipeServer : MonoBehaviour
 {
-    public string pipeName = "MyNamedPipe";
+    public string pipeName = "ShibaToTheTop";
     public JumpingPlayerScript jumpingPlayer;
     private NamedPipeServerStream pipeServer;
     private bool isRunning = true;
@@ -90,7 +90,9 @@ public class NamedPipeServer : MonoBehaviour
             if (pipeServer == null || !pipeServer.IsConnected)
             {
                 // Replace the named pipe server creation with async version for Unity
-                pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+                pipeServer = new NamedPipeServerStream(pipeName, 
+                    PipeDirection.InOut, 1, PipeTransmissionMode.Byte, 
+                    PipeOptions.Asynchronous);
 
                 // Start the asynchronous operation to wait for the client connection
                 result = pipeServer.BeginWaitForConnection(OnClientConnected, null);
@@ -146,8 +148,11 @@ public class NamedPipeServer : MonoBehaviour
 
         endSceneRefScript = GameObject.FindAnyObjectByType<EndSceneRef>();
 
+    
 
     }
+
+    
 
     private void OnClientConnected(IAsyncResult result)
     {

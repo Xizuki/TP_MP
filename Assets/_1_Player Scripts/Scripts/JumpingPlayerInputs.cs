@@ -71,12 +71,7 @@ public class JumpingPlayerInputs : MonoBehaviour
             controlType = ControlType.option3;
         }
 
-
-
-
         CheckOptions();
-
-
 
         if (inputs.Rework1.Left.IsPressed())
         {
@@ -118,7 +113,7 @@ public class JumpingPlayerInputs : MonoBehaviour
                 jumpingPlayer.moveSpeed = baseSpeed;
                 jumpingPlayer.playerUI.jumpingVectorAngleLimit = option3JumpVectorLimit;
                 break;
-            
+                
         }
     }
 

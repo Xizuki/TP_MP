@@ -11,10 +11,7 @@ public class PulsingScaleScript : MonoBehaviour
     public Vector3 initialScale;
     public float timeElapsed = 0.0f;
 
-    public bool isNested;
-
     public float offset;
-    public float pause;
     private void Start()
     {
         initialScale = transform.localScale;

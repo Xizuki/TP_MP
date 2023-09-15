@@ -84,7 +84,6 @@ namespace BTGame
             if (IsInSession && exeStarted && Level != -1)
             {
                 writer.WriteLine("INTERVAL END");
-                // Flush the writer and check for IOException (pipe broken)
                 try
                 {
                     writer.Flush();
@@ -92,20 +91,17 @@ namespace BTGame
                 catch (IOException ex)
                 {
 
-                    //Exit();
                 }
             }
         }
 
         public async Task ClientStreamConnection()
         {
-            Console.Beep();
-
 
             if (clientStream == null || !clientStream.IsConnected)
             {
                 //Create the named pipe client stream and connect
-                clientStream = new NamedPipeClientStream(".", "MyNamedPipe", PipeDirection.Out);
+                clientStream = new NamedPipeClientStream(".", "ShibaToTheTop    ", PipeDirection.Out);
                 try
                 {
                     await clientStream.ConnectAsync();
@@ -120,8 +116,6 @@ namespace BTGame
                 Console.Beep();
                 connected = true;
             }
-
-
         }
 
 
@@ -144,16 +138,11 @@ namespace BTGame
 
         public override void Stop_Game()
         {
-
-
-            base.Stop_Game();
-                
-            
+            base.Stop_Game(); 
         }
 
         public override void Interval()
         {
-
            base.Interval();
         }
 

@@ -21,7 +21,6 @@ public class PlatformManager : MonoBehaviour
     public float chargeBarFullScoreMultiplyer;
 
     // Very half ass way of doing it, should be done in code if have time
-    public Transform platformDissappearingPoint;
     public Transform PlayerStatisFallPoint;
 
     private void Awake()
@@ -64,10 +63,7 @@ public class PlatformManager : MonoBehaviour
         scoreScript.AddScore(scoreMultiplied, platformYDistance, fullyCharge);
 
 
-
         AddCombo();
-
-
 
 
 
@@ -80,13 +76,7 @@ public class PlatformManager : MonoBehaviour
                 Destroy(platform.GetComponent<BoxCollider>());
             }
         }
-        //foreach(GameObject enemy in enemies)
-        //{
-        //    if(enemy.transform.position.y < platformDissappearingPoint.transform.position.y)
-        //    {
-        //        Destroy(enemy.gameObject);
-        //    }
-        //}
+      
     }
 
     public void AddCombo()

@@ -466,7 +466,8 @@ public class JumpingPlayerScript : MonoBehaviour
                     if (!GetComponent<ShieldPowerUp>().CollisionCheck(collision))
                     {
                         Destroy(collision.collider.GetComponent<BulletMove>().owner.GetComponentInParent<EnemyScript>().gameObject);
-                        GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, collision.collider.GetComponent<BulletMove>().owner.transform.position, collision.transform.rotation);
+                        GameObject.Instantiate(GetComponentInChildren<InvulnerableJump>().explosion, 
+                            collision.collider.GetComponent<BulletMove>().owner.transform.position, collision.transform.rotation);
                     }
                 }
                 else Destroy(collision.gameObject);
