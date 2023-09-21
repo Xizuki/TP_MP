@@ -40,16 +40,16 @@ public class SFX : MonoBehaviour
 
     IEnumerator PerformanceCharging()
     {
-        performance.SetActive(true);
+        //performance.SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        if (performanceCharge == true)
-        {
-            performance.SetActive(true);
-        }
-        else if (performanceCharge == false)
-        {
-            performance.SetActive(false);
-        }
+        //if (performanceCharge == true)
+        //{
+        //    performance.SetActive(true);
+        //}
+        //else if (performanceCharge == false)
+        //{
+        //    performance.SetActive(false);
+        //}
     }
     
     private void Update()

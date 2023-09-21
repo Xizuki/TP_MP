@@ -11,6 +11,12 @@ namespace XizukiMethods
     {
         public static class Xi_Helper_Data
         {
+            public struct Trigger
+            {
+                
+            }
+
+
             //CHATGPTed
             /// <summary>
             /// Returns String base on variable name, use like this, string result = GetVariableName(()=>varName)
