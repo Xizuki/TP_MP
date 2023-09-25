@@ -48,7 +48,7 @@ namespace Menu
         {
             dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
 
-            if (!@FindObjectOfType<Dictionary_GameplaySettings>()) { SceneManager.LoadScene(0); }
+            if (!FindObjectOfType<Dictionary_GameplaySettings>()) { SceneManager.LoadScene(0); }
 
 
 

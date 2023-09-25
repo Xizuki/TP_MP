@@ -129,7 +129,8 @@ public class NamedPipeServer : MonoBehaviour
     public void FixedUpdate()
     {
 
-        print("timescale = " + Time.timeScale);
+        print("EEG??? jumpingPlayer != null = " + jumpingPlayer != null);
+        print("EEG??? jumpingPlayer = " + jumpingPlayer);
 
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -186,15 +187,21 @@ public class NamedPipeServer : MonoBehaviour
             lastestLine = await reader.ReadLineAsync();
 
 
+            print("EEG1");
+
             if (lastestLine.Contains("Trigger:"))
             {
-                if (jumpingPlayer != null)
+                if (jumpingPlayer is not null)
                 {
+                    print("EEG3");
+
                     string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
                     print(boolean);
 
                     if (boolean == "True")
                     {
+                        print("EEG4");
+
                         if (jumpingPlayer.isGrounded)
                         {
                             jumpingPlayer.isCharging = true;
