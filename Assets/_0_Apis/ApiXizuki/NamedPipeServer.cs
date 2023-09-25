@@ -10,10 +10,10 @@ public class NamedPipeServer : MonoBehaviour
 {
     public string pipeName = "ShibaToTheTop";
     public JumpingPlayerScript jumpingPlayer;
-    private NamedPipeServerStream pipeServer;
+    private static NamedPipeServerStream pipeServer;
     private bool isRunning = true;
-    //public bool isConnected = false;
-    private StreamReader reader;
+    public bool isConnected = false;
+    private static StreamReader reader;
     public Pause pauseScript;
     public GameTimer gameTimerScript;
     public EndScene endSceneRefScript;
@@ -28,7 +28,7 @@ public class NamedPipeServer : MonoBehaviour
 
     private void Start()
     {
-        Application.quitting += HandleApplicationQuit;
+        //Application.quitting += HandleApplicationQuit;
 
         NamedPipeServer[] namePipeServers = GameObject.FindObjectsByType<NamedPipeServer>(FindObjectsSortMode.None);
 
@@ -38,7 +38,7 @@ public class NamedPipeServer : MonoBehaviour
         }
 
         // Register the Application.quitting event to handle application exit
-        Application.quitting += HandleApplicationQuit;
+        //Application.quitting += HandleApplicationQuit;
 
         if (jumpingPlayer == null)
         {
@@ -90,8 +90,8 @@ public class NamedPipeServer : MonoBehaviour
             if (pipeServer == null || !pipeServer.IsConnected)
             {
                 // Replace the named pipe server creation with async version for Unity
-                pipeServer = new NamedPipeServerStream(pipeName, 
-                    PipeDirection.InOut, 1, PipeTransmissionMode.Byte, 
+                pipeServer = new NamedPipeServerStream(pipeName,
+                    PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
                     PipeOptions.Asynchronous);
 
                 // Start the asynchronous operation to wait for the client connection
@@ -126,15 +126,14 @@ public class NamedPipeServer : MonoBehaviour
         var errorCode = ex.HResult & 0xFFFF;
         return errorCode == ERROR_PIPE_NOT_CONNECTED || errorCode == ERROR_NO_DATA;
     }
-    public void FixedUpdate()
+    public void LateUpdate()
     {
-
-        print("EEG??? jumpingPlayer != null = " + jumpingPlayer != null);
-        print("EEG??? jumpingPlayer = " + jumpingPlayer);
+        print("LateUpdate 1");
 
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         //lastestLine = await reader.ReadLineAsync();
+        print("LateUpdate 2");
 
 
         if (jumpingPlayer == null)
@@ -144,25 +143,35 @@ public class NamedPipeServer : MonoBehaviour
                 jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
             }
         }
+        print("LateUpdate 3");
 
 
         pauseScript = GameObject.FindAnyObjectByType<Pause>();
 
         gameTimerScript = GameObject.FindAnyObjectByType<GameTimer>();
 
-        if(GameObject.FindAnyObjectByType<CanvasScript>()!=null)
+        if (GameObject.FindAnyObjectByType<CanvasScript>() != null)
             endSceneRefScript = GameObject.FindAnyObjectByType<CanvasScript>().endScene;
 
-    
+        print("LateUpdate 4");
+
+
+
+        if(reader == null) return;
+
+        print("LateUpdate 5");
+
+        ReadMessage();
 
     }
 
-    
+
+
 
     private void OnClientConnected(IAsyncResult result)
     {
         reader = new StreamReader(pipeServer);
-        ReadMessage();
+        isConnected = true;
         try
         {
             pipeServer.ReadByte();
@@ -177,84 +186,88 @@ public class NamedPipeServer : MonoBehaviour
         print("OnClientConnected()");
     }
 
+
+
+
     public string lastestLine;
 
-    public async void ReadMessage()
+    public void ReadMessage()
     {
-        while (true)
+        lastestLine = reader.ReadLine();
+        print("EEG0");
+
+        if (currentSceneIndex == 0) return;
+        if (currentSceneIndex == 1) return;
+
+
+        print("EEG1");
+
+        if (lastestLine.Contains("Trigger:"))
         {
-
-            lastestLine = await reader.ReadLineAsync();
-
-
-            print("EEG1");
-
-            if (lastestLine.Contains("Trigger:"))
+            if (jumpingPlayer is not null)
             {
-                if (jumpingPlayer is not null)
+                print("EEG3");
+
+                string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
+                print(boolean);
+
+                if (boolean == "True")
                 {
-                    print("EEG3");
+                    print("EEG4");
 
-                    string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
-                    print(boolean);
-
-                    if (boolean == "True")
+                    if (jumpingPlayer.isGrounded)
                     {
-                        print("EEG4");
-
-                        if (jumpingPlayer.isGrounded)
-                        {
-                            jumpingPlayer.isCharging = true;
-                        }
+                        jumpingPlayer.isCharging = true;
                     }
-                    else if (boolean == "False")
+                }
+                else if (boolean == "False")
+                {
+                    if (jumpingPlayer.isGrounded)
                     {
-                        if (jumpingPlayer.isGrounded)
-                        {
-                            jumpingPlayer.isCharging = false;
-                        }
+                        jumpingPlayer.isCharging = false;
                     }
                 }
             }
-
-            print("lastestLine = " + lastestLine);
-
-            if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript != null)
-            {
-                Debug.Log("PAUSE FROM EEG");
-
-                pauseScript.asyncForcePause = true;
-
-            }
-
-            if (lastestLine.Contains("RESUME") && currentSceneIndex > 1 && pauseScript != null)
-            {
-                pauseScript.asyncForceResume = true;
-
-            }
-
-            if (lastestLine.Contains("INTERVAL END") && currentSceneIndex > 1 && endSceneRefScript != null)
-            {
-                print("EEG6");
-
-                if (!endSceneRefScript.asyncForceEndInterval)
-                    endSceneRefScript.asyncForceEndInterval = true;
-            }
-            else if (lastestLine.Contains("INTERVAL START") && currentSceneIndex > 1 && gameTimerScript != null)
-            {
-                if (!prevLine.Contains("INTERVAL END"))
-                {
-                    if (!gameTimerScript.gameEnded)
-                        gameTimerScript.gameEnded = true;
-                }
-
-            }
-
-            prevLine = lastestLine;
         }
 
+        print("lastestLine = " + lastestLine);
+
+        if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            Debug.Log("PAUSE FROM EEG");
+
+            pauseScript.asyncForcePause = true;
+
+        }
+
+        if (lastestLine.Contains("RESUME") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            pauseScript.asyncForceResume = true;
+
+        }
+
+        if (lastestLine.Contains("INTERVAL END") && currentSceneIndex > 1 && endSceneRefScript != null)
+        {
+            print("EEG6");
+
+            if (!endSceneRefScript.asyncForceEndInterval)
+                endSceneRefScript.asyncForceEndInterval = true;
+        }
+        else if (lastestLine.Contains("INTERVAL START") && currentSceneIndex > 1 && gameTimerScript != null)
+        {
+            if (!prevLine.Contains("INTERVAL END"))
+            {
+                if (!gameTimerScript.gameEnded)
+                    gameTimerScript.gameEnded = true;
+            }
+
+        }
+
+        prevLine = lastestLine;
     }
-    
+
+
+
 }
 
 
