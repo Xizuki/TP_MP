@@ -139,7 +139,6 @@ public class JumpingPlayerCameraScript : MonoBehaviour
             // the total jumpCharge will reduce by 1 cells amount each loop to check which cell has not been filled
             if (jumpChargeValue > cellMaxCharge)
             {
-
                 // if check to only run once when cell is first fully charged
                 if (!arrowsCharged[i])
                 {

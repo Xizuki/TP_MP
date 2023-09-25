@@ -19,7 +19,7 @@ public class PulsingScaleScript : MonoBehaviour
     public bool hasStarted, stoppingStarted, forceStop;
 
 
-    private void Update()
+    private void LateUpdate()
     {
         if (!hasStarted) { return; }
 

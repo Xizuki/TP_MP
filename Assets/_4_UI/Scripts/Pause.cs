@@ -43,6 +43,8 @@ public class Pause : MonoBehaviour
 
     public void PauseGame()
     {
+        if (soundSettings.activeInHierarchy) return;
+
         pauseSound.ignoreListenerPause = true;
         pauseMenu.SetActive(true);
 
@@ -52,7 +54,7 @@ public class Pause : MonoBehaviour
         gamePause = true;
         playerControl.enabled = false;
         AudioListener.pause = true; 
-        Time.timeScale = 0f;
+        Time.timeScale = 0.01f;
 
         print("PauseGamePauseGame");
     }
@@ -83,6 +85,7 @@ public class Pause : MonoBehaviour
     {
         pauseSound.Play();
         playerControl.enabled = true;
+        AudioListener.pause = false;
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }

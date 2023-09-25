@@ -20,7 +20,7 @@ public class GameTimer : MonoBehaviour
     {
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (timerEnabled==true)
         {
@@ -28,6 +28,7 @@ public class GameTimer : MonoBehaviour
             {
                 endScene.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                gameEnded=false;    
             }
 
             //timer -= Time.deltaTime;

@@ -61,9 +61,9 @@ public class JumpingPlayerScript : MonoBehaviour
     public bool faceFront = false;//Used to determine if should face front
     public bool recentInput;// Used to check if there has been input recently
     [SerializeField]
-    private float checkInputDelay = 1f; //How long before 'isInput' is reset
+    public float checkInputDelay = 1f; //How long before 'isInput' is reset
     [SerializeField]
-    private float checkInputDelayCountdown = 1f;
+    public float checkInputDelayCountdown = 1f;
     public bool canRotate = true; //Used to lock rotations
 
     public Vector2 joystickVector;
@@ -72,6 +72,7 @@ public class JumpingPlayerScript : MonoBehaviour
     public float timeSinceCharge;
     public float chargeCountSoundSFXCooldown = 1f;
 
+  
 
     public void Awake()
     {
@@ -99,6 +100,8 @@ public class JumpingPlayerScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (Time.timeScale == 0) return;
+
         if(isMoving == true)
         {
             animator.SetBool("Walk", true);
@@ -181,6 +184,7 @@ public class JumpingPlayerScript : MonoBehaviour
         {
             if (isCharging)
             {
+                checkInputDelayCountdown = checkInputDelay;
                 animator.SetBool("Charge", true);
                 SFX.charging = true; //Added charging SFX
                 canRotate = false;//Logic for rotation when charging
@@ -387,6 +391,10 @@ public class JumpingPlayerScript : MonoBehaviour
     public void Jump()
     {
         if (!isGrounded || chicken.playerDowned || jumpCharge <= 0) { return; }
+
+        GetComponent<PlayerChargingAudioScript>().audioSource.volume = 0;
+        GetComponent<PlayerChargingAudioScript>().audioSource.time = 0;
+        GetComponent<PlayerChargingAudioScript>().audioSource.Stop();
 
         rb.AddForce(playerUI.jumpingVectorIndicator.transform.up.normalized 
             * rbJumpStrength * NonLinearScaledValue(jumpCharge, jumpChargeScalar), ForceMode.Impulse);

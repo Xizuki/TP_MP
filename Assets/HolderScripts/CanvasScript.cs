@@ -39,6 +39,8 @@ public class CanvasScript : MonoBehaviour
 
     public GameObject crownProfile;
 
+    public EndScene endScene;
+
     // Start is called before the first frame update
     void Start()
     {

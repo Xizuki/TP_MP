@@ -54,22 +54,22 @@ public class JumpingPlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            DebugIsGrounded();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            controlType = ControlType.option1;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            controlType = ControlType.option2;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            controlType = ControlType.option3;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha0))
+        //{
+        //    DebugIsGrounded();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    controlType = ControlType.option1;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    controlType = ControlType.option2;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    controlType = ControlType.option3;
+        //}
 
         CheckOptions();
 

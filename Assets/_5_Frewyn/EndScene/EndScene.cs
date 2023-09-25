@@ -68,11 +68,9 @@ public class EndScene : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Debug.Log("Times Played: " + timesPlayed);
-
-
 
         if (asyncForceEndInterval)
         { 
@@ -92,7 +90,7 @@ public class EndScene : MonoBehaviour
         comboCountScript = FindObjectOfType<ComboCount>();
         gameTimerScript  = FindObjectOfType<GameTimer>();
 
-        //StartCoroutine(Countdown());//Countdown timer
+        StartCoroutine(Countdown());//Countdown timer
  
         comboText.text = ComboCount.combo.ToString();//Sets combo text
 
@@ -224,15 +222,15 @@ public class EndScene : MonoBehaviour
             if (endScreenTimer > 0)
             {
 
-                Debug.Log("Countdown");
+                //Debug.Log("Countdown");
                 endScreenTimer -= 1;
                 timerText.text = endScreenTimer.ToString();
             }
             else if(endScreenTimer<= 0)
             {
-                Debug.Log("Close end scene");
-                objectEndScene.SetActive(false);
-                NextScene();
+                //Debug.Log("Close end scene");
+                //objectEndScene.SetActive(false);
+                //NextScene();
                 StopCoroutine(Countdown());
             }
         }

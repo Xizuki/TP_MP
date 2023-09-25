@@ -23,6 +23,8 @@ public class SoundControl : MonoBehaviour
         dictionary = FindObjectOfType<Dictionary_GameplaySettings>();
 
         soundDictionary = FindObjectOfType<DictionaryVolumeSettings>();
+
+
     }
 
 
@@ -36,7 +38,10 @@ public class SoundControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if(GameObject.FindGameObjectWithTag("Player") == null)
+        { return; }
+
+        chargingSFX = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();    
     }
 
     public void AdjustAll()
@@ -83,7 +88,8 @@ public class SoundControl : MonoBehaviour
                 objects.mute = true; //Mute them
             }
 
-            chargingSFX.mute = true;
+            if (chargingSFX != null)
+                chargingSFX.mute = true;
         }
 
         else if (dictionary.GameplaySettings["Mute"] == Difficulty.Off)
@@ -95,7 +101,8 @@ public class SoundControl : MonoBehaviour
                 objects.mute = false; //Unmute them
             }
 
-            chargingSFX.mute = false;
+            if (chargingSFX != null)
+                chargingSFX.mute = false;
         }
     }
 
