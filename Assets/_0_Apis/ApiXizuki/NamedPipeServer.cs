@@ -201,7 +201,7 @@ public class NamedPipeServer : MonoBehaviour
 
 
         print("EEG1");
-
+        if(lastestLine == null) { return; }
         if (lastestLine.Contains("Trigger:"))
         {
             if (jumpingPlayer is not null)
