@@ -58,6 +58,7 @@ public class EndScene : MonoBehaviour
 
 
     public bool asyncForceEndInterval;
+    public bool stageSelected;
 
     // Start is called before the first frame update
     void Start()
@@ -77,10 +78,18 @@ public class EndScene : MonoBehaviour
             gameTimerScript.gameEnded = false;
             Debug.Log("Close end scene");
             objectEndScene.SetActive(false);
-            NextScene();
             endScreenTimer = 15;
             //StopCoroutine(Countdown());
             asyncForceEndInterval = false;
+
+
+            if(!stageSelected)
+                objectEndScene.SetActive(false);
+            else
+                NextScene();
+
+
+            stageSelected = false;
         }
     }
 
@@ -210,7 +219,7 @@ public class EndScene : MonoBehaviour
         else if (endSceneButtons.chosenStage == EndSceneButtons.Stage.Winter)
         {
             ResetScene();
-            SceneManager.LoadScene("Winter");
+            SceneManager.LoadScene("Iceland");
         }
     }
 

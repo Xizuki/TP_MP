@@ -71,6 +71,8 @@ public class EndSceneButtons : MonoBehaviour
         forestStage.color = chosen;
         winterStage.color = notChosen;
 
+        endScene.stageSelected = true;
+
     }
 
 
@@ -81,6 +83,9 @@ public class EndSceneButtons : MonoBehaviour
         castleStage.color = notChosen;
         forestStage.color = notChosen;
         winterStage.color = chosen;
+
+        endScene.stageSelected = true;
+
     }
 
     public void MainMenu() //Sets chosen stage to x, changes opacity of all stage buttons
@@ -90,6 +95,8 @@ public class EndSceneButtons : MonoBehaviour
         castleStage.color = notChosen;
         forestStage.color = notChosen;
         winterStage.color = notChosen;
+
+        endScene.stageSelected = true;
 
     }
 

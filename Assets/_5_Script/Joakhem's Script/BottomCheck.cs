@@ -23,16 +23,28 @@ public class BottomCheck : MonoBehaviour
 
     private void Update()
     {
-        turtleRotation = transform.rotation;
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        Physics.Raycast(groundCheck.position, transform.TransformDirection(Vector3.down), out groundInfo, distance);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down), Color.red);
-        hit = groundInfo.collider;
-        Debug.Log(hit);
-        if (groundInfo.collider == false)
+        RaycastHit hit;
+        Physics.Raycast(groundCheck.position, -transform.up, out hit, distance,LayerMask.GetMask("Default"));
+
+        if (hit.collider == null)
         {
-            transform.Rotate(90, 0, 0);
+            transform.Rotate(7.5f * speed, 0, 0) ;
         }
+        else
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+
+        //turtleRotation = transform.rotation;
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //Physics.Raycast(groundCheck.position, transform.TransformDirection(Vector3.down), out groundInfo, distance);
+        //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down), Color.red);
+        //hit = groundInfo.collider;
+        //Debug.Log(hit);
+        //if (groundInfo.collider == false)
+        //{
+        //    transform.Rotate(90, 0, 0);
+        //}
 
     }
 }
