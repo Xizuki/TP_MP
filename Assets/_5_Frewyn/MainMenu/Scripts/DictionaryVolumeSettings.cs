@@ -14,11 +14,11 @@ namespace Menu
 
             {"Volume", 1},
 
-            {"BGMusic", 1},
+            {"BGMusic", 0},
 
             {"ChargingSound", 1},
 
-            {"Ambient", 1},
+            {"Ambient", 0},
 
             {"SFX", 1},
 

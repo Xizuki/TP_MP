@@ -43,6 +43,8 @@ public class CanvasScript : MonoBehaviour
 
     public GameTimer gameTimer;
 
+    public Pause intervalPause;
+
     // Start is called before the first frame update
     void Start()
     {

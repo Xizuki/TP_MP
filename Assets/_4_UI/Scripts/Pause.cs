@@ -22,6 +22,8 @@ public class Pause : MonoBehaviour
 
     public GameObject mainMenuButton;
 
+    public bool nonMain;
+
     public void OpenSoundSettings() //Done by frewyn, disables the sound settings
     {
         settingsButton.SetActive(false);
@@ -116,12 +118,12 @@ public class Pause : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && gamePause == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && gamePause == false && !nonMain)
         {
             Debug.Log("pause");
             PauseGame();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && gamePause == true)
+        else if (Input.GetKeyDown(KeyCode.Escape) && gamePause == true && !nonMain)
         {
             Debug.Log("unpause");
             ResumeGame();

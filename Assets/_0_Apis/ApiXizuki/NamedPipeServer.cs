@@ -17,18 +17,30 @@ public class NamedPipeServer : MonoBehaviour
     public Pause pauseScript;
     public GameTimer gameTimerScript;
     public EndScene endSceneRefScript;
+    public SoundControl soundControl;
     public int currentSceneIndex;
     public string prevLine;
+
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(GameObject.FindAnyObjectByType<SoundControl>())
+        {
+            soundControl = GameObject.FindAnyObjectByType<SoundControl>();
+        }
+
     }
 
     private void Start()
     {
-        //Application.quitting += HandleApplicationQuit;
+        Application.quitting += HandleApplicationQuit;
 
         NamedPipeServer[] namePipeServers = GameObject.FindObjectsByType<NamedPipeServer>(FindObjectsSortMode.None);
 
@@ -123,9 +135,9 @@ public class NamedPipeServer : MonoBehaviour
 
     }
 
-    public void OnDisable()
+    public void OnApplicationQuit()
     {
-        //HandleApplicationQuit();
+        HandleApplicationQuit();    
     }
 
     bool endSceneStart = false;
@@ -146,6 +158,10 @@ public class NamedPipeServer : MonoBehaviour
         //lastestLine = await reader.ReadLineAsync();
         print("LateUpdate 2");
 
+        if (GameObject.FindAnyObjectByType<SoundControl>())
+        {
+            soundControl = GameObject.FindAnyObjectByType<SoundControl>();
+        }
 
         if (jumpingPlayer == null)
         {
@@ -270,14 +286,26 @@ public class NamedPipeServer : MonoBehaviour
 
         if (lastestLine.Contains("INTERVAL END") && currentSceneIndex > 1 && endSceneRefScript != null)
         {
-             endSceneRefScript.IntervalEnd();
+            endSceneRefScript.IntervalEnd();
+            if (currentSceneIndex > 1)
+            {
+                soundControl.AdjustAll();
+                Pause intervalPause = GameObject.FindObjectOfType<CanvasScript>().intervalPause;
+                if(intervalPause.pauseMenu.activeInHierarchy)
+                    intervalPause.pauseMenu.SetActive(false);
+            }
         }
         else if (lastestLine.Contains("INTERVAL START") && currentSceneIndex > 1 && gameTimerScript != null)
         {
             if (!prevLine.Contains("INTERVAL END"))
             {
                 if (!gameTimerScript.gameEnded)
+                {
+                    soundControl.AdjustAmbient(1);
+                    soundControl.AdjustBGVolume(1);
+
                     gameTimerScript.Interval();
+                }
             }
 
         }

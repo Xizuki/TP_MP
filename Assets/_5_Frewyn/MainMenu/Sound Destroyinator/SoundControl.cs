@@ -1,8 +1,10 @@
 using Menu;
+using Nyp.Razor.Spectrum;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
@@ -24,9 +26,23 @@ public class SoundControl : MonoBehaviour
 
         soundDictionary = FindObjectOfType<DictionaryVolumeSettings>();
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
 
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.buildIndex <= 1) 
+        {
+            AdjustBGVolume(1);
+            AdjustAmbient(1);
+        }
+        else
+        {
+            AdjustAll();
+        }
+    }
 
     void Start()
     {
@@ -44,8 +60,13 @@ public class SoundControl : MonoBehaviour
         chargingSFX = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();    
     }
 
+    public float bgVolumeCache;
+    public float ambientVolumeCache;
+
     public void AdjustAll()
     {
+        if (GameObject.FindObjectOfType<CanvasScript>().gameTimer.gameEnded) return;
+
         MuteAll();
 
        // AdjustWithMasterVolume();
@@ -59,6 +80,10 @@ public class SoundControl : MonoBehaviour
         AdjustCrownVolume();
 
         AdjustAmbient();
+
+
+        bgVolumeCache = soundDictionary.SoundSettings["BGMusic"];
+        ambientVolumeCache = soundDictionary.SoundSettings["Ambient"];
     }
 
     void AdjustWithMasterVolume()
@@ -108,6 +133,8 @@ public class SoundControl : MonoBehaviour
 
     void AdjustBGVolume()
     {
+
+        if (SceneManager.GetActiveScene().buildIndex <= 1) return;
         
        Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
 
@@ -134,7 +161,36 @@ public class SoundControl : MonoBehaviour
         }
     }
 
-        void AdjustChargingVolume()
+
+    public void AdjustBGVolume(int overrideVolume)
+    {
+
+        Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
+
+        //Adjust the audio source volume by multiplying it with the BG Music value found in the settings/dictionary
+        if (audioSourceToAdjust != null)
+        {
+            audioSourceToAdjust.music.volume = overrideVolume;
+        }
+
+
+
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("BGMusic");
+
+        //AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
+
+        foreach (GameObject gameObject in ambientObjects)
+        {
+            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+
+            audioSource.volume = overrideVolume;
+
+
+
+        }
+    }
+
+    void AdjustChargingVolume()
     {
 
         //AudioSource audioSourceToAdjust = GameObject.FindGameObjectWithTag("ChargingSound").GetComponent<AudioSource>();
@@ -259,6 +315,7 @@ public class SoundControl : MonoBehaviour
 
         //Debug.Log("Ambient value " + soundDictionary.SoundSettings["Ambient"]);
         //Debug.Log("BG value " + soundDictionary.SoundSettings["BGMusic"]);
+                if (SceneManager.GetActiveScene().buildIndex <= 1) return;
 
         GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");
 
@@ -271,6 +328,38 @@ public class SoundControl : MonoBehaviour
 
 
 
+        }
+
+
+
+
+
+
+    }
+
+    public void AdjustAmbient(int overrideVolume)
+    {
+
+        //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");
+
+        //AudioSource[] ambientAudioSources = new AudioSource[ambientObjects.Length];
+
+        //foreach (AudioSource audioSource in ambientAudioSources)
+        //{
+        //    audioSource.volume *= soundDictionary.SoundSettings["Ambient"] * 0.1f;
+        //}
+
+        //Debug.Log("Ambient value " + soundDictionary.SoundSettings["Ambient"]);
+        //Debug.Log("BG value " + soundDictionary.SoundSettings["BGMusic"]);
+
+        GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");
+
+
+        foreach (GameObject gameObject in ambientObjects)
+        {
+            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+
+            audioSource.volume = overrideVolume;
         }
 
 
