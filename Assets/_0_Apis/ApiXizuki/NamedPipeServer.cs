@@ -58,14 +58,21 @@ public class NamedPipeServer : MonoBehaviour
     {
         // Set isRunning to false to exit the server loop gracefully
         isRunning = false;
+        if (reader != null)
+        {
+            reader.Close();
+            reader.Dispose();
+            reader = null;
+        }
+        
         // Close the pipe server if it was created
         if (pipeServer != null)
         {
             try
             {
                 //pipeServer.EndWaitForConnection(result);
-
                 pipeServer.Close();
+                pipeServer.Dispose();
                 Debug.Log("Pipe server closed.");
             }
             catch (IOException ex)
@@ -116,6 +123,10 @@ public class NamedPipeServer : MonoBehaviour
 
     }
 
+    public void OnDisable()
+    {
+        //HandleApplicationQuit();
+    }
 
     bool endSceneStart = false;
     static bool IsPipeBrokenException(IOException ex)
@@ -148,10 +159,13 @@ public class NamedPipeServer : MonoBehaviour
 
         pauseScript = GameObject.FindAnyObjectByType<Pause>();
 
-        gameTimerScript = GameObject.FindAnyObjectByType<GameTimer>();
+
 
         if (GameObject.FindAnyObjectByType<CanvasScript>() != null)
+        {
             endSceneRefScript = GameObject.FindAnyObjectByType<CanvasScript>().endScene;
+            gameTimerScript = GameObject.FindAnyObjectByType<CanvasScript>().gameTimer;
+        }
 
         print("LateUpdate 4");
 
@@ -193,6 +207,7 @@ public class NamedPipeServer : MonoBehaviour
 
     public void ReadMessage()
     {
+   
         lastestLine = reader.ReadLine();
         print("EEG0");
 
@@ -236,33 +251,37 @@ public class NamedPipeServer : MonoBehaviour
         {
             Debug.Log("PAUSE FROM EEG");
 
-            pauseScript.asyncForcePause = true;
+            if(gameTimerScript.gameEnded)
+                endSceneRefScript.intervalPaused = true;
+            else
+                pauseScript.PauseGame();
 
         }
 
         if (lastestLine.Contains("RESUME") && currentSceneIndex > 1 && pauseScript != null)
         {
-            pauseScript.asyncForceResume = true;
-
+            if (gameTimerScript.gameEnded)
+            {
+                endSceneRefScript.intervalPaused = false;
+            }
+            else
+                pauseScript.ResumeGame();
         }
 
         if (lastestLine.Contains("INTERVAL END") && currentSceneIndex > 1 && endSceneRefScript != null)
         {
-            print("EEG6");
-
-            if (!endSceneRefScript.asyncForceEndInterval)
-                endSceneRefScript.asyncForceEndInterval = true;
+             endSceneRefScript.IntervalEnd();
         }
         else if (lastestLine.Contains("INTERVAL START") && currentSceneIndex > 1 && gameTimerScript != null)
         {
             if (!prevLine.Contains("INTERVAL END"))
             {
                 if (!gameTimerScript.gameEnded)
-                    gameTimerScript.gameEnded = true;
+                    gameTimerScript.Interval();
             }
 
         }
-
+     
         prevLine = lastestLine;
     }
 

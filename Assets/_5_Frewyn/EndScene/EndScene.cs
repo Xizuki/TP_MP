@@ -59,6 +59,7 @@ public class EndScene : MonoBehaviour
 
     public bool asyncForceEndInterval;
     public bool stageSelected;
+    public bool intervalPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,26 +74,28 @@ public class EndScene : MonoBehaviour
     {
         Debug.Log("Times Played: " + timesPlayed);
 
-        if (asyncForceEndInterval)
-        { 
-            gameTimerScript.gameEnded = false;
-            Debug.Log("Close end scene");
-            objectEndScene.SetActive(false);
-            endScreenTimer = 15;
-            //StopCoroutine(Countdown());
-            asyncForceEndInterval = false;
-
-
-            if(!stageSelected)
-                objectEndScene.SetActive(false);
-            else
-                NextScene();
-
-
-            stageSelected = false;
-        }
+  
     }
+    public void IntervalEnd()
+    {
 
+        gameTimerScript.gameEnded = false;
+        Debug.Log("Close end scene");
+        objectEndScene.SetActive(false);
+        endScreenTimer = 15;
+        //StopCoroutine(Countdown());
+        asyncForceEndInterval = false;
+
+
+        if (!stageSelected)
+            objectEndScene.SetActive(false);
+        else
+            NextScene();
+
+
+        stageSelected = false;
+
+    }
     private void OnEnable()
     {
         scoreScript = FindObjectOfType<Score>();
@@ -223,25 +226,33 @@ public class EndScene : MonoBehaviour
         }
     }
 
-    IEnumerator Countdown()
+    public IEnumerator Countdown()
     {
-        while (endScreenTimer>=0)
+        while (endScreenTimer >= 0)
         {
-            yield return new WaitForSecondsRealtime(1f);
-            if (endScreenTimer > 0)
+            if (!intervalPaused)
             {
+                yield return new WaitForSecondsRealtime(1f);
+                if (endScreenTimer > 0)
+                {
 
-                //Debug.Log("Countdown");
-                endScreenTimer -= 1;
-                timerText.text = endScreenTimer.ToString();
+                    //Debug.Log("Countdown");
+                    endScreenTimer -= 1;
+                    timerText.text = endScreenTimer.ToString();
+                }
+                else if (endScreenTimer <= 0)
+                {
+                    //Debug.Log("Close end scene");
+                    //objectEndScene.SetActive(false);
+                    //NextScene();
+                    StopCoroutine(Countdown());
+                }
             }
-            else if(endScreenTimer<= 0)
-            {
-                //Debug.Log("Close end scene");
-                //objectEndScene.SetActive(false);
-                //NextScene();
-                StopCoroutine(Countdown());
-            }
+            else
+                yield return null;
+
+
+            yield return null;
         }
 
     }

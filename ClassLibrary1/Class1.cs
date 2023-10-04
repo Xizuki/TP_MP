@@ -7,6 +7,8 @@ using System.Threading;
 using System.IO.Pipes;
 using System.IO;
 using System.Windows.Forms;
+using Nyp.Razor;
+using System.Reflection;
 
 namespace BTGame
 {
@@ -39,6 +41,8 @@ namespace BTGame
         TextBox textBox15;
 
         bool connected = false;
+
+        int counter = 0;
         
         public static Player Client => Game.m_Clients.Count > 0 ? (Player)Game.m_Clients[0] : (Player)null;
 
@@ -81,6 +85,8 @@ namespace BTGame
 
                 await ClientStreamConnection();
             }
+            if (Level == -1 && exeStarted)
+                counter++;
             if (IsInSession && exeStarted && Level != -1)
             {
                 writer.WriteLine("INTERVAL END");
@@ -121,10 +127,13 @@ namespace BTGame
 
         public override void Pause_Game()
         {
-            base.Pause_Game();
+            base.Pause_Game(); 
+            m_bIsPaused = true;
+            counter++;
             if (writer != null || !(clientStream == null || !clientStream.IsConnected))
             {
                 writer.WriteLine("PAUSE");
+                textBox15.Text = "PAUSE 2";
                 try
                 {
                     writer.Flush();
@@ -141,26 +150,53 @@ namespace BTGame
             base.Stop_Game(); 
         }
 
+
+
         public override void Interval()
         {
-           base.Interval();
+            base.Interval();
+            counter++;
+            textBox15.Text = "Interval";
+
         }
 
         public override void Resume_Game()
         {
-            base.Resume_Game();
-            if (writer != null || !(clientStream == null || !clientStream.IsConnected))
+            if (m_bIsPaused)
             {
-                writer.WriteLine("RESUME");
-                try
+                if (counter == 1)
+                    base.Resume_Game();
+                else if (counter >= 2)
                 {
-                    writer.Flush();
+                    OnGamePause(new EventArgs());
+                    counter--;
                 }
-                catch (IOException ex)
+                m_bIsPaused = false;
+
+                if (writer != null || !(clientStream == null || !clientStream.IsConnected))
                 {
-                    //Exit();
+                    writer.WriteLine("RESUME");
+
+                    textBox15.Text = "RESUME 2";
+
+                    try
+                    {
+                        writer.Flush();
+                    }
+                    catch (IOException ex)
+                    {
+                        //Exit();
+                    }
                 }
+
             }
+            else if (counter == 1)
+            {
+                counter--;
+
+                base.Resume_Game();
+
+            }       
         }
 
         public override void Update(double elapsed)
@@ -201,6 +237,8 @@ namespace BTGame
                         }
                     }
 
+
+
                 }
             }
             ///* Send Values and Thresholds to get variable jump charge speed in the futre
@@ -233,14 +271,16 @@ namespace BTGame
             textBox10.Text = "Client.EegChannel.R_Trigger =  " + Client.EegChannel.R_Trigger;
 
 
-            textBox11.Text = "Client.EegChannel.A_Threshold =  " + Client.EegChannel.A_Threshold;
-            textBox12.Text = "Client.EegChannel.B_Threshold =  " + Client.EegChannel.B_Threshold;
-           textBox13.Text = "Client.EegChannel.C_Threshold =  " + Client.EegChannel.C_Threshold;
+            //textBox11.Text = "Client.EegChannel.A_Threshold =  " + Client.EegChannel.A_Threshold;
+            textBox11.Text = "isPause =  " + IsPaused;
+           textBox12.Text = "Level =  " + Level; 
+            
+            textBox13.Text = "coiunter =  " + counter;
 
 
-            textBox14.Text = "Client.EegChannel.D_Threshold =  " + Client.EegChannel.D_Threshold;
+            textBox14.Text = "exeStarted =  " + exeStarted;
             //textBox15.Text = "Client.EegChannel.R_Threshold =  " + Client.EegChannel.R_Threshold;
-            textBox15.Text = "IsInSession =  " + IsInSession;
+            textBox14.Text = "IsInSession =  " + IsInSession;
         }
 
         #region Form Creation
@@ -936,7 +976,7 @@ namespace BTGame
             // ShibaToTheTop
             // 
             this.Name = "ShibaToTheTop";
-            this.Size = new System.Drawing.Size(1101, 709);
+            this.Size = new System.Drawing.Size(1068, 665);
             this.ResumeLayout(false);
 
         }

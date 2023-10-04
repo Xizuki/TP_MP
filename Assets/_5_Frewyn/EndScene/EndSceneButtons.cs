@@ -60,6 +60,7 @@ public class EndSceneButtons : MonoBehaviour
         castleStage.color = chosen;
         forestStage.color = notChosen;
         winterStage.color = notChosen;
+        endScene.stageSelected = true;
 
     }
 
@@ -96,9 +97,22 @@ public class EndSceneButtons : MonoBehaviour
         forestStage.color = notChosen;
         winterStage.color = notChosen;
 
-        endScene.stageSelected = true;
 
     }
+
+    public GameObject intervalPauseGO;
+    public void IntervalSettings()
+    {
+        if (!intervalPauseGO.activeInHierarchy)
+        {
+            intervalPauseGO.SetActive(true);
+        }
+        else
+        {
+            intervalPauseGO.SetActive(false);
+        }
+    }
+
 
 
     public void NextSession()

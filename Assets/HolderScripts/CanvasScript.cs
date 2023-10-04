@@ -41,11 +41,14 @@ public class CanvasScript : MonoBehaviour
 
     public EndScene endScene;
 
+    public GameTimer gameTimer;
+
     // Start is called before the first frame update
     void Start()
     {
         scoreScript = GetComponentInChildren<Score>();
         comboScript = GetComponentInChildren<ComboCount>();
+        gameTimer = GetComponentInChildren<GameTimer>();
     }
 
     // Update is called once per frame

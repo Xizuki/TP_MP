@@ -20,26 +20,33 @@ public class GameTimer : MonoBehaviour
     {
     }
 
+    public void Interval()
+    {
+        endScene.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        gameEnded = true;
+    }
+
     void LateUpdate()
     {
-        if (timerEnabled==true)
-        {
-            if (gameEnded)
-            {
-                endScene.gameObject.SetActive(true);
-                Time.timeScale = 0;
-                gameEnded=false;    
-            }
+        //if (timerEnabled==true)
+        //{
+        //    if (gameEnded)
+        //    {
+        //        endScene.gameObject.SetActive(true);
+        //        Time.timeScale = 0;
+        //        gameEnded=false;    
+        //    }
 
-            //timer -= Time.deltaTime;
-            //timetTest.text = "Timer:" + Mathf.Round(timer);
-            //if (timer <= 0)
-            //{
-            //    Time.timeScale = 0;
-            //    endScene.gameObject.SetActive(true);
-            //    gameEnded = true;
-            //}
-        }
+        //    //timer -= Time.deltaTime;
+        //    //timetTest.text = "Timer:" + Mathf.Round(timer);
+        //    //if (timer <= 0)
+        //    //{
+        //    //    Time.timeScale = 0;
+        //    //    endScene.gameObject.SetActive(true);
+        //    //    gameEnded = true;
+        //    //}
+        //}
        
         
     }

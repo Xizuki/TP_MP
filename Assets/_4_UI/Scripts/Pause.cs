@@ -45,6 +45,11 @@ public class Pause : MonoBehaviour
     {
         if (soundSettings.activeInHierarchy) return;
 
+        Time.timeScale = 0f;
+        playerControl.enabled = false;
+
+        if (GetComponentInParent<CanvasScript>().endScene.gameObject.activeInHierarchy) return;
+
         pauseSound.ignoreListenerPause = true;
         pauseMenu.SetActive(true);
 
@@ -52,9 +57,7 @@ public class Pause : MonoBehaviour
         mainMenuButton.SetActive(true); //Done by frewyn, sets buttons to activee
 
         gamePause = true;
-        playerControl.enabled = false;
         AudioListener.pause = true; 
-        Time.timeScale = 0.01f;
 
         print("PauseGamePauseGame");
     }
