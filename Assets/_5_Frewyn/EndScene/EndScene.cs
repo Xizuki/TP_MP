@@ -76,6 +76,7 @@ public class EndScene : MonoBehaviour
 
   
     }
+
     public void IntervalEnd()
     {
 

@@ -92,7 +92,7 @@ public class Transitions : MonoBehaviour
     }
 
     public void OpenOptions()
-    {
+    {  
         settingTransition.SetActive(true);
         mainMenu.SetActive(false);
         optionsBackground.SetActive(true);

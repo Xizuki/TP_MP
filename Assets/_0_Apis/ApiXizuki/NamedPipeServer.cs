@@ -312,10 +312,39 @@ public class NamedPipeServer : MonoBehaviour
      
         prevLine = lastestLine;
     }
+    
 
 
 
+    [AddComponentMenu("Force Interval End")]
+    public void ForceIntervalEnd()
+    {
+        endSceneRefScript.IntervalEnd();
+        if (currentSceneIndex > 1)
+        {
+            soundControl.AdjustAll();
+            Pause intervalPause = GameObject.FindObjectOfType<CanvasScript>().intervalPause;
+            if (intervalPause.pauseMenu.activeInHierarchy)
+                intervalPause.pauseMenu.SetActive(false);
+        }
+    }
+
+
+    [AddComponentMenu("Force Interval Start")]
+    public void ForceIntervalStart()
+    {
+        if (!gameTimerScript.gameEnded)
+        {
+            soundControl.AdjustAmbient(1);
+            soundControl.AdjustBGVolume(1);
+
+            gameTimerScript.Interval();
+        }
+    }
 }
+
+
+
 
 
 
