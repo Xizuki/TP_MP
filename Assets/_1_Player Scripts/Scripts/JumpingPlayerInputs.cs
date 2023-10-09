@@ -54,22 +54,18 @@ public class JumpingPlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Alpha0))
-        //{
-        //    DebugIsGrounded();
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    controlType = ControlType.option1;
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    controlType = ControlType.option2;
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    controlType = ControlType.option3;
-        //}
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            DebugIsGrounded();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            controlType = ControlType.option1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            controlType = ControlType.option2;
+        }
 
         CheckOptions();
 
@@ -79,8 +75,6 @@ public class JumpingPlayerInputs : MonoBehaviour
                 jumpingPlayer.Left1();
             if (controlType == ControlType.option2)
                 jumpingPlayer.Left2(-1.5f);
-            if (controlType == ControlType.option3)
-                jumpingPlayer.Left3();
         }
         if (inputs.Rework1.Right.IsPressed())
         {
@@ -88,10 +82,20 @@ public class JumpingPlayerInputs : MonoBehaviour
                 jumpingPlayer.Right1();
             if (controlType == ControlType.option2)
                 jumpingPlayer.Right2(1.5f);
-            if (controlType == ControlType.option3)
-                jumpingPlayer.Right3();
         }
 
+        if (inputs.Rework1.MoveJumpVectorNegative.IsPressed())
+        {
+            if (controlType == ControlType.option1)
+                jumpingPlayer.IncrementalMoveJumpVectorNegative();
+
+        }
+        if (inputs.Rework1.MoveJumpVectorPositive.IsPressed())
+        {
+            if (controlType == ControlType.option1)
+                jumpingPlayer.IncrementalMoveJumpVectorPositive();
+
+        }
     }
 
     private void CheckOptions()
@@ -108,11 +112,7 @@ public class JumpingPlayerInputs : MonoBehaviour
                 jumpingPlayer.moveSpeed = option2Speed;
                 jumpingPlayer.playerUI.jumpingVectorAngleLimit = baseJumpVectorLimit;
                 break;
-            case ControlType.option3:
-                inputs.Rework1.Enable();
-                jumpingPlayer.moveSpeed = baseSpeed;
-                jumpingPlayer.playerUI.jumpingVectorAngleLimit = option3JumpVectorLimit;
-                break;
+          
                 
         }
     }

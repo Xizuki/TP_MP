@@ -902,6 +902,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MoveJumpVectorNegative",
+                    "type": "Button",
+                    "id": "f99bc193-4432-4ee6-8116-af2cca089f06",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MoveJumpVectorPositive",
+                    "type": "Button",
+                    "id": "b8a1de02-39b4-4118-aeb9-cf2e50aaffcc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -920,6 +938,17 @@
                     "name": "",
                     "id": "b5c7f90b-b362-433b-adca-5e62fab7b9b5",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c1776a0-cadd-4b38-a091-27589ce94e65",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -990,6 +1019,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "DebugIsgrounded",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87d55ed3-85c9-48b3-80ef-70eca6064cb7",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveJumpVectorPositive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b441c1ac-2027-4495-8d92-b81e8128c0ec",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveJumpVectorPositive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b34a192-ef75-4362-96b0-ee1c93969769",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveJumpVectorNegative",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5ebc55d-223b-4ce0-b654-6275b86192e0",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveJumpVectorNegative",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

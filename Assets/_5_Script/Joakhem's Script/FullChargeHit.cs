@@ -32,6 +32,8 @@ public class FullChargeHit : MonoBehaviour
 
         if (collision.collider.tag == "Platform" && jumpingPlayer.jumpChargePrev >= 0.9)
         {
+            collision.collider.GetComponent<PlatformScript>().BlastOff();
+
             Debug.DrawRay(raycastLine.transform.position, raycastLine.transform.right * distanceSet, Color.red, 1000f);
             Debug.DrawRay(raycastLine2.transform.position, raycastLine2.transform.right * distanceSet, Color.blue, 1000f);
 

@@ -14,6 +14,8 @@ public class PlayerChargingAudioScript : MonoBehaviour
     //public AudioClip constantAudioDeep;
 
 
+    public float audioTime;
+
     public AudioClip[] constantAudios;
     public int audioVersions;
 
@@ -31,6 +33,8 @@ public class PlayerChargingAudioScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audioTime = audioSource.time;
+
         optionsVolumeMultiplier = dictionary.SoundSettings["ChargingSound"]/10;
         print("optionsVolumeMultiplier = " + optionsVolumeMultiplier);
 
@@ -58,9 +62,9 @@ public class PlayerChargingAudioScript : MonoBehaviour
         {
             audioSource.clip = constantAudios[audioVersions];
 
-            if (jumpingPlayerScript.isCharging && !audioSource.isPlaying)
+            if (jumpingPlayerScript.isCharging && !audioSource.isPlaying && jumpingPlayerScript.isGrounded)
                 audioSource.Play();
-            else if (!jumpingPlayerScript.isCharging && audioSource.volume <= 0)
+            else if (!jumpingPlayerScript.isCharging && audioSource.volume <= 0 && !jumpingPlayerScript.isGrounded)
                 audioSource.Pause();
         }
 

@@ -95,6 +95,11 @@ public class Pause : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void CloseIntervalSettings()
+    {
+        pauseMenu.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

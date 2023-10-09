@@ -148,9 +148,9 @@ public class JumpingPlayerScript : MonoBehaviour
         if (!chicken.playerDowned)
            rb.AddForce(new Vector3(0, (-fallingGravityStrength * Time.deltaTime * 100) , 0));
 
-        playerTransform = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 3.0f);
+        //playerTransform = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 3.0f);
 
-        gameObject.transform.position = playerTransform;
+        //gameObject.transform.position = playerTransform;
     }
 
 
@@ -288,7 +288,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //recentInput = true;
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay; //Resets input countdown 
-        MoveJumpVector(-1);
+        MoveJumpVector(-2);
         //recentInput = false;
 
 
@@ -300,7 +300,7 @@ public class JumpingPlayerScript : MonoBehaviour
         //recentInput = true;
         faceFront = false;
         checkInputDelayCountdown = checkInputDelay;//Resets input countdown 
-        MoveJumpVector(1); 
+        MoveJumpVector(2); 
         //recentInput = false;
 
 
@@ -487,13 +487,11 @@ public class JumpingPlayerScript : MonoBehaviour
 
     public void Left1()
     {
-        IncrementalMoveJumpVector(-2.25f);
         MovePlayer(-1);
     }
 
     public void Right1()
     {
-        IncrementalMoveJumpVector(2.25f);
         MovePlayer(1);
     }
 

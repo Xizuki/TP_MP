@@ -6,6 +6,8 @@ public class PowerUpSpawn : MonoBehaviour
 {
     public Transform[] powerUpSpawns;
     public GameObject[] powerUp;
+
+    public bool overrideY;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,10 @@ public class PowerUpSpawn : MonoBehaviour
             {
                 Vector3 allignedPosition = new Vector3(powerUpSpawns[i].position.x, transform.position.y + 1.5f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
-                GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(powerUp[enemyno], allignedPosition, Quaternion.Euler(direction)));
+                if(overrideY)
+                    allignedPosition = new Vector3(powerUpSpawns[i].position.x, powerUpSpawns[i].position.y, GameObject.FindGameObjectWithTag("Player").transform.position.z);
+
+                Instantiate(powerUp[enemyno], allignedPosition, Quaternion.Euler(direction));
 
                 //Spawn GameObject Spike at spikeSpawns position
             }

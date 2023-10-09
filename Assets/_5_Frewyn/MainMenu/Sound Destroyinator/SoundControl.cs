@@ -65,22 +65,30 @@ public class SoundControl : MonoBehaviour
 
     public void AdjustAll()
     {
-        if (GameObject.FindObjectOfType<CanvasScript>().gameTimer.gameEnded) return;
+        if (GameObject.FindObjectOfType<CanvasScript>())
+        {
+            if (GameObject.FindObjectOfType<CanvasScript>().gameTimer.gameEnded) return;
 
-        MuteAll();
+            MuteAll();
 
-       // AdjustWithMasterVolume();
+            // AdjustWithMasterVolume();
 
-        AdjustBGVolume();
+            AdjustBGVolume();
 
-        AdjustChargingVolume();
+            AdjustChargingVolume();
 
-        AdjustSFXVolume();
+            AdjustSFXVolume();
 
-        AdjustCrownVolume();
+            AdjustCrownVolume();
 
-        AdjustAmbient();
+            AdjustAmbient();
+        }
+        else
+        {
+            AdjustBGVolume(0.5f);
 
+            AdjustAmbient(0.5f);
+        }
 
         bgVolumeCache = soundDictionary.SoundSettings["BGMusic"];
         ambientVolumeCache = soundDictionary.SoundSettings["Ambient"];
@@ -162,7 +170,7 @@ public class SoundControl : MonoBehaviour
     }
 
 
-    public void AdjustBGVolume(int overrideVolume)
+    public void AdjustBGVolume(float overrideVolume)
     {
 
         Music audioSourceToAdjust = FindObjectOfType<Music>();//Find the script that handles BG Music
@@ -337,7 +345,7 @@ public class SoundControl : MonoBehaviour
 
     }
 
-    public void AdjustAmbient(int overrideVolume)
+    public void AdjustAmbient(float overrideVolume)
     {
 
         //GameObject[] ambientObjects = GameObject.FindGameObjectsWithTag("Ambient");

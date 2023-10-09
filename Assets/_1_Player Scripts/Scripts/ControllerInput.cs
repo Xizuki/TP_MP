@@ -924,6 +924,24 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveJumpVectorNegative"",
+                    ""type"": ""Button"",
+                    ""id"": ""f99bc193-4432-4ee6-8116-af2cca089f06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveJumpVectorPositive"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8a1de02-39b4-4118-aeb9-cf2e50aaffcc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -942,6 +960,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""b5c7f90b-b362-433b-adca-5e62fab7b9b5"",
                     ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c1776a0-cadd-4b38-a091-27589ce94e65"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1014,6 +1043,50 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""DebugIsgrounded"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87d55ed3-85c9-48b3-80ef-70eca6064cb7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorPositive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b441c1ac-2027-4495-8d92-b81e8128c0ec"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorPositive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b34a192-ef75-4362-96b0-ee1c93969769"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorNegative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5ebc55d-223b-4ce0-b654-6275b86192e0"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorNegative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1077,6 +1150,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_Rework1_Right = m_Rework1.FindAction("Right", throwIfNotFound: true);
         m_Rework1_Jump = m_Rework1.FindAction("Jump", throwIfNotFound: true);
         m_Rework1_DebugIsgrounded = m_Rework1.FindAction("DebugIsgrounded", throwIfNotFound: true);
+        m_Rework1_MoveJumpVectorNegative = m_Rework1.FindAction("MoveJumpVectorNegative", throwIfNotFound: true);
+        m_Rework1_MoveJumpVectorPositive = m_Rework1.FindAction("MoveJumpVectorPositive", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1704,6 +1779,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Rework1_Right;
     private readonly InputAction m_Rework1_Jump;
     private readonly InputAction m_Rework1_DebugIsgrounded;
+    private readonly InputAction m_Rework1_MoveJumpVectorNegative;
+    private readonly InputAction m_Rework1_MoveJumpVectorPositive;
     public struct Rework1Actions
     {
         private @ControllerInput m_Wrapper;
@@ -1712,6 +1789,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @Right => m_Wrapper.m_Rework1_Right;
         public InputAction @Jump => m_Wrapper.m_Rework1_Jump;
         public InputAction @DebugIsgrounded => m_Wrapper.m_Rework1_DebugIsgrounded;
+        public InputAction @MoveJumpVectorNegative => m_Wrapper.m_Rework1_MoveJumpVectorNegative;
+        public InputAction @MoveJumpVectorPositive => m_Wrapper.m_Rework1_MoveJumpVectorPositive;
         public InputActionMap Get() { return m_Wrapper.m_Rework1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1733,6 +1812,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @DebugIsgrounded.started += instance.OnDebugIsgrounded;
             @DebugIsgrounded.performed += instance.OnDebugIsgrounded;
             @DebugIsgrounded.canceled += instance.OnDebugIsgrounded;
+            @MoveJumpVectorNegative.started += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.performed += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.canceled += instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorPositive.started += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.performed += instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.canceled += instance.OnMoveJumpVectorPositive;
         }
 
         private void UnregisterCallbacks(IRework1Actions instance)
@@ -1749,6 +1834,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @DebugIsgrounded.started -= instance.OnDebugIsgrounded;
             @DebugIsgrounded.performed -= instance.OnDebugIsgrounded;
             @DebugIsgrounded.canceled -= instance.OnDebugIsgrounded;
+            @MoveJumpVectorNegative.started -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.performed -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorNegative.canceled -= instance.OnMoveJumpVectorNegative;
+            @MoveJumpVectorPositive.started -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.performed -= instance.OnMoveJumpVectorPositive;
+            @MoveJumpVectorPositive.canceled -= instance.OnMoveJumpVectorPositive;
         }
 
         public void RemoveCallbacks(IRework1Actions instance)
@@ -1830,5 +1921,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnRight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDebugIsgrounded(InputAction.CallbackContext context);
+        void OnMoveJumpVectorNegative(InputAction.CallbackContext context);
+        void OnMoveJumpVectorPositive(InputAction.CallbackContext context);
     }
 }

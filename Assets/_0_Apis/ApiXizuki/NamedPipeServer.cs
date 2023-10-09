@@ -301,8 +301,8 @@ public class NamedPipeServer : MonoBehaviour
             {
                 if (!gameTimerScript.gameEnded)
                 {
-                    soundControl.AdjustAmbient(1);
-                    soundControl.AdjustBGVolume(1);
+                    soundControl.AdjustAmbient(0.4f);
+                    soundControl.AdjustBGVolume(0.4f);
 
                     gameTimerScript.Interval();
                 }
@@ -316,7 +316,7 @@ public class NamedPipeServer : MonoBehaviour
 
 
 
-    [AddComponentMenu("Force Interval End")]
+    [ContextMenu("Force Interval End")]
     public void ForceIntervalEnd()
     {
         endSceneRefScript.IntervalEnd();
@@ -330,13 +330,13 @@ public class NamedPipeServer : MonoBehaviour
     }
 
 
-    [AddComponentMenu("Force Interval Start")]
+    [ContextMenu("Force Interval Start")]
     public void ForceIntervalStart()
     {
         if (!gameTimerScript.gameEnded)
         {
-            soundControl.AdjustAmbient(1);
-            soundControl.AdjustBGVolume(1);
+            soundControl.AdjustAmbient(0.4f);
+            soundControl.AdjustBGVolume(0.4f);
 
             gameTimerScript.Interval();
         }
