@@ -169,6 +169,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3b3949d8-5746-4f6e-b86b-30993384dd6d"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveJumpVectorPositive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6f3ac4f4-3331-4946-8c8a-958ce3d76f3d"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -193,6 +204,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ff554a40-a31b-4dc6-a6dd-c6de65dde30b"",
                     ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3050801-3481-4c03-96c7-50015cb3d590"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
