@@ -208,6 +208,103 @@ namespace BTGame
                 if (writer != null || !(clientStream == null || !clientStream.IsConnected))
                 {
 
+
+
+                    if (Keyboard.IsKeyPressed(37))
+                    {
+                        textBox.Text = "Key =  Left";
+                        writer.WriteLine("Key:Left");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+                    if (Keyboard.IsKeyPressed(39))
+                    {
+                        textBox.Text = "Key =  Right";
+                        writer.WriteLine("Key:Right");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+                    if (Keyboard.IsKeyPressed(90))
+                    {
+                        textBox.Text = "Key =  Z";
+                        writer.WriteLine("Key:Z");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+                    if (Keyboard.IsKeyPressed(67))
+                    {
+                        textBox.Text = "Key =  C";
+                                                writer.WriteLine("Key:C");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+                    if (Keyboard.IsKeyPressed(88))
+                    {
+                        textBox.Text = "Key =  X";
+                        writer.WriteLine("Key:X");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+                    if (Keyboard.IsKeyPressed(32))
+                    {
+                        textBox.Text = "Key =  Space";
+                        writer.WriteLine("Key:Space");
+                        // Flush the writer and check for IOException (pipe broken)
+                        try
+                        {
+                            writer.Flush();
+                        }
+                        catch (IOException ex)
+                        {
+
+                            //Exit();
+                        }
+                    }
+
+
+
+
+
                     writer.WriteLine("Trigger:" + Client.EegChannel.A_Trigger);
                     // Flush the writer and check for IOException (pipe broken)
                     try
@@ -256,9 +353,11 @@ namespace BTGame
             
                         textBoxInstructions.Text = "Start EEG Channel first if using, then select level without tabbing out";
             textBoxInstructions.Text = "Start EEG Channel first if using, then select level without tabbing out";
+        
 
-            textBox.Text = "Client.EegChannel.A_Value =  " + Client.EegChannel.A_Value;
-            textBox2.Text = "Client.EegChannel.B_Value =  " + Client.EegChannel.B_Value;
+
+            //textBox.Text = "Client.EegChannel.A_Value =  " + Client.EegChannel.A_Value;
+            textBox2.Text = "fps =  " + Fps;
             textBox3.Text = "Client.EegChannel.C_Value =  " + Client.EegChannel.C_Value;
             textBox4.Text = "Client.EegChannel.D_Value =  " + Client.EegChannel.D_Value;
             textBox5.Text = "Client.EegChannel.R_Value =  " + Client.EegChannel.R_Value;

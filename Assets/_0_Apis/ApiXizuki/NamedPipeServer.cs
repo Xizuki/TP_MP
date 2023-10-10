@@ -10,6 +10,7 @@ public class NamedPipeServer : MonoBehaviour
 {
     public string pipeName = "ShibaToTheTop";
     public JumpingPlayerScript jumpingPlayer;
+    public JumpingPlayerInputs jumpingPlayerInputs;
     private static NamedPipeServerStream pipeServer;
     private bool isRunning = true;
     public bool isConnected = false;
@@ -57,6 +58,7 @@ public class NamedPipeServer : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Player"))
             {
                 jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+                jumpingPlayerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerInputs>();
             }
         }
         if (pipeServer == null)
@@ -168,6 +170,7 @@ public class NamedPipeServer : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Player"))
             {
                 jumpingPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerScript>();
+                jumpingPlayerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerInputs>();
             }
         }
         print("LateUpdate 3");
@@ -263,6 +266,11 @@ public class NamedPipeServer : MonoBehaviour
 
         print("lastestLine = " + lastestLine);
 
+
+
+
+
+
         if (lastestLine.Contains("PAUSE") && currentSceneIndex > 1 && pauseScript != null)
         {
             Debug.Log("PAUSE FROM EEG");
@@ -311,8 +319,82 @@ public class NamedPipeServer : MonoBehaviour
         }
      
         prevLine = lastestLine;
+
+
+
+
+
+
+
+        if (lastestLine.Contains("Key:Left") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            if (!Application.isFocused)
+            {
+                if (jumpingPlayerInputs.controlType == ControlType.option1)
+                {
+                    jumpingPlayer.IncrementalMoveJumpVectorNegative();
+                    jumpingPlayer.IncrementalMoveJumpVectorNegative();
+
+                }
+            }
+        }
+        if (lastestLine.Contains("Key:Right") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            if (!Application.isFocused)
+            {
+                if (jumpingPlayerInputs.controlType == ControlType.option1)
+                {
+                    jumpingPlayer.IncrementalMoveJumpVectorPositive();
+                    jumpingPlayer.IncrementalMoveJumpVectorPositive();
+                }
+            }
+        }
+
+
+
+
+        if (lastestLine.Contains("Key:Z") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            if (!Application.isFocused)
+            {
+                if (jumpingPlayerInputs.controlType == ControlType.option1)
+                { jumpingPlayer.Left1(); jumpingPlayer.Left1(); }
+
+                    if (jumpingPlayerInputs.controlType == ControlType.option2)
+                    jumpingPlayer.Left2(-1.5f*2.25f);
+            }
+        }
+        if (lastestLine.Contains("Key:C") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            if (!Application.isFocused)
+            {
+                if (jumpingPlayerInputs.controlType == ControlType.option1)
+                {
+                    jumpingPlayer.Right1(); jumpingPlayer.Right1();
+                }
+                    if (jumpingPlayerInputs.controlType == ControlType.option2)
+                    jumpingPlayer.Right2(-1.5f * 2.25f);
+            }
+
+        }
+        if (lastestLine.Contains("Key:X") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            if (!Application.isFocused)
+            {
+                jumpingPlayer.isCharging = true;
+            }
+        }
+        if (lastestLine.Contains("Key:Space") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            if (!Application.isFocused)
+            {
+                jumpingPlayer.Jump();
+            }
+        }
+
+
     }
-    
+
 
 
 

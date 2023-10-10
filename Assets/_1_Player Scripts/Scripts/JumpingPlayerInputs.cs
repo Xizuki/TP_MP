@@ -11,18 +11,6 @@ using UnityEngine;
 public enum ControlType { PC ,option1, option2, option3, option4, option5, option6 }
 public class JumpingPlayerInputs : MonoBehaviour
 {
-    [DllImport("user32.dll")]
-    private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-    [DllImport("user32.dll")]
-    private static extern bool SetForegroundWindow(IntPtr hWnd);
-
-    private const int SW_RESTORE = 9;
-
-
-
-
-
 
     public JumpingPlayerScript jumpingPlayer;
 
@@ -72,15 +60,7 @@ public class JumpingPlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Process currentProcess = Process.GetCurrentProcess();
-        IntPtr mainWindowHandle = currentProcess.MainWindowHandle;
-
-        if (mainWindowHandle != IntPtr.Zero)
-        {
-            // Bring the Unity game window to the front.
-            ShowWindow(mainWindowHandle, SW_RESTORE);
-            SetForegroundWindow(mainWindowHandle);
-        }
+       
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             DebugIsGrounded();

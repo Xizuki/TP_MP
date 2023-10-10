@@ -20,6 +20,8 @@ public class NamedPipeServerDebug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //text.text = "application in focused = " + Application.isFocused;
+
         if (namedPipeServer.lastestLine.Contains("True"))
             text.text = "TRUE";
         else if (namedPipeServer.lastestLine.Contains("False"))

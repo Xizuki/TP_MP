@@ -164,12 +164,12 @@ public class JumpingPlayerScript : MonoBehaviour
     private void Inputs()
     {
 
-        // NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
-        if (Input.GetKey(KeyCode.Q))
+        //// NEED TO FIX ANIMATIONS LINKING IT TO THE ISCHARGING BOOLEAN
+        if (Input.GetKey(KeyCode.X))
         {
             isCharging = true;
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.X))
         {
             isCharging = false;
         }
@@ -182,30 +182,61 @@ public class JumpingPlayerScript : MonoBehaviour
 
         if (isGrounded)
         {
-            if (isCharging)
+            if (Application.isFocused)
             {
-                checkInputDelayCountdown = checkInputDelay;
-                animator.SetBool("Charge", true);
-                SFX.charging = true; //Added charging SFX
-                canRotate = false;//Logic for rotation when charging
+                if (isCharging)
+                {
+                    checkInputDelayCountdown = checkInputDelay;
+                    animator.SetBool("Charge", true);
+                    SFX.charging = true; //Added charging SFX
+                    canRotate = false;//Logic for rotation when charging
 
-                chargeParticle.Play();
-                chargeCount += 3f * Time.deltaTime;
-                jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
-                SFX.performanceCharge = true;
-                chargeCountSoundSFXCooldown = 1f;
+                    chargeParticle.Play();
+                    chargeCount += 3f * Time.deltaTime;
+                    jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent;
+                    SFX.performanceCharge = true;
+                    chargeCountSoundSFXCooldown = 1f;
 
-                recentInput = true;;
+                    recentInput = true; ;
+                }
+                if (!isCharging)
+                {
+                    canRotate = true;//Logic for rotation when charging
+                    animator.SetBool("Charge", false);
+
+                    SFX.performanceCharge = false;
+                    chargeCount -= 0.55f * Time.deltaTime; //chargecount 
+                    chargeParticle.Stop();
+                    maxChargeParticleOut.Stop();
+                }
             }
-            if (!isCharging)
+            else
             {
-                canRotate = true;//Logic for rotation when charging
-                animator.SetBool("Charge", false);
+                if (isCharging)
+                {
+                    checkInputDelayCountdown = checkInputDelay;
+                    animator.SetBool("Charge", true);
+                    SFX.charging = true; //Added charging SFX
+                    canRotate = false;//Logic for rotation when charging
 
-                SFX.performanceCharge = false;
-                chargeCount -= 0.55f * Time.deltaTime; //chargecount 
-                chargeParticle.Stop();
-                maxChargeParticleOut.Stop();
+                    chargeParticle.Play();
+                    chargeCount += 3f * Time.deltaTime*2.25f;
+                    jumpCharge += Time.deltaTime * jumpChargeSpeedCurrent * 2.25f;
+                    SFX.performanceCharge = true;
+                    chargeCountSoundSFXCooldown = 1f;
+
+                    recentInput = true; ;
+                }
+                if (!isCharging)
+                {
+                    canRotate = true;//Logic for rotation when charging
+                    animator.SetBool("Charge", false);
+
+                    SFX.performanceCharge = false;
+                    chargeCount -= 0.55f * Time.deltaTime; //chargecount 
+                    chargeParticle.Stop();
+                    maxChargeParticleOut.Stop();
+                }
             }
         }
         if (jumpCharge > 0.1 && isCharging)
