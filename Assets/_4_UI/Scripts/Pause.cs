@@ -45,13 +45,15 @@ public class Pause : MonoBehaviour
 
     public void PauseGame()
     {
-        if (soundSettings.activeInHierarchy) return;
+        //if (soundSettings.activeInHierarchy && !nonMain) return;
 
+        
         Time.timeScale = 0f;
         playerControl.enabled = false;
+        print("PauseGamePauseGame 1");
 
-        if (GetComponentInParent<CanvasScript>().endScene.gameObject.activeInHierarchy) return;
-
+        //if (GetComponentInParent<CanvasScript>().gameTimer.gameEnded) return;
+        //if (nonMain) return;
         pauseSound.ignoreListenerPause = true;
         pauseMenu.SetActive(true);
 
@@ -61,7 +63,7 @@ public class Pause : MonoBehaviour
         gamePause = true;
         AudioListener.pause = true; 
 
-        print("PauseGamePauseGame");
+        print("PauseGamePauseGame 2");
     }
 
     public void ResumeGame()
@@ -69,6 +71,11 @@ public class Pause : MonoBehaviour
         pauseSound.Play();
         gamePause = false;
         playerControl.enabled = true;
+
+        if (GetComponentInParent<CanvasScript>().gameTimer.gameEnded) return;
+        if (nonMain) return;
+
+
         soundSettings.SetActive(false);
         //StartCoroutine(EnableSound());
         AudioListener.pause = false;
@@ -111,15 +118,15 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(asyncForcePause)
+        if (asyncForcePause)
         {
             PauseGame();
-            asyncForcePause = false;
+            //asyncForcePause = false;
         }
         if (asyncForceResume)
         {
             ResumeGame();
-            asyncForceResume = false;
+            //asyncForceResume = false;
         }
 
 

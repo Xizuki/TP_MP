@@ -72,7 +72,8 @@ public class JumpingPlayerScript : MonoBehaviour
     public float timeSinceCharge;
     public float chargeCountSoundSFXCooldown = 1f;
 
-  
+    public bool dllCharge;
+
 
     public void Awake()
     {
@@ -182,7 +183,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
         if (isGrounded)
         {
-            if (Application.isFocused)
+            if (!dllCharge)
             {
                 if (isCharging)
                 {
@@ -282,7 +283,7 @@ public class JumpingPlayerScript : MonoBehaviour
 
 
 
-    public void MovePlayer(int value)
+    public void MovePlayer(float value)
     {
         if (!isGrounded || chicken.playerDowned) return;
 
@@ -525,7 +526,15 @@ public class JumpingPlayerScript : MonoBehaviour
     {
         MovePlayer(1);
     }
+    public void Left1(float amt)
+    {
+        MovePlayer(-amt);
+    }
 
+    public void Right1(float amt)
+    {
+        MovePlayer(amt);
+    }
     public void Left2(float value)
     {
         IncrementalMoveJumpVectorAndMovement(value);

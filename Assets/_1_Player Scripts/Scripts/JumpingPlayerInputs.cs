@@ -79,14 +79,14 @@ public class JumpingPlayerInputs : MonoBehaviour
         if (inputs.Rework1.Left.IsPressed())
         {
             if(controlType == ControlType.option1)
-                jumpingPlayer.Left1();
+                jumpingPlayer.Left1(2);
             if (controlType == ControlType.option2)
                 jumpingPlayer.Left2(-1.5f);
         }
         if (inputs.Rework1.Right.IsPressed())
         {
             if (controlType == ControlType.option1)
-                jumpingPlayer.Right1();
+                jumpingPlayer.Right1(2);
             if (controlType == ControlType.option2)
                 jumpingPlayer.Right2(1.5f);
         }

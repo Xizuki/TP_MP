@@ -1057,6 +1057,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9856bf4e-12fb-4fcf-ae64-2ad994ba2675"",
+                    ""path"": ""<HID::Logitech Logitech Dual Action>/hat/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""11968efc-e463-4c14-85f5-f81fd8f886c2"",
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
@@ -1107,6 +1118,17 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveJumpVectorNegative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b73ad36-a480-491b-adfa-257efdbe2aca"",
+                    ""path"": ""<HID::Logitech Logitech Dual Action>/hat/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

@@ -209,99 +209,71 @@ namespace BTGame
                 {
 
 
+                    string keys = "Key";
 
                     if (Keyboard.IsKeyPressed(37))
                     {
                         textBox.Text = "Key =  Left";
-                        writer.WriteLine("Key:Left");
+                        keys+=(":Left");
                         // Flush the writer and check for IOException (pipe broken)
-                        try
-                        {
-                            writer.Flush();
-                        }
-                        catch (IOException ex)
-                        {
 
-                            //Exit();
-                        }
                     }
                     if (Keyboard.IsKeyPressed(39))
                     {
                         textBox.Text = "Key =  Right";
-                        writer.WriteLine("Key:Right");
-                        // Flush the writer and check for IOException (pipe broken)
-                        try
-                        {
-                            writer.Flush();
-                        }
-                        catch (IOException ex)
-                        {
+                        keys += (":Right");
 
-                            //Exit();
-                        }
                     }
                     if (Keyboard.IsKeyPressed(90))
                     {
                         textBox.Text = "Key =  Z";
-                        writer.WriteLine("Key:Z");
-                        // Flush the writer and check for IOException (pipe broken)
-                        try
-                        {
-                            writer.Flush();
-                        }
-                        catch (IOException ex)
-                        {
+                        keys += (":Z");
 
-                            //Exit();
-                        }
                     }
                     if (Keyboard.IsKeyPressed(67))
                     {
                         textBox.Text = "Key =  C";
-                                                writer.WriteLine("Key:C");
-                        // Flush the writer and check for IOException (pipe broken)
-                        try
-                        {
-                            writer.Flush();
-                        }
-                        catch (IOException ex)
-                        {
+                        keys += (":C");
 
-                            //Exit();
-                        }
                     }
                     if (Keyboard.IsKeyPressed(88))
                     {
                         textBox.Text = "Key =  X";
-                        writer.WriteLine("Key:X");
+                        keys += (":X");
                         // Flush the writer and check for IOException (pipe broken)
-                        try
-                        {
-                            writer.Flush();
-                        }
-                        catch (IOException ex)
-                        {
-
-                            //Exit();
-                        }
+                      
                     }
                     if (Keyboard.IsKeyPressed(32))
                     {
                         textBox.Text = "Key =  Space";
-                        writer.WriteLine("Key:Space");
-                        // Flush the writer and check for IOException (pipe broken)
-                        try
-                        {
-                            writer.Flush();
-                        }
-                        catch (IOException ex)
-                        {
-
-                            //Exit();
-                        }
+                        keys += (":Space");
+ 
                     }
 
+                   
+                    if (Keyboard.IsKeyPressed(49))
+                    {
+                        textBox.Text = "Key =  1";
+                        keys += (":1");
 
+                    }
+                    if (Keyboard.IsKeyPressed(50))
+                    {
+                        textBox.Text = "Key =  2";
+                        keys+=(":2");
+                       
+                    }
+
+                    writer.WriteLine(keys);
+                    try
+                    {
+                        writer.Flush();
+                    }
+                    catch (IOException ex)
+                    {
+
+                        //Exit();
+                    }
 
 
 

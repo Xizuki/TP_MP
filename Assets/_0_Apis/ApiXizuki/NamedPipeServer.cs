@@ -5,6 +5,7 @@ using System.Threading;
 using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class NamedPipeServer : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class NamedPipeServer : MonoBehaviour
     public bool isConnected = false;
     private static StreamReader reader;
     public Pause pauseScript;
+    public Pause intervalPause;
     public GameTimer gameTimerScript;
     public EndScene endSceneRefScript;
     public SoundControl soundControl;
@@ -140,6 +142,7 @@ public class NamedPipeServer : MonoBehaviour
     public void OnApplicationQuit()
     {
         HandleApplicationQuit();    
+
     }
 
     bool endSceneStart = false;
@@ -160,7 +163,7 @@ public class NamedPipeServer : MonoBehaviour
         //lastestLine = await reader.ReadLineAsync();
         print("LateUpdate 2");
 
-        if (GameObject.FindAnyObjectByType<SoundControl>())
+        if (GameObject.FindAnyObjectByType<SoundControl>() && soundControl==null)
         {
             soundControl = GameObject.FindAnyObjectByType<SoundControl>();
         }
@@ -176,14 +179,16 @@ public class NamedPipeServer : MonoBehaviour
         print("LateUpdate 3");
 
 
-        pauseScript = GameObject.FindAnyObjectByType<Pause>();
 
 
 
-        if (GameObject.FindAnyObjectByType<CanvasScript>() != null)
+        if (GameObject.FindAnyObjectByType<CanvasScript>() != null && intervalPause == null)
         {
             endSceneRefScript = GameObject.FindAnyObjectByType<CanvasScript>().endScene;
             gameTimerScript = GameObject.FindAnyObjectByType<CanvasScript>().gameTimer;
+            pauseScript = GameObject.FindAnyObjectByType<CanvasScript>().pause;
+            intervalPause = GameObject.FindAnyObjectByType<CanvasScript>().intervalPause;
+
         }
 
         print("LateUpdate 4");
@@ -275,8 +280,13 @@ public class NamedPipeServer : MonoBehaviour
         {
             Debug.Log("PAUSE FROM EEG");
 
-            if(gameTimerScript.gameEnded)
+            if (gameTimerScript.gameEnded)
+            {
+                Debug.Log("INTERVAL PAUSE FROM EEG");
+
                 endSceneRefScript.intervalPaused = true;
+
+            }
             else
                 pauseScript.PauseGame();
 
@@ -287,6 +297,7 @@ public class NamedPipeServer : MonoBehaviour
             if (gameTimerScript.gameEnded)
             {
                 endSceneRefScript.intervalPaused = false;
+
             }
             else
                 pauseScript.ResumeGame();
@@ -326,7 +337,7 @@ public class NamedPipeServer : MonoBehaviour
 
 
 
-        if (lastestLine.Contains("Key:Left") && currentSceneIndex > 1 && pauseScript != null)
+        if (lastestLine.Contains(":Left") && currentSceneIndex > 1 && pauseScript != null)
         {
             if (!Application.isFocused)
             {
@@ -338,7 +349,7 @@ public class NamedPipeServer : MonoBehaviour
                 }
             }
         }
-        if (lastestLine.Contains("Key:Right") && currentSceneIndex > 1 && pauseScript != null)
+        if (lastestLine.Contains(":Right") && currentSceneIndex > 1 && pauseScript != null)
         {
             if (!Application.isFocused)
             {
@@ -353,38 +364,42 @@ public class NamedPipeServer : MonoBehaviour
 
 
 
-        if (lastestLine.Contains("Key:Z") && currentSceneIndex > 1 && pauseScript != null)
+        if (lastestLine.Contains(":Z") && currentSceneIndex > 1 && pauseScript != null)
         {
             if (!Application.isFocused)
             {
                 if (jumpingPlayerInputs.controlType == ControlType.option1)
-                { jumpingPlayer.Left1(); jumpingPlayer.Left1(); }
+                { jumpingPlayer.Left1(2f) ; jumpingPlayer.Left1(2f); }
 
                     if (jumpingPlayerInputs.controlType == ControlType.option2)
                     jumpingPlayer.Left2(-1.5f*2.25f);
             }
         }
-        if (lastestLine.Contains("Key:C") && currentSceneIndex > 1 && pauseScript != null)
+        if (lastestLine.Contains(":C") && currentSceneIndex > 1 && pauseScript != null)
         {
             if (!Application.isFocused)
             {
                 if (jumpingPlayerInputs.controlType == ControlType.option1)
                 {
-                    jumpingPlayer.Right1(); jumpingPlayer.Right1();
+                    jumpingPlayer.Right1(2f); jumpingPlayer.Right1(2f);
                 }
                     if (jumpingPlayerInputs.controlType == ControlType.option2)
                     jumpingPlayer.Right2(-1.5f * 2.25f);
             }
 
         }
-        if (lastestLine.Contains("Key:X") && currentSceneIndex > 1 && pauseScript != null)
+        if (lastestLine.Contains(":X") && currentSceneIndex > 1 && pauseScript != null)
         {
             if (!Application.isFocused)
             {
                 jumpingPlayer.isCharging = true;
+                jumpingPlayer.dllCharge = true;
             }
         }
-        if (lastestLine.Contains("Key:Space") && currentSceneIndex > 1 && pauseScript != null)
+        else
+            jumpingPlayer.dllCharge=false;
+
+        if (lastestLine.Contains(":Space") && currentSceneIndex > 1 && pauseScript != null)
         {
             if (!Application.isFocused)
             {
@@ -392,7 +407,15 @@ public class NamedPipeServer : MonoBehaviour
             }
         }
 
+        if (lastestLine.Contains(":1") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            jumpingPlayerInputs.controlType = ControlType.option1;
+        }
+        if (lastestLine.Contains(":2") && currentSceneIndex > 1 && pauseScript != null)
+        {
+            jumpingPlayerInputs.controlType = ControlType.option2;
 
+        }
     }
 
 

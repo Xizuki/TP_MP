@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using Nyp.Razor.Spectrum;
-    
+using UnityEngine.Rendering;
+
 [RequireComponent(typeof(Rigidbody))]
 public class Chicken : MonoBehaviour
 {
@@ -73,6 +74,9 @@ public class Chicken : MonoBehaviour
 
 
 
+    public float playerStartingZ;
+
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -80,7 +84,7 @@ public class Chicken : MonoBehaviour
         chickenRb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         //playerDowned = true;
-
+        playerStartingZ = player.transform.position.z;
     }
 
     //public void AssignStartingPlatform(GameObject startPlatformObject)
@@ -200,8 +204,8 @@ public class Chicken : MonoBehaviour
     public void TravelToPlatform()
     {
 
-        //Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, player.transform.position.z);
-        Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, player.transform.position.z);
+        Vector3 abovePlatformPosition = new Vector3(startingPlatform.transform.position.x, startingPlatform.transform.position.y + extraHeightPlatform, playerStartingZ);
+        //Vector3 abovePlatformPosition = new Vector3(1, 1 , 1);
         if (checkPointCreated == false)
         {
             if (checkPointInGame == null)
