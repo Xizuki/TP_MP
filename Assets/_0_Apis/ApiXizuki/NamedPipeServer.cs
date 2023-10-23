@@ -43,7 +43,7 @@ public class NamedPipeServer : MonoBehaviour
 
     private void Start()
     {
-        Application.quitting += HandleApplicationQuit;
+        //Application.quitting += HandleApplicationQuit;
 
         NamedPipeServer[] namePipeServers = GameObject.FindObjectsByType<NamedPipeServer>(FindObjectsSortMode.None);
 
