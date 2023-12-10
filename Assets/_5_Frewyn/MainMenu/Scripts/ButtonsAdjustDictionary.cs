@@ -43,7 +43,7 @@ namespace Menu
 
         private void Start()
         {
-       
+            print("START!@#!@#!@#");
 
             CheckDifficulty("EnemySpawnFrequency");
         
@@ -164,6 +164,7 @@ namespace Menu
 
             if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
             {
+                print("settingList = " + settingList.Count);
                 //  access list elements using indices.
                 if (settingList.Count > 0)
                 {
@@ -251,6 +252,7 @@ namespace Menu
             Debug.Log("Difficulty is Hard!");
             if (gameplaySettingsScript.ButtonDictionary.TryGetValue(setting, out List<Image> settingList))
             {
+                print("settingList HARD = " + settingList.Count);
                 // Now you have the list, you can access its elements using indices.
                 if (settingList.Count > 0)
                 {

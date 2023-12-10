@@ -67,7 +67,7 @@ public class ComboCount : MonoBehaviour
     IEnumerator ComboReset() //Reset the score as player will likely gain a score for free at the beginning
     {
         yield return new WaitForSeconds(0.05f);
-        comboTxt.text = "0 Combo";
+        comboTxt.text = "0 Platform";
         combo = 0;
     }
 
@@ -75,7 +75,7 @@ public class ComboCount : MonoBehaviour
     void Update()
     {
         ComboUp();
-        comboTxt.text = combo + " Combo";
+        comboTxt.text = combo + " Platform";
 
         if (combo <= 1)
         {

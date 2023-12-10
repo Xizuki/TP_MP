@@ -9,6 +9,7 @@ using System.IO;
 using System.Windows.Forms;
 using Nyp.Razor;
 using System.Reflection;
+using System.Drawing;
 
 namespace BTGame
 {
@@ -323,8 +324,7 @@ namespace BTGame
             //    Exit();
             //}
             
-                        textBoxInstructions.Text = "Start EEG Channel first if using, then select level without tabbing out";
-            textBoxInstructions.Text = "Start EEG Channel first if using, then select level without tabbing out";
+            textBoxInstructions.Text = "FIRST change Training Mode ( if required), THEN select any Stress Level";
         
 
 
@@ -362,8 +362,10 @@ namespace BTGame
             textBoxInstructions.Text = "Start dual channel first if using, then select level without tabbing out, selecting level first will force you to tab out and therefore not allow you to enable dual channel";
 
             textBoxInstructions.Location = new System.Drawing.Point(50, 50);
-            textBoxInstructions.Size = new System.Drawing.Size(500, 35);
-            textBoxInstructions.Font = new System.Drawing.Font(textBoxInstructions.Font.FontFamily, textBoxInstructions.Font.Size * 1.3f);
+            textBoxInstructions.Size = new System.Drawing.Size(700, 50);
+            textBoxInstructions.Font = new System.Drawing.Font(textBoxInstructions.Font.FontFamily, textBoxInstructions.Font.Size * 1.4f);
+            textBoxInstructions.ForeColor = System.Drawing.Color.Red;
+
             this.Controls.Add(textBoxInstructions);
 
             textBox = new TextBox();
@@ -533,10 +535,6 @@ namespace BTGame
 
             base.Dispose(disposing);
         }
-
-
-
-
 
 
         #region EEG Variables
@@ -1053,6 +1051,7 @@ namespace BTGame
         }
     }
     #endregion
+
 }
 
 

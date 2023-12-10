@@ -2,7 +2,7 @@ using Menu;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -39,7 +39,18 @@ namespace Menu
             }
 
 
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
         }
+
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.buildIndex != 1) { return; }
+            InitalizeDictionaryWithPlayerPrefs();
+        }
+
+
         private void InitalizeDictionaryWithPlayerPrefs()
         {
 

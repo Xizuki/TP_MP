@@ -11,11 +11,14 @@ public class EnemySpawn : MonoBehaviour
 
     [SerializeField]
     private Dictionary_GameplaySettings dictionary;
-    int easy = 10;
+    float easyMin = 0.15f;
+    float easyMax = 0.25f;
 
-    int medium = 12;
+    float mediumMin = 0.3f;
+    float mediumMax = 0.5f;
 
-    int hard = 15;
+    float hardMin = 0.55f;
+    float hardMax = 0.75f;
 
 
     public bool overrideY;
@@ -61,40 +64,66 @@ public class EnemySpawn : MonoBehaviour
     {
         if (FindObjectOfType<Dictionary_GameplaySettings>() == null)
         {
+            float ran = Random.Range(easyMin,easyMax);
+            int enemySpawnLocations = enemySpawns.Length;
+            int enemiesToSpawn =  Mathf.RoundToInt(enemySpawnLocations * ran);
 
+            List<int> indexLocationSpawned = new List<int>();
 
-            for (int i = 0; i < enemySpawns.Length; i++) //for loop for each item in array list spikeSpawns
+            for (int i = 0; i < enemiesToSpawn; i++) //for loop for each item in array list spikeSpawns
             {
-                Vector3 forward = Vector3.zero - new Vector3( enemySpawns[i].position.x,0,0);
+                foreach(int index in indexLocationSpawned)
+                {
+                    if(index == i)
+                    {
+                        i--;
+                        continue;
+                    }
+                }
+
+                Vector3 forward = Vector3.zero - new Vector3(enemySpawns[i].position.x, 0, 0);
 
                 Debug.Log("Enemy spawn frequency is easy!");
-                int coinFlip = Random.Range(8, 10); //randomise spawn between 0 and 5
+                int coinFlipLocation = Random.Range(0, enemySpawnLocations); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, enemy.Length);
 
                 //Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, enemySpawns[i].position.z);
                 Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
                 if (!overrideY)
-                    allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z) ;
+                    allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
 
-                if (coinFlip > 7)
-                {
-                    GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
-                    GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count-1].transform.forward = forward;
-                    //Spawn GameObject Spike at spikeSpawns position
-                }
+                GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
+                GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
+                //Spawn GameObject Spike at spikeSpawns position
+                indexLocationSpawned.Add(coinFlipLocation);
             }
         }
 
         else if (   dictionary.GameplaySettings["EnemySpawnFrequency"] == Difficulty.Easy)
         {
-            for (int i = 0; i < enemySpawns.Length; i++) //for loop for each item in array list spikeSpawns
+            float ran = Random.Range(easyMin, easyMax);
+            int enemySpawnLocations = enemySpawns.Length;
+            int enemiesToSpawn = Mathf.RoundToInt(enemySpawnLocations * ran);
+
+            List<int> indexLocationSpawned = new List<int>();
+
+            for (int i = 0; i < enemiesToSpawn; i++) //for loop for each item in array list spikeSpawns
             {
+                foreach (int index in indexLocationSpawned)
+                {
+                    if (index == i)
+                    {
+                        i--;
+                        continue;
+                    }
+                }
+
                 Vector3 forward = Vector3.zero - new Vector3(enemySpawns[i].position.x, 0, 0);
 
-                Debug.Log("Enemy spawn frequency is easy!"  );
-                int coinFlip = Random.Range(0, easy); //randomise spawn between 0 and 5
+                Debug.Log("Enemy spawn frequency is easy!");
+                int coinFlipLocation = Random.Range(0, enemySpawnLocations); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, enemy.Length);
 
                 //Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, enemySpawns[i].position.z);
@@ -104,52 +133,76 @@ public class EnemySpawn : MonoBehaviour
                     allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
 
-
-                if (coinFlip > 7)
-                {
-                    GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
-                    GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
-
-                    //Spawn GameObject Spike at spikeSpawns position
-                }
+                GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
+                GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
+                //Spawn GameObject Spike at spikeSpawns position
+                indexLocationSpawned.Add(coinFlipLocation);
             }
         }
 
         else if (dictionary.GameplaySettings["EnemySpawnFrequency"] == Difficulty.Medium)
         {
-            for (int i = 0; i < enemySpawns.Length; i++) //for loop for each item in array list spikeSpawns
+            float ran = Random.Range(mediumMin, mediumMax);
+            int enemySpawnLocations = enemySpawns.Length;
+            int enemiesToSpawn = Mathf.RoundToInt(enemySpawnLocations * ran);
+
+            List<int> indexLocationSpawned = new List<int>();
+
+            for (int i = 0; i < enemiesToSpawn; i++) //for loop for each item in array list spikeSpawns
             {
+                foreach (int index in indexLocationSpawned)
+                {
+                    if (index == i)
+                    {
+                        i--;
+                        continue;
+                    }
+                }
+
                 Vector3 forward = Vector3.zero - new Vector3(enemySpawns[i].position.x, 0, 0);
 
-                Debug.Log("Enemy spawn frequency is Medium!");
-                int coinFlip = Random.Range(0, medium); //randomise spawn between 0 and 5
+                Debug.Log("Enemy spawn frequency is easy!");
+                int coinFlipLocation = Random.Range(0, enemySpawnLocations); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, enemy.Length);
 
                 //Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, enemySpawns[i].position.z);
                 Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, GameObject.FindGameObjectWithTag("Player").transform.position.z);
-                
+
                 if (!overrideY)
                     allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
 
-                 if (coinFlip > 7)
-                {
-                    GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
-                    GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
-
-                    //Spawn GameObject Spike at spikeSpawns position
-                }
+                GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
+                GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
+                //Spawn GameObject Spike at spikeSpawns position
+                indexLocationSpawned.Add(coinFlipLocation);
             }
         }
 
         else if (dictionary.GameplaySettings["EnemySpawnFrequency"] == Difficulty.Hard)
         {
             Debug.Log("Enemy spawn frequency is Hard!");
-            for (int i = 0; i < enemySpawns.Length; i++) //for loop for each item in array list spikeSpawns
+            float ran = Random.Range(hardMin, hardMax);
+            int enemySpawnLocations = enemySpawns.Length;
+            int enemiesToSpawn = Mathf.RoundToInt(enemySpawnLocations * ran);
+
+            List<int> indexLocationSpawned = new List<int>();
+
+            for (int i = 0; i < enemiesToSpawn; i++) //for loop for each item in array list spikeSpawns
             {
+                foreach (int index in indexLocationSpawned)
+                {
+                    if (index == i)
+                    {
+                        i--;
+                        continue;
+                    }
+                }
+
                 Vector3 forward = Vector3.zero - new Vector3(enemySpawns[i].position.x, 0, 0);
 
-                int coinFlip = Random.Range(0, hard); //randomise spawn between 0 and 5
+                Debug.Log("Enemy spawn frequency is easy!");
+                int coinFlipLocation = Random.Range(0, enemySpawnLocations); //randomise spawn between 0 and 5
                 int enemyno = Random.Range(0, enemy.Length);
 
                 //Vector3 allignedPosition = new Vector3(enemySpawns[i].position.x, enemySpawns[i].position.y, enemySpawns[i].position.z);
@@ -158,13 +211,11 @@ public class EnemySpawn : MonoBehaviour
                 if (!overrideY)
                     allignedPosition = new Vector3(enemySpawns[i].position.x, transform.position.y + 1.15f, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
-                if (coinFlip > 7)
-                {
-                    GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
-                    GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
 
-                    //Spawn GameObject Spike at spikeSpawns position
-                }
+                GetComponent<PlatformScript>().enemiesOnPlatform.Add(Instantiate(enemy[enemyno], allignedPosition, enemySpawns[i].rotation));
+                GetComponent<PlatformScript>().enemiesOnPlatform[GetComponent<PlatformScript>().enemiesOnPlatform.Count - 1].transform.forward = forward;
+                //Spawn GameObject Spike at spikeSpawns position
+                indexLocationSpawned.Add(coinFlipLocation);
             }
         }
     }

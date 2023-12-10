@@ -50,10 +50,10 @@ namespace Menu
 
             if (!FindObjectOfType<Dictionary_GameplaySettings>()) { SceneManager.LoadScene(0); }
 
-
+            dictionary.ButtonDictionary.Clear();
 
             //Call the AddSettingList method in the Dictionary script to add settings to the dictionary.
-     
+
 
             dictionary.AddToButtonDictionary("EnemySpawnFrequency", new List<Image>(enemySpawnFrequency));
        

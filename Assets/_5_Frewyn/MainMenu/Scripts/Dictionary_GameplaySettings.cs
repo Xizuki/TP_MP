@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /*
@@ -15,6 +16,7 @@ namespace Menu
 {
     public class Dictionary_GameplaySettings : MonoBehaviour
     {
+        [SerializeField]
         public Dictionary<string, List<Image>> ButtonDictionary = new Dictionary<string, List<Image>>()
 
         {
@@ -26,8 +28,6 @@ namespace Menu
         public Dictionary<string, Difficulty> GameplaySettings = new Dictionary<string, Difficulty>()
         {
 
-      
-
             {"EnemySpawnFrequency", Difficulty.Easy},
          
             {"EnemyProjectileSpeed", Difficulty.Easy},
@@ -35,9 +35,6 @@ namespace Menu
             {"Particles", Difficulty.On},
 
             {"ScreenShake", Difficulty.On},
-
-
- 
 
             {"Mute", Difficulty.Off},
 
@@ -53,7 +50,7 @@ namespace Menu
 
         private void Awake()
         {
-
+            ButtonDictionary = new Dictionary<string, List<Image>>();
             InitalizeDictionaryWithPlayerPrefs();
 
 
@@ -63,7 +60,22 @@ namespace Menu
             }
 
 
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
         }
+
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if(scene.buildIndex != 1) { return; }
+            InitalizeDictionaryWithPlayerPrefs();
+        }
+
+        private void OnEnable()
+        {
+            
+        }
+
         private void InitalizeDictionaryWithPlayerPrefs() //Used to update the dictionary with values from playerprefs if there is any
         {
 
