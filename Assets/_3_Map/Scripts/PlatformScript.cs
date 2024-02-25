@@ -30,7 +30,7 @@ public class PlatformScript : MonoBehaviour
             go.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             go.GetComponent<Rigidbody>().AddForce(flyDir, ForceMode.Impulse);
 
-            print("ASDASDASFASFASF");
+            //print("ASDASDASFASFASF");
         }
     }
 }

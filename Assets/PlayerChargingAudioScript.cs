@@ -36,7 +36,7 @@ public class PlayerChargingAudioScript : MonoBehaviour
         audioTime = audioSource.time;
 
         optionsVolumeMultiplier = dictionary.SoundSettings["ChargingSound"]/10;
-        print("optionsVolumeMultiplier = " + optionsVolumeMultiplier);
+        //print("optionsVolumeMultiplier = " + optionsVolumeMultiplier);
 
         if (Time.timeScale == 0) { audioSource.Stop(); return; }
 

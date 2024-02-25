@@ -156,12 +156,12 @@ public class NamedPipeServer : MonoBehaviour
     }
     public void LateUpdate()
     {
-        print("LateUpdate 1");
+        //print("LateUpdate 1");
 
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         //lastestLine = await reader.ReadLineAsync();
-        print("LateUpdate 2");
+        //print("LateUpdate 2");
 
         if (GameObject.FindAnyObjectByType<SoundControl>() && soundControl==null)
         {
@@ -176,7 +176,7 @@ public class NamedPipeServer : MonoBehaviour
                 jumpingPlayerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<JumpingPlayerInputs>();
             }
         }
-        print("LateUpdate 3");
+        //print("LateUpdate 3");
 
 
 
@@ -191,13 +191,13 @@ public class NamedPipeServer : MonoBehaviour
 
         }
 
-        print("LateUpdate 4");
+        //print("LateUpdate 4");
 
 
 
         if(reader == null) return;
 
-        print("LateUpdate 5");
+        //print("LateUpdate 5");
 
         ReadMessage();
 
@@ -221,7 +221,7 @@ public class NamedPipeServer : MonoBehaviour
             Debug.Log("The pipe stream is broken.");
         }
 
-        print("OnClientConnected()");
+        //print("OnClientConnected()");
     }
 
 
@@ -233,26 +233,26 @@ public class NamedPipeServer : MonoBehaviour
     {
    
         lastestLine = reader.ReadLine();
-        print("EEG0");
+        //print("EEG0");
 
         if (currentSceneIndex == 0) return;
         if (currentSceneIndex == 1) return;
 
 
-        print("EEG1");
+        //print("EEG1");
         if(lastestLine == null) { return; }
         if (lastestLine.Contains("Trigger:"))
         {
             if (jumpingPlayer is not null)
             {
-                print("EEG3");
+                //print("EEG3");
 
                 string boolean = lastestLine.Remove(0, lastestLine.IndexOf(':') + 1);
-                print(boolean);
+                //print(boolean);
 
                 if (boolean == "True")
                 {
-                    print("EEG4");
+                    //print("EEG4");
 
                     if (jumpingPlayer.isGrounded)
                     {
@@ -269,7 +269,7 @@ public class NamedPipeServer : MonoBehaviour
             }
         }
 
-        print("lastestLine = " + lastestLine);
+        //print("lastestLine = " + lastestLine);
 
 
 

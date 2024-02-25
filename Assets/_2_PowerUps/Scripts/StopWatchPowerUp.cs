@@ -114,6 +114,23 @@ public class StopWatchPowerUp : PowerUpScript
 
         if (isActivated)
         {
+            foreach (CactusEnemy cactus in cactusEnemies)
+            {
+                cactus.cactusShoot.shootDelayTimer = cactus.cactusShoot.baseShootDelayTimer * slowMultiplyer;
+            }
+            foreach (MushroomEnemy mushroom in mushroomEnemies)
+            {
+                mushroom.patrolCheck.speed = mushroom.patrolCheck.baseSpeed / slowMultiplyer;
+            }
+            foreach (BottomCheck turtle in turtleEnemies)
+            {
+                turtle.speed = turtle.baseSpeed / slowMultiplyer;
+            }
+            foreach (BulletMove bullet in bullets)
+            {
+                bullet.speed = bullet.baseSpeed / slowMultiplyer;
+            }
+
             for (int i = 0; i < cactusEnemies.Length; i++)
             {
                 cactusAnimator[i].speed = 0.5f;
@@ -159,6 +176,10 @@ public class StopWatchPowerUp : PowerUpScript
             foreach (MushroomEnemy mushroom in mushroomEnemies)
             {
                 mushroom.patrolCheck.speed = mushroom.patrolCheck.baseSpeed;
+            }
+            foreach (BottomCheck turtle in turtleEnemies)
+            {
+                turtle.speed = turtle.baseSpeed;
             }
             foreach (BulletMove bullet in bullets)
             {

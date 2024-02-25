@@ -16,7 +16,7 @@ public class Cutscene : MonoBehaviour
 
     IEnumerator WaitTime()
     {
-        print("Cutscene Ongoing");
+        //print("Cutscene Ongoing");
         yield return new WaitForSeconds(5.5f);
         animator.enabled = false;
 

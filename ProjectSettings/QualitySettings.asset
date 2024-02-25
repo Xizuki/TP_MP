@@ -4,7 +4,7 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_CurrentQuality: 5
+  m_CurrentQuality: 2
   m_QualitySettings:
   - serializedVersion: 2
     name: Very Low
@@ -27,6 +27,7 @@ QualitySettings:
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     vSyncCount: 0
+    realtimeGICPUUsage: 25
     lodBias: 0.3
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -40,7 +41,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 10c8de2b330e6b44093264a2d3ea16e6, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: a9f00a93e726b19419c62f3067dc9c5a, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Low
@@ -63,6 +64,7 @@ QualitySettings:
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     vSyncCount: 0
+    realtimeGICPUUsage: 25
     lodBias: 0.4
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -76,7 +78,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 2b50d71f234df6943be1134393d113b3, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: d9fdf3926d38ae24d8c54eca685f5759, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Medium
@@ -93,12 +95,13 @@ QualitySettings:
     skinWeights: 2
     textureQuality: 0
     anisotropicTextures: 1
-    antiAliasing: 0
+    antiAliasing: 2
     softParticles: 0
     softVegetation: 0
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     vSyncCount: 1
+    realtimeGICPUUsage: 25
     lodBias: 0.7
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -112,7 +115,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 996276099a2689042a75f4815fe25727, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 0d3661ab53c69464bafbdf8b668f2633, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: High
@@ -129,12 +132,13 @@ QualitySettings:
     skinWeights: 2
     textureQuality: 0
     anisotropicTextures: 1
-    antiAliasing: 0
+    antiAliasing: 2
     softParticles: 0
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
     vSyncCount: 1
+    realtimeGICPUUsage: 50
     lodBias: 1
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -148,7 +152,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: c20c3f3fbd4d0344aa24347e158674a5, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 2d0712f7bf4438649a16433e334289b0, type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Very High
@@ -165,12 +169,13 @@ QualitySettings:
     skinWeights: 4
     textureQuality: 0
     anisotropicTextures: 2
-    antiAliasing: 2
+    antiAliasing: 4
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
     vSyncCount: 1
+    realtimeGICPUUsage: 50
     lodBias: 1.5
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -184,58 +189,22 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 3e1c5e8ad19c9e94ebb3087638e5039d, type: 2}
-    excludedTargetPlatforms: []
-  - serializedVersion: 2
-    name: Ultra
-    pixelLightCount: 4
-    shadows: 2
-    shadowResolution: 2
-    shadowProjection: 1
-    shadowCascades: 4
-    shadowDistance: 150
-    shadowNearPlaneOffset: 3
-    shadowCascade2Split: 0.33333334
-    shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
-    shadowmaskMode: 1
-    skinWeights: 4
-    textureQuality: 0
-    anisotropicTextures: 2
-    antiAliasing: 2
-    softParticles: 1
-    softVegetation: 1
-    realtimeReflectionProbes: 1
-    billboardsFaceCameraPosition: 1
-    vSyncCount: 1
-    lodBias: 2
-    maximumLODLevel: 0
-    streamingMipmapsActive: 0
-    streamingMipmapsAddAllCameras: 1
-    streamingMipmapsMemoryBudget: 512
-    streamingMipmapsRenderersPerFrame: 512
-    streamingMipmapsMaxLevelReduction: 2
-    streamingMipmapsMaxFileIORequests: 1024
-    particleRaycastBudget: 4096
-    asyncUploadTimeSlice: 2
-    asyncUploadBufferSize: 16
-    asyncUploadPersistentBuffer: 1
-    resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: e312dc737b5c85c4ea7ac29a80d98013, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 2cd59c9f6ca93c148b361dd6569c17b2, type: 2}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2
-    GameCoreScarlett: 5
-    GameCoreXboxOne: 5
-    Lumin: 5
-    Nintendo 3DS: 5
-    Nintendo Switch: 5
-    PS4: 5
-    PS5: 5
+    GameCoreScarlett: 4
+    GameCoreXboxOne: 4
+    Lumin: 4
+    Nintendo 3DS: 4
+    Nintendo Switch: 4
+    PS4: 4
+    PS5: 4
     Server: 0
-    Stadia: 5
-    Standalone: 5
+    Stadia: 4
+    Standalone: 4
     WebGL: 3
-    Windows Store Apps: 5
-    XboxOne: 5
+    Windows Store Apps: 4
+    XboxOne: 4
     iPhone: 2
     tvOS: 2

@@ -50,7 +50,7 @@ public class Pause : MonoBehaviour
         
         Time.timeScale = 0f;
         playerControl.enabled = false;
-        print("PauseGamePauseGame 1");
+        //print("PauseGamePauseGame 1");
 
         //if (GetComponentInParent<CanvasScript>().gameTimer.gameEnded) return;
         //if (nonMain) return;
@@ -63,7 +63,7 @@ public class Pause : MonoBehaviour
         gamePause = true;
         AudioListener.pause = true; 
 
-        print("PauseGamePauseGame 2");
+        //print("PauseGamePauseGame 2");
     }
 
     public void ResumeGame()
@@ -82,7 +82,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
 
-        print("ResumeGameResumeGame");
+        //print("ResumeGameResumeGame");
 
     }
 

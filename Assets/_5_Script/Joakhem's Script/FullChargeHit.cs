@@ -49,7 +49,7 @@ public class FullChargeHit : MonoBehaviour
                     hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
-                    print("ASDASDASFASFASF");
+                    //print("ASDASDASFASFASF");
                 }
             }
             foreach (RaycastHit hit in allHit2)
@@ -61,7 +61,7 @@ public class FullChargeHit : MonoBehaviour
                     hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
-                    print("ASDASDASFASFASF");
+                    //print("ASDASDASFASFASF");
                 }
             }
 
@@ -75,7 +75,7 @@ public class FullChargeHit : MonoBehaviour
 
             //        hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
-            //        print("ASDASDASFASFASF");
+            //        //print("ASDASDASFASFASF");
             //    }
             //}
             //if (Physics.Raycast(raycastLine.transform.position, -raycastLine.transform.right, out hit, distanceSet))
@@ -86,7 +86,7 @@ public class FullChargeHit : MonoBehaviour
             //        flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
 
             //        hit2.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            //        print("ASDASDASFASFASF");
+            //        //print("ASDASDASFASFASF");
 
             //    }
             //    else
@@ -110,7 +110,7 @@ public class FullChargeHit : MonoBehaviour
                     hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
-                    print("ASDASDASFASFASF");
+                    //print("ASDASDASFASFASF");
                 }
             }
             foreach (RaycastHit hit in allHit2)
@@ -122,7 +122,7 @@ public class FullChargeHit : MonoBehaviour
                     hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
 
-                    print("ASDASDASFASFASF");
+                    //print("ASDASDASFASFASF");
                 }
             }
 
@@ -136,7 +136,7 @@ public class FullChargeHit : MonoBehaviour
             //        flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
 
             //        hit.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            //        print("ASDASDASFASFASF");
+            //        //print("ASDASDASFASFASF");
 
             //    }
             //}
@@ -148,7 +148,7 @@ public class FullChargeHit : MonoBehaviour
             //        flyDir = new Vector3(camDir.x, camDir.y, camDir.z); hit.rigidbody.constraints = RigidbodyConstraints.None;
 
             //        hit2.rigidbody.AddForce(flyDir, ForceMode.Impulse);
-            //        print("ASDASDASFASFASF");
+            //        //print("ASDASDASFASFASF");
 
             //    }
             //    else

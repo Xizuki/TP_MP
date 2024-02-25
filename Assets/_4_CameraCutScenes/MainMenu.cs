@@ -91,7 +91,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator WaitTime(string sceneName)
     {
-        print("Scene Loading");
+        //print("Scene Loading");
         yield return new WaitForSeconds(5.75f);
         SceneManager.LoadScene(sceneName);
 
