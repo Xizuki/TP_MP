@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7826519996139349241}
   - component: {fileID: 7826519996140480057}
   - component: {fileID: 310393497026155363}
+  - component: {fileID: 1542256142000740953}
   m_Layer: 0
   m_Name: Clouds_cumulonimbus
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -177.303, y: 0, z: 0}
 --- !u!33 &7826519996139349241
 MeshFilter:
@@ -92,8 +93,30 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7826519996138486009}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 85.334984, y: 58.60355, z: 80.86138}
   m_Center: {x: 0.88355035, y: -2.112177, z: 3.5921824}
+--- !u!114 &1542256142000740953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826519996138486009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3dfebf2e96dfb4588397e166d97c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIceLand: 0
+  enemiesOnPlatform: []
